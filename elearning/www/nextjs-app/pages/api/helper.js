@@ -22,6 +22,9 @@ export async function fetchWithAuth(path, options = {}) {
     }`
   );
 
+  // Check if we're already retrying to prevent infinite loops
+  const isRetry = options.isRetry || false;
+
   try {
     let accessToken = null;
     if (typeof window !== "undefined") {
@@ -121,6 +124,44 @@ export async function fetchWithAuth(path, options = {}) {
         statusText: error.response.statusText,
         data: error.response.data,
       });
+
+      // Handle 401 Unauthorized error which may indicate session loss after server restart
+      if (error.response.status === 401 && !isRetry) {
+        console.log(
+          "Received 401 Unauthorized - This might be due to session loss after server restart"
+        );
+
+        // Make a special request to regenerate session from JWT
+        try {
+          console.log("Attempting to regenerate session from JWT token");
+          // Make a request to trigger the regenerate_session_from_jwt function
+          const session = await getSession();
+          if (session?.accessToken) {
+            await axios({
+              baseURL: frappeBackendUrl,
+              url: "/api/method/elearning.api.jwt_auth.get_user_info",
+              method: "GET",
+              headers: {
+                Authorization: `Bearer ${session.accessToken}`,
+                "X-Regenerate-Session": "true",
+              },
+              timeout: 10000,
+            });
+
+            console.log(
+              "Session regeneration attempt complete, retrying original request"
+            );
+
+            // Retry the original request with a flag to prevent infinite loops
+            return fetchWithAuth(path, {
+              ...options,
+              isRetry: true,
+            });
+          }
+        } catch (regenerateError) {
+          console.error("Failed to regenerate session:", regenerateError);
+        }
+      }
 
       let errorMessage = `Request failed with status ${error.response.status}: ${error.response.statusText}`;
       if (

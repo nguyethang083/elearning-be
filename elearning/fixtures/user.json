@@ -9,7 +9,6 @@
   "block_modules": [],
   "bulk_actions": 1,
   "bypass_restrict_ip_check_if_2fa_enabled": 0,
-  "code_editor_type": "vscode",
   "dashboard": 1,
   "default_app": null,
   "default_workspace": null,
@@ -60,90 +59,173 @@
   "reset_password_key": null,
   "restrict_ip": null,
   "role_profile_name": null,
-  "role_profiles": [],
   "roles": [
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Administrator"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Translator"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Purchase Manager"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Maintenance User"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Purchase Master Manager"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Sales Manager"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Maintenance Manager"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Sales Master Manager"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Accounts User"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Accounts Manager"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Sales User"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Purchase User"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Newsletter Manager"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Knowledge Base Editor"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Knowledge Base Contributor"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Blogger"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Marketing Manager"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Inbox User"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Prepared Report User"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Script Manager"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Report Manager"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Workspace Manager"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Dashboard Manager"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Website Manager"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Desk User"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Guest"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "All"
    },
    {
+    "parent": "Administrator",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "System Manager"
    }
   ],
@@ -172,7 +254,6 @@
   "block_modules": [],
   "bulk_actions": 1,
   "bypass_restrict_ip_check_if_2fa_enabled": 0,
-  "code_editor_type": "vscode",
   "dashboard": 1,
   "default_app": null,
   "default_workspace": null,
@@ -223,9 +304,11 @@
   "reset_password_key": null,
   "restrict_ip": null,
   "role_profile_name": null,
-  "role_profiles": [],
   "roles": [
    {
+    "parent": "Guest",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Guest"
    }
   ],
@@ -254,7 +337,6 @@
   "block_modules": [],
   "bulk_actions": 1,
   "bypass_restrict_ip_check_if_2fa_enabled": 0,
-  "code_editor_type": "vscode",
   "dashboard": 1,
   "default_app": null,
   "default_workspace": null,
@@ -279,13 +361,13 @@
   "home_settings": null,
   "interest": null,
   "language": "en-US",
-  "last_active": "2025-06-02 18:40:35.644133",
+  "last_active": "2025-06-06 20:44:02.244254",
   "last_ip": "127.0.0.1",
   "last_known_versions": "{\"frappe\": {\"title\": \"Framework\", \"description\": \"Full stack web framework with Python, Javascript, MariaDB, Redis, Node\", \"branch\": \"develop\", \"branch_version\": \"15.x.x-develop (a6c73df)\", \"version\": \"16.0.0-dev\"}, \"elearning\": {\"title\": \"Elearning\", \"description\": \"A student-centric platform for mathematics learning and examination preparation, targeting Grade 9 students in Vietnam and Leaving Certificate students in Ireland\", \"branch\": \"development\", \"version\": \"0.0.1\"}}",
-  "last_login": "2025-06-02 18:40:24.914866",
+  "last_login": "2025-06-06 18:53:04.518716",
   "last_name": "Vu",
   "last_password_reset_date": "2025-05-17",
-  "last_reset_password_key_generated_on": "2025-05-28 15:58:50.621309",
+  "last_reset_password_key_generated_on": "2025-06-05 11:16:19.689759",
   "list_sidebar": 1,
   "location": null,
   "login_after": 0,
@@ -293,7 +375,7 @@
   "logout_all_sessions": 1,
   "middle_name": null,
   "mobile_no": null,
-  "modified": "2025-05-17 18:58:03.917362",
+  "modified": "2025-06-05 11:16:19.689789",
   "module_profile": null,
   "mute_sounds": 0,
   "name": "nguyethang083@gmail.com",
@@ -302,84 +384,158 @@
   "onboarding_status": "{}",
   "phone": null,
   "redirect_url": "",
-  "reset_password_key": "4be55661c33248fb022293c07712a0e0c90769e7b2ad0ee6904501f79afd3669",
+  "reset_password_key": "a165c69d40b7c13b227467a90704e6029ac51963c2b4fcc119626b1036ce92af",
   "restrict_ip": null,
   "role_profile_name": null,
-  "role_profiles": [],
   "roles": [
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Sales Master Manager"
    },
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Maintenance Manager"
    },
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Translator"
    },
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Newsletter Manager"
    },
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Marketing Manager"
    },
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Purchase User"
    },
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Sales User"
    },
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "System Manager"
    },
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Sales Manager"
    },
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Accounts User"
    },
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Report Manager"
    },
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Blogger"
    },
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Website Manager"
    },
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Maintenance User"
    },
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Knowledge Base Contributor"
    },
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Workspace Manager"
    },
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Inbox User"
    },
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Accounts Manager"
    },
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Purchase Manager"
    },
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Purchase Master Manager"
    },
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Script Manager"
    },
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Prepared Report User"
    },
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Dashboard Manager"
    },
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Knowledge Base Editor"
    },
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Student"
    }
   ],
@@ -389,11 +545,17 @@
   "simultaneous_sessions": 2,
   "social_logins": [
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "social_logins",
+    "parenttype": "User",
     "provider": "frappe",
     "userid": "54e956f427afd0fc490f8d69fc843b39730a0d6",
     "username": null
    },
    {
+    "parent": "nguyethang083@gmail.com",
+    "parentfield": "social_logins",
+    "parenttype": "User",
     "provider": "google",
     "userid": "101431402768543528424",
     "username": null
@@ -419,7 +581,6 @@
   "block_modules": [],
   "bulk_actions": 1,
   "bypass_restrict_ip_check_if_2fa_enabled": 0,
-  "code_editor_type": "vscode",
   "dashboard": 1,
   "default_app": null,
   "default_workspace": null,
@@ -470,9 +631,11 @@
   "reset_password_key": null,
   "restrict_ip": null,
   "role_profile_name": null,
-  "role_profiles": [],
   "roles": [
    {
+    "parent": "22028079@vnu.edu.vn",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "System Manager"
    }
   ],
@@ -482,6 +645,9 @@
   "simultaneous_sessions": 2,
   "social_logins": [
    {
+    "parent": "22028079@vnu.edu.vn",
+    "parentfield": "social_logins",
+    "parenttype": "User",
     "provider": "frappe",
     "userid": "04ddf489dc7577bd413c3e5e77a81557e29fbb8",
     "username": null
@@ -507,7 +673,6 @@
   "block_modules": [],
   "bulk_actions": 1,
   "bypass_restrict_ip_check_if_2fa_enabled": 0,
-  "code_editor_type": "vscode",
   "dashboard": 1,
   "default_app": null,
   "default_workspace": null,
@@ -558,9 +723,11 @@
   "reset_password_key": null,
   "restrict_ip": null,
   "role_profile_name": null,
-  "role_profiles": [],
   "roles": [
    {
+    "parent": "gamauvang26@gmail.com",
+    "parentfield": "roles",
+    "parenttype": "User",
     "role": "Student"
    }
   ],
@@ -570,6 +737,9 @@
   "simultaneous_sessions": 2,
   "social_logins": [
    {
+    "parent": "gamauvang26@gmail.com",
+    "parentfield": "social_logins",
+    "parenttype": "User",
     "provider": "frappe",
     "userid": "c69d2d29a0a0a9ce60c91c9856a7ebf3c8927c8",
     "username": null

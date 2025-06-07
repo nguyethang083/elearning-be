@@ -1,5 +1,85 @@
 [
  {
+  "attempt_answer_item_link": "egv0fdpukv",
+  "comment": "Học sinh viết lại hệ phương trình và biến đổi đúng phương trình (1) thành (3).",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-05 02:32:57.558999",
+  "name": "egvqoe2u4v",
+  "points_awarded": 0.15,
+  "rubric_item": "5upgc77jo3"
+ },
+ {
+  "attempt_answer_item_link": "egv0fdpukv",
+  "comment": "Học sinh thực hiện phép trừ và tìm ra giá trị của y chính xác.",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-05 02:32:57.570314",
+  "name": "egvurvmida",
+  "points_awarded": 0.25,
+  "rubric_item": "5up04apens"
+ },
+ {
+  "attempt_answer_item_link": "egv0fdpukv",
+  "comment": "Học sinh thay giá trị y vào phương trình và tìm ra giá trị của x chính xác.",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-05 02:32:57.573286",
+  "name": "egvl4n1dbe",
+  "points_awarded": 0.25,
+  "rubric_item": "5updc556b3"
+ },
+ {
+  "attempt_answer_item_link": "egv0fdpukv",
+  "comment": "Học sinh kết luận nghiệm của hệ phương trình chính xác.",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-05 02:32:57.575303",
+  "name": "egvm79ekqd",
+  "points_awarded": 0.1,
+  "rubric_item": "5upbqernun"
+ },
+ {
+  "attempt_answer_item_link": "funpquhdaf",
+  "comment": "Học sinh đã viết lại hệ phương trình và nhân phương trình (1) với 2 để được phương trình (3) một cách chính xác.",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-05 02:35:23.913125",
+  "name": "funca73vtk",
+  "points_awarded": 0.15,
+  "rubric_item": "5upgc77jo3"
+ },
+ {
+  "attempt_answer_item_link": "funpquhdaf",
+  "comment": "Học sinh đã thực hiện phép trừ (3) và (4) nhưng tính sai giá trị của y. Đúng ra phải là y = 2, nhưng học sinh lại tính ra y = 4.",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-05 02:35:23.920960",
+  "name": "funefuctkd",
+  "points_awarded": 0.0,
+  "rubric_item": "5up04apens"
+ },
+ {
+  "attempt_answer_item_link": "funpquhdaf",
+  "comment": "Học sinh đã thay giá trị y = 4 (sai) vào phương trình để tìm x, dẫn đến kết quả x cũng sai. Tuy nhiên, cách làm là đúng.",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-05 02:35:23.922763",
+  "name": "fun735qvea",
+  "points_awarded": 0.15,
+  "rubric_item": "5updc556b3"
+ },
+ {
+  "attempt_answer_item_link": "funpquhdaf",
+  "comment": "Học sinh đưa ra kết luận sai do tính toán sai ở các bước trước. Nghiệm đúng phải là (3, 2), nhưng học sinh lại kết luận là (8, 4).",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-05 02:35:23.924559",
+  "name": "fun3g5dsr9",
+  "points_awarded": 0.0,
+  "rubric_item": "5upbqernun"
+ },
+ {
   "attempt_answer_item_link": "5tjlmm2ggj",
   "comment": "Học sinh viết lại hệ phương trình và nhân phương trình (1) với 2 để được phương trình (3) một cách chính xác.",
   "docstatus": 0,
@@ -437,6 +517,206 @@
   "modified": "2025-06-01 15:37:10.797888",
   "name": "b1312js1me",
   "points_awarded": 0.1,
+  "rubric_item": "5upbqernun"
+ },
+ {
+  "attempt_answer_item_link": "u11ohd8j1c",
+  "comment": "Học sinh viết lại hệ phương trình và biến đổi đúng phương trình (1) thành (3).",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-05 05:43:15.341875",
+  "name": "u11pdd84rr",
+  "points_awarded": 0.15,
+  "rubric_item": "5upgc77jo3"
+ },
+ {
+  "attempt_answer_item_link": "u11ohd8j1c",
+  "comment": "Học sinh thực hiện phép trừ và tìm ra giá trị của y chính xác.",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-05 05:43:15.352234",
+  "name": "u11qlqi7tq",
+  "points_awarded": 0.25,
+  "rubric_item": "5up04apens"
+ },
+ {
+  "attempt_answer_item_link": "u11ohd8j1c",
+  "comment": "Học sinh thay giá trị y vào và tìm ra giá trị của x chính xác.",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-05 05:43:15.355824",
+  "name": "u1171jtpl0",
+  "points_awarded": 0.25,
+  "rubric_item": "5updc556b3"
+ },
+ {
+  "attempt_answer_item_link": "u11ohd8j1c",
+  "comment": "Học sinh kết luận nghiệm của hệ phương trình chính xác.",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-05 05:43:15.359312",
+  "name": "u1192q01eq",
+  "points_awarded": 0.1,
+  "rubric_item": "5upbqernun"
+ },
+ {
+  "attempt_answer_item_link": "lao634m69u",
+  "comment": "Học sinh không viết lại hệ phương trình và biến đổi phương trình.",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-05 06:23:01.628420",
+  "name": "laoa888jmk",
+  "points_awarded": 0.0,
+  "rubric_item": "5upgc77jo3"
+ },
+ {
+  "attempt_answer_item_link": "lao634m69u",
+  "comment": "Học sinh không thực hiện bước này.",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-05 06:23:01.632483",
+  "name": "lao502vtei",
+  "points_awarded": 0.0,
+  "rubric_item": "5up04apens"
+ },
+ {
+  "attempt_answer_item_link": "lao634m69u",
+  "comment": "Học sinh không thực hiện bước này.",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-05 06:23:01.634939",
+  "name": "laogg1pjcn",
+  "points_awarded": 0.0,
+  "rubric_item": "5updc556b3"
+ },
+ {
+  "attempt_answer_item_link": "lao634m69u",
+  "comment": "Học sinh không đưa ra kết luận đúng.",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-05 06:23:01.637282",
+  "name": "laoq851c12",
+  "points_awarded": 0.0,
+  "rubric_item": "5upbqernun"
+ },
+ {
+  "attempt_answer_item_link": "otq2rhl81e",
+  "comment": "Học sinh không trình bày bước biến đổi hệ phương trình.",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-05 06:29:09.880897",
+  "name": "otqcdf817v",
+  "points_awarded": 0.0,
+  "rubric_item": "5upgc77jo3"
+ },
+ {
+  "attempt_answer_item_link": "otq2rhl81e",
+  "comment": "Học sinh không trình bày bước tìm y.",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-05 06:29:09.884783",
+  "name": "otq1o9ufvb",
+  "points_awarded": 0.0,
+  "rubric_item": "5up04apens"
+ },
+ {
+  "attempt_answer_item_link": "otq2rhl81e",
+  "comment": "Học sinh không trình bày bước tìm x.",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-05 06:29:09.887185",
+  "name": "otqfeci5b0",
+  "points_awarded": 0.1,
+  "rubric_item": "5updc556b3"
+ },
+ {
+  "attempt_answer_item_link": "otq2rhl81e",
+  "comment": "Học sinh kết luận đúng.",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-05 06:29:09.889475",
+  "name": "otqrqvb147",
+  "points_awarded": 0.1,
+  "rubric_item": "5upbqernun"
+ },
+ {
+  "attempt_answer_item_link": "t9nj2ofjg5",
+  "comment": "Học sinh không thực hiện bước này.",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-05 12:04:18.395042",
+  "name": "t9n7thtado",
+  "points_awarded": 0.0,
+  "rubric_item": "5upgc77jo3"
+ },
+ {
+  "attempt_answer_item_link": "t9nj2ofjg5",
+  "comment": "Học sinh không thực hiện bước này.",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-05 12:04:18.403623",
+  "name": "t9odsjddgf",
+  "points_awarded": 0.0,
+  "rubric_item": "5up04apens"
+ },
+ {
+  "attempt_answer_item_link": "t9nj2ofjg5",
+  "comment": "Học sinh không thực hiện bước này.",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-05 12:04:18.406346",
+  "name": "t9okvi4gfs",
+  "points_awarded": 0.0,
+  "rubric_item": "5updc556b3"
+ },
+ {
+  "attempt_answer_item_link": "t9nj2ofjg5",
+  "comment": "Học sinh không đưa ra kết luận.",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-05 12:04:18.408899",
+  "name": "t9omdevkn4",
+  "points_awarded": 0.0,
+  "rubric_item": "5upbqernun"
+ },
+ {
+  "attempt_answer_item_link": "vvsi1vdg55",
+  "comment": "Học sinh không viết lại hệ phương trình và không thực hiện bất kỳ biến đổi nào.",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-06 17:16:31.707514",
+  "name": "vvtd9lim8v",
+  "points_awarded": 0.0,
+  "rubric_item": "5upgc77jo3"
+ },
+ {
+  "attempt_answer_item_link": "vvsi1vdg55",
+  "comment": "Học sinh không thực hiện bước này.",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-06 17:16:31.718292",
+  "name": "vvtnard539",
+  "points_awarded": 0.0,
+  "rubric_item": "5up04apens"
+ },
+ {
+  "attempt_answer_item_link": "vvsi1vdg55",
+  "comment": "Học sinh không thực hiện bước này.",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-06 17:16:31.721285",
+  "name": "vvtn0debs9",
+  "points_awarded": 0.0,
+  "rubric_item": "5updc556b3"
+ },
+ {
+  "attempt_answer_item_link": "vvsi1vdg55",
+  "comment": "Học sinh không đưa ra kết luận.",
+  "docstatus": 0,
+  "doctype": "Rubric Score Item",
+  "modified": "2025-06-06 17:16:31.724732",
+  "name": "vvtrmkaa8k",
+  "points_awarded": 0.0,
   "rubric_item": "5upbqernun"
  }
 ]
