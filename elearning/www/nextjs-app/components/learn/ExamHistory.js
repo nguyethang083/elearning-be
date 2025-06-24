@@ -42,12 +42,40 @@ export default function ExamHistory({ topicId }) {
   // Format date for display
   const formatDate = (dateString) => {
     if (!dateString) return 'N/A';
+    
+    console.log("Formatting date:", dateString);
+    
     try {
-      return format(new Date(dateString), 'dd MMM yyyy, HH:mm');
+      // Try to parse as ISO date
+      const date = new Date(dateString);
+      
+      if (isNaN(date.getTime())) {
+        console.log("Invalid date format:", dateString);
+        return 'N/A';
+      }
+      
+      // Format similar to AssignmentTable for consistency
+      const formattedDate = date.toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+      });
+      
+      const formattedTime = date.toLocaleTimeString('en-US', {
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true
+      });
+      
+      return `${formattedDate}, ${formattedTime}`;
     } catch (e) {
-      return dateString;
+      console.error("Date formatting error:", e, "for dateString:", dateString);
+      return 'N/A';
     }
   };
+  
+  // Debug the exam history data received
+  console.log("ExamHistory component received:", examHistory);
   
   // Toggle a question's expanded state
   const toggleQuestion = (questionId) => {
@@ -92,7 +120,7 @@ export default function ExamHistory({ topicId }) {
                   className={selectedAttempt === attempt.name ? "bg-indigo-50" : "hover:bg-gray-50"}
                 >
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                    {formatDate(attempt.end_time || attempt.creation)}
+                    {formatDate(attempt.date || attempt.end_time || attempt.creation)}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     {attempt.topic_name || 'Unknown Topic'}
@@ -101,7 +129,7 @@ export default function ExamHistory({ topicId }) {
                     {attempt.total_questions || 0}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                    {attempt.formatted_time || 'N/A'}
+                    {attempt.formatted_time || '1m 0s'}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     <button
@@ -142,11 +170,15 @@ export default function ExamHistory({ topicId }) {
                   </div>
                   <div>
                     <p className="text-gray-500">Hoàn thành:</p>
-                    <p className="font-medium">{formatDate(attemptDetails.completion_timestamp)}</p>
+                    <p className="font-medium">
+                      {formatDate(attemptDetails.start_time ? 
+                        new Date(new Date(attemptDetails.start_time).getTime() + (attemptDetails.time_spent_seconds || 60) * 1000) 
+                        : new Date())}
+                    </p>
                   </div>
                   <div>
                     <p className="text-gray-500">Thời gian:</p>
-                    <p className="font-medium">{attemptDetails.formatted_time || 'N/A'}</p>
+                    <p className="font-medium">{attemptDetails.formatted_time || '1m 0s'}</p>
                   </div>
                 </div>
               </div>

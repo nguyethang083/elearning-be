@@ -62,7 +62,7 @@ const AssignmentTable = () => {
                 const hours = Math.floor(durationMinutes / 60);
                 duration = `${hours} hr`;
               } else {
-                duration = `${durationMinutes}m`;
+                duration = `${durationMinutes || 1}m`;
               }
             } else if (attempt.end_time) {
               const startTime = new Date(attempt.start_time || attempt.creation);
@@ -73,8 +73,11 @@ const AssignmentTable = () => {
                 const hours = Math.floor(durationMinutes / 60);
                 duration = `${hours} hr`;
               } else {
-                duration = `${durationMinutes}m`;
+                duration = `${durationMinutes || 1}m`;
               }
+            } else {
+              // Default minimal duration for exams without time info
+              duration = '1m';
             }
             
             // Format date and time
@@ -99,6 +102,15 @@ const AssignmentTable = () => {
                 minute: '2-digit',
                 hour12: true
               });
+            } else {
+              // For exams without an end time, calculate an estimated end time
+              // Add at least 1 minute to the start time
+              const estimatedEnd = new Date(examDate.getTime() + (attempt.time_spent_seconds || 60) * 1000);
+              endTime = estimatedEnd.toLocaleTimeString('en-US', {
+                hour: 'numeric',
+                minute: '2-digit',
+                hour12: true
+              });
             }
             
             return {
@@ -110,7 +122,7 @@ const AssignmentTable = () => {
               duration: duration,
               type: 'flashcard_exam',
               topicId: attempt.topic,
-              status: (attempt.end_time || attempt.completion_timestamp) ? 'Completed' : 'In Progress'
+              status: 'Completed'
             };
           }));
           
@@ -127,7 +139,7 @@ const AssignmentTable = () => {
                 const hours = Math.floor(durationMinutes / 60);
                 duration = `${hours} hr`;
               } else {
-                duration = `${durationMinutes}m`;
+                duration = `${durationMinutes || 1}m`;
               }
             } else if (attempt.end_time || attempt.completion_timestamp) {
               const startTime = new Date(attempt.start_time || attempt.creation);
@@ -138,8 +150,11 @@ const AssignmentTable = () => {
                 const hours = Math.floor(durationMinutes / 60);
                 duration = `${hours} hr`;
               } else {
-                duration = `${durationMinutes}m`;
+                duration = `${durationMinutes || 1}m`;
               }
+            } else {
+              // Default minimal duration for exams without time info
+              duration = '1m';
             }
             
             const examDate = new Date(attempt.start_time || attempt.creation);
@@ -163,6 +178,15 @@ const AssignmentTable = () => {
                 minute: '2-digit',
                 hour12: true
               });
+            } else {
+              // For exams without an end time, calculate an estimated end time
+              // Add at least 1 minute to the start time
+              const estimatedEnd = new Date(examDate.getTime() + (attempt.time_spent_seconds || 60) * 1000);
+              endTime = estimatedEnd.toLocaleTimeString('en-US', {
+                hour: 'numeric',
+                minute: '2-digit',
+                hour12: true
+              });
             }
             
             return {
@@ -174,7 +198,7 @@ const AssignmentTable = () => {
               duration: duration,
               type: 'flashcard_exam',
               topicId: attempt.topic,
-              status: (attempt.end_time || attempt.completion_timestamp) ? 'Completed' : 'In Progress'
+              status: 'Completed'
             };
           }));
           
@@ -461,7 +485,14 @@ const AssignmentTable = () => {
 
   // Hiển thị trạng thái (Status)
   const renderStatus = (assignment) => {
-    if (assignment.status === 'Completed') {
+    // Always show "Hoàn thành" for flashcard exams (UEA)
+    if (assignment.id.startsWith('UEA')) {
+      return (
+        <span className="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+          Hoàn thành
+        </span>
+      );
+    } else if (assignment.status === 'Completed') {
       return (
         <span className="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
           Hoàn thành

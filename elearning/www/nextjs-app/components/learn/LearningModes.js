@@ -41,13 +41,13 @@ export default function LearningModes({
     {
       id: 'exam',
       name: 'Chế độ kiểm tra',
-      description: 'Luyện tập gọi lại hoạt động và đánh giá câu trả lời của bạn với AI',
+      description: 'Trả lời câu hỏi mô phỏng kiểm tra và nhận phản hồi thông minh từ AI',
       icon: <PencilLineIcon className="w-5 h-5 sm:w-6 sm:h-6 text-rose-500 mb-2 flex-shrink-0" />
     },
     {
       id: 'srs',
       name: 'Chế độ ôn tập cách quãng',
-      description: 'Học với thuật toán SRS',
+      description: 'Tối ưu hóa việc ghi nhớ lâu dài bằng thuật toán ôn tập cách quãng (SRS)',
       icon: <BrainIcon className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-500 mb-2 flex-shrink-0" />
     }
   ];

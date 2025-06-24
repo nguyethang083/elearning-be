@@ -49,7 +49,7 @@ const DashboardNavbar = ({
   };
 
   return (
-    <nav className="bg-white shadow-sm sticky top-0 z-40 w-full">
+    <nav className="bg-white shadow-sm sticky top-0 z-30 w-full">
       <div className="flex items-center h-16 w-full">
         {/* Toggle Button - Always visible and positioned correctly */}
         <div

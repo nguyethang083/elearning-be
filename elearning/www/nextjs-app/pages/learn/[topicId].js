@@ -4,15 +4,19 @@ import { useSession } from "next-auth/react";
 import { Settings } from "lucide-react";
 import LearningModes from "@/components/learn/LearningModes";
 import FlashcardSettings from "@/components/learn/FlashcardSettings";
+import TopicWelcome from "@/components/learn/TopicWelcome";
 import { useTopics } from "@/hooks/useTopics";
 import { useFlashcards } from "@/hooks/useFlashcards";
 
 export default function TopicFlashcards() {
   const router = useRouter();
-  const { topicId } = router.query;
+  const { topicId, mode } = router.query;
   const { data: session, status } = useSession();
   const [user, setUser] = useState(null);
   const [showSettings, setShowSettings] = useState(false);
+  
+  // Initialize showWelcome based on URL params - if there's a mode, don't show welcome
+  const [showWelcome, setShowWelcome] = useState(true); // Always start with welcome, then adjust based on URL
   
   // Get topics to find current topic info
   const { topics, loading: topicsLoading, error: topicsError } = useTopics();
@@ -57,6 +61,19 @@ export default function TopicFlashcards() {
     }
   }, [router, session, status]);
 
+  // Check if user wants to skip welcome (if they have a specific mode in URL or have visited before)
+  useEffect(() => {
+    const { mode } = router.query;
+    
+    // Only hide welcome if there's a specific mode in URL
+    if (mode && ['basic', 'exam', 'srs'].includes(mode)) {
+      setShowWelcome(false);
+    } else if (router.isReady && !mode) {
+      // If router is ready and there's no mode, show welcome
+      setShowWelcome(true);
+    }
+  }, [router.query, router.isReady]);
+
   const topic = topics.find(t => t.id === Number(topicId));
 
   // Centralized handler for settings changes
@@ -68,6 +85,39 @@ export default function TopicFlashcards() {
     // NOTE: We don't need to call refreshFlashcards here because the event listener in each mode
     // will handle refreshing the data. If we call it here too, it might cause race conditions
     // where the API is called with stale settings.
+  };
+
+  // Handle starting learning from welcome screen
+  const handleStartLearning = (selectedMode) => {
+    // Mark topic as visited
+    const visitedTopics = JSON.parse(localStorage.getItem('visitedTopics') || '{}');
+    visitedTopics[topicId] = true;
+    localStorage.setItem('visitedTopics', JSON.stringify(visitedTopics));
+    
+    // Hide welcome screen
+    setShowWelcome(false);
+    
+    // Update URL with selected mode
+    router.push(`/learn/${topicId}?mode=${selectedMode}`, undefined, { shallow: true });
+  };
+
+  // Handle closing welcome screen
+  const handleCloseWelcome = () => {
+    // Mark topic as visited
+    const visitedTopics = JSON.parse(localStorage.getItem('visitedTopics') || '{}');
+    visitedTopics[topicId] = true;
+    localStorage.setItem('visitedTopics', JSON.stringify(visitedTopics));
+    
+    // Hide welcome screen
+    setShowWelcome(false);
+  };
+
+  // Handle showing welcome screen again
+  const handleShowWelcome = () => {
+    setShowWelcome(true);
+    // Remove mode from URL to ensure welcome stays visible
+    const newUrl = `/learn/${topicId}`;
+    router.replace(newUrl, undefined, { shallow: true });
   };
 
   if (status === "loading" || (!user && status === "authenticated")) {
@@ -86,6 +136,44 @@ export default function TopicFlashcards() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <p className="text-gray-500">Redirecting to login...</p>
+      </div>
+    );
+  }
+
+  // Loading state while waiting for data
+  if (topicsLoading || flashcardsLoading || !topic) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-pulse flex space-x-2">
+          <div className="h-3 w-3 bg-blue-500 rounded-full"></div>
+          <div className="h-3 w-3 bg-blue-500 rounded-full"></div>
+          <div className="h-3 w-3 bg-blue-500 rounded-full"></div>
+        </div>
+      </div>
+    );
+  }
+
+  // Show welcome screen if enabled and data is loaded
+  if (showWelcome && topic && flashcards) {
+    return (
+      <TopicWelcome 
+        topic={topic}
+        flashcards={flashcards}
+        onStartLearning={handleStartLearning}
+        onClose={handleCloseWelcome}
+      />
+    );
+  }
+
+  // Show loading if welcome should be shown but data isn't ready yet
+  if (showWelcome) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-pulse flex space-x-2">
+          <div className="h-3 w-3 bg-blue-500 rounded-full"></div>
+          <div className="h-3 w-3 bg-blue-500 rounded-full"></div>
+          <div className="h-3 w-3 bg-blue-500 rounded-full"></div>
+        </div>
       </div>
     );
   }
@@ -111,10 +199,16 @@ export default function TopicFlashcards() {
                   {topic.topic_name}
                 </h1>
               </div>
-              <div className="flex-shrink-0">
+              <div className="flex items-center space-x-3 flex-shrink-0">
+                <button
+                  onClick={handleShowWelcome}
+                  className="inline-flex items-center px-3 py-2 border border-indigo-300 shadow-sm text-sm leading-4 font-medium rounded-md text-indigo-700 bg-indigo-50 hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                >
+                  Xem giới thiệu
+                </button>
                 <button
                   onClick={() => setShowSettings(true)}
-                  className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-full sm:w-auto justify-center"
+                  className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   <Settings className="h-4 w-4 mr-2 flex-shrink-0" />
                   Cài đặt
@@ -124,15 +218,28 @@ export default function TopicFlashcards() {
           </div>
         )}
 
-        {/* Main content area với responsive container */}
-        <div className="w-full overflow-hidden">
-          <LearningModes 
-            topicId={topicId} 
-            flashcards={flashcards} 
-            loading={flashcardsLoading} 
-            error={flashcardsError}
-          />
-        </div>
+        {/* Main content area với responsive container - only show if all data is ready */}
+        {topic && flashcards && !flashcardsLoading && (
+          <div className="w-full overflow-hidden">
+            <LearningModes 
+              topicId={topicId} 
+              flashcards={flashcards} 
+              loading={flashcardsLoading} 
+              error={flashcardsError}
+            />
+          </div>
+        )}
+
+        {/* Loading state for main content */}
+        {(!topic || !flashcards || flashcardsLoading) && (
+          <div className="flex justify-center items-center h-64">
+            <div className="animate-pulse flex space-x-2">
+              <div className="h-3 w-3 bg-blue-500 rounded-full"></div>
+              <div className="h-3 w-3 bg-blue-500 rounded-full"></div>
+              <div className="h-3 w-3 bg-blue-500 rounded-full"></div>
+            </div>
+          </div>
+        )}
 
         {/* Settings Modal với responsive improvements */}
         {showSettings && (

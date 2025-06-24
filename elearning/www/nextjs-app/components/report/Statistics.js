@@ -8,7 +8,7 @@ const CircularProgress = ({ percentage, color }) => {
   const strokeDashoffset = circumference - (percentage / 100) * circumference;
 
   return (
-    <div className="relative w-52 h-52">
+    <div className="relative w-44 h-44">
       {/* Background Circle */}
       <svg className="w-full h-full" viewBox="0 0 190 190">
         <circle
@@ -35,7 +35,7 @@ const CircularProgress = ({ percentage, color }) => {
 
       {/* Percentage Text */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-        <span className="text-5xl font-bold text-emerald-500">
+        <span className="text-4xl font-bold text-emerald-500">
           {percentage}%
         </span>
         <span className="text-sm text-gray-500 mt-1">Hoàn thành review</span>
@@ -433,9 +433,7 @@ const Statistics = () => {
 
       {/* Question Pace - keeping at bottom */}
       <div className="mt-auto bg-gray-50 p-4 rounded-lg">
-        <p className="text-xs text-gray-500 mb-2">
-          Phân bổ hoạt động học tập
-        </p>
+        <p className="text-xs text-gray-500 mb-2">Phân bổ hoạt động học tập</p>
 
         <div className="h-3 bg-white rounded-full overflow-hidden flex">
           <div

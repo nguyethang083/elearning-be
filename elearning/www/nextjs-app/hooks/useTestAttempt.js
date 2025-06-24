@@ -19,13 +19,11 @@ export function useTestAttempt(testId, isReadyToStart) {
         "test_attempt.test_attempt.start_or_resume_test_attempt";
 
       const responseData = await fetchWithAuth(frappeMethodPathSuffix, {
-        method: "POST",
+        method: "GET",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          test_id: currentTestId,
-        }),
+        params: { test_id: currentTestId }, // Pass test_id as snake_case
         signal, // Pass the abort signal from useEffect
       });
 

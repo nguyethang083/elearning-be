@@ -31,7 +31,25 @@ export default function ExamDetails() {
         console.log("API Response:", response);
         
         if (response?.message?.success) {
-          setAttemptDetails(response.message.attempt);
+          const attemptData = response.message.attempt;
+          
+          // Ensure we have all necessary date fields and timestamps
+          if (attemptData) {
+            // Make sure start_time exists
+            attemptData.start_time = attemptData.start_time || attemptData.creation || new Date().toISOString();
+            
+            // Calculate end time based on start time + duration if not available
+            if (!attemptData.end_time && !attemptData.completion_timestamp) {
+              const startTime = new Date(attemptData.start_time);
+              const endTime = new Date(startTime.getTime() + (attemptData.time_spent_seconds || 60) * 1000);
+              attemptData.end_time = endTime.toISOString();
+            }
+            
+            // Use end_time if completion_timestamp is not available
+            attemptData.completion_timestamp = attemptData.completion_timestamp || attemptData.end_time;
+          }
+          
+          setAttemptDetails(attemptData);
         } else {
           setError('Failed to load exam details. Please try again later.');
           console.error("API Error:", response);
@@ -50,16 +68,33 @@ export default function ExamDetails() {
   // Format date for display
   const formatDate = (dateString) => {
     if (!dateString) return 'N/A';
+    
     try {
-      return new Date(dateString).toLocaleString('en-US', {
+      // Try to parse as ISO date
+      const date = new Date(dateString);
+      
+      if (isNaN(date.getTime())) {
+        console.log("Invalid date format:", dateString);
+        return 'N/A';
+      }
+      
+      // Format similar to AssignmentTable for consistency
+      const formattedDate = date.toLocaleDateString('en-GB', {
         day: '2-digit',
-        month: 'short',
-        year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
+        month: '2-digit',
+        year: 'numeric'
       });
+      
+      const formattedTime = date.toLocaleTimeString('en-US', {
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true
+      });
+      
+      return `${formattedDate}, ${formattedTime}`;
     } catch (e) {
-      return dateString;
+      console.error("Date formatting error:", e);
+      return 'N/A';
     }
   };
   
@@ -150,7 +185,7 @@ export default function ExamDetails() {
                 </div>
                 <div>
                   <p className="text-gray-500">Bắt đầu:</p>
-                  <p className="font-medium">{formatDate(attemptDetails.creation)}</p>
+                  <p className="font-medium">{formatDate(attemptDetails.start_time)}</p>
                 </div>
                 <div>
                   <p className="text-gray-500">Hoàn thành:</p>

@@ -25,6 +25,14 @@ export default function PracticeTestList({
   selectedTopicName,
   selectedGrade,
 }) {
+  console.log(
+    "PracticeTestList rendered with selectedTopicId:",
+    selectedTopicId,
+    "selectedTopicName:",
+    selectedTopicName,
+    "selectedGrade:",
+    selectedGrade
+  );
   const { tests, loading, error } = usePracticeTests({
     topicId: selectedTopicId,
     gradeLevel: selectedGrade,

@@ -1,5 +1,3 @@
-// hooks/useTestDetails.js (or your path)
-
 import { useState, useEffect, useCallback } from "react";
 // Ensure fetchWithAuth is correctly configured for Frappe (cookie auth, base URL, API prefix)
 import { fetchWithAuth } from "@/pages/api/helper"; // Adjust path as needed

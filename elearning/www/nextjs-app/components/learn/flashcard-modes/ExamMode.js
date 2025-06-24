@@ -1,7 +1,75 @@
 import { useState, useEffect } from 'react';
 import { useExamMode } from '@/hooks/useExamMode';
 import MathRenderer from '../MathRenderer';
-import { RefreshCw, Lightbulb } from 'lucide-react';
+import { RefreshCw, Lightbulb, BookOpen } from 'lucide-react';
+
+// Component to format and display text with better structure
+const FormattedTextDisplay = ({ content, className = "" }) => {
+  if (!content) return null;
+
+  // Split content into lines and process each one
+  const lines = content.split('\n');
+  const processedLines = [];
+  
+  lines.forEach((line, index) => {
+    const trimmedLine = line.trim();
+    
+    // Skip empty lines but add spacing
+    if (!trimmedLine) {
+      processedLines.push(<div key={index} className="h-2"></div>);
+      return;
+    }
+    
+    // Handle bullet points
+    if (trimmedLine.startsWith('•')) {
+      processedLines.push(
+        <div key={index} className="flex items-start mb-2">
+          <span className="text-blue-600 mr-2 mt-1">•</span>
+          <div className="flex-1">
+            <MathRenderer content={trimmedLine.substring(1).trim()} />
+          </div>
+        </div>
+      );
+    }
+    // Handle numbered lists
+    else if (/^\d+\./.test(trimmedLine)) {
+      const match = trimmedLine.match(/^(\d+)\.\s*(.+)/);
+      if (match) {
+        processedLines.push(
+          <div key={index} className="flex items-start mb-2">
+            <span className="text-blue-600 font-medium mr-2 mt-1">{match[1]}.</span>
+            <div className="flex-1">
+              <MathRenderer content={match[2]} />
+            </div>
+          </div>
+        );
+      }
+    }
+    // Handle bold text (titles/headers)
+    else if (trimmedLine.startsWith('**') && trimmedLine.endsWith('**')) {
+      const boldText = trimmedLine.substring(2, trimmedLine.length - 2);
+      processedLines.push(
+        <div key={index} className="font-semibold text-gray-800 mb-3 mt-4">
+          <MathRenderer content={boldText} />
+        </div>
+      );
+    }
+    // Regular paragraphs
+    else {
+      processedLines.push(
+        <div key={index} className="mb-2 leading-relaxed">
+          <MathRenderer content={trimmedLine} />
+        </div>
+      );
+    }
+  });
+
+  return (
+    <div className={`space-y-1 ${className}`}>
+      {processedLines}
+    </div>
+  );
+};
 
 export default function ExamMode({ topicId }) {
   const {
@@ -10,8 +78,10 @@ export default function ExamMode({ topicId }) {
     currentQuestionIndex,
     userAnswers,
     aiFeedbacks,
+    detailedExplanations,
     isLoadingExam,
     isLoadingFeedback,
+    isLoadingExplanation,
     isExamCompleted,
     activeQuestionFlashcardName,
     startExam,
@@ -23,7 +93,8 @@ export default function ExamMode({ topicId }) {
     resetQuestion,
     loadingFlashcards,
     flashcardsError,
-    submitSelfAssessment
+    submitSelfAssessment,
+    getDetailedExplanation
   } = useExamMode(topicId);
 
   // Local state for user input
@@ -33,6 +104,8 @@ export default function ExamMode({ topicId }) {
   const [selfAssessment, setSelfAssessment] = useState('');
   const [isSubmittingSelfAssessment, setIsSubmittingSelfAssessment] = useState(false);
   const [showHint, setShowHint] = useState(false);
+  const [showDetailedExplanation, setShowDetailedExplanation] = useState(false);
+  const [isLoadingCurrentExplanation, setIsLoadingCurrentExplanation] = useState(false);
 
   // Initialize exam on first render
   useEffect(() => {
@@ -50,6 +123,16 @@ export default function ExamMode({ topicId }) {
       } else {
         setCurrentAnswer('');
         setHasSubmitted(false);
+      }
+      
+      // Reset detailed explanation state when changing questions
+      setShowDetailedExplanation(false);
+      
+      // Only show self-assessment if user has submitted an answer and received feedback
+      if (aiFeedbacks[activeQuestionFlashcardName]) {
+        setShowSelfAssessment(true);
+      } else {
+        setShowSelfAssessment(false);
       }
     }
   }, [activeQuestionFlashcardName, userAnswers, aiFeedbacks]);
@@ -104,7 +187,9 @@ export default function ExamMode({ topicId }) {
       return;
     }
 
+    console.log("Submitting answer...");
     await submitAnswer(activeQuestionFlashcardName, currentAnswer.trim());
+    console.log("Answer submitted, setting hasSubmitted and showSelfAssessment to true");
     setHasSubmitted(true);
     setShowSelfAssessment(true);
   };
@@ -115,16 +200,28 @@ export default function ExamMode({ topicId }) {
       return;
     }
 
+    console.log("Submitting self-assessment:", selfAssessment);
     setIsSubmittingSelfAssessment(true);
     try {
       const success = await submitSelfAssessment(activeQuestionFlashcardName, selfAssessment);
+      console.log("Self-assessment submission result:", success);
       if (success) {
         setShowSelfAssessment(false);
         setSelfAssessment('');
         
-        // Auto advance to next question if not the last one
-        if (currentQuestionIndex < examFlashcards.length - 1) {
-          goToNextQuestion();
+        // After submitting self-assessment, show detailed explanation
+        console.log("Getting detailed explanation...");
+        setIsLoadingCurrentExplanation(true);
+        setShowDetailedExplanation(true);
+        
+        try {
+          // Gọi API để lấy lời giải chi tiết từ LLM
+          const explanation = await getDetailedExplanation(activeQuestionFlashcardName);
+          console.log("Detailed explanation loaded:", explanation ? "success" : "failed");
+        } catch (error) {
+          console.error("Error getting detailed explanation:", error);
+        } finally {
+          setIsLoadingCurrentExplanation(false);
         }
       }
     } catch (error) {
@@ -370,7 +467,7 @@ export default function ExamMode({ topicId }) {
                 <div className="p-4 bg-green-50 rounded-lg border border-green-200">
                   <h3 className="text-green-700 font-medium mb-2">Những gì bạn đã làm đúng</h3>
                   <div className="text-green-600 text-sm">
-                    <MathRenderer content={aiFeedbacks[activeQuestionFlashcardName].ai_feedback_what_was_correct} />
+                    <FormattedTextDisplay content={aiFeedbacks[activeQuestionFlashcardName].ai_feedback_what_was_correct} />
                   </div>
                 </div>
               )}
@@ -380,7 +477,7 @@ export default function ExamMode({ topicId }) {
                 <div className="p-4 bg-red-50 rounded-lg border border-red-200">
                   <h3 className="text-red-700 font-medium mb-2">Những gì bạn đã làm sai</h3>
                   <div className="text-red-600 text-sm">
-                    <MathRenderer content={aiFeedbacks[activeQuestionFlashcardName].ai_feedback_what_was_incorrect} />
+                    <FormattedTextDisplay content={aiFeedbacks[activeQuestionFlashcardName].ai_feedback_what_was_incorrect} />
                   </div>
                 </div>
               )}
@@ -390,7 +487,7 @@ export default function ExamMode({ topicId }) {
                 <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
                   <h3 className="text-purple-700 font-medium mb-2">Những gì bạn có thể bổ sung thêm</h3>
                   <div className="text-purple-600 text-sm">
-                    <MathRenderer content={aiFeedbacks[activeQuestionFlashcardName].ai_feedback_what_to_include} />
+                    <FormattedTextDisplay content={aiFeedbacks[activeQuestionFlashcardName].ai_feedback_what_to_include} />
                   </div>
                 </div>
               )}
@@ -407,36 +504,72 @@ export default function ExamMode({ topicId }) {
                 </div>
               )}
 
-              {/* Self-assessment section */}
-              {showSelfAssessment && (
-                <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
-                  <h3 className="text-blue-700 font-medium mb-2">Đánh giá mức độ hiểu của bạn</h3>
-                  <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-                    {['Chưa hiểu', 'Mơ hồ', 'Khá ổn', 'Rất rõ'].map((level) => (
-                      <button
-                        key={level}
-                        onClick={() => setSelfAssessment(level)}
-                        className={`py-2 px-3 rounded-md text-sm ${
-                          selfAssessment === level
-                            ? "bg-blue-600 text-white"
-                            : "bg-blue-100 text-blue-800 hover:bg-blue-200"
-                        }`}
-                      >
-                        {level}
-                      </button>
-                    ))}
-                  </div>
-                  <div className="mt-3 flex justify-end">
+              {/* Self-assessment section - ALWAYS show after feedback */}
+              <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+                <h3 className="text-blue-700 font-medium mb-2">Đánh giá mức độ hiểu của bạn</h3>
+                <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+                  {['Chưa hiểu', 'Mơ hồ', 'Khá ổn', 'Rất rõ'].map((level) => (
                     <button
-                      onClick={handleSubmitSelfAssessment}
-                      disabled={!selfAssessment}
-                      className={`px-4 py-2 rounded text-sm ${
-                        !selfAssessment
-                          ? "bg-gray-200 text-gray-500 cursor-not-allowed"
-                          : "bg-blue-600 text-white hover:bg-blue-700"
+                      key={level}
+                      onClick={() => setSelfAssessment(level)}
+                      className={`py-2 px-3 rounded-md text-sm ${
+                        selfAssessment === level
+                          ? "bg-blue-600 text-white"
+                          : "bg-blue-100 text-blue-800 hover:bg-blue-200"
                       }`}
                     >
-                      Gửi & Tiếp tục
+                      {level}
+                    </button>
+                  ))}
+                </div>
+                <div className="mt-3 flex justify-end">
+                  <button
+                    onClick={handleSubmitSelfAssessment}
+                    disabled={!selfAssessment}
+                    className={`px-4 py-2 rounded text-sm ${
+                      !selfAssessment
+                        ? "bg-gray-200 text-gray-500 cursor-not-allowed"
+                        : "bg-blue-600 text-white hover:bg-blue-700"
+                    }`}
+                  >
+                    Gửi & Xem lời giải chi tiết
+                  </button>
+                </div>
+              </div>
+              
+              {/* Detailed explanation section */}
+              {showDetailedExplanation && (
+                <div className="mt-6 p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+                  <div className="flex items-center mb-3">
+                    <BookOpen className="h-5 w-5 text-emerald-700 mr-2" />
+                    <h3 className="text-emerald-700 font-medium">Lời giải chi tiết</h3>
+                  </div>
+                  
+                  {isLoadingCurrentExplanation ? (
+                    <div className="flex justify-center py-8">
+                      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-500"></div>
+                    </div>
+                  ) : detailedExplanations[activeQuestionFlashcardName] ? (
+                    <div className="prose prose-sm max-w-none text-emerald-800 whitespace-pre-line">
+                      {console.log("Rendering detailed explanation:", detailedExplanations[activeQuestionFlashcardName].substring(0, 50) + "...")}
+                      <FormattedTextDisplay content={detailedExplanations[activeQuestionFlashcardName]} />
+                    </div>
+                  ) : (
+                    <p className="text-emerald-600">Không có lời giải chi tiết.</p>
+                  )}
+                  
+                  <div className="mt-4 flex justify-end">
+                    <button
+                      onClick={() => {
+                        setShowDetailedExplanation(false);
+                        // Auto advance to next question if not the last one
+                        if (currentQuestionIndex < examFlashcards.length - 1) {
+                          goToNextQuestion();
+                        }
+                      }}
+                      className="px-4 py-2 rounded text-sm bg-emerald-600 text-white hover:bg-emerald-700"
+                    >
+                      {currentQuestionIndex < examFlashcards.length - 1 ? "Tiếp tục câu tiếp theo" : "Hoàn thành"}
                     </button>
                   </div>
                 </div>

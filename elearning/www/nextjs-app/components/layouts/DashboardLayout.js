@@ -30,7 +30,7 @@ export default function DashboardLayout({ children, user, isCollapsed }) {
         <div
           className={`${
             isSidebarOpen ? "w-64 md:w-48" : "w-16"
-          } bg-white text-gray-800 flex-shrink-0 transition-all duration-300 border-r border-gray-200 fixed top-0 h-screen`}
+          } bg-white text-gray-800 flex-shrink-0 transition-all duration-300 border-r border-gray-200 fixed top-0 h-screen z-40`}
         >
           {/* Sidebar Logo */}
           <div className="flex items-center justify-center h-16 border-b px-4">

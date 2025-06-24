@@ -11,8 +11,10 @@ import { useFlashcards } from "./useFlashcards";
  *   currentQuestionIndex, 
  *   userAnswers,
  *   aiFeedbacks,
+ *   detailedExplanations,
  *   isLoadingExam,
  *   isLoadingFeedback,
+ *   isLoadingExplanation,
  *   isExamCompleted,
  *   activeQuestionFlashcardName,
  *   startExam,
@@ -24,7 +26,8 @@ import { useFlashcards } from "./useFlashcards";
  *   resetQuestion,
  *   loadingFlashcards,
  *   flashcardsError,
- *   submitSelfAssessment
+ *   submitSelfAssessment,
+ *   getDetailedExplanation
  * }}
  */
 export function useExamMode(topicId) {
@@ -37,8 +40,10 @@ export function useExamMode(topicId) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState({});
   const [aiFeedbacks, setAiFeedbacks] = useState({});
+  const [detailedExplanations, setDetailedExplanations] = useState({});
   const [isLoadingExam, setIsLoadingExam] = useState(false);
   const [isLoadingFeedback, setIsLoadingFeedback] = useState(false);
+  const [isLoadingExplanation, setIsLoadingExplanation] = useState(false);
   const [isExamCompleted, setIsExamCompleted] = useState(false);
   
   // Derived state
@@ -123,7 +128,7 @@ export function useExamMode(topicId) {
       );
       
       // Log the full response to debug
-      console.log("Full API Response:", responseData);
+      console.log("Feedback API Response:", responseData);
       
       if (!responseData?.message?.success) {
         // Handle API error
@@ -323,14 +328,104 @@ export function useExamMode(topicId) {
     }
   }, [currentAttemptName]);
   
+  // Get detailed explanation for a flashcard
+  const getDetailedExplanation = useCallback(async (flashcardName) => {
+    if (!flashcardName || isLoadingExplanation) return null;
+    
+    // Check if we already have the explanation cached
+    if (detailedExplanations[flashcardName]) {
+      return detailedExplanations[flashcardName];
+    }
+    
+    setIsLoadingExplanation(true);
+    
+    try {
+      // Find the current flashcard from our list
+      const currentFlashcard = examFlashcards.find(card => card.name === flashcardName);
+      
+      if (!currentFlashcard) {
+        throw new Error("Flashcard not found");
+      }
+      
+      // Get user's answer and AI feedback for context
+      const userAnswer = userAnswers[flashcardName] || "";
+      const aiFeedback = aiFeedbacks[flashcardName] || {};
+      
+      console.log("Calling API for detailed explanation with:", {
+        flashcard_name: flashcardName,
+        question: currentFlashcard.question,
+        answer: currentFlashcard.answer,
+        user_answer: userAnswer,
+        flashcard_type: currentFlashcard.flashcard_type
+      });
+      
+      // Call API to get detailed explanation using LLM
+      const responseData = await fetchWithAuth(
+        "user_exam_attempt.user_exam_attempt.get_detailed_explanation",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            flashcard_name: flashcardName,
+            question: currentFlashcard.question,
+            answer: currentFlashcard.answer,
+            user_answer: userAnswer,
+            flashcard_type: currentFlashcard.flashcard_type,
+            ai_feedback: JSON.stringify(aiFeedback)  // Convert object to string to avoid issues
+          }),
+        }
+      );
+      
+      console.log("Detailed explanation response:", responseData);
+      
+      let explanationData = null;
+      
+      if (responseData?.message?.success) {
+        explanationData = responseData.message.detailed_explanation || currentFlashcard.answer;
+        console.log("Successfully received detailed explanation from LLM");
+      } else {
+        // Fallback to the original answer if API fails
+        explanationData = currentFlashcard.answer;
+        console.warn("Failed to get detailed explanation from LLM, using original answer");
+        console.warn("Error:", responseData?.message?.error || "Unknown error");
+      }
+      
+      // Cache the explanation
+      setDetailedExplanations(prev => ({
+        ...prev,
+        [flashcardName]: explanationData
+      }));
+      
+      return explanationData;
+      
+    } catch (error) {
+      console.error("Error getting detailed explanation:", error);
+      
+      // Try to use the original answer as fallback
+      const currentFlashcard = examFlashcards.find(card => card.name === flashcardName);
+      const fallbackExplanation = currentFlashcard?.answer || "Không thể tải lời giải chi tiết.";
+      
+      // Cache the fallback explanation
+      setDetailedExplanations(prev => ({
+        ...prev,
+        [flashcardName]: fallbackExplanation
+      }));
+      
+      return fallbackExplanation;
+    } finally {
+      setIsLoadingExplanation(false);
+    }
+  }, [examFlashcards, userAnswers, aiFeedbacks, detailedExplanations, isLoadingExplanation]);
+  
   return {
     currentAttemptName,
     examFlashcards,
     currentQuestionIndex,
     userAnswers,
     aiFeedbacks,
+    detailedExplanations,
     isLoadingExam,
     isLoadingFeedback,
+    isLoadingExplanation,
     isExamCompleted,
     activeQuestionFlashcardName,
     startExam,
@@ -342,6 +437,7 @@ export function useExamMode(topicId) {
     resetQuestion,
     loadingFlashcards,
     flashcardsError,
-    submitSelfAssessment
+    submitSelfAssessment,
+    getDetailedExplanation
   };
 } 

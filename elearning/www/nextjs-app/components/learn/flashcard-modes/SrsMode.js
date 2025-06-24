@@ -2,7 +2,93 @@ import { useState, useEffect } from 'react';
 import { useSrsMode } from '@/hooks/useSrsMode';
 import { useUserFlashcardSettings } from '@/hooks/useUserFlashcardSettings';
 import MathRenderer from '../MathRenderer';
-import { XCircle, CheckCircle, Printer, Download, Info, ArrowRightCircle, FileText, Lightbulb } from 'lucide-react';
+import { XCircle, CheckCircle, Printer, Download, Info, ArrowRightCircle, FileText, Lightbulb, BookOpen, RefreshCw } from 'lucide-react';
+
+// Component to format and display text with better structure
+const FormattedTextDisplay = ({ content, className = "" }) => {
+  if (!content) return null;
+
+  // Split content into lines and process each one
+  const lines = content.split('\n');
+  const processedLines = [];
+  
+  lines.forEach((line, index) => {
+    const trimmedLine = line.trim();
+    
+    // Skip empty lines, lines with only markdown symbols, or very short meaningless lines
+    if (!trimmedLine || 
+        trimmedLine === '**' || 
+        trimmedLine === '*' || 
+        trimmedLine === '•' ||
+        /^[\*\s]*$/.test(trimmedLine) ||
+        trimmedLine.length < 2) {
+      processedLines.push(<div key={index} className="h-3"></div>);
+      return;
+    }
+    
+    // Handle bullet points
+    if (trimmedLine.startsWith('•')) {
+      const bulletContent = trimmedLine.substring(1).trim();
+      if (bulletContent) { // Only process if there's actual content after the bullet
+        processedLines.push(
+          <div key={index} className="flex items-start mb-3 pl-2">
+            <span className="text-emerald-600 mr-3 mt-1 font-medium">•</span>
+            <div className="flex-1 text-gray-700">
+              <MathRenderer content={bulletContent} />
+            </div>
+          </div>
+        );
+      }
+    }
+    // Handle numbered lists
+    else if (/^\d+\./.test(trimmedLine)) {
+      const match = trimmedLine.match(/^(\d+)\.\s*(.+)/);
+      if (match && match[2].trim()) { // Only process if there's content after the number
+        processedLines.push(
+          <div key={index} className="flex items-start mb-3 pl-2">
+            <span className="text-emerald-600 font-semibold mr-3 mt-1 min-w-[24px]">{match[1]}.</span>
+            <div className="flex-1 text-gray-700">
+              <MathRenderer content={match[2]} />
+            </div>
+          </div>
+        );
+      }
+    }
+    // Handle bold text (titles/headers) - clean up extra asterisks
+    else if (trimmedLine.startsWith('**') && trimmedLine.endsWith('**') && trimmedLine.length > 4) {
+      const boldText = trimmedLine.substring(2, trimmedLine.length - 2).trim();
+      if (boldText) { // Only process if there's actual content between the asterisks
+        processedLines.push(
+          <div key={index} className="font-bold text-gray-800 mb-4 mt-6 text-base border-l-4 border-emerald-500 pl-4 bg-emerald-50 py-2 rounded-r-lg">
+            <MathRenderer content={boldText} />
+          </div>
+        );
+      }
+    }
+    // Regular paragraphs - skip if it's just markdown symbols
+    else if (!/^[\*\s•\d\.]+$/.test(trimmedLine)) {
+      processedLines.push(
+        <div key={index} className="mb-3 leading-relaxed text-gray-700 text-sm">
+          <MathRenderer content={trimmedLine} />
+        </div>
+      );
+    }
+  });
+
+  return (
+    <div className={`space-y-1 ${className}`} style={{
+      animation: 'fadeIn 0.3s ease-in-out'
+    }}>
+      {processedLines}
+      <style jsx>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+    </div>
+  );
+};
 
 export default function SrsMode({ topicId }) {
   // Track reviewed cards for the session
@@ -15,20 +101,30 @@ export default function SrsMode({ topicId }) {
     cards,
     currentCard,
     currentCardIndex,
+    currentAnswer,
+    setCurrentAnswer,
     isAnswerVisible,
     isLoadingCards,
     isProcessingRating,
+    isSubmittingAnswer,
     isRoundCompleted,
-    srsStats,
+    feedback,
+    detailedExplanation,
+    showDetailedExplanation,
+    setShowDetailedExplanation,
+    isLoadingExplanation,
     error,
+    srsStats,
     noExamsMessage,
     noAssessmentsMessage,
     fetchReviewCards,
+    submitAnswer,
     processRating,
     startNewRound,
-    toggleAnswer,
     goToNextCard,
-    goToPreviousCard
+    goToPreviousCard,
+    resetCurrentCard,
+    getDetailedExplanation
   } = useSrsMode(topicId);
 
   const {
@@ -61,6 +157,13 @@ export default function SrsMode({ topicId }) {
       window.removeEventListener('srsProgressReset', handleSettingsChange);
     };
   }, [topicId, fetchReviewCards]);
+
+  // Effect to load detailed explanation when showing it
+  useEffect(() => {
+    if (showDetailedExplanation && currentCard?.name && !detailedExplanation) {
+      getDetailedExplanation(currentCard.name);
+    }
+  }, [showDetailedExplanation, currentCard?.name, getDetailedExplanation, detailedExplanation]);
 
   // Track card ratings in the session
   const handleProcessRating = (flashcardName, rating) => {
@@ -331,125 +434,192 @@ export default function SrsMode({ topicId }) {
               )}
             </div>
             
-            {isAnswerVisible ? (
-              <div>
-                <h3 className="text-gray-500 mb-4 text-sm font-medium">Câu hỏi:</h3>
-                <div className="mb-6 whitespace-pre-line">
-                  {currentCard?.flashcard_type === "Ordering Steps" ? (
-                    <div>
-                      <MathRenderer content={currentCard?.question || ''} />
-                      {currentCard?.ordering_steps_items && (
-                        <div className="mt-4">
-                          <p className="text-sm text-gray-500 mb-2">Thứ tự các bước đúng:</p>
-                          <div className="space-y-2">
-                            {currentCard.ordering_steps_items.map((step, index) => (
-                              <div
-                                key={index}
-                                className="p-3 bg-gray-50 border border-gray-200 rounded-md"
-                              >
-                                <div className="flex items-center">
-                                  <span className="w-6 h-6 flex items-center justify-center bg-indigo-100 text-indigo-800 rounded-full text-sm mr-3">
-                                    {step.correct_order}
-                                  </span>
-                                  <div className="flex-1">
-                                    <MathRenderer content={step.step_content} />
-                                  </div>
-                                </div>
+            <div className="whitespace-pre-line">
+              {currentCard?.flashcard_type === "Ordering Steps" ? (
+                <div>
+                  <MathRenderer content={currentCard?.question || ''} />
+                  {currentCard?.ordering_steps_items && (
+                    <div className="mt-4">
+                      <p className="text-sm text-gray-500 mb-2">Sắp xếp các bước theo thứ tự đúng:</p>
+                      <div className="space-y-2">
+                        {currentCard.ordering_steps_items.map((step, index) => (
+                          <div
+                            key={index}
+                            className="p-3 bg-gray-50 border border-gray-200 rounded-md"
+                          >
+                            <div className="flex items-center">
+                              <span className="w-6 h-6 flex items-center justify-center bg-indigo-100 text-indigo-800 rounded-full text-sm mr-3">
+                                {index + 1}
+                              </span>
+                              <div className="flex-1">
+                                <MathRenderer content={step.step_content} />
                               </div>
-                            ))}
+                            </div>
                           </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : currentCard?.flashcard_type === "Identify the Error" ? (
+                <MathRenderer content={formatContent(currentCard?.question || '')} />
+              ) : (
+                <MathRenderer content={currentCard?.question || ''} />
+              )}
+            </div>
+
+            {/* Answer input section */}
+            {!isAnswerVisible && (
+              <div className="mt-6">
+                <label htmlFor="answer" className="block text-sm font-medium text-gray-700 mb-2">
+                  Câu trả lời của bạn
+                </label>
+                <textarea
+                  id="answer"
+                  rows={4}
+                  className="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                  placeholder="Nhập câu trả lời của bạn"
+                  value={currentAnswer}
+                  onChange={(e) => setCurrentAnswer(e.target.value)}
+                  disabled={isSubmittingAnswer}
+                ></textarea>
+                <div className="mt-4 flex justify-end">
+                  <button
+                    onClick={submitAnswer}
+                    disabled={!currentAnswer.trim() || isSubmittingAnswer}
+                    className={`relative px-4 py-2 rounded-md font-medium flex items-center ${
+                      !currentAnswer.trim() || isSubmittingAnswer
+                        ? "bg-gray-200 text-gray-500 cursor-not-allowed"
+                        : "bg-emerald-600 text-white hover:bg-emerald-700"
+                    }`}
+                  >
+                    {isSubmittingAnswer ? (
+                      <>
+                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <span>Đang gửi...</span>
+                        <div className="absolute bottom-0 left-0 h-1 bg-emerald-400 animate-pulse rounded-b-md" style={{width: '100%'}}></div>
+                      </>
+                    ) : (
+                      'Gửi câu trả lời'
+                    )}
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* Feedback section */}
+            {isAnswerVisible && feedback && (
+              <div className="mt-6 space-y-4">
+                {/* Tutor feedback */}
+                <div className="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-200 shadow-sm">
+                  <div className="flex items-center mb-4">
+                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                      <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-blue-800 font-semibold text-lg">Phản hồi của gia sư</h3>
+                  </div>
+                  <div className="text-blue-700">
+                    <FormattedTextDisplay content={feedback} />
+                  </div>
+                </div>
+
+                {/* Detailed explanation section */}
+                <div className="p-6 bg-gradient-to-r from-emerald-50 to-green-50 rounded-xl border border-emerald-200 shadow-sm">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center">
+                      <BookOpen className="h-6 w-6 text-emerald-700 mr-3" />
+                      <h3 className="text-emerald-700 font-semibold text-lg">Lời giải chi tiết</h3>
+                    </div>
+                    <button
+                      onClick={() => setShowDetailedExplanation(!showDetailedExplanation)}
+                      className="text-emerald-600 hover:text-emerald-700 text-sm font-medium flex items-center px-3 py-1 rounded-lg hover:bg-emerald-100 transition-colors"
+                    >
+                      {showDetailedExplanation ? (
+                        <>
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                          Ẩn lời giải
+                        </>
+                      ) : (
+                        <>
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                          Xem lời giải
+                        </>
+                      )}
+                    </button>
+                  </div>
+                  
+                  {showDetailedExplanation && (
+                    <div className={`transition-all duration-300 ease-in-out ${isLoadingExplanation ? 'opacity-50' : 'opacity-100'}`}>
+                      {isLoadingExplanation ? (
+                        <div className="flex flex-col items-center justify-center py-12">
+                          <div className="w-12 h-12 rounded-full border-4 border-emerald-200 border-t-emerald-600 animate-spin mb-4"></div>
+                          <p className="text-emerald-600 text-sm font-medium">Đang tải lời giải chi tiết...</p>
+                          <p className="text-emerald-500 text-xs mt-1">Vui lòng đợi trong giây lát</p>
+                        </div>
+                      ) : detailedExplanation ? (
+                        <div className="bg-white rounded-lg p-4 border border-emerald-100">
+                          <FormattedTextDisplay content={detailedExplanation} />
+                        </div>
+                      ) : (
+                        <div className="text-center py-8">
+                          <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <BookOpen className="w-8 h-8 text-emerald-600" />
+                          </div>
+                          <p className="text-emerald-600 italic">Không có lời giải chi tiết.</p>
                         </div>
                       )}
                     </div>
-                  ) : currentCard?.flashcard_type === "Identify the Error" ? (
-                    <MathRenderer content={formatContent(currentCard?.question || '')} />
-                  ) : (
-                    <MathRenderer content={currentCard?.question || ''} />
                   )}
                 </div>
-                <h3 className="text-gray-500 mb-2 text-sm font-medium">Câu trả lời:</h3>
-                <div className="prose max-w-none whitespace-pre-line">
-                  {currentCard?.flashcard_type === "Identify the Error" ? (
-                    <MathRenderer content={formatContent(currentCard?.answer || '')} />
-                  ) : (
-                    <MathRenderer content={currentCard?.answer || ''} />
-                  )}
-                </div>
-              </div>
-            ) : (
-              <div className="whitespace-pre-line">
-                {currentCard?.flashcard_type === "Ordering Steps" ? (
-                  <div>
-                    <MathRenderer content={currentCard?.question || ''} />
-                    {currentCard?.ordering_steps_items && (
-                      <div className="mt-4">
-                        <p className="text-sm text-gray-500 mb-2">Sắp xếp các bước theo thứ tự đúng:</p>
-                        <div className="space-y-2">
-                          {currentCard.ordering_steps_items.map((step, index) => (
-                            <div
-                              key={index}
-                              className="p-3 bg-gray-50 border border-gray-200 rounded-md"
-                            >
-                              <div className="flex items-center">
-                                <span className="w-6 h-6 flex items-center justify-center bg-indigo-100 text-indigo-800 rounded-full text-sm mr-3">
-                                  {index + 1}
-                                </span>
-                                <div className="flex-1">
-                                  <MathRenderer content={step.step_content} />
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
+
+                {/* Action buttons */}
+                <div className="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+                  <button
+                    onClick={resetCurrentCard}
+                    className="flex items-center px-5 py-3 bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 rounded-xl font-medium hover:from-amber-200 hover:to-orange-200 transition-all duration-200 shadow-sm hover:shadow-md"
+                  >
+                    <RefreshCw className="w-5 h-5 mr-2" />
+                    Làm lại
+                  </button>
+
+                  <div className="flex space-x-3">
+                    <button
+                      onClick={() => handleProcessRating(currentCard?.name, "wrong")}
+                      disabled={isProcessingRating}
+                      className="flex items-center px-5 py-3 bg-gradient-to-r from-red-100 to-pink-100 text-red-800 rounded-xl font-medium hover:from-red-200 hover:to-pink-200 disabled:opacity-50 transition-all duration-200 shadow-sm hover:shadow-md"
+                    >
+                      <XCircle className="w-5 h-5 mr-2" />
+                      Quên
+                    </button>
+                    <button
+                      onClick={() => handleProcessRating(currentCard?.name, "hard")}
+                      disabled={isProcessingRating}
+                      className="flex items-center px-5 py-3 bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-800 rounded-xl font-medium hover:from-amber-200 hover:to-yellow-200 disabled:opacity-50 transition-all duration-200 shadow-sm hover:shadow-md"
+                    >
+                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                      Khó
+                    </button>
+                    <button
+                      onClick={() => handleProcessRating(currentCard?.name, "correct")}
+                      disabled={isProcessingRating}
+                      className="flex items-center px-5 py-3 bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 rounded-xl font-medium hover:from-green-200 hover:to-emerald-200 disabled:opacity-50 transition-all duration-200 shadow-sm hover:shadow-md"
+                    >
+                      <CheckCircle className="w-5 h-5 mr-2" />
+                      Nhớ
+                    </button>
                   </div>
-                ) : currentCard?.flashcard_type === "Identify the Error" ? (
-                  <MathRenderer content={formatContent(currentCard?.question || '')} />
-                ) : (
-                  <MathRenderer content={currentCard?.question || ''} />
-                )}
-              </div>
-            )}
-          </div>
-          
-          {/* Card actions */}
-          <div className="flex justify-center mt-6">
-            {!isAnswerVisible ? (
-              <button
-                onClick={toggleAnswer}
-                className="px-6 py-2 bg-indigo-600 text-white rounded-md font-medium hover:bg-indigo-700"
-              >
-                Hiển thị câu trả lời
-              </button>
-            ) : (
-              <div className="flex space-x-4">
-                <button
-                  onClick={() => handleProcessRating(currentCard?.name, "wrong")}
-                  disabled={isProcessingRating}
-                  className="flex items-center px-4 py-2 bg-red-100 text-red-800 rounded-md font-medium hover:bg-red-200 disabled:opacity-50"
-                >
-                  <XCircle className="w-5 h-5 mr-2" />
-                  Quên
-                </button>
-                <button
-                  onClick={() => handleProcessRating(currentCard?.name, "hard")}
-                  disabled={isProcessingRating}
-                  className="flex items-center px-4 py-2 bg-amber-100 text-amber-800 rounded-md font-medium hover:bg-amber-200 disabled:opacity-50"
-                >
-                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                  Khó
-                </button>
-                <button
-                  onClick={() => handleProcessRating(currentCard?.name, "correct")}
-                  disabled={isProcessingRating}
-                  className="flex items-center px-4 py-2 bg-green-100 text-green-800 rounded-md font-medium hover:bg-green-200 disabled:opacity-50"
-                >
-                  <CheckCircle className="w-5 h-5 mr-2" />
-                  Nhớ
-                </button>
+                </div>
               </div>
             )}
           </div>

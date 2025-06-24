@@ -24,7 +24,10 @@ export function useFlashcards(topicId) {
   const fetchFlashcardsWithSettings = useCallback(async (settingsToUse) => {
     if (!topicId) return;
     
-    console.log("useFlashcards: Fetching flashcards for topic:", topicId);
+    // Ensure topicId is in the format server expects (string)
+    const formattedTopicId = String(topicId);
+    
+    console.log("useFlashcards: Fetching flashcards for topic:", formattedTopicId);
     console.log("useFlashcards: Using settings:", settingsToUse);
     
     setLoading(true);
@@ -36,7 +39,7 @@ export function useFlashcards(topicId) {
         {
           method: "POST",
           body: JSON.stringify({
-            topic_id: topicId,
+            topic_id: formattedTopicId,
             flashcard_type: settingsToUse?.study_exam_flashcard_type_filter !== "All" ? 
               settingsToUse?.study_exam_flashcard_type_filter : undefined
           })
