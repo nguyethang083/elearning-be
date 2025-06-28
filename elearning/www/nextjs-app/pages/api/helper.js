@@ -37,6 +37,8 @@ export async function fetchWithAuth(path, options = {}) {
 
     const headers = {
       Accept: "application/json",
+      "ngrok-skip-browser-warning": "true",
+
       ...(options.headers || {}),
     };
 
@@ -126,8 +128,10 @@ export async function fetchWithAuth(path, options = {}) {
 
       // Handle 401 Unauthorized error which may indicate session loss after server restart
       if (error.response.status === 401 && !isRetry) {
-        console.log("Received 401 Unauthorized - This might be due to session loss after server restart");
-        
+        console.log(
+          "Received 401 Unauthorized - This might be due to session loss after server restart"
+        );
+
         // Make a special request to regenerate session from JWT
         try {
           console.log("Attempting to regenerate session from JWT token");
@@ -139,18 +143,20 @@ export async function fetchWithAuth(path, options = {}) {
               url: "/api/method/elearning.api.jwt_auth.get_user_info",
               method: "GET",
               headers: {
-                "Authorization": `Bearer ${session.accessToken}`,
-                "X-Regenerate-Session": "true"
+                Authorization: `Bearer ${session.accessToken}`,
+                "X-Regenerate-Session": "true",
               },
               timeout: 10000,
             });
-            
-            console.log("Session regeneration attempt complete, retrying original request");
-            
+
+            console.log(
+              "Session regeneration attempt complete, retrying original request"
+            );
+
             // Retry the original request with a flag to prevent infinite loops
             return fetchWithAuth(path, {
               ...options,
-              isRetry: true
+              isRetry: true,
             });
           }
         } catch (regenerateError) {
@@ -198,32 +204,41 @@ export async function fetchWithAuth(path, options = {}) {
 
 // Bắt đầu phiên học Flashcard mới
 export async function startFlashcardSession(topicId, mode = "Basic") {
-  return fetchWithAuth(`flashcard_session.flashcard_session.start_flashcard_session`, {
-    method: "POST",
-    body: JSON.stringify({
-      topic_id: topicId,
-      mode: mode
-    })
-  });
+  return fetchWithAuth(
+    `flashcard_session.flashcard_session.start_flashcard_session`,
+    {
+      method: "POST",
+      body: JSON.stringify({
+        topic_id: topicId,
+        mode: mode,
+      }),
+    }
+  );
 }
 
 // Cập nhật thời gian phiên học Flashcard
 export async function updateFlashcardSessionTime(sessionId, timeSpentSeconds) {
-  return fetchWithAuth(`flashcard_session.flashcard_session.update_flashcard_session_time`, {
-    method: "POST",
-    body: JSON.stringify({
-      session_id: sessionId,
-      time_spent_seconds: timeSpentSeconds
-    })
-  });
+  return fetchWithAuth(
+    `flashcard_session.flashcard_session.update_flashcard_session_time`,
+    {
+      method: "POST",
+      body: JSON.stringify({
+        session_id: sessionId,
+        time_spent_seconds: timeSpentSeconds,
+      }),
+    }
+  );
 }
 
 // Kết thúc phiên học Flashcard
 export async function endFlashcardSession(sessionId) {
-  return fetchWithAuth(`flashcard_session.flashcard_session.end_flashcard_session`, {
-    method: "POST",
-    body: JSON.stringify({
-      session_id: sessionId
-    })
-  });
+  return fetchWithAuth(
+    `flashcard_session.flashcard_session.end_flashcard_session`,
+    {
+      method: "POST",
+      body: JSON.stringify({
+        session_id: sessionId,
+      }),
+    }
+  );
 }
