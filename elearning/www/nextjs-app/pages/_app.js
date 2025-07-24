@@ -26,7 +26,7 @@ export default function MyApp({
   const router = useRouter();
 
   // Define routes that should use the DashboardLayout
-  const dashboardRoutes = ["/test", "/report", "/analysis", "/learn"];
+  const dashboardRoutes = ["/test", "/report", "/analysis", "/learn", "/my-pathway"];
 
   // Check if the current route starts with any of the dashboard routes
   const isDashboardRoute = dashboardRoutes.some((route) =>
@@ -34,7 +34,7 @@ export default function MyApp({
   );
 
   // Collapse the sidebar for `/test` routes
-  const isSidebarCollapsed = ["/test", "/report"].some((route) =>
+  const isSidebarCollapsed = ["/test", "/report", "/my-pathway"].some((route) =>
     router.pathname.startsWith(route)
   );
   return (

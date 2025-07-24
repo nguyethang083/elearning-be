@@ -10,6 +10,7 @@ import {
   Settings,
   LogOut,
   PieChart,
+  Compass,
 } from "lucide-react";
 
 const SettingsSidebar = ({ isCollapsed }) => {
@@ -30,13 +31,13 @@ const SettingsSidebar = ({ isCollapsed }) => {
   const menuItems = [
     { label: "Dashboard", href: "/dashboard", icon: <LayoutDashboard /> },
     { label: "Learn", href: "/learn", icon: <GraduationCap /> },
+    { label: "My Pathway", href: "/my-pathway", icon: <Compass /> },
     { label: "Test", href: "/test", icon: <FileText /> },
     { label: "Report", href: "/report", icon: <PieChart /> },
     { label: "Analytics", href: "/analysis", icon: <BarChart3 /> },
   ];
 
   const settingsItems = [
-    { label: "Settings", href: "/settings", icon: <Settings /> },
     {
       label: "Logout",
       onClick: handleLogout,
