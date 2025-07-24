@@ -15,13 +15,14 @@ import {
 import { ChevronLeft, ChevronRight, BarChart2 } from "lucide-react";
 import { useRouter } from "next/router";
 
-// Dummy implementations if not imported from utils
 const getQuestionStatusClass = (questionId, marked, completed) => {
   if (!questionId) return "bg-gray-100 border-gray-300 text-gray-600";
-  if (marked[questionId])
-    return "bg-yellow-100 border-yellow-300 text-yellow-800 hover:bg-yellow-200";
-  if (completed[questionId])
+  if (completed[questionId]) {
     return "bg-green-100 border-green-300 text-green-800 hover:bg-green-200";
+  }
+  if (marked[questionId]) {
+    return "bg-gray-100 border-gray-300 text-gray-600 hover:bg-gray-200";
+  }
   return "bg-gray-100 border-gray-300 text-gray-600 hover:bg-gray-200";
 };
 
@@ -168,16 +169,24 @@ export function TestNavigation({
                         aria-current={isCurrent ? "step" : undefined}
                       >
                         {questionNumber}
-                        {/* Status indicators */}
+                        {/* Status indicators - New logic:
+                            - Completed only: gray dot
+                            - Marked only: yellow dot  
+                            - Both: yellow dot (on green background)
+                        */}
                         {isMarked && (
                           <span
                             className="absolute -top-1 -right-1 block w-2.5 h-2.5 bg-yellow-400 rounded-full border border-white"
-                            title="Đánh dấu"
+                            title={
+                              isCompleted
+                                ? "Hoàn thành và đánh dấu"
+                                : "Đánh dấu"
+                            }
                           ></span>
                         )}
-                        {isCompleted && !isMarked && (
+                        {!isMarked && isCompleted && (
                           <span
-                            className="absolute -top-1 -right-1 block w-2.5 h-2.5 bg-green-500 rounded-full border border-white"
+                            className="absolute -top-1 -right-1 block w-2.5 h-2.5 bg-gray-400 rounded-full border border-white"
                             title="Hoàn thành"
                           ></span>
                         )}

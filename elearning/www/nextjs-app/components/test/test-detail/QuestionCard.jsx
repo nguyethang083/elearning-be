@@ -17,6 +17,7 @@ import {
   Paperclip,
   XCircle,
   Loader2,
+  HelpCircle,
 } from "lucide-react";
 import { AnswerInput } from "./AnswerInput";
 import { parseLatex } from "@/lib/utils";
@@ -27,6 +28,7 @@ export function QuestionCard({
   questionData,
   currentDisplayNumber,
   testQuestionId,
+  testAttemptId,
   markedForReview = {},
   completedQuestions = {},
   onToggleMarkForReview,
@@ -49,6 +51,9 @@ export function QuestionCard({
 
   const isMarkedForReview = !!markedForReview[testQuestionId];
   const isMarkedComplete = !!completedQuestions[testQuestionId];
+  console.log("QuestionCard props:", {
+    questionData,
+  });
 
   useEffect(() => {
     setShowHint(false);
@@ -95,7 +100,6 @@ export function QuestionCard({
       onAddFiles &&
       testQuestionId
     ) {
-      // ✅ Đúng thứ tự: id trước, files sau
       onAddFiles(testQuestionId, event.target.files);
       event.target.value = null;
     }
@@ -104,7 +108,6 @@ export function QuestionCard({
   const handleDrawingCapturedAsFile = useCallback(
     (capturedFileInfo) => {
       if (onAddFiles && testQuestionId && capturedFileInfo) {
-        // ✅ Đúng thứ tự: id trước, file object sau
         onAddFiles(testQuestionId, capturedFileInfo);
       }
     },
@@ -117,6 +120,7 @@ export function QuestionCard({
       </Card>
     );
   }
+  console.log("Explanation:", questionContentForDisplay.explanation);
 
   const showFileUploadSection =
     questionContentForDisplay.type === "Essay" ||
@@ -143,12 +147,12 @@ export function QuestionCard({
             >
               {questionContentForDisplay.type.replace(/_/g, " ")}
             </Badge>
-            <Badge
+            {/* <Badge
               variant="secondary"
               className="font-normal text-xs sm:text-sm"
             >
               {questionContentForDisplay.points} Điểm
-            </Badge>
+            </Badge> */}
           </div>
           <div className="flex items-center gap-2 flex-wrap justify-start sm:justify-end w-full sm:w-auto">
             <TooltipProvider delayDuration={100}>
@@ -231,6 +235,44 @@ export function QuestionCard({
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
+            )}
+            {questionContentForDisplay.explanation && (
+              <Dialog>
+                <DialogTrigger asChild>
+                  <TooltipProvider delayDuration={100}>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="text-gray-700 hover:bg-gray-50"
+                        >
+                          <HelpCircle className="h-4 w-4 mr-1 text-purple-600" />
+                          Giải thích
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Xem lời giải chi tiết</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </DialogTrigger>
+                <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+                  <DialogHeader>
+                    <DialogTitle>
+                      Lời giải - Câu hỏi {currentDisplayNumber}
+                    </DialogTitle>
+                    <DialogDescription>
+                      Lời giải chi tiết từng bước cho câu hỏi này.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="space-y-4 mt-4">
+                    <div className="bg-gray-50 p-4 rounded-md text-sm leading-relaxed">
+                      {parseLatex(questionContentForDisplay.explanation)}
+                    </div>
+                  </div>
+                </DialogContent>
+              </Dialog>
             )}
           </div>
         </div>
@@ -366,6 +408,7 @@ export function QuestionCard({
 
             <DrawingArea
               currentQuestionId={testQuestionId}
+              testAttemptId={testAttemptId}
               canvasState={canvasState}
               setCanvasState={setCanvasStates}
               onCaptureDrawingAsFile={handleDrawingCapturedAsFile}

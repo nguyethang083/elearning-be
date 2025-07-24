@@ -92,24 +92,18 @@ export const parseLatex = (text) => {
     return "";
   }
 
-  // MODIFIED Regex: Replaced `.` with `[\s\S]` for block delimiters \[...\] and $$...$$
-  // This allows the content within these delimiters to span multiple lines.
-  const parts = text.split(
-    /(\\\([\s\S]*?\\\)|\\\[[\s\S]*?\\\]|\$\$[\s\S]*?\$\$|\$.*?\$)/g
+  // Xử lý bullet points trước khi parse LaTeX
+  // Chỉ thay thế bullet point symbol, không thêm newline tự động
+  const processedText = text
+    .replace(/⦁\s*/g, "• ") // Thay ⦁ bằng bullet, không thêm newline
+    .trim();
+
+  const parts = processedText.split(
+    /(\\\([\s\S]*?\\\)|\\\[[\s\S]*?\\\]|\\\\\\([\s\S]*?\\\\\\)|\\\\\\[[\s\S]*?\\\\\\]|\$\$[\s\S]*?\$\$|\$.*?\$)/g
   );
-  // Note: I've also applied [\s\S] to \( \) just in case, though it's less common for them to span lines.
-  // If you are certain $...$ and \(...\) will NEVER span lines, you can revert those specific parts back to .*?
-  // For safety and to handle potential edge cases, using [\s\S]*? for all content parts is often more robust.
-  // Let's use it for all for now, and you can fine-tune if needed for single $.
-  // Corrected regex for robustness with [\s\S] for multi-line content within all delimiters:
-  // const parts = text.split(/(\\\([\s\S]*?\\\)|\\\[[\s\S]*?\\\]|\$\$[\s\S]*?\$\$|\$[\s\S]*?\$)/g);
-  // For your specific issue, the key is for \[ and $$:
-  // const parts = text.split(/(\\\(.*?\\\)|\\\[[\s\S]*?\\\]|\$\$[\s\S]*?\$\$|\$.*?\$)/g);
 
   return parts.map((part, index) => {
     if (!part) return null;
-
-    // console.log(`Parsing part [${index}]: '${part}'`); // Keep for debugging if needed
 
     try {
       if (part.startsWith("\\(") && part.endsWith("\\)")) {
@@ -119,7 +113,18 @@ export const parseLatex = (text) => {
       }
       if (part.startsWith("\\[") && part.endsWith("\\]")) {
         return (
-          <BlockMath key={index} math={part.substring(2, part.length - 2)} />
+          <InlineMath key={index} math={part.substring(2, part.length - 2)} />
+        );
+      }
+      // Handle double backslashes (escaped in JSON)
+      if (part.startsWith("\\\\(") && part.endsWith("\\\\)")) {
+        return (
+          <InlineMath key={index} math={part.substring(3, part.length - 3)} />
+        );
+      }
+      if (part.startsWith("\\\\[") && part.endsWith("\\\\]")) {
+        return (
+          <InlineMath key={index} math={part.substring(3, part.length - 3)} />
         );
       }
       if (part.startsWith("$$") && part.endsWith("$$")) {
@@ -133,10 +138,6 @@ export const parseLatex = (text) => {
         part.length > 2 &&
         !part.match(/^\$\d+(\.\d{1,2})?(?!\d)/) // Avoid matching currency
       ) {
-        // For single $, ensure it doesn't greedily match across newlines if not intended.
-        // If single $ should NOT span newlines, its regex part should remain `.*?`
-        // If it CAN, then `[\s\S]*?` is needed in the split regex for it too.
-        // Assuming here that single $ inline math typically does not span lines.
         return (
           <InlineMath key={index} math={part.substring(1, part.length - 1)} />
         );
@@ -154,12 +155,34 @@ export const parseLatex = (text) => {
       );
     }
 
-    // If not a LaTeX part, render plain text, handling newlines
-    return part.split(/(\n)/g).map((textOrNewline, subIndex) => {
-      if (textOrNewline === "\n") {
+    // Xử lý text thường - chỉ tạo line breaks cho bullet points và double newlines
+    // Không tạo line breaks cho single newlines để text flow naturally
+    if (part.includes("•")) {
+      // Nếu có bullet points, xử lý chúng với line breaks
+      return part.split(/(\n?•\s*)/g).map((bulletPart, bulletIndex) => {
+        if (bulletPart === "\n") {
+          return <br key={`${index}-br-${bulletIndex}`} />;
+        }
+        if (bulletPart.match(/^\n?•\s*$/)) {
+          return (
+            <React.Fragment key={`${index}-bullet-${bulletIndex}`}>
+              {bulletPart.startsWith("\n") && <br />}
+              <span className="font-bold text-blue-600 mr-2">•</span>
+            </React.Fragment>
+          );
+        }
+        // Thay thế single newlines bằng spaces trong bullet text
+        return bulletPart.replace(/\n/g, " ");
+      });
+    }
+
+    // Đối với text thường, chỉ tạo line breaks cho double newlines (paragraph breaks)
+    return part.split(/(\n\n)/g).map((textPart, subIndex) => {
+      if (textPart === "\n\n") {
         return <br key={`${index}-br-${subIndex}`} />;
       }
-      return textOrNewline;
+      // Thay thế single newlines bằng spaces để text flow naturally
+      return textPart.replace(/\n/g, " ");
     });
   });
 };

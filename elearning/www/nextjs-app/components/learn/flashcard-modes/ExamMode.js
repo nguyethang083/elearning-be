@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useExamMode } from '@/hooks/useExamMode';
+import { useFlashcardSession } from '@/hooks/useFlashcardSession';
 import MathRenderer from '../MathRenderer';
 import { RefreshCw, Lightbulb, BookOpen } from 'lucide-react';
 
@@ -7,66 +8,166 @@ import { RefreshCw, Lightbulb, BookOpen } from 'lucide-react';
 const FormattedTextDisplay = ({ content, className = "" }) => {
   if (!content) return null;
 
+  // Function to check if a line contains LaTeX
+  const containsLatex = (text) => {
+    return /\\[a-zA-Z]+\{|\\[a-zA-Z]+\s|\\[()[\]{}]|\$.*\$|\\text\{|\\frac\{|\\sqrt\{|\\sum|\\int|\\leftarrow|\\rightarrow|\\Leftrightarrow|\\ne|\\leq|\\geq/.test(text);
+  };
+
+  // Temporarily replace LaTeX expressions with placeholders to protect them
+  const latexExpressions = [];
+  let protectedContent = content;
+  
+  // Protect inline LaTeX expressions like \text{...}, \frac{...}, etc.
+  protectedContent = protectedContent.replace(/\\[a-zA-Z]+\{[^}]*\}/g, (match) => {
+    const placeholder = `__LATEX_EXPR_${latexExpressions.length}__`;
+    latexExpressions.push(match);
+    return placeholder;
+  });
+  
+  // Protect LaTeX commands like \Leftrightarrow, \ne, etc.
+  protectedContent = protectedContent.replace(/\\[a-zA-Z]+/g, (match) => {
+    const placeholder = `__LATEX_CMD_${latexExpressions.length}__`;
+    latexExpressions.push(match);
+    return placeholder;
+  });
+
+  // Pre-process content to remove excessive asterisks and trailing numbers
+  let processedContent = protectedContent
+    // Remove standalone asterisks that aren't part of markdown formatting
+    .replace(/^\s*\*\s*$/gm, '')
+    // Remove trailing numbers at end of lines (like "2.", "3.")
+    .replace(/\s+\d+\.\s*$/gm, '')
+    // More aggressive asterisk cleaning (but protect LaTeX placeholders)
+    .replace(/\*\*([^*]+)\*\*/g, '$1') // Remove double asterisks but keep content
+    .replace(/\*([^*\n]+)\*/g, '$1') // Remove single asterisks but keep content
+    // Remove excessive asterisks at start/end of lines
+    .replace(/^\*+\s*/gm, '')
+    .replace(/\s*\*+$/gm, '')
+    // Clean up multiple consecutive empty lines
+    .replace(/\n\s*\n\s*\n/g, '\n\n')
+    // Normalize whitespace
+    .trim();
+
+  // Restore LaTeX expressions
+  latexExpressions.forEach((expr, index) => {
+    processedContent = processedContent.replace(new RegExp(`__LATEX_EXPR_${index}__`, 'g'), expr);
+    processedContent = processedContent.replace(new RegExp(`__LATEX_CMD_${index}__`, 'g'), expr);
+  });
+
   // Split content into lines and process each one
-  const lines = content.split('\n');
+  const lines = processedContent.split('\n');
   const processedLines = [];
   
   lines.forEach((line, index) => {
     const trimmedLine = line.trim();
     
-    // Skip empty lines but add spacing
-    if (!trimmedLine) {
+    // Skip empty lines, lines with only markdown symbols, or very short meaningless lines
+    if (!trimmedLine || 
+        trimmedLine === '**' || 
+        trimmedLine === '*' || 
+        trimmedLine === '•' ||
+        /^[\*\s•\d\.\-_]*$/.test(trimmedLine) ||
+        trimmedLine.length < 2) {
       processedLines.push(<div key={index} className="h-2"></div>);
       return;
     }
     
-    // Handle bullet points
+    // Handle bullet points - only process if they contain meaningful content
     if (trimmedLine.startsWith('•')) {
-      processedLines.push(
-        <div key={index} className="flex items-start mb-2">
-          <span className="text-blue-600 mr-2 mt-1">•</span>
-          <div className="flex-1">
-            <MathRenderer content={trimmedLine.substring(1).trim()} />
-          </div>
-        </div>
-      );
-    }
-    // Handle numbered lists
-    else if (/^\d+\./.test(trimmedLine)) {
-      const match = trimmedLine.match(/^(\d+)\.\s*(.+)/);
-      if (match) {
+      const bulletContent = trimmedLine.substring(1).trim();
+      if (bulletContent && bulletContent.length > 2) { // More strict validation
         processedLines.push(
-          <div key={index} className="flex items-start mb-2">
-            <span className="text-blue-600 font-medium mr-2 mt-1">{match[1]}.</span>
-            <div className="flex-1">
+          <div key={index} className="flex items-start mb-3">
+            <span className="text-emerald-600 mr-3 mt-0.5 font-medium flex-shrink-0">•</span>
+            <div className="flex-1 text-gray-700 leading-relaxed">
+              <MathRenderer content={bulletContent} />
+            </div>
+          </div>
+        );
+      }
+    }
+    // Handle numbered lists - stricter validation
+    else if (/^\d+\.\s+\S/.test(trimmedLine)) {
+      const match = trimmedLine.match(/^(\d+)\.\s*(.+)/);
+      if (match && match[2].trim() && match[2].trim().length > 2) { // More strict validation
+        processedLines.push(
+          <div key={index} className="flex items-start mb-3">
+            <div className="text-emerald-600 font-semibold mr-3 mt-0.5 flex-shrink-0 text-right" style={{ minWidth: '28px' }}>
+              {match[1]}.
+            </div>
+            <div className="flex-1 text-gray-700 leading-relaxed">
               <MathRenderer content={match[2]} />
             </div>
           </div>
         );
       }
     }
-    // Handle bold text (titles/headers)
-    else if (trimmedLine.startsWith('**') && trimmedLine.endsWith('**')) {
-      const boldText = trimmedLine.substring(2, trimmedLine.length - 2);
-      processedLines.push(
-        <div key={index} className="font-semibold text-gray-800 mb-3 mt-4">
-          <MathRenderer content={boldText} />
-        </div>
-      );
+    // Check if line looks like a header (contains words that are typically headers)
+    else if (/^(Phân tích|Lời giải|Bước|Giải thích|Kết luận|Tóm tắt|Nhận xét)/i.test(trimmedLine)) {
+      // Clean any remaining asterisks from headers but preserve LaTeX
+      const cleanHeader = containsLatex(trimmedLine) ? trimmedLine : trimmedLine.replace(/\*+/g, '').trim();
+      if (cleanHeader && cleanHeader.length > 3) {
+        processedLines.push(
+          <div key={index} className="font-bold text-gray-800 mb-4 mt-6 text-base border-l-4 border-emerald-500 pl-4 bg-emerald-50 py-3 rounded-r-lg">
+            <MathRenderer content={cleanHeader} />
+          </div>
+        );
+      }
     }
-    // Regular paragraphs
-    else {
-      processedLines.push(
-        <div key={index} className="mb-2 leading-relaxed">
-          <MathRenderer content={trimmedLine} />
-        </div>
-      );
+    // Handle traditional bold text (titles/headers) - but with more cleaning
+    else if ((trimmedLine.startsWith('**') && trimmedLine.endsWith('**')) || 
+             (trimmedLine.includes('**') && trimmedLine.length > 6)) {
+      // More aggressive cleaning of asterisks but preserve LaTeX
+      const cleanText = containsLatex(trimmedLine) ? trimmedLine.replace(/^\*+|\*+$/g, '').trim() : trimmedLine.replace(/\*+/g, '').trim();
+      if (cleanText && cleanText.length > 3 && !/^[\s\d\.\-_]*$/.test(cleanText)) {
+        processedLines.push(
+          <div key={index} className="font-bold text-gray-800 mb-4 mt-6 text-base border-l-4 border-emerald-500 pl-4 bg-emerald-50 py-3 rounded-r-lg">
+            <MathRenderer content={cleanText} />
+          </div>
+        );
+      }
+    }
+    // Regular paragraphs - enhanced cleaning and validation
+    else if (!/^[\*\s•\d\.\-_]*$/.test(trimmedLine) && trimmedLine.length > 3) {
+      // More careful cleaning for regular paragraphs - preserve LaTeX
+      let cleanedLine = trimmedLine;
+      
+      if (!containsLatex(trimmedLine)) {
+        cleanedLine = trimmedLine
+          .replace(/\*+/g, '') // Remove ALL asterisks only if no LaTeX
+          .replace(/^\s*\d+\.\s*/, '') // Remove leading numbers
+          .replace(/\s+\d+\.\s*$/, '') // Remove trailing numbers like "2." or "3."
+          .trim();
+      } else {
+        // For lines with LaTeX, only remove leading/trailing asterisks carefully
+        cleanedLine = trimmedLine
+          .replace(/^\*+\s*/, '') // Remove leading asterisks
+          .replace(/\s*\*+$/, '') // Remove trailing asterisks
+          .trim();
+      }
+      
+      // Only process if there's meaningful content left
+      if (cleanedLine && cleanedLine.length > 3 && !/^[\s\d\.\-_]*$/.test(cleanedLine)) {
+        processedLines.push(
+          <div key={index} className="mb-3 leading-relaxed text-gray-700">
+            <MathRenderer content={cleanedLine} />
+          </div>
+        );
+      }
     }
   });
 
   return (
-    <div className={`space-y-1 ${className}`}>
+    <div className={`space-y-1 ${className}`} style={{
+      animation: 'fadeIn 0.3s ease-in-out'
+    }}>
       {processedLines}
+      <style jsx>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </div>
   );
 };
@@ -97,6 +198,23 @@ export default function ExamMode({ topicId }) {
     getDetailedExplanation
   } = useExamMode(topicId);
 
+  // Track flashcard session for Exam mode learning time
+  const { 
+    isSessionActive, 
+    totalTimeSpent, 
+    sessionError 
+  } = useFlashcardSession(topicId, "Exam", !!currentAttemptName && !isExamCompleted);
+
+  // Log session tracking info for debugging
+  useEffect(() => {
+    if (isSessionActive) {
+      console.log(`ExamMode: Session active for Exam mode, topic: ${topicId}`);
+    }
+    if (sessionError) {
+      console.error(`ExamMode: Session error:`, sessionError);
+    }
+  }, [isSessionActive, sessionError, topicId]);
+
   // Local state for user input
   const [currentAnswer, setCurrentAnswer] = useState('');
   const [hasSubmitted, setHasSubmitted] = useState(false);
@@ -125,17 +243,21 @@ export default function ExamMode({ topicId }) {
         setHasSubmitted(false);
       }
       
-      // Reset detailed explanation state when changing questions
+      // Check if detailed explanation exists for this question and show it
+      if (detailedExplanations[activeQuestionFlashcardName]) {
+        setShowDetailedExplanation(true);
+      } else {
       setShowDetailedExplanation(false);
+      }
       
       // Only show self-assessment if user has submitted an answer and received feedback
       if (aiFeedbacks[activeQuestionFlashcardName]) {
         setShowSelfAssessment(true);
       } else {
-        setShowSelfAssessment(false);
+      setShowSelfAssessment(false);
       }
     }
-  }, [activeQuestionFlashcardName, userAnswers, aiFeedbacks]);
+  }, [activeQuestionFlashcardName, userAnswers, aiFeedbacks, detailedExplanations]);
 
   // Loading state
   if (isLoadingExam || loadingFlashcards) {
@@ -462,32 +584,59 @@ export default function ExamMode({ topicId }) {
           
           {hasSubmitted && aiFeedbacks[activeQuestionFlashcardName] && (
             <div className="mt-6 space-y-4">
+              {/* Tutor feedback - consolidated all feedback into one beautiful section */}
+              <div className="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-200 shadow-sm">
+                <div className="flex items-center mb-4">
+                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                    <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-blue-800 font-semibold text-lg">Phản hồi của gia sư</h3>
+                </div>
+                
+                <div className="space-y-4">
               {/* What was correct */}
               {aiFeedbacks[activeQuestionFlashcardName].ai_feedback_what_was_correct && (
-                <div className="p-4 bg-green-50 rounded-lg border border-green-200">
-                  <h3 className="text-green-700 font-medium mb-2">Những gì bạn đã làm đúng</h3>
-                  <div className="text-green-600 text-sm">
-                    <FormattedTextDisplay content={aiFeedbacks[activeQuestionFlashcardName].ai_feedback_what_was_correct} />
+                    <div className="bg-white rounded-lg p-4 border-l-4 border-green-500">
+                      <h4 className="text-green-700 font-medium mb-2 flex items-center">
+                        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        Những gì bạn đã làm đúng
+                      </h4>
+                      <div className="text-green-700">
+                        <FormattedTextDisplay content={aiFeedbacks[activeQuestionFlashcardName].ai_feedback_what_was_correct} />
                   </div>
                 </div>
               )}
               
               {/* What was incorrect */}
               {aiFeedbacks[activeQuestionFlashcardName].ai_feedback_what_was_incorrect && (
-                <div className="p-4 bg-red-50 rounded-lg border border-red-200">
-                  <h3 className="text-red-700 font-medium mb-2">Những gì bạn đã làm sai</h3>
-                  <div className="text-red-600 text-sm">
-                    <FormattedTextDisplay content={aiFeedbacks[activeQuestionFlashcardName].ai_feedback_what_was_incorrect} />
+                    <div className="bg-white rounded-lg p-4 border-l-4 border-red-500">
+                      <h4 className="text-red-700 font-medium mb-2 flex items-center">
+                        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                        Những gì bạn đã làm sai
+                      </h4>
+                      <div className="text-red-700">
+                        <FormattedTextDisplay content={aiFeedbacks[activeQuestionFlashcardName].ai_feedback_what_was_incorrect} />
                   </div>
                 </div>
               )}
               
               {/* What to include */}
               {aiFeedbacks[activeQuestionFlashcardName].ai_feedback_what_to_include && (
-                <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
-                  <h3 className="text-purple-700 font-medium mb-2">Những gì bạn có thể bổ sung thêm</h3>
-                  <div className="text-purple-600 text-sm">
-                    <FormattedTextDisplay content={aiFeedbacks[activeQuestionFlashcardName].ai_feedback_what_to_include} />
+                    <div className="bg-white rounded-lg p-4 border-l-4 border-purple-500">
+                      <h4 className="text-purple-700 font-medium mb-2 flex items-center">
+                        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                        </svg>
+                        Những gì bạn có thể bổ sung thêm
+                      </h4>
+                      <div className="text-purple-700">
+                        <FormattedTextDisplay content={aiFeedbacks[activeQuestionFlashcardName].ai_feedback_what_to_include} />
                   </div>
                 </div>
               )}
@@ -496,68 +645,110 @@ export default function ExamMode({ topicId }) {
               {!aiFeedbacks[activeQuestionFlashcardName].ai_feedback_what_was_correct && 
                !aiFeedbacks[activeQuestionFlashcardName].ai_feedback_what_was_incorrect && 
                !aiFeedbacks[activeQuestionFlashcardName].ai_feedback_what_to_include && (
-                <div className="p-4 bg-yellow-50 rounded-lg border border-yellow-200">
-                  <h3 className="text-yellow-700 font-medium mb-2">Không có phản hồi</h3>
-                  <div className="text-yellow-600 text-sm">
+                    <div className="bg-white rounded-lg p-4 border-l-4 border-yellow-500">
+                      <h4 className="text-yellow-700 font-medium mb-2 flex items-center">
+                        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                        </svg>
+                        Không có phản hồi
+                      </h4>
+                      <div className="text-yellow-700">
                     <p>Chúng tôi không thể tạo phản hồi cho câu trả lời của bạn lúc này. Vui lòng thử lại sau.</p>
                   </div>
                 </div>
               )}
-
-              {/* Self-assessment section - ALWAYS show after feedback */}
-              <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
-                <h3 className="text-blue-700 font-medium mb-2">Đánh giá mức độ hiểu của bạn</h3>
-                <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-                  {['Chưa hiểu', 'Mơ hồ', 'Khá ổn', 'Rất rõ'].map((level) => (
-                    <button
-                      key={level}
-                      onClick={() => setSelfAssessment(level)}
-                      className={`py-2 px-3 rounded-md text-sm ${
-                        selfAssessment === level
-                          ? "bg-blue-600 text-white"
-                          : "bg-blue-100 text-blue-800 hover:bg-blue-200"
-                      }`}
-                    >
-                      {level}
-                    </button>
-                  ))}
-                </div>
-                <div className="mt-3 flex justify-end">
-                  <button
-                    onClick={handleSubmitSelfAssessment}
-                    disabled={!selfAssessment}
-                    className={`px-4 py-2 rounded text-sm ${
-                      !selfAssessment
-                        ? "bg-gray-200 text-gray-500 cursor-not-allowed"
-                        : "bg-blue-600 text-white hover:bg-blue-700"
-                    }`}
-                  >
-                    Gửi & Xem lời giải chi tiết
-                  </button>
                 </div>
               </div>
+
+              {/* Self-assessment section - ALWAYS show after feedback */}
+              {!detailedExplanations[activeQuestionFlashcardName] && (
+                <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+                  <h3 className="text-blue-700 font-medium mb-2">Đánh giá mức độ hiểu của bạn</h3>
+                  <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+                    {['Chưa hiểu', 'Mơ hồ', 'Khá ổn', 'Rất rõ'].map((level) => (
+                      <button
+                        key={level}
+                        onClick={() => setSelfAssessment(level)}
+                        className={`py-2 px-3 rounded-md text-sm ${
+                          selfAssessment === level
+                            ? "bg-blue-600 text-white"
+                            : "bg-blue-100 text-blue-800 hover:bg-blue-200"
+                        }`}
+                      >
+                        {level}
+                      </button>
+                    ))}
+                  </div>
+                  <div className="mt-3 flex justify-end">
+                    <button
+                      onClick={handleSubmitSelfAssessment}
+                      disabled={!selfAssessment}
+                      className={`px-4 py-2 rounded text-sm ${
+                        !selfAssessment
+                          ? "bg-gray-200 text-gray-500 cursor-not-allowed"
+                          : "bg-blue-600 text-white hover:bg-blue-700"
+                      }`}
+                    >
+                      Gửi & Xem lời giải chi tiết
+                    </button>
+                  </div>
+                </div>
+              )}
               
               {/* Detailed explanation section */}
-              {showDetailedExplanation && (
-                <div className="mt-6 p-4 bg-emerald-50 rounded-lg border border-emerald-200">
-                  <div className="flex items-center mb-3">
-                    <BookOpen className="h-5 w-5 text-emerald-700 mr-2" />
-                    <h3 className="text-emerald-700 font-medium">Lời giải chi tiết</h3>
+              {(showDetailedExplanation || detailedExplanations[activeQuestionFlashcardName]) && (
+                <div className="p-6 bg-gradient-to-r from-emerald-50 to-green-50 rounded-xl border border-emerald-200 shadow-sm">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center">
+                      <BookOpen className="h-6 w-6 text-emerald-700 mr-3" />
+                      <h3 className="text-emerald-700 font-semibold text-lg">Lời giải chi tiết</h3>
+                    </div>
+                    <button
+                      onClick={() => setShowDetailedExplanation(!showDetailedExplanation)}
+                      className="text-emerald-600 hover:text-emerald-700 text-sm font-medium flex items-center px-3 py-1 rounded-lg hover:bg-emerald-100 transition-colors"
+                    >
+                      {showDetailedExplanation ? (
+                        <>
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                          Ẩn lời giải
+                        </>
+                      ) : (
+                        <>
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                          Xem lời giải
+                        </>
+                      )}
+                    </button>
                   </div>
                   
+                  {showDetailedExplanation && (
+                    <div className={`transition-all duration-300 ease-in-out ${isLoadingCurrentExplanation ? 'opacity-50' : 'opacity-100'}`}>
                   {isLoadingCurrentExplanation ? (
-                    <div className="flex justify-center py-8">
-                      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-500"></div>
+                      <div className="flex flex-col items-center justify-center py-12">
+                        <div className="w-12 h-12 rounded-full border-4 border-emerald-200 border-t-emerald-600 animate-spin mb-4"></div>
+                        <p className="text-emerald-600 text-sm font-medium">Đang tải lời giải chi tiết...</p>
+                        <p className="text-emerald-500 text-xs mt-1">Vui lòng đợi trong giây lát</p>
                     </div>
                   ) : detailedExplanations[activeQuestionFlashcardName] ? (
-                    <div className="prose prose-sm max-w-none text-emerald-800 whitespace-pre-line">
-                      {console.log("Rendering detailed explanation:", detailedExplanations[activeQuestionFlashcardName].substring(0, 50) + "...")}
-                      <FormattedTextDisplay content={detailedExplanations[activeQuestionFlashcardName]} />
+                      <div className="bg-white rounded-lg p-4 border border-emerald-100">
+                        <FormattedTextDisplay content={detailedExplanations[activeQuestionFlashcardName]} />
                     </div>
                   ) : (
-                    <p className="text-emerald-600">Không có lời giải chi tiết.</p>
+                      <div className="text-center py-8">
+                        <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                          <BookOpen className="w-8 h-8 text-emerald-600" />
+                        </div>
+                        <p className="text-emerald-600 italic">Không có lời giải chi tiết.</p>
+                      </div>
+                    )}
+                    </div>
                   )}
                   
+                  {showDetailedExplanation && (
                   <div className="mt-4 flex justify-end">
                     <button
                       onClick={() => {
@@ -572,6 +763,7 @@ export default function ExamMode({ topicId }) {
                       {currentQuestionIndex < examFlashcards.length - 1 ? "Tiếp tục câu tiếp theo" : "Hoàn thành"}
                     </button>
                   </div>
+                  )}
                 </div>
               )}
             </div>

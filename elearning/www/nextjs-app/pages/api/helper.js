@@ -208,10 +208,10 @@ export async function startFlashcardSession(topicId, mode = "Basic") {
     `flashcard_session.flashcard_session.start_flashcard_session`,
     {
       method: "POST",
-      body: JSON.stringify({
+      body: {
         topic_id: topicId,
         mode: mode,
-      }),
+      },
     }
   );
 }
@@ -222,10 +222,10 @@ export async function updateFlashcardSessionTime(sessionId, timeSpentSeconds) {
     `flashcard_session.flashcard_session.update_flashcard_session_time`,
     {
       method: "POST",
-      body: JSON.stringify({
+      body: {
         session_id: sessionId,
         time_spent_seconds: timeSpentSeconds,
-      }),
+      },
     }
   );
 }
@@ -236,9 +236,19 @@ export async function endFlashcardSession(sessionId) {
     `flashcard_session.flashcard_session.end_flashcard_session`,
     {
       method: "POST",
-      body: JSON.stringify({
+      body: {
         session_id: sessionId,
-      }),
+      },
+    }
+  );
+}
+
+// Get knowledge constellation data for current user
+export async function getKnowledgeConstellation() {
+  return fetchWithAuth(
+    "student_topic_mastery.student_topic_mastery.get_knowledge_constellation",
+    {
+      method: "GET",
     }
   );
 }

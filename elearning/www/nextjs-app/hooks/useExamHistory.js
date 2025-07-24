@@ -25,6 +25,10 @@ export function useExamHistory(topicId = null) {
   const [isLoadingDetails, setIsLoadingDetails] = useState(false);
   const [error, setError] = useState(null);
   
+  // New state for detailed explanations
+  const [detailedExplanations, setDetailedExplanations] = useState({});
+  const [isLoadingExplanation, setIsLoadingExplanation] = useState(false);
+  
   // Fetch exam history
   const fetchExamHistory = useCallback(async () => {
     setIsLoadingHistory(true);
@@ -301,6 +305,53 @@ export function useExamHistory(topicId = null) {
     fetchAttemptDetails(attemptName);
   }, [fetchAttemptDetails]);
   
+  // Function to get detailed explanation for a specific flashcard
+  const getDetailedExplanation = useCallback(async (flashcardName, questionData) => {
+    if (!flashcardName || detailedExplanations[flashcardName]) {
+      return detailedExplanations[flashcardName];
+    }
+
+    setIsLoadingExplanation(true);
+    
+    try {
+      console.log("useExamHistory: Getting detailed explanation for flashcard:", flashcardName);
+      
+      const responseData = await fetchWithAuth(
+        "user_exam_attempt.user_exam_attempt.get_detailed_explanation",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            flashcard_name: flashcardName,
+            question: questionData?.question,
+            answer: questionData?.answer,
+            user_answer: questionData?.user_answer,
+            flashcard_type: questionData?.flashcard_type,
+            ai_feedback: questionData?.ai_feedback || {}
+          }),
+        }
+      );
+
+      console.log("useExamHistory: Detailed explanation response:", responseData);
+
+      if (responseData?.success && responseData?.detailed_explanation) {
+        const explanation = responseData.detailed_explanation;
+        setDetailedExplanations(prev => ({
+          ...prev,
+          [flashcardName]: explanation
+        }));
+        return explanation;
+      } else {
+        console.error("useExamHistory: Failed to get detailed explanation:", responseData);
+        return null;
+      }
+    } catch (error) {
+      console.error("useExamHistory: Error getting detailed explanation:", error);
+      return null;
+    } finally {
+      setIsLoadingExplanation(false);
+    }
+  }, [detailedExplanations]);
+  
   // Fetch exam history on initial load
   useEffect(() => {
     fetchExamHistory();
@@ -315,6 +366,9 @@ export function useExamHistory(topicId = null) {
     error,
     fetchExamHistory,
     fetchAttemptDetails,
-    selectAttempt
+    selectAttempt,
+    getDetailedExplanation,
+    detailedExplanations,
+    isLoadingExplanation
   };
 } 

@@ -99,11 +99,19 @@ const renderAnswer = (answerData, question, isCorrectAnswerKey = false) => {
   }
 
   // --- 2. Xử lý hiển thị cho "Your Answer" (user_answer hoặc ai_rubric_scores) ---
-  if (
-    question.q_type === "Essay" &&
-    Array.isArray(question.ai_rubric_scores) &&
-    question.ai_rubric_scores.length > 0
-  ) {
+  if (question.q_type === "Essay") {
+    // Nếu không có bài làm (user_answer_text, user_submitted_images, ai_rubric_scores đều rỗng)
+    const noText =
+      !question.user_answer_text || question.user_answer_text.trim() === "";
+    const noImages =
+      !Array.isArray(question.user_submitted_images) ||
+      question.user_submitted_images.length === 0;
+    const noRubricScores =
+      !Array.isArray(question.ai_rubric_scores) ||
+      question.ai_rubric_scores.length === 0;
+    if (noText && noImages && noRubricScores) {
+      return <span className="text-gray-500 italic">Bài làm trống</span>;
+    }
     return (
       <div className="space-y-3">
         {question.user_answer_text && (
@@ -143,29 +151,59 @@ const renderAnswer = (answerData, question, isCorrectAnswerKey = false) => {
           Đánh giá chi tiết:
         </p>
         <ol className="list-none space-y-2 text-xs">
-          {question.ai_rubric_scores.map((score_item, idx) => (
-            <li
-              key={score_item.rubric_score_item_doc_name || idx}
-              className="p-2 border rounded shadow-sm bg-white"
-            >
-              <div className="font-medium text-gray-800">
-                {idx + 1}.{" "}
-                {renderContentItem(
-                  score_item.criterion_description,
-                  "Không có mô tả tiêu chí"
-                )}
-              </div>
-              <div className="text-green-600 font-semibold ml-4 my-1">
-                Điểm: {score_item.points_awarded_by_ai} /{" "}
-                {score_item.criterion_max_score ?? "?"}
-              </div>
-              {score_item.ai_comment && (
-                <div className="text-gray-600 ml-4 italic">
-                  Nhận xét: "{renderContentItem(score_item.ai_comment, "")}"
-                </div>
-              )}
-            </li>
-          ))}
+          {(() => {
+            // Sort ai_rubric_scores based on the order in answer_key_display
+            const sortedRubricScores = Array.isArray(
+              question.answer_key_display
+            )
+              ? question.answer_key_display
+                  .map((answerKeyItem) => {
+                    // Find the corresponding score item for this answer key item
+                    return question.ai_rubric_scores.find(
+                      (score_item) =>
+                        score_item.rubric_item_id === answerKeyItem.id
+                    );
+                  })
+                  .filter(Boolean) // Remove any undefined items
+              : question.ai_rubric_scores;
+
+            return sortedRubricScores.map((score_item, idx) => {
+              // Find the corresponding description from answer_key_display
+              const answerKeyItem = Array.isArray(question.answer_key_display)
+                ? question.answer_key_display.find(
+                    (item) => item.id === score_item.rubric_item_id
+                  )
+                : null;
+
+              const displayDescription = answerKeyItem
+                ? answerKeyItem.description
+                : score_item.criterion_description;
+
+              return (
+                <li
+                  key={score_item.rubric_score_item_doc_name || idx}
+                  className="p-2 border rounded shadow-sm bg-white"
+                >
+                  <div className="font-medium text-gray-800">
+                    {idx + 1}.{" "}
+                    {renderContentItem(
+                      displayDescription,
+                      "Không có mô tả tiêu chí"
+                    )}
+                  </div>
+                  <div className="text-green-600 font-semibold ml-4 my-1">
+                    Điểm: {score_item.points_awarded_by_ai} /{" "}
+                    {score_item.criterion_max_score ?? "?"}
+                  </div>
+                  {score_item.ai_comment && (
+                    <div className="text-gray-600 ml-4 italic">
+                      Nhận xét: "{renderContentItem(score_item.ai_comment, "")}"
+                    </div>
+                  )}
+                </li>
+              );
+            });
+          })()}
         </ol>
         {question.ai_overall_feedback_for_question && (
           <div className="mt-3 pt-2 border-t">
@@ -207,10 +245,8 @@ const renderAnswer = (answerData, question, isCorrectAnswerKey = false) => {
     answerData === undefined ||
     (typeof answerData === "string" && answerData.trim() === "")
   ) {
-    if (question.q_type === "Essay" && question.user_answer_text) {
-      return renderContentItem(question.user_answer_text);
-    }
-    return <span className="text-gray-500 italic">Không trả lời</span>;
+    // Nếu không có bài làm, hiển thị "Bài làm trống"
+    return <span className="text-gray-500 italic">Bài làm trống</span>;
   }
 
   if (typeof answerData === "string") {

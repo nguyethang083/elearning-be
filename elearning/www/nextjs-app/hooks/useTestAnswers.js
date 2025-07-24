@@ -31,7 +31,11 @@ export function useTestAnswers() {
 
   // --- Initialization Function ---
   const initializeAnswers = useCallback(
-    (savedAnswersFromBackend, questionsWithMappedId) => {
+    (
+      savedAnswersFromBackend,
+      questionsWithMappedId,
+      savedMarkedForReview = {}
+    ) => {
       // Reset all states
       setMultipleChoiceAnswers({});
       setShortAnswers({});
@@ -64,6 +68,12 @@ export function useTestAnswers() {
       const initialCanvas = {};
       const initialCompleted = {};
       const initialTimeSpent = {};
+      const initialMarkedReview = {};
+
+      // Initialize marked for review from saved data
+      if (savedMarkedForReview && typeof savedMarkedForReview === "object") {
+        Object.assign(initialMarkedReview, savedMarkedForReview);
+      }
 
       for (const backendKey_snake_case in savedAnswersFromBackend) {
         const answerData = savedAnswersFromBackend[backendKey_snake_case];
@@ -126,6 +136,7 @@ export function useTestAnswers() {
       setLongAnswers(initialLong);
       setCanvasStates(initialCanvas);
       setCompletedQuestions(initialCompleted);
+      setMarkedForReview(initialMarkedReview);
       setQuestionTimeSpent(initialTimeSpent);
       setSavedStatus("saved");
     },
@@ -242,6 +253,10 @@ export function useTestAnswers() {
         ...prev,
         [testQuestionId_camelCase]: !prev[testQuestionId_camelCase],
       };
+      console.log(
+        "Setting savedStatus to unsaved, new marked state:",
+        newState
+      );
       setSavedStatus("unsaved");
       return newState;
     });
@@ -334,7 +349,10 @@ export function useTestAnswers() {
         answersToSubmit
       );
 
-      return answersToSubmit;
+      return {
+        answers: answersToSubmit,
+        markedForReview: markedForReview,
+      };
     },
     [
       multipleChoiceAnswers,
@@ -342,6 +360,7 @@ export function useTestAnswers() {
       longAnswers,
       canvasStates,
       questionTimeSpent,
+      markedForReview,
     ]
   );
 

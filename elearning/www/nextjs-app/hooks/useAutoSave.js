@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useDebouncedCallback } from "use-debounce";
 import { fetchWithAuth } from "@/pages/api/helper";
 
@@ -17,7 +17,7 @@ export function useAutoSave({
 }) {
   const [isSaving, setIsSaving] = useState(false);
 
-  const debouncedSaveProgress = useDebouncedCallback(
+  const saveProgress = useCallback(
     async (reason = "auto") => {
       if (
         !testAttemptId ||
@@ -46,9 +46,10 @@ export function useAutoSave({
       );
 
       const progressPayloadForBackend = {
-        answers: currentAnswersForSave,
+        answers: currentAnswersForSave.answers || currentAnswersForSave,
         remainingTimeSeconds: countdown,
         lastViewedTestQuestionId: currentQuestionData?.question_id, // Use question_id for backend reference
+        markedForReview: currentAnswersForSave.markedForReview || {},
       };
 
       const payload = {
@@ -71,7 +72,31 @@ export function useAutoSave({
         setIsSaving(false);
       }
     },
-    1000 // Debounce time
+    [
+      testAttemptId,
+      isSaving,
+      isSubmitting,
+      savedStatus,
+      currentQuestionData,
+      getAnswersForSubmission,
+      questionsFromAttempt,
+      currentSessionQuestionFiles,
+      countdown,
+      setSavedStatus,
+    ]
+  );
+
+  const debouncedSaveProgress = useDebouncedCallback(
+    saveProgress,
+    500 // Reduced debounce time for better responsiveness on mark for review
+  );
+
+  // Immediate save function for critical actions (no debounce)
+  const immediateSaveProgress = useCallback(
+    async (reason = "immediate") => {
+      return saveProgress(reason);
+    },
+    [saveProgress]
   );
 
   // Auto-save on interval
@@ -94,6 +119,27 @@ export function useAutoSave({
     currentQuestionData,
     questionsFromAttempt,
     isSubmitting,
+  ]);
+
+  // Auto-save when savedStatus changes to 'unsaved' - use debounced save for mark for review
+  useEffect(() => {
+    console.log("savedStatus changed to:", savedStatus);
+    if (
+      savedStatus === "unsaved" &&
+      testAttemptId &&
+      questionsFromAttempt.length > 0 &&
+      !isSubmitting
+    ) {
+      console.log("Triggering debounced save for unsaved status (including mark for review changes)");
+      // Use debounced save to handle rapid changes, but with shorter delay
+      debouncedSaveProgress("mark_for_review_change");
+    }
+  }, [
+    savedStatus,
+    testAttemptId,
+    questionsFromAttempt,
+    isSubmitting,
+    debouncedSaveProgress,
   ]);
 
   // Auto-save on visibility change
@@ -119,5 +165,5 @@ export function useAutoSave({
     isSubmitting,
   ]);
 
-  return { isSaving, debouncedSaveProgress };
+  return { isSaving, debouncedSaveProgress, immediateSaveProgress };
 }

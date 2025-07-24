@@ -89,64 +89,63 @@ export function useQuestionFiles(
 
       if (filesToProcessArray.length === 0) return;
 
-      // Sử dụng `setState` với callback để tránh stale state khi xử lý nhiều file
-      setCurrentSessionQuestionFiles((currentFiles) => {
-        const newFileInfosThisBatch = [];
-        const existingFilesForQuestion =
-          currentFiles[testQuestionDetailId] || [];
+      // Get current files for this question
+      const existingFilesForQuestion =
+        currentSessionQuestionFiles[testQuestionDetailId] || [];
 
-        for (const fileInput of filesToProcessArray) {
-          const originalFilename = fileInput.name || fileInput.originalFilename;
-
-          if (!isCapture) {
-            if (
-              existingFilesForQuestion.some(
-                (uiFile) =>
-                  uiFile.originalFilename === originalFilename &&
-                  uiFile.size === fileInput.size
-              )
-            ) {
-              console.log(`File ${originalFilename} đã tồn tại. Bỏ qua.`);
-              continue; // Bỏ qua file trùng lặp
-            }
-          }
-
-          // Đọc file và thêm vào batch (giả định thành công để đơn giản hoá)
-          // Bạn có thể thêm lại logic xử lý processing nếu muốn
-          if (isCapture) {
-            newFileInfosThisBatch.push(fileInput);
-          } else {
-            // Logic đọc file của bạn nên được đặt ở đây.
-            // Để đảm bảo hàm chạy đúng, tôi sẽ đơn giản hóa phần này
-            // Giả định readFileAsBase64 trả về một promise
-            readFileAsBase64(fileInput).then((fileInfoWithBase64) => {
-              setCurrentSessionQuestionFiles((prev) => ({
-                ...prev,
-                [testQuestionDetailId]: [
-                  ...(prev[testQuestionDetailId] || []),
-                  fileInfoWithBase64,
-                ],
-              }));
-            });
-          }
-        }
-
-        // Cập nhật state một lần với tất cả các file vẽ (captured)
-        if (isCapture && newFileInfosThisBatch.length > 0) {
+      if (isCapture) {
+        // For captured drawings, add directly to state
+        setCurrentSessionQuestionFiles((currentFiles) => {
           return {
             ...currentFiles,
             [testQuestionDetailId]: [
               ...existingFilesForQuestion,
-              ...newFileInfosThisBatch,
+              ...filesToProcessArray,
             ],
           };
+        });
+      } else {
+        // For regular file uploads, process them asynchronously
+        const newFileInfosThisBatch = [];
+
+        for (const fileInput of filesToProcessArray) {
+          const originalFilename = fileInput.name;
+
+          // Check for duplicates
+          if (
+            existingFilesForQuestion.some(
+              (uiFile) =>
+                uiFile.originalFilename === originalFilename &&
+                uiFile.size === fileInput.size
+            )
+          ) {
+            console.log(`File ${originalFilename} đã tồn tại. Bỏ qua.`);
+            continue; // Skip duplicate file
+          }
+
+          try {
+            const fileInfoWithBase64 = await readFileAsBase64(fileInput);
+            newFileInfosThisBatch.push(fileInfoWithBase64);
+          } catch (error) {
+            console.error(`Error reading file ${originalFilename}:`, error);
+          }
         }
 
-        // Đối với file upload, state đã được cập nhật trong .then()
-        return currentFiles;
-      });
+        // Add all processed files to state at once
+        if (newFileInfosThisBatch.length > 0) {
+          setCurrentSessionQuestionFiles((currentFiles) => {
+            return {
+              ...currentFiles,
+              [testQuestionDetailId]: [
+                ...(currentFiles[testQuestionDetailId] || []),
+                ...newFileInfosThisBatch,
+              ],
+            };
+          });
+        }
+      }
     },
-    [onFilesChanged] // ✅ ĐÂY LÀ THAY ĐỔI QUAN TRỌNG NHẤT
+    [onFilesChanged, currentSessionQuestionFiles]
   );
 
   const handleRemoveFileFromState = useCallback(

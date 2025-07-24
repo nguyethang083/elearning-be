@@ -49,6 +49,7 @@ const toastStyles = {
 
 export function DrawingArea({
   currentQuestionId,
+  testAttemptId,
   onCaptureDrawingAsFile,
   isBlocked = false,
 }) {
@@ -57,6 +58,14 @@ export function DrawingArea({
   const handleTldrawMount = useCallback((editorInstance) => {
     setEditor(editorInstance);
   }, []);
+
+  // Generate a session-scoped persistence key that includes testAttemptId
+  // This ensures the drawing state is only maintained during the current test attempt
+  // and will be cleared when the test is submitted (handled in useTestSubmission)
+  const sessionPersistenceKey =
+    testAttemptId && currentQuestionId
+      ? `tldraw_session_${testAttemptId}_q_${currentQuestionId}`
+      : undefined;
 
   const handleCaptureCanvasAsFile = useCallback(async () => {
     if (isBlocked || !editor) {
@@ -244,29 +253,9 @@ export function DrawingArea({
       >
         <Tldraw
           onMount={handleTldrawMount}
-          persistenceKey={
-            currentQuestionId ? `tldraw_ans_q_${currentQuestionId}` : undefined
-          }
+          persistenceKey={sessionPersistenceKey}
           forceMobile={true}
         />
-        <div
-          style={{
-            position: "absolute",
-            bottom: "6px",
-            right: "6px",
-            width: "100px",
-            height: "40px",
-            padding: "2px 4px",
-            backgroundColor: "rgba(249, 250, 251, 255)",
-            fontSize: "9px",
-            color: "rgba(249, 250, 251, 255)",
-            zIndex: 800,
-            pointerEvents: "none",
-            borderRadius: "3px",
-            textAlign: "center",
-            lineHeight: "normal",
-          }}
-        ></div>
       </div>
 
       <div className="flex flex-col sm:flex-row justify-end items-center mt-4 gap-2">

@@ -226,10 +226,28 @@ export default function TestResultsPage() {
   // --- Prepare data for child components ---
   const attemptScore = testResult.attempt?.score ?? 0; // Default to 0 if null for calculation
   const totalPossibleScore = testResult.test?.total_possible_score ?? 0; // Default to 0
-  const scorePercentage =
-    totalPossibleScore > 0
-      ? parseFloat(((attemptScore / totalPossibleScore) * 100).toFixed(1))
-      : 0; // Calculate percentage, handle division by zero
+
+  // Calculate accuracy based on test type
+  let accuracyPercentage;
+  if (hasEssayQuestion) {
+    // For Essay tests: use score/total_possible_score * 100
+    accuracyPercentage =
+      totalPossibleScore > 0
+        ? parseFloat(((attemptScore / totalPossibleScore) * 100).toFixed(1))
+        : 0;
+  } else {
+    // For Multiple Choice tests: use correct answers count
+    const correctAnswersCount =
+      testResult.questions_answers?.filter((q) => q.is_correct === 1).length ??
+      0;
+    const totalQuestionsCount = testResult.questions_answers?.length ?? 0;
+    accuracyPercentage =
+      totalQuestionsCount > 0
+        ? parseFloat(
+            ((correctAnswersCount / totalQuestionsCount) * 100).toFixed(1)
+          )
+        : 0;
+  }
 
   const correctAnswersCount =
     testResult.questions_answers?.filter((q) => q.is_correct === 1).length ?? 0;
@@ -346,7 +364,7 @@ export default function TestResultsPage() {
                 <CardContent className="pt-6">
                   {/* Pass calculated/formatted props */}
                   <TestResultSummary
-                    score={scorePercentage}
+                    score={accuracyPercentage}
                     correctAnswers={correctAnswersCount}
                     totalQuestions={totalQuestionsCount}
                     timeTaken={timeTakenFormatted}
@@ -377,7 +395,9 @@ export default function TestResultsPage() {
                       )}
                       <div className="flex justify-between items-center mb-2">
                         <span className="text-gray-600">Chính xác:</span>
-                        <span className="font-medium">{scorePercentage}%</span>
+                        <span className="font-medium">
+                          {accuracyPercentage}%
+                        </span>
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-gray-600">

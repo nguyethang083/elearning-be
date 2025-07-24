@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSrsMode } from '@/hooks/useSrsMode';
 import { useUserFlashcardSettings } from '@/hooks/useUserFlashcardSettings';
+import { useFlashcardSession } from '@/hooks/useFlashcardSession';
 import MathRenderer from '../MathRenderer';
 import { XCircle, CheckCircle, Printer, Download, Info, ArrowRightCircle, FileText, Lightbulb, BookOpen, RefreshCw } from 'lucide-react';
 
@@ -8,8 +9,54 @@ import { XCircle, CheckCircle, Printer, Download, Info, ArrowRightCircle, FileTe
 const FormattedTextDisplay = ({ content, className = "" }) => {
   if (!content) return null;
 
+  // Function to check if a line contains LaTeX
+  const containsLatex = (text) => {
+    return /\\[a-zA-Z]+\{|\\[a-zA-Z]+\s|\\[()[\]{}]|\$.*\$|\\text\{|\\frac\{|\\sqrt\{|\\sum|\\int|\\leftarrow|\\rightarrow|\\Leftrightarrow|\\ne|\\leq|\\geq/.test(text);
+  };
+
+  // Temporarily replace LaTeX expressions with placeholders to protect them
+  const latexExpressions = [];
+  let protectedContent = content;
+  
+  // Protect inline LaTeX expressions like \text{...}, \frac{...}, etc.
+  protectedContent = protectedContent.replace(/\\[a-zA-Z]+\{[^}]*\}/g, (match) => {
+    const placeholder = `__LATEX_EXPR_${latexExpressions.length}__`;
+    latexExpressions.push(match);
+    return placeholder;
+  });
+  
+  // Protect LaTeX commands like \Leftrightarrow, \ne, etc.
+  protectedContent = protectedContent.replace(/\\[a-zA-Z]+/g, (match) => {
+    const placeholder = `__LATEX_CMD_${latexExpressions.length}__`;
+    latexExpressions.push(match);
+    return placeholder;
+  });
+
+  // Pre-process content to remove excessive asterisks and trailing numbers
+  let processedContent = protectedContent
+    // Remove standalone asterisks that aren't part of markdown formatting
+    .replace(/^\s*\*\s*$/gm, '')
+    // Remove trailing numbers at end of lines (like "2.", "3.")
+    .replace(/\s+\d+\.\s*$/gm, '')
+    // More aggressive asterisk cleaning (but protect LaTeX placeholders)
+    .replace(/\*\*([^*]+)\*\*/g, '$1') // Remove double asterisks but keep content
+    .replace(/\*([^*\n]+)\*/g, '$1') // Remove single asterisks but keep content
+    // Remove excessive asterisks at start/end of lines
+    .replace(/^\*+\s*/gm, '')
+    .replace(/\s*\*+$/gm, '')
+    // Clean up multiple consecutive empty lines
+    .replace(/\n\s*\n\s*\n/g, '\n\n')
+    // Normalize whitespace
+    .trim();
+
+  // Restore LaTeX expressions
+  latexExpressions.forEach((expr, index) => {
+    processedContent = processedContent.replace(new RegExp(`__LATEX_EXPR_${index}__`, 'g'), expr);
+    processedContent = processedContent.replace(new RegExp(`__LATEX_CMD_${index}__`, 'g'), expr);
+  });
+
   // Split content into lines and process each one
-  const lines = content.split('\n');
+  const lines = processedContent.split('\n');
   const processedLines = [];
   
   lines.forEach((line, index) => {
@@ -20,58 +67,94 @@ const FormattedTextDisplay = ({ content, className = "" }) => {
         trimmedLine === '**' || 
         trimmedLine === '*' || 
         trimmedLine === '•' ||
-        /^[\*\s]*$/.test(trimmedLine) ||
+        /^[\*\s•\d\.\-_]*$/.test(trimmedLine) ||
         trimmedLine.length < 2) {
-      processedLines.push(<div key={index} className="h-3"></div>);
+      processedLines.push(<div key={index} className="h-2"></div>);
       return;
     }
     
-    // Handle bullet points
+    // Handle bullet points - only process if they contain meaningful content
     if (trimmedLine.startsWith('•')) {
       const bulletContent = trimmedLine.substring(1).trim();
-      if (bulletContent) { // Only process if there's actual content after the bullet
+      if (bulletContent && bulletContent.length > 2) { // More strict validation
         processedLines.push(
-          <div key={index} className="flex items-start mb-3 pl-2">
-            <span className="text-emerald-600 mr-3 mt-1 font-medium">•</span>
-            <div className="flex-1 text-gray-700">
+          <div key={index} className="flex items-start mb-3">
+            <span className="text-emerald-600 mr-3 mt-0.5 font-medium flex-shrink-0">•</span>
+            <div className="flex-1 text-gray-700 leading-relaxed">
               <MathRenderer content={bulletContent} />
             </div>
           </div>
         );
       }
     }
-    // Handle numbered lists
-    else if (/^\d+\./.test(trimmedLine)) {
+    // Handle numbered lists - stricter validation
+    else if (/^\d+\.\s+\S/.test(trimmedLine)) {
       const match = trimmedLine.match(/^(\d+)\.\s*(.+)/);
-      if (match && match[2].trim()) { // Only process if there's content after the number
+      if (match && match[2].trim() && match[2].trim().length > 2) { // More strict validation
         processedLines.push(
-          <div key={index} className="flex items-start mb-3 pl-2">
-            <span className="text-emerald-600 font-semibold mr-3 mt-1 min-w-[24px]">{match[1]}.</span>
-            <div className="flex-1 text-gray-700">
+          <div key={index} className="flex items-start mb-3">
+            <div className="text-emerald-600 font-semibold mr-3 mt-0.5 flex-shrink-0 text-right" style={{ minWidth: '28px' }}>
+              {match[1]}.
+            </div>
+            <div className="flex-1 text-gray-700 leading-relaxed">
               <MathRenderer content={match[2]} />
             </div>
           </div>
         );
       }
     }
-    // Handle bold text (titles/headers) - clean up extra asterisks
-    else if (trimmedLine.startsWith('**') && trimmedLine.endsWith('**') && trimmedLine.length > 4) {
-      const boldText = trimmedLine.substring(2, trimmedLine.length - 2).trim();
-      if (boldText) { // Only process if there's actual content between the asterisks
+    // Check if line looks like a header (contains words that are typically headers)
+    else if (/^(Phân tích|Lời giải|Bước|Giải thích|Kết luận|Tóm tắt|Nhận xét)/i.test(trimmedLine)) {
+      // Clean any remaining asterisks from headers but preserve LaTeX
+      const cleanHeader = containsLatex(trimmedLine) ? trimmedLine : trimmedLine.replace(/\*+/g, '').trim();
+      if (cleanHeader && cleanHeader.length > 3) {
         processedLines.push(
-          <div key={index} className="font-bold text-gray-800 mb-4 mt-6 text-base border-l-4 border-emerald-500 pl-4 bg-emerald-50 py-2 rounded-r-lg">
-            <MathRenderer content={boldText} />
+          <div key={index} className="font-bold text-gray-800 mb-4 mt-6 text-base border-l-4 border-emerald-500 pl-4 bg-emerald-50 py-3 rounded-r-lg">
+            <MathRenderer content={cleanHeader} />
           </div>
         );
       }
     }
-    // Regular paragraphs - skip if it's just markdown symbols
-    else if (!/^[\*\s•\d\.]+$/.test(trimmedLine)) {
-      processedLines.push(
-        <div key={index} className="mb-3 leading-relaxed text-gray-700 text-sm">
-          <MathRenderer content={trimmedLine} />
-        </div>
-      );
+    // Handle traditional bold text (titles/headers) - but with more cleaning
+    else if ((trimmedLine.startsWith('**') && trimmedLine.endsWith('**')) || 
+             (trimmedLine.includes('**') && trimmedLine.length > 6)) {
+      // More aggressive cleaning of asterisks but preserve LaTeX
+      const cleanText = containsLatex(trimmedLine) ? trimmedLine.replace(/^\*+|\*+$/g, '').trim() : trimmedLine.replace(/\*+/g, '').trim();
+      if (cleanText && cleanText.length > 3 && !/^[\s\d\.\-_]*$/.test(cleanText)) {
+        processedLines.push(
+          <div key={index} className="font-bold text-gray-800 mb-4 mt-6 text-base border-l-4 border-emerald-500 pl-4 bg-emerald-50 py-3 rounded-r-lg">
+            <MathRenderer content={cleanText} />
+          </div>
+        );
+      }
+    }
+    // Regular paragraphs - enhanced cleaning and validation
+    else if (!/^[\*\s•\d\.\-_]*$/.test(trimmedLine) && trimmedLine.length > 3) {
+      // More careful cleaning for regular paragraphs - preserve LaTeX
+      let cleanedLine = trimmedLine;
+      
+      if (!containsLatex(trimmedLine)) {
+        cleanedLine = trimmedLine
+          .replace(/\*+/g, '') // Remove ALL asterisks only if no LaTeX
+          .replace(/^\s*\d+\.\s*/, '') // Remove leading numbers
+          .replace(/\s+\d+\.\s*$/, '') // Remove trailing numbers like "2." or "3."
+          .trim();
+      } else {
+        // For lines with LaTeX, only remove leading/trailing asterisks carefully
+        cleanedLine = trimmedLine
+          .replace(/^\*+\s*/, '') // Remove leading asterisks
+          .replace(/\s*\*+$/, '') // Remove trailing asterisks
+          .trim();
+      }
+      
+      // Only process if there's meaningful content left
+      if (cleanedLine && cleanedLine.length > 3 && !/^[\s\d\.\-_]*$/.test(cleanedLine)) {
+        processedLines.push(
+          <div key={index} className="mb-3 leading-relaxed text-gray-700">
+            <MathRenderer content={cleanedLine} />
+          </div>
+        );
+      }
     }
   });
 
@@ -131,6 +214,23 @@ export default function SrsMode({ topicId }) {
     settings,
     isLoadingSettings
   } = useUserFlashcardSettings(topicId);
+
+  // Track flashcard session for SRS mode learning time
+  const { 
+    isSessionActive, 
+    totalTimeSpent, 
+    sessionError 
+  } = useFlashcardSession(topicId, "SRS", !isLoadingCards && cards && cards.length > 0 && !noExamsMessage && !noAssessmentsMessage);
+
+  // Log session tracking info for debugging
+  useEffect(() => {
+    if (isSessionActive) {
+      console.log(`SrsMode: Session active for SRS mode, topic: ${topicId}`);
+    }
+    if (sessionError) {
+      console.error(`SrsMode: Session error:`, sessionError);
+    }
+  }, [isSessionActive, sessionError, topicId]);
 
   // Effect to listen for SRS reset events
   useEffect(() => {
@@ -434,38 +534,38 @@ export default function SrsMode({ topicId }) {
               )}
             </div>
             
-            <div className="whitespace-pre-line">
-              {currentCard?.flashcard_type === "Ordering Steps" ? (
-                <div>
-                  <MathRenderer content={currentCard?.question || ''} />
-                  {currentCard?.ordering_steps_items && (
-                    <div className="mt-4">
-                      <p className="text-sm text-gray-500 mb-2">Sắp xếp các bước theo thứ tự đúng:</p>
-                      <div className="space-y-2">
-                        {currentCard.ordering_steps_items.map((step, index) => (
-                          <div
-                            key={index}
-                            className="p-3 bg-gray-50 border border-gray-200 rounded-md"
-                          >
-                            <div className="flex items-center">
-                              <span className="w-6 h-6 flex items-center justify-center bg-indigo-100 text-indigo-800 rounded-full text-sm mr-3">
-                                {index + 1}
-                              </span>
-                              <div className="flex-1">
-                                <MathRenderer content={step.step_content} />
+              <div className="whitespace-pre-line">
+                {currentCard?.flashcard_type === "Ordering Steps" ? (
+                  <div>
+                    <MathRenderer content={currentCard?.question || ''} />
+                    {currentCard?.ordering_steps_items && (
+                      <div className="mt-4">
+                        <p className="text-sm text-gray-500 mb-2">Sắp xếp các bước theo thứ tự đúng:</p>
+                        <div className="space-y-2">
+                          {currentCard.ordering_steps_items.map((step, index) => (
+                            <div
+                              key={index}
+                              className="p-3 bg-gray-50 border border-gray-200 rounded-md"
+                            >
+                              <div className="flex items-center">
+                                <span className="w-6 h-6 flex items-center justify-center bg-indigo-100 text-indigo-800 rounded-full text-sm mr-3">
+                                  {index + 1}
+                                </span>
+                                <div className="flex-1">
+                                  <MathRenderer content={step.step_content} />
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        ))}
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  )}
-                </div>
-              ) : currentCard?.flashcard_type === "Identify the Error" ? (
-                <MathRenderer content={formatContent(currentCard?.question || '')} />
-              ) : (
-                <MathRenderer content={currentCard?.question || ''} />
-              )}
+                    )}
+                  </div>
+                ) : currentCard?.flashcard_type === "Identify the Error" ? (
+                  <MathRenderer content={formatContent(currentCard?.question || '')} />
+                ) : (
+                  <MathRenderer content={currentCard?.question || ''} />
+                )}
             </div>
 
             {/* Answer input section */}
@@ -526,8 +626,8 @@ export default function SrsMode({ topicId }) {
                   <div className="text-blue-700">
                     <FormattedTextDisplay content={feedback} />
                   </div>
-                </div>
-
+          </div>
+          
                 {/* Detailed explanation section */}
                 <div className="p-6 bg-gradient-to-r from-emerald-50 to-green-50 rounded-xl border border-emerald-200 shadow-sm">
                   <div className="flex items-center justify-between mb-4">
@@ -535,7 +635,7 @@ export default function SrsMode({ topicId }) {
                       <BookOpen className="h-6 w-6 text-emerald-700 mr-3" />
                       <h3 className="text-emerald-700 font-semibold text-lg">Lời giải chi tiết</h3>
                     </div>
-                    <button
+              <button
                       onClick={() => setShowDetailedExplanation(!showDetailedExplanation)}
                       className="text-emerald-600 hover:text-emerald-700 text-sm font-medium flex items-center px-3 py-1 rounded-lg hover:bg-emerald-100 transition-colors"
                     >
@@ -554,7 +654,7 @@ export default function SrsMode({ topicId }) {
                           Xem lời giải
                         </>
                       )}
-                    </button>
+              </button>
                   </div>
                   
                   {showDetailedExplanation && (
@@ -592,32 +692,32 @@ export default function SrsMode({ topicId }) {
                   </button>
 
                   <div className="flex space-x-3">
-                    <button
-                      onClick={() => handleProcessRating(currentCard?.name, "wrong")}
-                      disabled={isProcessingRating}
+                <button
+                  onClick={() => handleProcessRating(currentCard?.name, "wrong")}
+                  disabled={isProcessingRating}
                       className="flex items-center px-5 py-3 bg-gradient-to-r from-red-100 to-pink-100 text-red-800 rounded-xl font-medium hover:from-red-200 hover:to-pink-200 disabled:opacity-50 transition-all duration-200 shadow-sm hover:shadow-md"
-                    >
-                      <XCircle className="w-5 h-5 mr-2" />
-                      Quên
-                    </button>
-                    <button
-                      onClick={() => handleProcessRating(currentCard?.name, "hard")}
-                      disabled={isProcessingRating}
+                >
+                  <XCircle className="w-5 h-5 mr-2" />
+                  Quên
+                </button>
+                <button
+                  onClick={() => handleProcessRating(currentCard?.name, "hard")}
+                  disabled={isProcessingRating}
                       className="flex items-center px-5 py-3 bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-800 rounded-xl font-medium hover:from-amber-200 hover:to-yellow-200 disabled:opacity-50 transition-all duration-200 shadow-sm hover:shadow-md"
-                    >
-                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                      Khó
-                    </button>
-                    <button
-                      onClick={() => handleProcessRating(currentCard?.name, "correct")}
-                      disabled={isProcessingRating}
+                >
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                  Khó
+                </button>
+                <button
+                  onClick={() => handleProcessRating(currentCard?.name, "correct")}
+                  disabled={isProcessingRating}
                       className="flex items-center px-5 py-3 bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 rounded-xl font-medium hover:from-green-200 hover:to-emerald-200 disabled:opacity-50 transition-all duration-200 shadow-sm hover:shadow-md"
-                    >
-                      <CheckCircle className="w-5 h-5 mr-2" />
-                      Nhớ
-                    </button>
+                >
+                  <CheckCircle className="w-5 h-5 mr-2" />
+                  Nhớ
+                </button>
                   </div>
                 </div>
               </div>

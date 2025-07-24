@@ -56,15 +56,58 @@ export function useExamMode(topicId) {
     }
   }, [flashcards, isExamCompleted]);
   
+  // Listen for settings changes and reset exam when flashcard type filter changes
+  useEffect(() => {
+    const handleSettingsChange = (event) => {
+      // Convert both to strings for comparison
+      const currentTopicId = String(topicId);
+      const eventTopicId = String(event.detail.topicId);
+      
+      // Only process events for this topic
+      if (eventTopicId === currentTopicId) {
+        console.log('useExamMode: Detected settings change');
+        console.log('useExamMode: Current exam state - hasAttempt:', !!currentAttemptName, 'hasFlashcards:', examFlashcards.length);
+        
+        // If there's an active exam, reset it to use new settings
+        if (currentAttemptName || examFlashcards.length > 0) {
+          console.log('useExamMode: Resetting exam due to settings change');
+          
+          // Reset the exam state
+          setCurrentAttemptName(null);
+          setExamFlashcards([]);
+          setCurrentQuestionIndex(0);
+          setUserAnswers({});
+          setAiFeedbacks({});
+          setDetailedExplanations({});
+          setIsExamCompleted(false);
+          
+          // The useEffect that initializes flashcards will automatically set the new flashcards
+          // when the useFlashcards hook updates with the new settings
+        }
+      }
+    };
+
+    window.addEventListener('flashcardSettingsChanged', handleSettingsChange);
+    
+    return () => {
+      window.removeEventListener('flashcardSettingsChanged', handleSettingsChange);
+    };
+  }, [topicId, currentAttemptName, examFlashcards.length]);
+  
   // Start a new exam attempt
   const startExam = useCallback(async () => {
-    if (!topicId || isLoadingExam || examFlashcards.length > 0) return;
+    if (!topicId || isLoadingExam) return;
     
-    setIsLoadingExam(true);
+    // Reset any existing exam state first
+    setCurrentAttemptName(null);
+    setExamFlashcards([]);
+    setCurrentQuestionIndex(0);
     setUserAnswers({});
     setAiFeedbacks({});
+    setDetailedExplanations({});
     setIsExamCompleted(false);
-    setCurrentQuestionIndex(0);
+    
+    setIsLoadingExam(true);
     
     try {
       const responseData = await fetchWithAuth(
@@ -84,12 +127,16 @@ export function useExamMode(topicId) {
       // Save the attempt name for future API calls
       setCurrentAttemptName(responseData.message.attempt.name);
       
-      // If flashcards are already loaded, use them
-      if (flashcards && flashcards.length > 0) {
-        setExamFlashcards(flashcards);
-      } else if (responseData.message.attempt.flashcards) {
-        // Use flashcards from the response if available
+      // Always use flashcards from the response to ensure consistency with backend filtering
+      if (responseData.message.attempt.flashcards && responseData.message.attempt.flashcards.length > 0) {
         setExamFlashcards(responseData.message.attempt.flashcards);
+        console.log("Exam started with", responseData.message.attempt.flashcards.length, "flashcards from backend");
+      } else if (flashcards && flashcards.length > 0) {
+        // Fallback to frontend flashcards if backend doesn't provide them
+        setExamFlashcards(flashcards);
+        console.log("Exam started with", flashcards.length, "flashcards from frontend");
+      } else {
+        throw new Error("No flashcards available for exam");
       }
       
       console.log("Exam started with attempt ID:", responseData.message.attempt.name);
@@ -100,7 +147,7 @@ export function useExamMode(topicId) {
     } finally {
       setIsLoadingExam(false);
     }
-  }, [topicId, isLoadingExam, flashcards, examFlashcards.length]);
+  }, [topicId, isLoadingExam, flashcards]);
   
   // Submit an answer and get AI feedback
   const submitAnswer = useCallback(async (flashcardName, userAnswer) => {
@@ -260,13 +307,18 @@ export function useExamMode(topicId) {
   
   // Restart the exam
   const restartExam = useCallback(async () => {
+    console.log('useExamMode: Restarting exam');
+    
+    // Clear all exam state
     setCurrentAttemptName(null);
+    setExamFlashcards([]);
+    setCurrentQuestionIndex(0);
     setUserAnswers({});
     setAiFeedbacks({});
+    setDetailedExplanations({});
     setIsExamCompleted(false);
-    setCurrentQuestionIndex(0);
     
-    // Start a new exam
+    // Start a new exam with fresh settings
     await startExam();
   }, [startExam]);
   
@@ -315,8 +367,9 @@ export function useExamMode(topicId) {
         }
       );
       
+      // The backend returns { success: true/false, message: "..." } directly in response.message
       if (!response?.message?.success) {
-        throw new Error(response?.message?._error_message || "Failed to submit self-assessment");
+        throw new Error(response?.message?.message || "Failed to submit self-assessment");
       }
       
       console.log("Submitted self-assessment for card:", flashcardName);

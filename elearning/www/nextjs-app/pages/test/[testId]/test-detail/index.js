@@ -60,6 +60,7 @@ export default function TestDetail() {
   const totalQuestions = questionsFromAttempt.length;
   const testAttemptId = attemptStartData?.attempt?.id;
   const initialSavedAnswers = attemptStartData?.saved_answers;
+  const initialMarkedForReview = attemptStartData?.marked_for_review;
   const initialRemainingTime =
     attemptStartData?.attempt?.remaining_time_seconds;
 
@@ -171,15 +172,20 @@ export default function TestDetail() {
 
   useEffect(() => {
     if (initialSavedAnswers && questionsFromAttempt.length > 0) {
-      initializeAnswers(initialSavedAnswers, questionsFromAttempt);
+      initializeAnswers(
+        initialSavedAnswers,
+        questionsFromAttempt,
+        initialMarkedForReview
+      );
       // File initialization is now handled within useQuestionFiles hook constructor
     } else if (questionsFromAttempt.length > 0) {
-      initializeAnswers({}, questionsFromAttempt);
+      initializeAnswers({}, questionsFromAttempt, {});
       resetQuestionFiles(); // Ensure files are reset if no initial saved answers
     }
   }, [
     initialSavedAnswers,
     questionsFromAttempt,
+    initialMarkedForReview,
     initializeAnswers,
     resetQuestionFiles,
   ]);
@@ -196,10 +202,13 @@ export default function TestDetail() {
     }
   }, [initialRemainingTime, testDataFromAttempt?.timeLimitMinutes]);
 
-  const countdown = useTimer(
-    timeLeft !== null ? timeLeft : 0,
-    timeLeft === null
-  ); // isPaused if timeLeft is null
+  const countdown = useTimer(timeLeft !== null ? timeLeft : 0, {
+    onComplete: () => {
+      // Auto-submit when timer reaches zero
+      console.log("Time is up! Auto-submitting test...");
+      handleSubmitTest(true); // Pass true to indicate auto-submission
+    },
+  });
 
   const currentQuestionData = useMemo(
     () => questionsFromAttempt[currentQuestionIndex],
@@ -233,9 +242,25 @@ export default function TestDetail() {
     totalQuestions,
     savedStatus,
     setSavedStatus,
-    isSaving: false, // Placeholder, will be updated by useAutoSave
-    debouncedSaveProgress: async () => {}, // Placeholder
+    isSaving: false, // Will be updated below
+    debouncedSaveProgress: async () => {}, // Will be updated below
   });
+
+  const { isSaving, debouncedSaveProgress } = useAutoSave({
+    testAttemptId,
+    currentQuestionData,
+    questionsFromAttempt,
+    currentSessionQuestionFiles,
+    getAnswersForSubmission,
+    countdown,
+    savedStatus,
+    setSavedStatus,
+    isSubmitting,
+  });
+
+  // Update the useTestSubmission hook with the actual isSaving and debouncedSaveProgress
+  // Note: This is a bit of a hack, but necessary due to the circular dependency
+  // In a better design, we might restructure these hooks
 
   useEffect(() => {
     if (currentTestQuestionDetailId) {
@@ -409,6 +434,7 @@ export default function TestDetail() {
                   )
                 }
                 testQuestionId={currentTestQuestionDetailId}
+                testAttemptId={testAttemptId}
                 currentFiles={
                   currentSessionQuestionFiles[currentTestQuestionDetailId] || []
                 }
@@ -423,7 +449,7 @@ export default function TestDetail() {
               totalQuestions={totalQuestions}
               onPrevQuestion={navHandlers.handlePrevQuestion}
               onNextQuestion={navHandlers.handleNextQuestion}
-              onSubmitTest={handleSubmitTest}
+              onSubmitTest={() => handleSubmitTest(false)} // Pass false for manual submission
               onNavigate={navHandlers.navigateToQuestion}
               savedStatus={savedStatus}
               submitting={isSubmitting}

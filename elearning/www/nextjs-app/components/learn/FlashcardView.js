@@ -2,6 +2,7 @@ import MathRenderer from "./MathRenderer";
 import { ChevronLeft, ChevronRight, Lightbulb, RotateCcw } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useUserFlashcardSettings } from '@/hooks/useUserFlashcardSettings';
+import { useFlashcardSession } from '@/hooks/useFlashcardSession';
 
 export default function FlashcardView({ 
   flashcards, 
@@ -18,6 +19,23 @@ export default function FlashcardView({
   const [orderedSteps, setOrderedSteps] = useState([]);
   const [showHint, setShowHint] = useState(false);
   const { settings } = useUserFlashcardSettings(topicId);
+  
+  // Track flashcard session for Basic mode learning time
+  const { 
+    isSessionActive, 
+    totalTimeSpent, 
+    sessionError 
+  } = useFlashcardSession(topicId, "Basic", !!flashcards && flashcards.length > 0);
+
+  // Log session tracking info for debugging
+  useEffect(() => {
+    if (isSessionActive) {
+      console.log(`FlashcardView: Session active for Basic mode, topic: ${topicId}`);
+    }
+    if (sessionError) {
+      console.error(`FlashcardView: Session error:`, sessionError);
+    }
+  }, [isSessionActive, sessionError, topicId]);
   
   // Determine which side is front based on settings
   const isBackFirst = settings?.flashcard_direction === 'back_first';

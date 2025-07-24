@@ -21,8 +21,7 @@ export default function TestDescription() {
   const { test, attemptStatus, attempts, loading, error, attemptsError } =
     useTestDetails(id);
 
-  const totalScore = test?.question_count ?? "N/A";
-  console.log("ATtempt status:", attemptStatus);
+  const totalScore = test?.total_possible_score ?? "N/A";
   const navigateToAttemptResult = (attemptId) => {
     if (!test || !test.title || !attemptId) return;
     const slugifiedTitle = slugify(test.title, {
@@ -138,13 +137,12 @@ export default function TestDescription() {
               </Alert>
             )}
 
-            {/* Render PreviousAttempts component if not loading AND no attemptsError */}
-            {/* The component itself handles the case where attempts array is empty */}
             {!loading && !attemptsError && (
               <PreviousAttempts
-                attempts={attempts} // Pass the attempts array from the hook
+                attempts={attempts}
                 onAttemptClick={navigateToAttemptResult}
                 totalPossibleScore={totalScore}
+                hasEssayQuestion={test?.has_essay_question}
               />
             )}
           </div>

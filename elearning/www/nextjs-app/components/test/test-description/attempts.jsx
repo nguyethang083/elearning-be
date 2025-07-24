@@ -16,6 +16,7 @@ export default function PreviousAttempts({
   attempts = [],
   onAttemptClick,
   totalPossibleScore,
+  hasEssayQuestion = false,
 }) {
   return (
     <div className="mb-8">
@@ -50,6 +51,27 @@ export default function PreviousAttempts({
                     totalPossibleScore !== undefined &&
                     typeof totalPossibleScore === "number" && // Ensure total is a number
                     totalPossibleScore > 0; // Avoid division by zero
+
+                  // Calculate percentage based on test type
+                  let scorePercentage = 0;
+                  if (canCalculatePercentage) {
+                    if (hasEssayQuestion) {
+                      // For Essay tests: use final_score / totalPossibleScore * 100
+                      scorePercentage =
+                        (attempt.final_score / totalPossibleScore) * 100;
+                      console.log("Total Possible Score:", totalPossibleScore);
+                    } else {
+                      // For Multiple Choice tests: use final_score / totalPossibleScore * 100
+                      // Note: For multiple choice, final_score already represents the score
+                      scorePercentage =
+                        (attempt.final_score / totalPossibleScore) * 100;
+                      console.log("Total Possible Score1:", totalPossibleScore);
+                    }
+                  }
+
+                  // Convert percentage to scale of 10
+                  const scoreOnScale10 = scorePercentage / 10;
+
                   return (
                     <TableRow
                       key={attempt.id}
@@ -88,14 +110,11 @@ export default function PreviousAttempts({
                       <TableCell className="py-3 px-4 text-center">
                         {canCalculatePercentage ? (
                           <span className="font-medium">
-                            {/* Calculate and format percentage (e.g., 85.0%) */}
-                            {`${(
-                              (attempt.final_score / totalPossibleScore) *
-                              10
-                            ).toFixed(1)}`}
+                            {/* Display score on scale of 10 */}
+                            {scoreOnScale10.toFixed(1)}
                             {/* Optional: Show raw score as well */}
                             {/* <span className="text-xs text-gray-500 ml-1">
-                ({attempt.score}/{totalPossibleScore})
+                ({attempt.final_score}/{totalPossibleScore})
               </span> */}
                           </span>
                         ) : attempt.status === "In Progress" ? (
