@@ -1,250 +1,530 @@
 [
-    {
-      "id": 1,
-      "topic_name": "Chương I. Phương trình và Hệ phương trình bậc nhất",
-      "detail": "Chương này trang bị cho học sinh các công cụ đại số cơ bản để giải quyết các bài toán liên quan đến phương trình bậc nhất một ẩn, phương trình tích, phương trình chứa ẩn ở mẫu. Đặc biệt, chương giới thiệu hai phương pháp giải hệ hai phương trình bậc nhất hai ẩn là phương pháp thế và phương pháp cộng đại số, cùng với ứng dụng của chúng trong việc giải các bài toán thực tế.",
-      "learningObjectives": [
-        "Nhận biết và giải thành thạo phương trình bậc nhất một ẩn.",
-        "Hiểu và áp dụng cách giải phương trình tích, phương trình chứa ẩn ở mẫu, bao gồm bước tìm điều kiện xác định.",
-        "Nắm vững khái niệm hệ hai phương trình bậc nhất hai ẩn và nghiệm của nó.",
-        "Vận dụng thành thạo phương pháp thế và phương pháp cộng đại số để giải hệ phương trình.",
-        "Giải được các bài toán thực tế bằng cách lập phương trình hoặc hệ phương trình."
-      ],
-      "keyTopics": [
-        "Phương trình bậc nhất một ẩn",
-        "Phương trình đưa được về dạng ax + b = 0, A(x)B(x)=0",
-        "Phương trình chứa ẩn ở mẫu",
-        "Hệ hai phương trình bậc nhất hai ẩn",
-        "Phương pháp giải hệ phương trình (Thế, Cộng đại số)",
-        "Giải bài toán bằng cách lập phương trình, hệ phương trình"
-      ],
-      "prerequisites": [
-        "Các phép biến đổi đơn thức, đa thức",
-        "Các quy tắc chuyển vế, quy tắc nhân chia trong phương trình",
-        "Kỹ năng phân tích đa thức thành nhân tử",
-        "Kỹ năng quy đồng mẫu thức"
-      ]
-    },
-    {
-      "id": 2,
-      "topic_name": "Chương II. Bất đẳng thức. Bất phương trình bậc nhất một ẩn",
-      "detail": "Chương này giới thiệu về khái niệm bất đẳng thức và các tính chất cơ bản của nó. Học sinh sẽ học cách giải và biểu diễn tập nghiệm của bất phương trình bậc nhất một ẩn trên trục số, đồng thời vận dụng các quy tắc biến đổi bất phương trình, đặc biệt là quy tắc đổi chiều khi nhân hoặc chia với số âm.",
-      "learningObjectives": [
-        "Hiểu khái niệm bất đẳng thức và nắm vững các tính chất liên hệ thứ tự và phép toán.",
-        "Nhận biết bất phương trình bậc nhất một ẩn và giải thành thạo.",
-        "Biểu diễn được tập nghiệm của bất phương trình trên trục số.",
-        "Vận dụng giải các bài toán dẫn đến bất phương trình bậc nhất một ẩn.",
-        "Làm quen với việc chứng minh các bất đẳng thức đơn giản."
-      ],
-      "keyTopics": [
-        "Bất đẳng thức và các tính chất",
-        "Bất phương trình bậc nhất một ẩn",
-        "Quy tắc chuyển vế và quy tắc nhân với một số",
-        "Biểu diễn tập nghiệm trên trục số",
-        "Giải hệ bất phương trình bậc nhất một ẩn (nâng cao)"
-      ],
-      "prerequisites": [
-        "Kiến thức về phương trình bậc nhất một ẩn",
-        "Các phép toán với số thực",
-        "Khái niệm về tập hợp và các khoảng, đoạn, nửa khoảng"
-      ]
-    },
-    {
-      "id": 3,
-      "topic_name": "Chương III. Căn thức",
-      "detail": "Chương này đi sâu vào khái niệm căn bậc hai số học và căn thức bậc hai. Học sinh sẽ được trang bị các kỹ năng biến đổi, rút gọn biểu thức chứa căn thức thông qua các quy tắc khai phương, đưa thừa số vào/ra khỏi dấu căn và trục căn thức ở mẫu. Hằng đẳng thức \\(\\sqrt{A^2} = |A|\\) là kiến thức trọng tâm của chương.",
-      "learningObjectives": [
-        "Nắm vững định nghĩa căn bậc hai số học và điều kiện xác định của căn thức.",
-        "Vận dụng thành thạo hằng đẳng thức \\(\\sqrt{A^2} = |A|\\).",
-        "Thực hiện được các phép biến đổi đơn giản về căn thức bậc hai: khai phương một tích/thương, đưa thừa số vào/ra khỏi dấu căn.",
-        "Trục được căn thức ở mẫu trong các trường hợp đơn giản.",
-        "Rút gọn được các biểu thức chứa căn thức bậc hai."
-      ],
-      "keyTopics": [
-        "Căn bậc hai số học",
-        "Điều kiện xác định của căn thức \\(\\sqrt{A}\\)",
-        "Hằng đẳng thức \\(\\sqrt{A^2} = |A|\\)",
-        "Các phép biến đổi căn thức",
-        "Trục căn thức ở mẫu",
-        "Rút gọn biểu thức chứa căn"
-      ],
-      "prerequisites": [
-        "Kiến thức về lũy thừa, hằng đẳng thức đáng nhớ",
-        "Kỹ năng giải bất phương trình bậc nhất",
-        "Các phép toán với phân thức đại số"
-      ]
-    },
-    {
-      "id": 4,
-      "topic_name": "Chương IV. Hệ thức lượng trong tam giác vuông",
-      "detail": "Chương này tập trung vào mối quan hệ giữa các cạnh và góc trong một tam giác vuông. Học sinh sẽ được học các hệ thức lượng quan trọng liên quan đến cạnh, đường cao, hình chiếu và các tỉ số lượng giác của góc nhọn (Sin, Cos, Tan, Cot). Các kiến thức này là nền tảng cho việc giải tam giác và ứng dụng trong nhiều bài toán thực tế.",
-      "learningObjectives": [
-        "Nắm vững các hệ thức về cạnh và đường cao trong tam giác vuông.",
-        "Hiểu và tính được các tỉ số lượng giác của một góc nhọn.",
-        "Biết mối quan hệ giữa các tỉ số lượng giác của hai góc phụ nhau.",
-        "Vận dụng các hệ thức và tỉ số lượng giác để giải tam giác vuông.",
-        "Áp dụng kiến thức vào các bài toán đo đạc, tính toán trong thực tế."
-      ],
-      "keyTopics": [
-        "Hệ thức giữa cạnh và đường cao",
-        "Định nghĩa tỉ số lượng giác (Sin, Cos, Tan, Cot)",
-        "Tỉ số lượng giác của hai góc phụ nhau",
-        "Một số hệ thức lượng giác cơ bản (ví dụ: \\(sin^2\\alpha+cos^2\\alpha=1\\))",
-        "Giải tam giác vuông",
-        "Ứng dụng thực tế"
-      ],
-      "prerequisites": [
-        "Định lý Pitago trong tam giác vuông",
-        "Các trường hợp bằng nhau và đồng dạng của tam giác",
-        "Khái niệm góc nhọn, góc vuông"
-      ]
-    },
-    {
-        "id": 5,
-        "topic_name": "Chương V. Đường tròn",
-        "detail": "Chương V là một trong những chương hình học quan trọng nhất, cung cấp kiến thức toàn diện về đường tròn. Học sinh sẽ tìm hiểu từ định nghĩa, các yếu tố cơ bản, vị trí tương đối cho đến các loại góc liên quan đến đường tròn và tính chất của chúng. Kiến thức này là nền tảng cho nhiều bài toán chứng minh và tính toán phức tạp sau này.",
-        "learningObjectives": [
-          "Nắm vững định nghĩa và các yếu tố của đường tròn (tâm, bán kính, dây cung, đường kính).",
-          "Hiểu và vận dụng các tính chất của đường kính và dây cung.",
-          "Xác định được vị trí tương đối của điểm, đường thẳng, và hai đường tròn.",
-          "Nắm vững định nghĩa và tính chất của các loại góc với đường tròn (góc ở tâm, góc nội tiếp, góc tạo bởi tiếp tuyến và dây cung,...).",
-          "Áp dụng kiến thức để chứng minh các bài toán hình học liên quan."
-        ],
-        "keyTopics": [
-          "Định nghĩa đường tròn, vị trí của một điểm",
-          "Đường kính và dây cung",
-          "Vị trí tương đối của đường thẳng và đường tròn, tiếp tuyến",
-          "Tính chất hai tiếp tuyến cắt nhau",
-          "Vị trí tương đối của hai đường tròn",
-          "Góc ở tâm, góc nội tiếp và các loại góc khác với đường tròn"
-        ],
-        "prerequisites": [
-          "Kiến thức về tam giác (bằng nhau, đồng dạng, Pitago)",
-          "Khái niệm khoảng cách, đường vuông góc",
-          "Kỹ năng chứng minh hình học cơ bản"
+  {
+    "id": 1,
+    "topic_name": "Chương I. Phương trình và Hệ phương trình bậc nhất",
+    "detail": "Chương này trang bị cho học sinh các công cụ đại số cơ bản để giải quyết các bài toán liên quan đến phương trình bậc nhất một ẩn, phương trình tích, phương trình chứa ẩn ở mẫu. Đặc biệt, chương giới thiệu hai phương pháp giải hệ hai phương trình bậc nhất hai ẩn là phương pháp thế và phương pháp cộng đại số, cùng với ứng dụng của chúng trong việc giải các bài toán thực tế.",
+    "knowledgeSummary": [
+      {
+        "lesson_name": "Bài 1. Phương trình quy về phương trình bậc nhất một ẩn",
+        "content": [
+          "- **Phương trình tích:** Dạng A(x)·B(x) = 0 ⇔ A(x) = 0 hoặc B(x) = 0.",
+          "- **Phương trình chứa ẩn ở mẫu:** Các bước giải:",
+          "  1. Tìm Điều kiện xác định (ĐKXĐ) của phương trình.",
+          "  2. Quy đồng mẫu thức hai vế rồi khử mẫu.",
+          "  3. Giải phương trình vừa nhận được.",
+          "  4. So sánh nghiệm tìm được với ĐKXĐ và kết luận."
         ]
       },
       {
-        "id": 6,
-        "topic_name": "Chương VI. Một số yếu tố thống kê và xác suất",
-        "detail": "Chương này cung cấp các kiến thức nhập môn về thống kê và xác suất. Học sinh sẽ học cách thu thập, tổ chức, biểu diễn dữ liệu qua các loại bảng và biểu đồ. Phần xác suất giới thiệu các khái niệm cơ bản như phép thử, không gian mẫu, biến cố và cách tính xác suất của biến cố trong những trường hợp đơn giản, giúp học sinh làm quen với tư duy định lượng về sự ngẫu nhiên.",
-        "learningObjectives": [
-          "Thu thập và phân loại được dữ liệu thống kê.",
-          "Lập được bảng tần số, bảng tần số ghép nhóm.",
-          "Đọc và phân tích được các loại biểu đồ thống kê thông dụng.",
-          "Hiểu các khái niệm: phép thử ngẫu nhiên, không gian mẫu, biến cố.",
-          "Tính được xác suất của biến cố trong các phép thử đơn giản bằng phương pháp đếm.",
-          "Hiểu và vận dụng quy tắc cộng, nhân xác suất trong các bài toán đơn giản."
-        ],
-        "keyTopics": [
-          "Thu thập và biểu diễn dữ liệu",
-          "Bảng tần số, tần số tương đối, tần số ghép nhóm",
-          "Biểu đồ cột, biểu đồ hình quạt tròn",
-          "Phép thử ngẫu nhiên và không gian mẫu",
-          "Biến cố và xác suất của biến cố",
-          "Biến cố đối, quy tắc cộng và nhân xác suất"
-        ],
-        "prerequisites": [
-          "Các phép toán cơ bản với phân số và số thập phân",
-          "Kỹ năng đọc hiểu bảng biểu",
-          "Tư duy logic và đếm cơ bản"
+        "lesson_name": "Bài 2. Phương trình bậc nhất hai ẩn. Hệ hai phương trình bậc nhất hai ẩn",
+        "content": [
+          "- **Phương trình bậc nhất hai ẩn:** Dạng ax + by = c (a, b không đồng thời bằng 0). Mỗi nghiệm là một cặp số (x₀; y₀).",
+          "- **Hệ hai phương trình bậc nhất hai ẩn:** Dạng \\(\\begin{cases} ax + by = c \\\\ a'x + b'y = c' \\end{cases}\\). Nghiệm của hệ là cặp số (x₀; y₀) thỏa mãn đồng thời cả hai phương trình."
         ]
       },
-    {
-      "id": 7,
-      "topic_name": "Chương VII. Hàm số y = ax² (a ≠ 0). Phương trình bậc hai một ẩn",
-      "detail": "Chương này kết nối giữa đại số và hình học thông qua việc nghiên cứu hàm số bậc hai \\(y=ax^2\\) và đồ thị Parabol của nó. Song song đó, chương cung cấp công cụ giải quyết một trong những dạng phương trình quan trọng nhất là phương trình bậc hai một ẩn, thông qua công thức nghiệm và hệ thức Viète, mở ra nhiều ứng dụng trong các bài toán tìm tham số và bài toán thực tế.",
-      "learningObjectives": [
-        "Nắm vững tính chất đồng biến, nghịch biến của hàm số \\(y=ax^2\\).",
-        "Vẽ được đồ thị hàm số \\(y=ax^2\\) (Parabol) và nhận biết các đặc điểm của nó.",
-        "Giải thành thạo phương trình bậc hai một ẩn bằng công thức nghiệm và công thức nghiệm thu gọn.",
-        "Vận dụng hệ thức Viète để nhẩm nghiệm, tính tổng và tích các nghiệm, tìm hai số khi biết tổng và tích.",
-        "Áp dụng phương trình bậc hai để giải các bài toán thực tế."
-      ],
-      "keyTopics": [
-        "Hàm số \\(y=ax^2\\) và đồ thị Parabol",
-        "Phương trình bậc hai một ẩn",
-        "Công thức nghiệm và công thức nghiệm thu gọn",
-        "Hệ thức Viète và ứng dụng",
-        "Phương trình quy về phương trình bậc hai",
-        "Giải bài toán bằng cách lập phương trình bậc hai"
-      ],
-      "prerequisites": [
-        "Kiến thức về hàm số bậc nhất",
-        "Giải phương trình bậc nhất, phương trình tích",
-        "Các phép biến đổi căn thức"
-      ]
-    },
-    {
-      "id": 8,
-      "topic_name": "Chương VIII. Đường tròn ngoại tiếp và Đường tròn nội tiếp",
-      "detail": "Chương này mở rộng các kiến thức về đường tròn bằng cách nghiên cứu mối quan hệ giữa đường tròn và đa giác, cụ thể là tam giác và tứ giác. Học sinh sẽ học cách xác định tâm và bán kính của đường tròn ngoại tiếp, nội tiếp một tam giác, và tìm hiểu về các dấu hiệu nhận biết một tứ giác nội tiếp đường tròn – một công cụ cực kỳ mạnh mẽ trong việc giải các bài toán chứng minh hình học.",
-      "learningObjectives": [
-        "Hiểu định nghĩa và cách xác định tâm, bán kính của đường tròn ngoại tiếp, nội tiếp một tam giác.",
-        "Nắm vững các trường hợp đặc biệt (tam giác vuông, tam giác đều).",
-        "Hiểu định nghĩa tứ giác nội tiếp.",
-        "Nắm vững và vận dụng các dấu hiệu nhận biết tứ giác nội tiếp để chứng minh bài toán.",
-        "Áp dụng tính chất của tứ giác nội tiếp vào việc tính toán góc."
-      ],
-      "keyTopics": [
-        "Đường tròn ngoại tiếp tam giác",
-        "Đường tròn nội tiếp tam giác",
-        "Định nghĩa tứ giác nội tiếp",
-        "Dấu hiệu nhận biết tứ giác nội tiếp",
-        "Tính chất của tứ giác nội tiếp"
-      ],
-      "prerequisites": [
-        "Kiến thức về các đường đặc biệt trong tam giác (trung trực, phân giác)",
-        "Kiến thức về các loại góc trong đường tròn (Chương V)",
-        "Kỹ năng chứng minh các góc bằng nhau, các cặp góc phụ nhau, bù nhau"
-      ]
-    },
-    {
-        "id": 9,
-        "topic_name": "Chương IX. Đa giác đều",
-        "detail": "Chương này giới thiệu về các loại đa giác đặc biệt: đa giác đều. Học sinh sẽ tìm hiểu định nghĩa, tính chất về cạnh, góc và tính đối xứng của đa giác đều. Đồng thời, chương cũng đề cập đến cách tính toán các yếu tố liên quan như số đo góc, diện tích và mối quan hệ với đường tròn ngoại tiếp, nội tiếp.",
-        "learningObjectives": [
-          "Nhận biết và nêu được định nghĩa đa giác đều.",
-          "Nắm được các tính chất về cạnh, góc, đường chéo của đa giác đều.",
-          "Tính được số đo mỗi góc, tổng số đo các góc của một đa giác đều.",
-          "Hiểu về tâm đối xứng, trục đối xứng của đa giác đều.",
-          "Biết mối quan hệ giữa đa giác đều và đường tròn ngoại tiếp, nội tiếp."
-        ],
-        "keyTopics": [
-          "Định nghĩa đa giác, đa giác đều",
-          "Công thức tính tổng số đo các góc, số đo một góc của đa giác đều",
-          "Đường tròn ngoại tiếp và nội tiếp đa giác đều",
-          "Tâm đối xứng và trục đối xứng",
-          "Phép quay và sự tạo thành các đa giác đều"
-        ],
-        "prerequisites": [
-          "Kiến thức về tam giác, tứ giác, hình tròn",
-          "Khái niệm về phép đối xứng trục, đối xứng tâm",
-          "Công thức tính diện tích các hình cơ bản"
+      {
+        "lesson_name": "Bài 3. Giải hệ hai phương trình bậc nhất hai ẩn",
+        "content": [
+          "- **Phương pháp thế:**",
+          "  1. Từ một phương trình, biểu diễn một ẩn theo ẩn kia.",
+          "  2. Thế biểu thức đó vào phương trình còn lại để được phương trình một ẩn.",
+          "  3. Giải phương trình một ẩn, từ đó suy ra nghiệm của hệ.",
+          "- **Phương pháp cộng đại số:**",
+          "  1. Nhân hai vế của các phương trình với số thích hợp sao cho hệ số của một ẩn trong hai phương trình là hai số đối nhau.",
+          "  2. Cộng vế với vế hai phương trình để được phương trình một ẩn.",
+          "  3. Giải phương trình một ẩn, từ đó suy ra nghiệm của hệ."
+        ]
+      }
+    ],
+    "learningObjectives": [
+      "Nhận biết và giải thành thạo phương trình bậc nhất một ẩn.",
+      "Hiểu và áp dụng cách giải phương trình tích, phương trình chứa ẩn ở mẫu, bao gồm bước tìm điều kiện xác định.",
+      "Nắm vững khái niệm hệ hai phương trình bậc nhất hai ẩn và nghiệm của nó.",
+      "Vận dụng thành thạo phương pháp thế và phương pháp cộng đại số để giải hệ phương trình.",
+      "Giải được các bài toán thực tế bằng cách lập phương trình hoặc hệ phương trình."
+    ],
+    "keyTopics": [
+      "Phương trình bậc nhất một ẩn",
+      "Phương trình đưa được về dạng ax + b = 0, A(x)B(x)=0",
+      "Phương trình chứa ẩn ở mẫu",
+      "Hệ hai phương trình bậc nhất hai ẩn",
+      "Phương pháp giải hệ phương trình (Thế, Cộng đại số)",
+      "Giải bài toán bằng cách lập phương trình, hệ phương trình"
+    ],
+    "prerequisites": [
+      "Các phép biến đổi đơn thức, đa thức",
+      "Các quy tắc chuyển vế, quy tắc nhân chia trong phương trình",
+      "Kỹ năng phân tích đa thức thành nhân tử",
+      "Kỹ năng quy đồng mẫu thức"
+    ]
+  },
+  {
+    "id": 2,
+    "topic_name": "Chương II. Bất đẳng thức. Bất phương trình bậc nhất một ẩn",
+    "detail": "Chương này giới thiệu về khái niệm bất đẳng thức và các tính chất cơ bản của nó. Học sinh sẽ học cách giải và biểu diễn tập nghiệm của bất phương trình bậc nhất một ẩn trên trục số, đồng thời vận dụng các quy tắc biến đổi bất phương trình, đặc biệt là quy tắc đổi chiều khi nhân hoặc chia với số âm.",
+    "knowledgeSummary": [
+      {
+        "lesson_name": "Bài 1. Bất đẳng thức",
+        "content": [
+          "- **Liên hệ thứ tự và phép cộng:** Khi cộng cùng một số vào hai vế của một bất đẳng thức, ta được một bất đẳng thức mới cùng chiều.",
+          "- **Liên hệ thứ tự và phép nhân:**",
+          "  - Nhân hai vế với số dương: Giữ nguyên chiều bất đẳng thức.",
+          "  - Nhân hai vế với số âm: Đổi chiều bất đẳng thức."
         ]
       },
-    {
-      "id": 10,
-      "topic_name": "Chương X. Hình học trực quan",
-      "detail": "Chương này tập trung vào việc nhận biết và tính toán các yếu tố của các hình khối không gian quen thuộc như hình trụ, hình nón và hình cầu. Học sinh sẽ học cách tạo lập các hình này, và áp dụng các công thức để tính diện tích xung quanh, diện tích toàn phần và thể tích, qua đó phát triển khả năng tưởng tượng không gian và giải quyết các bài toán thực tế.",
-      "learningObjectives": [
-        "Nhận dạng được hình trụ, hình nón, hình cầu và các yếu tố của chúng (bán kính, chiều cao, đường sinh).",
-        "Hiểu cách tạo lập các hình khối tròn xoay.",
-        "Nắm vững và áp dụng công thức tính diện tích xung quanh, diện tích toàn phần của hình trụ, hình nón.",
-        "Nắm vững và áp dụng công thức tính thể tích của hình trụ, hình nón, hình cầu.",
-        "Giải quyết được các bài toán thực tế liên quan đến các hình khối không gian."
-      ],
-      "keyTopics": [
-        "Hình trụ: Diện tích xung quanh và thể tích",
-        "Hình nón: Diện tích xung quanh và thể tích",
-        "Hình nón cụt: Diện tích xung quanh và thể tích",
-        "Hình cầu: Diện tích mặt cầu và thể tích khối cầu",
-        "Ứng dụng vào các bài toán thực tế"
-      ],
-      "prerequisites": [
-        "Công thức tính chu vi, diện tích hình tròn",
-        "Công thức tính diện tích các hình phẳng cơ bản (chữ nhật, tam giác)",
-        "Định lý Pitago"
-      ]
-    }
-  ]
+      {
+        "lesson_name": "Bài 2. Bất phương trình bậc nhất một ẩn",
+        "content": [
+          "- **Định nghĩa:** Bất phương trình dạng ax + b > 0 (hoặc <, ≤, ≥) với a ≠ 0.",
+          "- **Hai quy tắc biến đổi tương đương:**",
+          "  1. **Quy tắc chuyển vế:** Chuyển hạng tử từ vế này sang vế kia và đổi dấu hạng tử đó.",
+          "  2. **Quy tắc nhân (chia):** Nhân (chia) cả hai vế với cùng một số dương thì giữ nguyên chiều. Nhân (chia) cả hai vế với cùng một số âm thì phải đổi chiều.",
+          "- **Biểu diễn tập nghiệm:** Sử dụng trục số để biểu diễn tập hợp các nghiệm."
+        ]
+      }
+    ],
+    "learningObjectives": [
+      "Hiểu khái niệm bất đẳng thức và nắm vững các tính chất liên hệ thứ tự và phép toán.",
+      "Nhận biết bất phương trình bậc nhất một ẩn và giải thành thạo.",
+      "Biểu diễn được tập nghiệm của bất phương trình trên trục số.",
+      "Vận dụng giải các bài toán dẫn đến bất phương trình bậc nhất một ẩn.",
+      "Làm quen với việc chứng minh các bất đẳng thức đơn giản."
+    ],
+    "keyTopics": [
+      "Bất đẳng thức và các tính chất",
+      "Bất phương trình bậc nhất một ẩn",
+      "Quy tắc chuyển vế và quy tắc nhân với một số",
+      "Biểu diễn tập nghiệm trên trục số",
+      "Giải hệ bất phương trình bậc nhất một ẩn (nâng cao)"
+    ],
+    "prerequisites": [
+      "Kiến thức về phương trình bậc nhất một ẩn",
+      "Các phép toán với số thực",
+      "Khái niệm về tập hợp và các khoảng, đoạn, nửa khoảng"
+    ]
+  },
+  {
+    "id": 3,
+    "topic_name": "Chương III. Căn thức",
+    "detail": "Chương này đi sâu vào khái niệm căn bậc hai số học và căn thức bậc hai. Học sinh sẽ được trang bị các kỹ năng biến đổi, rút gọn biểu thức chứa căn thức thông qua các quy tắc khai phương, đưa thừa số vào/ra khỏi dấu căn và trục căn thức ở mẫu. Hằng đẳng thức \\(\\sqrt{A^2} = |A|\\) là kiến thức trọng tâm của chương.",
+    "knowledgeSummary": [
+      {
+        "lesson_name": "Bài 1. Căn bậc hai và căn bậc ba của số thực",
+        "content": [
+          "- **Căn bậc hai số học của a ≥ 0:** Là số không âm x sao cho x² = a, ký hiệu \\(\\sqrt{a}\\).",
+          "- **So sánh các căn bậc hai:** Với a, b ≥ 0, ta có a < b ⇔ \\(\\sqrt{a} < \\sqrt{b}\\).",
+          "- **Căn bậc ba của a:** Là số x sao cho x³ = a, ký hiệu \\(\\sqrt[3]{a}\\). Xác định với mọi số thực a."
+        ]
+      },
+      {
+        "lesson_name": "Bài 2. Một số phép tính về căn bậc hai của số thực",
+        "content": [
+          "- **Khai phương một tích:** \\(\\sqrt{a \\cdot b} = \\sqrt{a} \\cdot \\sqrt{b}\\) (với a, b ≥ 0).",
+          "- **Khai phương một thương:** \\(\\sqrt{\\frac{a}{b}} = \\frac{\\sqrt{a}}{\\sqrt{b}}\\) (với a ≥ 0, b > 0)."
+        ]
+      },
+      {
+        "lesson_name": "Bài 3. Căn thức bậc hai và căn thức bậc ba của biểu thức đại số",
+        "content": [
+          "- **Căn thức bậc hai:** \\(\\sqrt{A}\\) xác định (có nghĩa) khi và chỉ khi A ≥ 0.",
+          "- **Hằng đẳng thức:** \\(\\sqrt{A^2} = |A|\\).",
+          "- **Căn thức bậc ba:** \\(\\sqrt[3]{A}\\) xác định với mọi biểu thức A."
+        ]
+      },
+      {
+        "lesson_name": "Bài 4. Một số phép biến đổi căn thức bậc hai của biểu thức đại số",
+        "content": [
+          "- **Đưa thừa số ra ngoài dấu căn:** \\(\\sqrt{A^2 B} = |A|\\sqrt{B}\\) (với B ≥ 0).",
+          "- **Đưa thừa số vào trong dấu căn:** A\\(\\sqrt{B}\\) = \\(\\sqrt{A^2 B}\\) (nếu A ≥ 0, B ≥ 0); A\\(\\sqrt{B}\\) = -\\(\\sqrt{A^2 B}\\) (nếu A < 0, B ≥ 0).",
+          "- **Trục căn thức ở mẫu:** Khử căn ở mẫu bằng cách nhân với biểu thức thích hợp (thường là biểu thức liên hợp)."
+        ]
+      }
+    ],
+    "learningObjectives": [
+      "Nắm vững định nghĩa căn bậc hai số học và điều kiện xác định của căn thức.",
+      "Vận dụng thành thạo hằng đẳng thức \\(\\sqrt{A^2} = |A|\\).",
+      "Thực hiện được các phép biến đổi đơn giản về căn thức bậc hai: khai phương một tích/thương, đưa thừa số vào/ra khỏi dấu căn.",
+      "Trục được căn thức ở mẫu trong các trường hợp đơn giản.",
+      "Rút gọn được các biểu thức chứa căn thức bậc hai."
+    ],
+    "keyTopics": [
+      "Căn bậc hai số học",
+      "Điều kiện xác định của căn thức \\(\\sqrt{A}\\)",
+      "Hằng đẳng thức \\(\\sqrt{A^2} = |A|\\)",
+      "Các phép biến đổi căn thức",
+      "Trục căn thức ở mẫu",
+      "Rút gọn biểu thức chứa căn"
+    ],
+    "prerequisites": [
+      "Kiến thức về lũy thừa, hằng đẳng thức đáng nhớ",
+      "Kỹ năng giải bất phương trình bậc nhất",
+      "Các phép toán với phân thức đại số"
+    ]
+  },
+  {
+    "id": 4,
+    "topic_name": "Chương IV. Hệ thức lượng trong tam giác vuông",
+    "detail": "Chương này tập trung vào mối quan hệ giữa các cạnh và góc trong một tam giác vuông. Học sinh sẽ được học các hệ thức lượng quan trọng liên quan đến cạnh, đường cao, hình chiếu và các tỉ số lượng giác của góc nhọn (Sin, Cos, Tan, Cot). Các kiến thức này là nền tảng cho việc giải tam giác và ứng dụng trong nhiều bài toán thực tế.",
+    "knowledgeSummary": [
+      {
+        "lesson_name": "Bài 1. Tỉ số lượng giác của góc nhọn",
+        "content": [
+          "- **Định nghĩa:** sin = Đối/Huyền; cos = Kề/Huyền; tan = Đối/Kề; cot = Kề/Đối.",
+          "- **Tính chất:** Với góc nhọn α, 0 < sinα < 1, 0 < cosα < 1.",
+          "- **Hai góc phụ nhau (α + β = 90°):** sinα = cosβ; cosα = sinβ; tanα = cotβ; cotα = tanβ."
+        ]
+      },
+      {
+        "lesson_name": "Bài 2. Một số hệ thức về cạnh và góc trong tam giác vuông",
+        "content": [
+          "- **Hệ thức:** Cạnh góc vuông = (Cạnh huyền) × (sin góc đối) = (Cạnh huyền) × (cos góc kề).",
+          "- **Hệ thức:** Cạnh góc vuông = (Cạnh góc vuông kia) × (tan góc đối) = (Cạnh góc vuông kia) × (cot góc kề).",
+          "- **Giải tam giác vuông:** Là tìm tất cả các cạnh và góc của tam giác vuông khi biết hai yếu tố (có ít nhất một cạnh)."
+        ]
+      },
+      {
+        "lesson_name": "Bài 3. Ứng dụng của tỉ số lượng giác của góc nhọn",
+        "content": [
+          "- **Ước lượng khoảng cách:** Dùng tỉ số lượng giác để tính khoảng cách giữa hai điểm khi không thể đo trực tiếp.",
+          "- **Ước lượng chiều cao:** Dùng tỉ số lượng giác để tính chiều cao của một vật thể (cây, tòa nhà,...) mà không cần leo lên đỉnh."
+        ]
+      }
+    ],
+    "learningObjectives": [
+      "Nắm vững các hệ thức về cạnh và đường cao trong tam giác vuông.",
+      "Hiểu và tính được các tỉ số lượng giác của một góc nhọn.",
+      "Biết mối quan hệ giữa các tỉ số lượng giác của hai góc phụ nhau.",
+      "Vận dụng các hệ thức và tỉ số lượng giác để giải tam giác vuông.",
+      "Áp dụng kiến thức vào các bài toán đo đạc, tính toán trong thực tế."
+    ],
+    "keyTopics": [
+      "Hệ thức giữa cạnh và đường cao",
+      "Định nghĩa tỉ số lượng giác (Sin, Cos, Tan, Cot)",
+      "Tỉ số lượng giác của hai góc phụ nhau",
+      "Một số hệ thức lượng giác cơ bản (ví dụ: \\(sin^2\\alpha+cos^2\\alpha=1\\))",
+      "Giải tam giác vuông",
+      "Ứng dụng thực tế"
+    ],
+    "prerequisites": [
+      "Định lý Pitago trong tam giác vuông",
+      "Các trường hợp bằng nhau và đồng dạng của tam giác",
+      "Khái niệm góc nhọn, góc vuông"
+    ]
+  },
+  {
+    "id": 5,
+    "topic_name": "Chương V. Đường tròn",
+    "detail": "Chương V là một trong những chương hình học quan trọng nhất, cung cấp kiến thức toàn diện về đường tròn. Học sinh sẽ tìm hiểu từ định nghĩa, các yếu tố cơ bản, vị trí tương đối cho đến các loại góc liên quan đến đường tròn và tính chất của chúng. Kiến thức này là nền tảng cho nhiều bài toán chứng minh và tính toán phức tạp sau này.",
+    "knowledgeSummary": [
+      {
+        "lesson_name": "Bài 1. Đường tròn. Vị trí tương đối của hai đường tròn",
+        "content": [
+          "- **Định nghĩa:** Đường tròn tâm O bán kính R là hình gồm các điểm cách O một khoảng bằng R.",
+          "- **Tính chất:** Đường kính vuông góc với dây thì đi qua trung điểm của dây đó.",
+          "- **Vị trí tương đối của hai đường tròn (O;R) và (O';r):** Dựa vào so sánh khoảng cách nối tâm OO' với R+r và |R-r| để xác định cắt nhau, tiếp xúc, hay không giao nhau."
+        ]
+      },
+      {
+        "lesson_name": "Bài 2. Vị trí tương đối của đường thẳng và đường tròn",
+        "content": [
+          "- **Vị trí tương đối:** Dựa vào so sánh khoảng cách d từ tâm đến đường thẳng với bán kính R:",
+          "  - Cắt nhau (2 điểm chung) ⇔ d < R.",
+          "  - Tiếp xúc (1 điểm chung) ⇔ d = R.",
+          "  - Không giao nhau (0 điểm chung) ⇔ d > R."
+        ]
+      },
+      {
+        "lesson_name": "Bài 3. Tiếp tuyến của đường tròn",
+        "content": [
+          "- **Định nghĩa:** Tiếp tuyến là đường thẳng tiếp xúc với đường tròn.",
+          "- **Tính chất:** Tiếp tuyến vuông góc với bán kính đi qua tiếp điểm.",
+          "- **Hai tiếp tuyến cắt nhau:** Hai tiếp tuyến của một đường tròn cắt nhau tại một điểm thì điểm đó cách đều hai tiếp điểm và tia kẻ từ điểm đó qua tâm là tia phân giác của góc tạo bởi hai tiếp tuyến."
+        ]
+      },
+      {
+        "lesson_name": "Bài 4. Góc ở tâm. Góc nội tiếp",
+        "content": [
+          "- **Góc ở tâm:** Có đỉnh trùng với tâm đường tròn. Số đo góc ở tâm bằng số đo cung bị chắn.",
+          "- **Góc nội tiếp:** Có đỉnh nằm trên đường tròn và hai cạnh chứa hai dây cung. Số đo góc nội tiếp bằng nửa số đo cung bị chắn.",
+          "- **Hệ quả:** Các góc nội tiếp cùng chắn một cung thì bằng nhau; góc nội tiếp chắn nửa đường tròn là góc vuông (90°)."
+        ]
+      },
+      {
+        "lesson_name": "Bài 5. Độ dài cung tròn, diện tích hình quạt tròn, diện tích hình vành khuyên",
+        "content": [
+          "- **Độ dài cung n°:** \\(l = \\frac{\\pi R n}{180}\\).",
+          "- **Diện tích hình quạt tròn n°:** \\(S = \\frac{\\pi R^2 n}{360}\\).",
+          "- **Diện tích hình vành khuyên:** \\(S = \\pi (R^2 - r^2)\\) (R, r là bán kính đường tròn lớn và nhỏ)."
+        ]
+      }
+    ],
+    "learningObjectives": [
+      "Nắm vững định nghĩa và các yếu tố của đường tròn (tâm, bán kính, dây cung, đường kính).",
+      "Hiểu và vận dụng các tính chất của đường kính và dây cung.",
+      "Xác định được vị trí tương đối của điểm, đường thẳng, và hai đường tròn.",
+      "Nắm vững định nghĩa và tính chất của các loại góc với đường tròn (góc ở tâm, góc nội tiếp, góc tạo bởi tiếp tuyến và dây cung,...).",
+      "Áp dụng kiến thức để chứng minh các bài toán hình học liên quan."
+    ],
+    "keyTopics": [
+      "Định nghĩa đường tròn, vị trí của một điểm",
+      "Đường kính và dây cung",
+      "Vị trí tương đối của đường thẳng và đường tròn, tiếp tuyến",
+      "Tính chất hai tiếp tuyến cắt nhau",
+      "Vị trí tương đối của hai đường tròn",
+      "Góc ở tâm, góc nội tiếp và các loại góc khác với đường tròn"
+    ],
+    "prerequisites": [
+      "Kiến thức về tam giác (bằng nhau, đồng dạng, Pitago)",
+      "Khái niệm khoảng cách, đường vuông góc",
+      "Kỹ năng chứng minh hình học cơ bản"
+    ]
+  },
+  {
+    "id": 6,
+    "topic_name": "Chương VI. Một số yếu tố thống kê và xác suất",
+    "detail": "Chương này cung cấp các kiến thức nhập môn về thống kê và xác suất. Học sinh sẽ học cách thu thập, tổ chức, biểu diễn dữ liệu qua các loại bảng và biểu đồ. Phần xác suất giới thiệu các khái niệm cơ bản như phép thử, không gian mẫu, biến cố và cách tính xác suất của biến cố trong những trường hợp đơn giản, giúp học sinh làm quen với tư duy định lượng về sự ngẫu nhiên.",
+    "knowledgeSummary": [
+      {
+        "lesson_name": "Bài 1. Mô tả và biểu diễn dữ liệu trên các bảng, biểu đồ",
+        "content": [
+          "- **Bảng thống kê:** Dùng để trình bày dữ liệu một cách có tổ chức.",
+          "- **Biểu đồ tranh:** Dùng biểu tượng hoặc hình ảnh để biểu diễn dữ liệu.",
+          "- **Biểu đồ cột/cột kép:** Dùng để so sánh độ lớn của các số liệu."
+        ]
+      },
+      {
+        "lesson_name": "Bài 2. Tần số. Tần số tương đối",
+        "content": [
+          "- **Tần số (n):** Số lần lặp lại của một giá trị trong mẫu dữ liệu.",
+          "- **Tần số tương đối (f):** Tỉ số của tần số so với tổng số các giá trị (kích thước mẫu). Công thức: f = n/N.",
+          "- **Biểu đồ tần số:** Biểu đồ cột biểu diễn tần số của các giá trị."
+        ]
+      },
+      {
+        "lesson_name": "Bài 3. Tần số ghép nhóm. Tần số tương đối ghép nhóm",
+        "content": [
+          "- **Mẫu số liệu ghép nhóm:** Chia dữ liệu thành các nhóm (khoảng giá trị) để tóm tắt dữ liệu.",
+          "- **Tần số ghép nhóm:** Số giá trị trong mẫu thuộc một nhóm cụ thể.",
+          "- **Tần số tương đối ghép nhóm:** Tỉ số của tần số ghép nhóm so với kích thước mẫu."
+        ]
+      },
+      {
+        "lesson_name": "Bài 4. Phép thử ngẫu nhiên và không gian mẫu. Xác suất của biến cố",
+        "content": [
+          "- **Phép thử ngẫu nhiên:** Một hành động mà kết quả của nó không thể đoán trước.",
+          "- **Không gian mẫu (Ω):** Tập hợp tất cả các kết quả có thể xảy ra.",
+          "- **Biến cố:** Một tập hợp con của không gian mẫu.",
+          "- **Xác suất của biến cố A:** \\(P(A) = \\frac{\\text{Số kết quả thuận lợi cho A}}{\\text{Tổng số kết quả có thể}}\\)."
+        ]
+      }
+    ],
+    "learningObjectives": [
+      "Thu thập và phân loại được dữ liệu thống kê.",
+      "Lập được bảng tần số, bảng tần số ghép nhóm.",
+      "Đọc và phân tích được các loại biểu đồ thống kê thông dụng.",
+      "Hiểu các khái niệm: phép thử ngẫu nhiên, không gian mẫu, biến cố.",
+      "Tính được xác suất của biến cố trong các phép thử đơn giản bằng phương pháp đếm.",
+      "Hiểu và vận dụng quy tắc cộng, nhân xác suất trong các bài toán đơn giản."
+    ],
+    "keyTopics": [
+      "Thu thập và biểu diễn dữ liệu",
+      "Bảng tần số, tần số tương đối, tần số ghép nhóm",
+      "Biểu đồ cột, biểu đồ hình quạt tròn",
+      "Phép thử ngẫu nhiên và không gian mẫu",
+      "Biến cố và xác suất của biến cố",
+      "Biến cố đối, quy tắc cộng và nhân xác suất"
+    ],
+    "prerequisites": [
+      "Các phép toán cơ bản với phân số và số thập phân",
+      "Kỹ năng đọc hiểu bảng biểu",
+      "Tư duy logic và đếm cơ bản"
+    ]
+  },
+  {
+    "id": 7,
+    "topic_name": "Chương VII. Hàm số y = ax² (a ≠ 0). Phương trình bậc hai một ẩn",
+    "detail": "Chương này kết nối giữa đại số và hình học thông qua việc nghiên cứu hàm số bậc hai \\(y=ax^2\\) và đồ thị Parabol của nó. Song song đó, chương cung cấp công cụ giải quyết một trong những dạng phương trình quan trọng nhất là phương trình bậc hai một ẩn, thông qua công thức nghiệm và hệ thức Viète, mở ra nhiều ứng dụng trong các bài toán tìm tham số và bài toán thực tế.",
+    "knowledgeSummary": [
+      {
+        "lesson_name": "Bài 1. Hàm số y = ax² (a ≠ 0)",
+        "content": [
+          "- **Tính chất:** Nếu a > 0, hàm số nghịch biến khi x < 0, đồng biến khi x > 0. Nếu a < 0, hàm số đồng biến khi x < 0, nghịch biến khi x > 0.",
+          "- **Đồ thị:** Là một đường cong Parabol đi qua gốc tọa độ, nhận trục tung Oy làm trục đối xứng. Nếu a > 0, Parabol có bề lõm hướng lên trên. Nếu a < 0, Parabol có bề lõm hướng xuống dưới."
+        ]
+      },
+      {
+        "lesson_name": "Bài 2. Phương trình bậc hai một ẩn",
+        "content": [
+          "- **Định nghĩa:** Phương trình có dạng ax² + bx + c = 0 (a ≠ 0).",
+          "- **Công thức nghiệm:** Dựa vào biệt thức \\(\\Delta = b^2 - 4ac\\).",
+          "  - Δ > 0: 2 nghiệm phân biệt \\(x_{1,2} = \\frac{-b \\pm \\sqrt{\\Delta}}{2a}\\).",
+          "  - Δ = 0: Nghiệm kép \\(x = -\\frac{b}{2a}\\).",
+          "  - Δ < 0: Vô nghiệm."
+        ]
+      },
+      {
+        "lesson_name": "Bài 3. Định lí Viète",
+        "content": [
+          "- **Định lí thuận:** Nếu phương trình ax² + bx + c = 0 có hai nghiệm x₁, x₂, thì \\(x_1 + x_2 = -\\frac{b}{a}\\) và \\(x_1 x_2 = \\frac{c}{a}\\).",
+          "- **Ứng dụng:** Nhẩm nghiệm, tìm hai số khi biết tổng và tích.",
+          "- **Định lí đảo:** Nếu hai số có tổng là S và tích là P thì chúng là nghiệm của phương trình X² - SX + P = 0."
+        ]
+      }
+    ],
+    "learningObjectives": [
+      "Nắm vững tính chất đồng biến, nghịch biến của hàm số \\(y=ax^2\\).",
+      "Vẽ được đồ thị hàm số \\(y=ax^2\\) (Parabol) và nhận biết các đặc điểm của nó.",
+      "Giải thành thạo phương trình bậc hai một ẩn bằng công thức nghiệm và công thức nghiệm thu gọn.",
+      "Vận dụng hệ thức Viète để nhẩm nghiệm, tính tổng và tích các nghiệm, tìm hai số khi biết tổng và tích.",
+      "Áp dụng phương trình bậc hai để giải các bài toán thực tế."
+    ],
+    "keyTopics": [
+      "Hàm số \\(y=ax^2\\) và đồ thị Parabol",
+      "Phương trình bậc hai một ẩn",
+      "Công thức nghiệm và công thức nghiệm thu gọn",
+      "Hệ thức Viète và ứng dụng",
+      "Phương trình quy về phương trình bậc hai",
+      "Giải bài toán bằng cách lập phương trình bậc hai"
+    ],
+    "prerequisites": [
+      "Kiến thức về hàm số bậc nhất",
+      "Giải phương trình bậc nhất, phương trình tích",
+      "Các phép biến đổi căn thức"
+    ]
+  },
+  {
+    "id": 8,
+    "topic_name": "Chương VIII. Đường tròn ngoại tiếp và Đường tròn nội tiếp",
+    "detail": "Chương này mở rộng các kiến thức về đường tròn bằng cách nghiên cứu mối quan hệ giữa đường tròn và đa giác, cụ thể là tam giác và tứ giác. Học sinh sẽ học cách xác định tâm và bán kính của đường tròn ngoại tiếp, nội tiếp một tam giác, và tìm hiểu về các dấu hiệu nhận biết một tứ giác nội tiếp đường tròn – một công cụ cực kỳ mạnh mẽ trong việc giải các bài toán chứng minh hình học.",
+    "knowledgeSummary": [
+      {
+        "lesson_name": "Bài 1. Đường tròn ngoại tiếp tam giác. Đường tròn nội tiếp tam giác",
+        "content": [
+          "- **Đường tròn ngoại tiếp:** Là đường tròn đi qua 3 đỉnh của tam giác. Tâm là giao điểm 3 đường trung trực.",
+          "- **Đường tròn nội tiếp:** Là đường tròn tiếp xúc với 3 cạnh của tam giác. Tâm là giao điểm 3 đường phân giác trong."
+        ]
+      },
+      {
+        "lesson_name": "Bài 2. Tứ giác nội tiếp đường tròn",
+        "content": [
+          "- **Định nghĩa:** Là tứ giác có bốn đỉnh cùng nằm trên một đường tròn.",
+          "- **Tính chất:** Tổng hai góc đối diện bằng 180°.",
+          "- **Dấu hiệu nhận biết:** Tứ giác có tổng hai góc đối bằng 180°; Tứ giác có hai đỉnh kề nhau cùng nhìn một cạnh dưới một góc bằng nhau."
+        ]
+      }
+    ],
+    "learningObjectives": [
+      "Hiểu định nghĩa và cách xác định tâm, bán kính của đường tròn ngoại tiếp, nội tiếp một tam giác.",
+      "Nắm vững các trường hợp đặc biệt (tam giác vuông, tam giác đều).",
+      "Hiểu định nghĩa tứ giác nội tiếp.",
+      "Nắm vững và vận dụng các dấu hiệu nhận biết tứ giác nội tiếp để chứng minh bài toán.",
+      "Áp dụng tính chất của tứ giác nội tiếp vào việc tính toán góc."
+    ],
+    "keyTopics": [
+      "Đường tròn ngoại tiếp tam giác",
+      "Đường tròn nội tiếp tam giác",
+      "Định nghĩa tứ giác nội tiếp",
+      "Dấu hiệu nhận biết tứ giác nội tiếp",
+      "Tính chất của tứ giác nội tiếp"
+    ],
+    "prerequisites": [
+      "Kiến thức về các đường đặc biệt trong tam giác (trung trực, phân giác)",
+      "Kiến thức về các loại góc trong đường tròn (Chương V)",
+      "Kỹ năng chứng minh các góc bằng nhau, các cặp góc phụ nhau, bù nhau"
+    ]
+  },
+  {
+    "id": 9,
+    "topic_name": "Chương IX. Đa giác đều",
+    "detail": "Chương này giới thiệu về các loại đa giác đặc biệt: đa giác đều. Học sinh sẽ tìm hiểu định nghĩa, tính chất về cạnh, góc và tính đối xứng của đa giác đều. Đồng thời, chương cũng đề cập đến cách tính toán các yếu tố liên quan như số đo góc, diện tích và mối quan hệ với đường tròn ngoại tiếp, nội tiếp.",
+    "knowledgeSummary": [
+      {
+        "lesson_name": "Bài 1. Đa giác đều. Hình đa giác đều trong thực tiễn",
+        "content": [
+          "- **Đa giác lồi:** Là đa giác luôn nằm trong một nửa mặt phẳng có bờ là đường thẳng chứa bất kì cạnh nào của đa giác đó.",
+          "- **Đa giác đều:** Là đa giác lồi có tất cả các cạnh bằng nhau và tất cả các góc bằng nhau.",
+          "- **Tính chất:** Mọi đa giác đều đều có một đường tròn ngoại tiếp và một đường tròn nội tiếp (hai đường tròn này đồng tâm)."
+        ]
+      },
+      {
+        "lesson_name": "Bài 2. Phép quay",
+        "content": [
+          "- **Định nghĩa:** Phép quay tâm O góc quay α biến điểm M thành M' sao cho OM = OM' và góc (OM, OM') = α.",
+          "- **Phép quay và đa giác đều:** Phép quay tâm O (tâm của đa giác đều n cạnh) góc quay \\(\\frac{360°}{n}\\) sẽ biến đa giác đều đó thành chính nó."
+        ]
+      }
+    ],
+    "learningObjectives": [
+      "Nhận biết và nêu được định nghĩa đa giác đều.",
+      "Nắm được các tính chất về cạnh, góc, đường chéo của đa giác đều.",
+      "Tính được số đo mỗi góc, tổng số đo các góc của một đa giác đều.",
+      "Hiểu về tâm đối xứng, trục đối xứng của đa giác đều.",
+      "Biết mối quan hệ giữa đa giác đều và đường tròn ngoại tiếp, nội tiếp."
+    ],
+    "keyTopics": [
+      "Định nghĩa đa giác, đa giác đều",
+      "Công thức tính tổng số đo các góc, số đo một góc của đa giác đều",
+      "Đường tròn ngoại tiếp và nội tiếp đa giác đều",
+      "Tâm đối xứng và trục đối xứng",
+      "Phép quay và sự tạo thành các đa giác đều"
+    ],
+    "prerequisites": [
+      "Kiến thức về tam giác, tứ giác, hình tròn",
+      "Khái niệm về phép đối xứng trục, đối xứng tâm",
+      "Công thức tính diện tích các hình cơ bản"
+    ]
+  },
+  {
+    "id": 10,
+    "topic_name": "Chương X. Hình học trực quan",
+    "detail": "Chương này tập trung vào việc nhận biết và tính toán các yếu tố của các hình khối không gian quen thuộc như hình trụ, hình nón và hình cầu. Học sinh sẽ học cách tạo lập các hình này, và áp dụng các công thức để tính diện tích xung quanh, diện tích toàn phần và thể tích, qua đó phát triển khả năng tưởng tượng không gian và giải quyết các bài toán thực tế.",
+    "knowledgeSummary": [
+      {
+        "lesson_name": "Bài 1. Hình trụ",
+        "content": [
+          "- **Tạo lập:** Quay hình chữ nhật quanh một cạnh.",
+          "- **Diện tích xung quanh:** \\(S_{xq} = 2\\pi Rh\\).",
+          "- **Diện tích toàn phần:** \\(S_{tp} = S_{xq} + 2S_{đáy} = 2\\pi Rh + 2\\pi R^2\\).",
+          "- **Thể tích:** \\(V = S_{đáy} \\cdot h = \\pi R^2h\\)."
+        ]
+      },
+      {
+        "lesson_name": "Bài 2. Hình nón",
+        "content": [
+          "- **Tạo lập:** Quay tam giác vuông quanh một cạnh góc vuông.",
+          "- **Hệ thức:** \\(l^2 = h^2 + R^2\\) (l: đường sinh, h: chiều cao, R: bán kính đáy).",
+          "- **Diện tích xung quanh:** \\(S_{xq} = \\pi Rl\\).",
+          "- **Diện tích toàn phần:** \\(S_{tp} = S_{xq} + S_{đáy} = \\pi Rl + \\pi R^2\\).",
+          "- **Thể tích:** \\(V = \\frac{1}{3}S_{đáy} \\cdot h = \\frac{1}{3}\\pi R^2h\\)."
+        ]
+      },
+      {
+        "lesson_name": "Bài 3. Hình cầu",
+        "content": [
+          "- **Tạo lập:** Quay nửa hình tròn quanh đường kính.",
+          "- **Diện tích mặt cầu:** \\(S = 4\\pi R^2\\).",
+          "- **Thể tích khối cầu:** \\(V = \\frac{4}{3}\\pi R^3\\)."
+        ]
+      }
+    ],
+    "learningObjectives": [
+      "Nhận dạng được hình trụ, hình nón, hình cầu và các yếu tố của chúng (bán kính, chiều cao, đường sinh).",
+      "Hiểu cách tạo lập các hình khối tròn xoay.",
+      "Nắm vững và áp dụng công thức tính diện tích xung quanh, diện tích toàn phần của hình trụ, hình nón.",
+      "Nắm vững và áp dụng công thức tính thể tích của hình trụ, hình nón, hình cầu.",
+      "Giải quyết được các bài toán thực tế liên quan đến các hình khối không gian."
+    ],
+    "keyTopics": [
+      "Hình trụ: Diện tích xung quanh và thể tích",
+      "Hình nón: Diện tích xung quanh và thể tích",
+      "Hình nón cụt: Diện tích xung quanh và thể tích",
+      "Hình cầu: Diện tích mặt cầu và thể tích khối cầu",
+      "Ứng dụng vào các bài toán thực tế"
+    ],
+    "prerequisites": [
+      "Công thức tính chu vi, diện tích hình tròn",
+      "Công thức tính diện tích các hình phẳng cơ bản (chữ nhật, tam giác)",
+      "Định lý Pitago"
+    ]
+  }
+]

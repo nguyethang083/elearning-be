@@ -1,95 +1,231 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import Chart from "chart.js/auto";
+import {
+  CartesianGrid,
+  Line,
+  LineChart,
+  XAxis,
+  YAxis,
+  Legend,
+  ReferenceLine,
+  ResponsiveContainer,
+} from "recharts";
+
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
 
 export default function PerformanceTrend({ data }) {
-  const chartRef = useRef(null);
-  const chartInstance = useRef(null);
-
-  useEffect(() => {
-    // Destroy existing chart if it exists
-    if (chartInstance.current) {
-      chartInstance.current.destroy();
-    }
-
-    const ctx = chartRef.current.getContext("2d");
-
-    // Create the chart
-    chartInstance.current = new Chart(ctx, {
-      type: "line",
-      data: {
-        labels: data.labels,
-        datasets: data.datasets.map((dataset) => ({
-          label: dataset.label,
-          data: dataset.data,
-          borderColor: dataset.color,
-          backgroundColor: `white`,
-          borderWidth: 2,
-          fill: true,
-          tension: 0.4,
-          pointRadius: 3,
-          pointHoverRadius: 5,
-        })),
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          y: {
-            beginAtZero: true,
-            max: 100,
-            ticks: {
-              callback: (value) => value + "%",
-              color: "#6B7280", // Gray text for ticks
-            },
-            grid: {
-              color: "rgba(226, 232, 240, 0.6)", // Light gray grid lines
-            },
-          },
-          x: {
-            ticks: {
-              color: "#6B7280", // Gray text for ticks
-            },
-            grid: {
-              color: "rgba(226, 232, 240, 0.6)", // Light gray grid lines
-            },
-          },
-        },
-        plugins: {
-          legend: {
-            position: "bottom",
-            labels: {
-              boxWidth: 12,
-              padding: 20,
-              color: "#4B5563", // Darker gray for legend text
-            },
-          },
-          tooltip: {
-            callbacks: {
-              label: (context) => `${context.dataset.label}: ${context.raw}%`,
-            },
-            backgroundColor: "rgba(255, 255, 255, 0.9)", // Light background
-            titleColor: "#1F2937", // Dark text for title
-            bodyColor: "#4B5563", // Gray text for body
-            borderColor: "#E5E7EB", // Light border
-            borderWidth: 1,
-          },
-        },
-        interaction: {
-          mode: "index",
-          intersect: false,
-        },
-      },
+  // Transform data to Recharts format
+  const chartData = data.labels.map((label, index) => {
+    const entry = { month: label };
+    data.datasets.forEach((dataset) => {
+      entry[dataset.label] = dataset.data[index] || 0;
     });
+    return entry;
+  });
 
-    // Cleanup function
-    return () => {
-      if (chartInstance.current) {
-        chartInstance.current.destroy();
-      }
+  // Create chart config dynamically with better colors
+  const vibrantColors = [
+    "#6366f1", // Indigo
+    "#ec4899", // Pink
+    "#10b981", // Emerald
+    "#f59e0b", // Amber
+    "#3b82f6", // Blue
+    "#ef4444", // Red
+    "#8b5cf6", // Violet
+    "#06b6d4", // Cyan
+    "#84cc16", // Lime
+    "#f97316", // Orange
+  ];
+
+  const chartConfig = {};
+  data.datasets.forEach((dataset, index) => {
+    chartConfig[dataset.label] = {
+      label: dataset.label,
+      color: dataset.color || vibrantColors[index % vibrantColors.length],
     };
-  }, [data]);
+  });
 
-  return <canvas ref={chartRef} />;
+  // Custom tooltip component
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="bg-white/95 backdrop-blur-sm border border-gray-200 rounded-xl shadow-2xl p-4 min-w-[200px]">
+          <div className="text-sm font-semibold text-gray-800 mb-3 border-b border-gray-100 pb-2">
+            📅 Tháng: {label}
+          </div>
+          <div className="space-y-2">
+            {payload.map((entry, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-between gap-3"
+              >
+                <div className="flex items-center gap-2">
+                  <div
+                    className="w-3 h-3 rounded-full"
+                    style={{ backgroundColor: entry.color }}
+                  />
+                  <span className="text-sm font-medium text-gray-700">
+                    {entry.dataKey}
+                  </span>
+                </div>
+                <span className="text-sm font-bold text-gray-900">
+                  {entry.value}%
+                </span>
+              </div>
+            ))}
+          </div>
+          {payload.length > 1 && (
+            <div className="mt-3 pt-2 border-t border-gray-100">
+              <div className="flex justify-between items-center">
+                <span className="text-xs font-medium text-gray-600">
+                  Trung bình:
+                </span>
+                <span className="text-sm font-bold text-indigo-600">
+                  {Math.round(
+                    payload.reduce((sum, item) => sum + item.value, 0) /
+                      payload.length
+                  )}
+                  %
+                </span>
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+    return null;
+  };
+
+  return (
+    <ChartContainer config={chartConfig} className="h-full w-full">
+      <LineChart
+        accessibilityLayer
+        data={chartData}
+        margin={{
+          left: 25,
+          right: 25,
+          top: 25,
+          bottom: 25,
+        }}
+      >
+        <defs>
+          {data.datasets.map((dataset, index) => {
+            const color =
+              dataset.color || vibrantColors[index % vibrantColors.length];
+            return (
+              <linearGradient
+                key={`gradient-${index}`}
+                id={`gradient-${index}`}
+                x1="0"
+                y1="0"
+                x2="0"
+                y2="1"
+              >
+                <stop offset="0%" stopColor={color} stopOpacity={0.4} />
+                <stop offset="50%" stopColor={color} stopOpacity={0.2} />
+                <stop offset="100%" stopColor={color} stopOpacity={0.05} />
+              </linearGradient>
+            );
+          })}
+        </defs>
+
+        <CartesianGrid
+          vertical={false}
+          strokeDasharray="2 4"
+          stroke="rgba(0,0,0,0.06)"
+          strokeWidth={1}
+        />
+
+        <XAxis
+          dataKey="month"
+          tickLine={false}
+          axisLine={false}
+          tickMargin={15}
+          tick={{ fontSize: 13, fill: "#374151", fontWeight: 500 }}
+          interval={0}
+        />
+
+        <YAxis
+          domain={[0, 100]}
+          tickLine={false}
+          axisLine={false}
+          tickMargin={15}
+          tick={{ fontSize: 12, fill: "#6b7280" }}
+          tickFormatter={(value) => `${value}%`}
+        />
+
+        <ReferenceLine
+          y={80}
+          stroke="#10b981"
+          strokeDasharray="8 4"
+          strokeWidth={2.5}
+          label={{
+            value: "🎯 Mục tiêu (80%)",
+            position: "insideTopRight",
+            fontSize: 11,
+            fontWeight: 600,
+            fill: "#10b981",
+            offset: 10,
+          }}
+        />
+
+        <ChartTooltip
+          cursor={{
+            stroke: "#6366f1",
+            strokeWidth: 2,
+            strokeDasharray: "4 4",
+            strokeOpacity: 0.7,
+          }}
+          content={<CustomTooltip />}
+        />
+
+        <Legend
+          wrapperStyle={{
+            paddingTop: "25px",
+            fontSize: "14px",
+            fontWeight: 500,
+          }}
+          iconType="rect"
+          iconSize={12}
+        />
+
+        {data.datasets.map((dataset, index) => {
+          const color =
+            dataset.color || vibrantColors[index % vibrantColors.length];
+          return (
+            <Line
+              key={dataset.label}
+              dataKey={dataset.label}
+              type="monotone"
+              stroke={color}
+              strokeWidth={3.5}
+              dot={{
+                fill: color,
+                strokeWidth: 3,
+                r: 5,
+                stroke: "#ffffff",
+                strokeOpacity: 1,
+                filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.1))",
+              }}
+              activeDot={{
+                r: 7,
+                stroke: color,
+                strokeWidth: 3,
+                fill: "#ffffff",
+                filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.2))",
+              }}
+              fill={`url(#gradient-${index})`}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          );
+        })}
+      </LineChart>
+    </ChartContainer>
+  );
 }

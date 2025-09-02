@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { handleNextAuthLogin } from "../middleware/auth";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
+import ChatBubble from "@/components/chatbot/ChatBubble";
 import { Toaster } from "sonner";
 
 function AuthWrapper({ children }) {
@@ -47,7 +48,8 @@ export default function MyApp({
         ) : (
           <Component {...pageProps} />
         )}
-        <Toaster richColors position="top-center" /> {/* Thêm dòng này */}
+        <Toaster richColors position="top-center" />
+        <ChatBubble />
       </AuthWrapper>
     </SessionProvider>
   );

@@ -20,15 +20,9 @@ export default function TestDescription() {
   // Use the hook, now returns attempts and attemptsError as well
   const { test, attemptStatus, attempts, loading, error, attemptsError } =
     useTestDetails(id);
-
   const totalScore = test?.total_possible_score ?? "N/A";
   const navigateToAttemptResult = (attemptId) => {
     if (!test || !test.title || !attemptId) return;
-    const slugifiedTitle = slugify(test.title, {
-      lower: true,
-      strict: true,
-      locale: "vi",
-    });
     router.push(`/test/${id}/test-result/${attemptId}`);
   };
 

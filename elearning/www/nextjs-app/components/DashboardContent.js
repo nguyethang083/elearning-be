@@ -1,12 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { getKnowledgeConstellation } from "@/pages/api/helper";
+import KnowledgeConstellation from "./learn/KnowledgeConstellation";
+
+// Simple localStorage key for tutorial mode
+const TUTORIAL_KEY = "dashboard_tutorial_done";
 
 const DashboardContent = ({ user }) => {
+  const router = useRouter();
+
+  // Knowledge constellation data
+  const [constellationData, setConstellationData] = useState(null);
+  const [constellationLoading, setConstellationLoading] = useState(true);
+  const [constellationError, setConstellationError] = useState(null);
+
   // Mock data
   const leaderboardData = [
     { id: 1, name: user?.name || "Tony Adam", points: 8966, rank: "1ST" },
-    { id: 2, name: "Nguyễn Minh Anh", points: 7550, rank: "2ND", initials: "JM" },
+    {
+      id: 2,
+      name: "Nguyễn Minh Anh",
+      points: 7550,
+      rank: "2ND",
+      initials: "JM",
+    },
     { id: 3, name: "Dương Huy Lân", points: 7230, rank: "3RD", initials: "HL" },
     { id: 4, name: "Nguyễn Văn Tú", points: 6980, rank: "4TH", initials: "MS" },
   ];
@@ -21,26 +40,102 @@ const DashboardContent = ({ user }) => {
   // Performance data for tabs
   const [activeTab, setActiveTab] = useState("points");
 
+  // Tutorial mode state
+  const [tutorialMode, setTutorialMode] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
+
   // Get first name
   const firstName = user?.name ? user.name.split(" ")[0] : "Tony";
 
+  // Check if tutorial should be shown (first time only)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const done = localStorage.getItem(TUTORIAL_KEY);
+      if (!done) {
+        setTutorialMode(true);
+        setShowTooltip(true);
+      }
+    }
+  }, []);
+
+  // Load constellation data
+  useEffect(() => {
+    loadConstellationData();
+  }, []);
+
+  const loadConstellationData = async () => {
+    try {
+      setConstellationLoading(true);
+      const response = await getKnowledgeConstellation();
+
+      // Transform API response into the format KnowledgeConstellation expects
+      if (response && Array.isArray(response.message)) {
+        const transformedData = response.message.map((topic) => ({
+          topic_id: topic.topic_id,
+          topic_name: topic.topic_name,
+          description: topic.description,
+          weakness_score: topic.weakness_score || 0,
+          is_unlocked: topic.is_unlocked, // <-- include unlock status
+          components: {
+            accuracy: topic.components?.accuracy || 0,
+            pacing: topic.components?.pacing || 0,
+            decay: topic.components?.decay || 0,
+          },
+          last_updated: topic.last_updated,
+        }));
+        setConstellationData(transformedData);
+      } else {
+        console.error("Invalid response format:", response);
+        setConstellationError("Invalid data format received from server");
+      }
+    } catch (err) {
+      console.error("Error loading constellation data:", err);
+      setConstellationError(
+        "Failed to load your learning pathway. Please try again later."
+      );
+    } finally {
+      setConstellationLoading(false);
+    }
+  };
+
+  const handleTopicClick = (topicId) => {
+    router.push(`/learn/${topicId}`);
+  };
+
+  // Handler for finishing tutorial (when user clicks 'Bắt đầu ngay')
+  const handleStartTest = (e) => {
+    if (tutorialMode) {
+      localStorage.setItem(TUTORIAL_KEY, "1");
+      setTutorialMode(false);
+      setShowTooltip(false);
+    }
+    // Allow navigation
+  };
+
   return (
-    <div className="h-full">
+    <div className="h-full relative">
+      {/* Overlay for tutorial mode */}
+      {tutorialMode && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-40 pointer-events-auto transition-opacity" />
+      )}
+
       {/* Greeting section */}
       <div className="mb-8">
         <h1 className="text-2xl font-bold mb-1">
           Hello, <span className="text-indigo-600">{firstName}</span>{" "}
           <span className="text-amber-400">👋</span>
         </h1>
-        <p className="text-gray-600 text-sm">
-          Hãy học điều gì đó mới hôm nay!
-        </p>
+        <p className="text-gray-600 text-sm">Hãy học điều gì đó mới hôm nay!</p>
       </div>
 
       {/* Learning cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
-        {/* Skill Assessment */}
-        <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
+        {/* Skill Assessment - Highlighted in tutorial mode */}
+        <div
+          className={`bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 relative ${
+            tutorialMode ? "z-50" : ""
+          }`}
+        >
           <div className="p-4 flex items-start space-x-4">
             <div className="w-16 h-16 flex-shrink-0 overflow-hidden rounded-lg">
               <Image
@@ -51,22 +146,41 @@ const DashboardContent = ({ user }) => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="flex-grow">
+            <div className="flex-grow relative">
               <h3 className="text-sm font-semibold text-gray-800 mb-0.5">
                 Đánh giá kỹ năng
               </h3>
               <p className="text-xs text-gray-500 mb-2.5">
                 Đánh giá nhanh chóng kiến thức hiện tại của bạn
               </p>
-              <button className="text-xs bg-indigo-50 text-indigo-700 px-3 py-1.5 rounded-lg font-medium hover:bg-indigo-100 transition">
+              <Link
+                href="/test"
+                className={`inline-block whitespace-nowrap text-xs bg-indigo-50 text-indigo-700 px-3 py-1.5 rounded-lg font-medium transition relative ${
+                  tutorialMode ? "z-50 cursor-pointer hover:shadow-lg" : ""
+                }`}
+                style={
+                  tutorialMode
+                    ? { pointerEvents: "auto", cursor: "pointer" }
+                    : {}
+                }
+                onClick={tutorialMode ? handleStartTest : undefined}
+                tabIndex={0}
+              >
                 Bắt đầu ngay
-              </button>
+              </Link>
             </div>
           </div>
+          {/* Highlight border for tutorial mode */}
+          {tutorialMode && (
+            <div
+              className="absolute inset-0 border-4 border-indigo-400 rounded-xl pointer-events-none animate-pulse z-40"
+              style={{ boxShadow: "0 0 0 8px rgba(99,102,241,0.15)" }}
+            />
+          )}
         </div>
 
-        {/* Today's Review */}
-        <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
+        {/* Today's Review - Always shown but dimmed in tutorial */}
+        <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 relative">
           <div className="p-4 flex items-start space-x-4">
             <div className="w-16 h-16 flex-shrink-0 overflow-hidden rounded-lg">
               <Image
@@ -84,15 +198,18 @@ const DashboardContent = ({ user }) => {
               <p className="text-xs text-gray-500 mb-2.5">
                 Flashcards sẵn sàng thông qua phương pháp lập trình học tập
               </p>
-              <button className="text-xs bg-orange-50 text-orange-600 px-3 py-1.5 rounded-lg font-medium hover:bg-orange-100 transition">
+              <Link
+                href="/learn"
+                className="inline-block whitespace-nowrap text-xs bg-orange-50 text-orange-600 px-3 py-1.5 rounded-lg font-medium hover:bg-orange-100 transition"
+              >
                 Đánh giá ngay
-              </button>
+              </Link>
             </div>
           </div>
         </div>
 
-        {/* Topic Practice */}
-        <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
+        {/* Topic Practice - Always shown but dimmed in tutorial */}
+        <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 relative">
           <div className="p-4 flex items-start space-x-4">
             <div className="w-16 h-16 flex-shrink-0 overflow-hidden rounded-lg">
               <Image
@@ -118,8 +235,101 @@ const DashboardContent = ({ user }) => {
         </div>
       </div>
 
+      {/* Knowledge Constellation Section - Compact version */}
+      {(constellationLoading ||
+        constellationError ||
+        (constellationData &&
+          constellationData.filter((t) => t.is_unlocked).length > 0)) && (
+        <div
+          className={`bg-white rounded-xl shadow-sm p-4 border border-gray-100 mb-6 ${
+            tutorialMode ? "pointer-events-none opacity-60" : ""
+          }`}
+        >
+          <div className="flex justify-between items-center mb-3">
+            <div>
+              <h2 className="text-sm font-semibold text-gray-800 mb-1">
+                🌟 Chòm Sao Tri Thức
+              </h2>
+              <p className="text-xs text-gray-500">
+                Tổng quan về điểm yếu học tập của bạn
+              </p>
+            </div>
+            <Link
+              href="/my-pathway"
+              className="text-xs text-indigo-600 hover:text-indigo-700 font-medium"
+            >
+              Xem chi tiết →
+            </Link>
+          </div>
+
+          {constellationLoading ? (
+            <div className="h-48 flex items-center justify-center bg-gradient-to-br from-indigo-50 to-purple-50 rounded-lg">
+              <div className="text-center">
+                <div className="relative">
+                  <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-indigo-400 mx-auto mb-2"></div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-xs">🌟</div>
+                  </div>
+                </div>
+                <p className="text-xs text-gray-600">
+                  Đang tải chòm sao tri thức...
+                </p>
+              </div>
+            </div>
+          ) : constellationError ? (
+            <div className="h-48 flex items-center justify-center bg-gradient-to-br from-red-50 to-pink-50 rounded-lg">
+              <div className="text-center">
+                <div className="text-red-400 text-2xl mb-2">💥</div>
+                <p className="text-xs text-gray-600 mb-2">
+                  {constellationError}
+                </p>
+                <button
+                  onClick={loadConstellationData}
+                  className="text-xs px-2 py-1 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition-colors"
+                >
+                  🔄 Thử lại
+                </button>
+              </div>
+            </div>
+          ) : constellationData ? (
+            <div className="relative h-48 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 rounded-lg overflow-hidden">
+              <KnowledgeConstellation
+                data={constellationData}
+                onTopicClick={handleTopicClick}
+                compact={true} // Add a prop to indicate this is the compact dashboard version
+              />
+              {/* Compact stats overlay */}
+              <div className="absolute top-2 left-2 bg-white bg-opacity-90 backdrop-blur-sm rounded px-2 py-1 text-gray-800 text-xs border border-gray-200">
+                <div className="space-y-0.5">
+                  <div className="flex items-center gap-2">
+                    <span>Tổng:</span>
+                    <span className="font-semibold text-blue-600">
+                      {constellationData.length}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span>🔥 Khẩn cấp:</span>
+                    <span className="font-semibold text-red-600">
+                      {
+                        constellationData.filter(
+                          (t) => t.weakness_score >= 0.75
+                        ).length
+                      }
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : null}
+        </div>
+      )}
+
       {/* Leaderboard and Performance in same row */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <div
+        className={`grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 ${
+          tutorialMode ? "pointer-events-none opacity-60" : ""
+        }`}
+      >
         {/* Leaderboard section */}
         <div className="bg-white rounded-xl shadow-sm p-5 border border-gray-100">
           <div className="flex justify-between items-center mb-2">
@@ -328,8 +538,14 @@ const DashboardContent = ({ user }) => {
       </div>
 
       {/* My lessons */}
-      <div className="bg-white rounded-xl shadow-sm p-5 border border-gray-100">
-        <h2 className="text-sm font-semibold text-gray-800 mb-5">Bài học của tôi</h2>
+      <div
+        className={`bg-white rounded-xl shadow-sm p-5 border border-gray-100 ${
+          tutorialMode ? "pointer-events-none opacity-60" : ""
+        }`}
+      >
+        <h2 className="text-sm font-semibold text-gray-800 mb-5">
+          Bài học của tôi
+        </h2>
 
         <div className="space-y-4">
           {lessonsProgress.map((lesson) => (

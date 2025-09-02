@@ -37,8 +37,6 @@ export async function fetchWithAuth(path, options = {}) {
 
     const headers = {
       Accept: "application/json",
-      "ngrok-skip-browser-warning": "true",
-
       ...(options.headers || {}),
     };
 
@@ -52,9 +50,6 @@ export async function fetchWithAuth(path, options = {}) {
       // dataToSend giữ nguyên là options.body (FormData object)
     } else if (options.body && typeof options.body === "object") {
       // Nếu body là object và không phải FormData, đảm bảo nó được stringify và Content-Type là JSON
-      console.log(
-        "fetchWithAuth: Body is an object (not FormData). Stringifying and setting Content-Type to application/json."
-      );
       if (
         !headers["Content-Type"] ||
         headers["Content-Type"].toLowerCase() !== "application/json"
@@ -91,9 +86,6 @@ export async function fetchWithAuth(path, options = {}) {
     if (accessToken) {
       headers["Authorization"] = `Bearer ${accessToken}`;
     }
-
-    console.log("fetchWithAuth: Final headers:", JSON.stringify(headers));
-    // console.log("fetchWithAuth: Data to send:", dataToSend); // Cẩn thận khi log base64
 
     const response = await axios({
       baseURL: frappeBackendUrl,
@@ -249,6 +241,34 @@ export async function getKnowledgeConstellation() {
     "student_topic_mastery.student_topic_mastery.get_knowledge_constellation",
     {
       method: "GET",
+    }
+  );
+}
+
+// Create or update topic progress
+export async function createOrUpdateTopicProgress(user, topic) {
+  return fetchWithAuth(
+    "topic_progress.topic_progress.create_or_update_topic_progress",
+    {
+      method: "POST",
+      body: {
+        user: user,
+        topic: topic
+      }
+    }
+  );
+}
+
+// Get topic progress
+export async function getTopicProgress(user, topic) {
+  return fetchWithAuth(
+    "topic_progress.topic_progress.get_topic_progress",
+    {
+      method: "POST",
+      body: {
+        user: user,
+        topic: topic
+      }
     }
   );
 }

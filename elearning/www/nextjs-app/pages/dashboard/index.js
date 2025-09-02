@@ -59,12 +59,15 @@ export default function Dashboard() {
 
   return (
     <DashboardLayout user={user}>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2">
-          <DashboardContent user={user} />
-        </div>
-        <div className="lg:col-span-1">
-          <ProfileSetting user={user} />
+      <div className="space-y-6">
+        {/* Main dashboard content in grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2">
+            <DashboardContent user={user} />
+          </div>
+          <div className="lg:col-span-1">
+            <ProfileSetting user={user} />
+          </div>
         </div>
       </div>
     </DashboardLayout>

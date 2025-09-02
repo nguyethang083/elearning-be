@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from "react";
+import { useRouter } from "next/router";
 import { 
   BookOpen, 
   Clock, 
@@ -23,17 +24,212 @@ import {
   Info,
   FileText,
   List,
-  Star
+  Star,
+  BookMarked,
+  GraduationCap,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
-import { fetchWithAuth } from '@/pages/api/helper';
+import { fetchWithAuth, createOrUpdateTopicProgress, getTopicProgress } from '@/pages/api/helper';
 // Import topic descriptions data directly
-import topicDescriptionsData from './des.json';
+import topicDescriptionsData from "./des.json";
+
+// KnowledgeSummary Component - Displays lesson content in an organized, beautiful way
+const KnowledgeSummary = ({ knowledgeSummary }) => {
+  const [expandedLessons, setExpandedLessons] = useState(new Set());
+
+  const toggleLesson = (lessonIndex) => {
+    const newExpanded = new Set(expandedLessons);
+    if (newExpanded.has(lessonIndex)) {
+      newExpanded.delete(lessonIndex);
+    } else {
+      newExpanded.add(lessonIndex);
+    }
+    setExpandedLessons(newExpanded);
+  };
+
+  const cleanText = (text) => {
+    // Remove LaTeX formatting and clean up text for web display
+    return text
+      .replace(/\\\(/g, "") // Remove \(
+      .replace(/\\\)/g, "") // Remove \)
+      .replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, "$1/$2") // Convert \frac{a}{b} to a/b
+      .replace(/\\sqrt\[([^\]]+)\]\{([^}]+)\}/g, "∛$2") // Convert \sqrt[n]{x} to ∛x
+      .replace(/\\sqrt\{([^}]+)\}/g, "√$1") // Convert \sqrt{x} to √x
+      .replace(/\\pi/g, "π") // Convert \pi to π
+      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>") // Convert **text** to <strong>text</strong>
+      .replace(/\*([^*]+)\*/g, "<em>$1</em>") // Convert *text* to <em>text</em>
+      .replace(/\\text\{([^}]+)\}/g, "$1") // Remove \text{} wrapper
+      .replace(/\\begin\{([^}]+)\}(.*?)\\end\{([^}]+)\}/gs, "$2") // Remove \begin{}...\end{} blocks
+      .replace(/\\\\/g, "<br/>") // Convert \\ to line breaks
+      .replace(/\s+/g, " ") // Normalize whitespace
+      .trim();
+  };
+
+  const renderContent = (content) => {
+    return content.map((item, index) => {
+      const cleanedText = cleanText(item);
+      
+      // Check if it's a list item (starts with - or number)
+      if (cleanedText.startsWith("-") || /^\d+\./.test(cleanedText)) {
+        return (
+          <li
+            key={index}
+            className="flex items-start text-gray-700 text-sm leading-relaxed"
+          >
+            <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+            <span
+              dangerouslySetInnerHTML={{
+                __html: cleanedText.replace(/^[-•]\s*/, ""),
+              }}
+            />
+          </li>
+        );
+      }
+      
+      // Check if it's a sub-item (indented)
+      if (cleanedText.startsWith("  ")) {
+        return (
+          <li
+            key={index}
+            className="flex items-start text-gray-600 text-sm leading-relaxed ml-6"
+          >
+            <div className="w-1 h-1 bg-gray-400 rounded-full mt-2 mr-2 flex-shrink-0"></div>
+            <span dangerouslySetInnerHTML={{ __html: cleanedText.trim() }} />
+          </li>
+        );
+      }
+      
+      // Regular content
+      return (
+        <p key={index} className="text-gray-700 text-sm leading-relaxed mb-2">
+          <span dangerouslySetInnerHTML={{ __html: cleanedText }} />
+        </p>
+      );
+    });
+  };
+
+  if (!knowledgeSummary || knowledgeSummary.length === 0) {
+    return null;
+  }
+
+  return (
+    <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 mb-8">
+      <div className="flex items-center mb-6">
+        <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mr-4">
+          <BookMarked className="w-5 h-5 text-white" />
+        </div>
+        <h2 className="text-2xl font-bold text-gray-800">
+          Tóm tắt kiến thức chương học
+        </h2>
+      </div>
+      
+      <div className="space-y-4">
+        {knowledgeSummary.map((lesson, lessonIndex) => {
+          const isExpanded = expandedLessons.has(lessonIndex);
+          
+          return (
+            <div
+              key={lessonIndex}
+              className="border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-all duration-200"
+            >
+              {/* Lesson Header */}
+              <button
+                onClick={() => toggleLesson(lessonIndex)}
+                className="w-full p-4 bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 transition-all duration-200 flex items-center justify-between group"
+              >
+                <div className="flex items-center">
+                  <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center mr-3 text-white font-semibold text-sm">
+                    {lessonIndex + 1}
+                  </div>
+                  <div className="text-left">
+                    <h3 className="font-semibold text-gray-800 text-sm sm:text-base group-hover:text-blue-700 transition-colors">
+                      {lesson.lesson_name}
+                    </h3>
+                    <p className="text-xs text-gray-500 mt-1">
+                      {lesson.content.length} điểm kiến thức
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-6 h-6 bg-white/70 rounded-full flex items-center justify-center group-hover:bg-white transition-colors">
+                    {isExpanded ? (
+                      <ChevronUp className="w-4 h-4 text-blue-600" />
+                    ) : (
+                      <ChevronDown className="w-4 h-4 text-blue-600" />
+                    )}
+                  </div>
+                </div>
+              </button>
+              
+              {/* Lesson Content */}
+              {isExpanded && (
+                <div className="p-4 bg-white border-t border-gray-100">
+                  <div className="space-y-3">
+                    {renderContent(lesson.content)}
+                  </div>
+                  
+                  {/* Quick Actions */}
+                  <div className="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between">
+                    <div className="flex items-center text-xs text-gray-500">
+                      <GraduationCap className="w-3 h-3 mr-1" />
+                      <span>Kiến thức cơ bản</span>
+                    </div>
+                    <button className="text-xs text-blue-600 hover:text-blue-700 font-medium flex items-center group">
+                      <span>Xem chi tiết</span>
+                      <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+      
+      {/* Summary Footer */}
+      <div className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center">
+            <Info className="w-4 h-4 text-blue-600 mr-2" />
+            <span className="text-sm text-blue-700 font-medium">
+              Tổng cộng {knowledgeSummary.length} bài học
+            </span>
+          </div>
+          <div className="text-xs text-blue-600">
+            Nhấp vào từng bài để xem chi tiết
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
+  const router = useRouter();
   const [currentTipIndex, setCurrentTipIndex] = useState(0);
   const [userProgress, setUserProgress] = useState(null);
   const [loadingProgress, setLoadingProgress] = useState(true);
   const [showContentModal, setShowContentModal] = useState(false);
+  // Auto-open Tổng quan modal if ?openOverview=true in URL
+  useEffect(() => {
+    if (router && router.query && router.query.openOverview === "true") {
+      setShowContentModal(true);
+    }
+  }, [router.query]);
+
+  // Listen for window event to open modal (for SPA navigation)
+  useEffect(() => {
+    const handler = (e) => {
+      if (e.type === "openOverviewModal") {
+        setShowContentModal(true);
+      }
+    };
+    window.addEventListener("openOverviewModal", handler);
+    return () => {
+      window.removeEventListener("openOverviewModal", handler);
+    };
+  }, []);
 
   // Load user's progress for this topic
   const loadUserProgress = async () => {
@@ -43,166 +239,59 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
     // Reset userProgress immediately when starting new load
     setUserProgress(null);
     
-    console.log(`TopicWelcome: Loading progress for topic "${topic.name}" (ID: ${topic.id})`);
+    console.log(
+      `TopicWelcome: Loading progress for topic "${topic.name}" (ID: ${topic.id})`
+    );
     console.log(`TopicWelcome: Full topic object:`, topic);
     
     try {
       const topicIdentifier = topic.name || topic.topic_name || topic.id;
       console.log(`TopicWelcome: Using topic identifier: "${topicIdentifier}"`);
       
-      // FIXED: get_due_srs_summary doesn't accept topic_name parameter
-      // It returns ALL topics for the user, we need to filter on frontend
-      const srsResponse = await fetchWithAuth(
-        "user_srs_progress.user_srs_progress.get_due_srs_summary",
-        {
-          method: "POST",
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({}) // No parameters needed
-        }
-      );
-
-      // Get exam history with correct parameters
-      const examResponse = await fetchWithAuth(
-        "user_exam_attempt.user_exam_attempt.get_user_exam_history",
-        {
-          method: "POST",
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            topic_name: String(topicIdentifier)
-          })
-        }
-      );
-
-      console.log(`TopicWelcome: Raw SRS Response (all topics):`, srsResponse);
-      console.log(`TopicWelcome: Raw Exam Response for topic "${topicIdentifier}":`, examResponse);
-
-      // Process SRS data and filter for current topic
-      const allSrsData = srsResponse?.message || {};
-      let currentTopicSrsData = {
-        success: true,
-        due_count: 0,
-        upcoming_count: 0,
-        total_count: 0,
-        topics: []
-      };
-
-      // Filter SRS data for current topic
-      if (allSrsData.topics && Array.isArray(allSrsData.topics)) {
-        console.log(`TopicWelcome: All SRS topics:`, allSrsData.topics.map(t => ({name: t.topic_name, id: t.topic_id})));
+      // Luôn tạo/cập nhật Topic Progress DocType để đảm bảo có dữ liệu mới nhất
+      try {
+        const createProgressResponse = await createOrUpdateTopicProgress(
+          frappe.session?.user || 'Administrator',
+          topicIdentifier
+        );
         
-        // Find the topic that matches our current topic
-        const matchingTopic = allSrsData.topics.find(srsTopicItem => {
-          const srsTopicName = srsTopicItem.topic_name;
-          const srsTopicId = srsTopicItem.topic_id;
+        if (createProgressResponse?.success) {
+          console.log(`TopicWelcome: Successfully created/updated topic progress:`, createProgressResponse);
           
-          // Try different matching strategies
-          // 1. Direct name match
-          if (srsTopicName === topicIdentifier) {
-            console.log(`TopicWelcome: Found SRS topic by exact name match: "${srsTopicName}"`);
-            return true;
-          }
+          // Lấy dữ liệu mới nhất từ Topic Progress
+          const topicProgressResponse = await getTopicProgress(
+            frappe.session?.user || 'Administrator',
+            topicIdentifier
+          );
           
-          // 2. Topic ID match (if available)
-          if (srsTopicId && String(srsTopicId) === String(topic.id)) {
-            console.log(`TopicWelcome: Found SRS topic by ID match: ${srsTopicId}`);
-            return true;
-          }
-          
-          // 3. Partial name match
-          if (srsTopicName && topicIdentifier) {
-            const srsNameLower = String(srsTopicName).toLowerCase();
-            const topicNameLower = String(topicIdentifier).toLowerCase();
+          if (topicProgressResponse?.success && topicProgressResponse?.data) {
+            console.log(`TopicWelcome: Retrieved updated topic progress:`, topicProgressResponse.data);
             
-            if (srsNameLower.includes(topicNameLower) || topicNameLower.includes(srsNameLower)) {
-              console.log(`TopicWelcome: Found SRS topic by partial name match: "${srsTopicName}" contains "${topicIdentifier}"`);
-              return true;
-            }
+            const progressData = topicProgressResponse.data;
+            setUserProgress({
+              srs: {
+        success: true,
+                due_count: progressData.due_srs_cards || 0,
+        upcoming_count: 0,
+                total_count: progressData.total_srs_cards || 0,
+        topics: []
+              },
+              examAttempts: [], // Không cần exam attempts riêng lẻ nữa
+              topicProgress: progressData
+            });
+            
+            setLoadingProgress(false);
+            return;
           }
-          
-          return false;
-        });
-
-        if (matchingTopic) {
-          console.log(`TopicWelcome: Using SRS data for matching topic:`, matchingTopic);
-          currentTopicSrsData = {
-            success: true,
-            due_count: matchingTopic.due_count || 0,
-            upcoming_count: matchingTopic.upcoming_count || 0,
-            total_count: matchingTopic.total_count || 0,
-            topics: [matchingTopic]
-          };
         } else {
-          console.log(`TopicWelcome: No SRS data found for topic "${topicIdentifier}"`);
-          // Keep the empty data structure
+          console.warn(`TopicWelcome: Failed to create/update topic progress:`, createProgressResponse);
         }
+      } catch (progressError) {
+        console.error(`TopicWelcome: Error with topic progress operations:`, progressError);
       }
-
-      // Process exam response with validation
-      let examData = [];
-      if (examResponse?.message?.attempts) {
-        // Direct access to attempts array in message object
-        examData = examResponse.message.attempts;
-      } else if (examResponse?.attempts) {
-        // Fallback if attempts is directly on response
-        examData = examResponse.attempts;
-      } else if (Array.isArray(examResponse)) {
-        // Last fallback if response is array
-        examData = examResponse;
-      }
-
-      console.log(`TopicWelcome: Processed exam attempts:`, examData);
-
-      // Filter exam attempts to ensure they belong to the current topic
-      const processedAttempts = examData
-        .filter(attempt => {
-          // Check if attempt belongs to current topic - using both topic and topic_name fields
-          const attemptTopic = attempt.topic || attempt.topic_name;
-          const topicMatches = String(attemptTopic) === String(topicIdentifier);
-          
-          if (!topicMatches) {
-            console.warn(`TopicWelcome: Filtering out exam attempt for wrong topic: "${attemptTopic}" (expected: "${topicIdentifier}")`);
-            return false;
-          }
-          
-          return true;
-        })
-        .map(attempt => {
-          const creation = attempt.creation || new Date().toISOString();
-          const end_time = attempt.end_time || attempt.completion_timestamp || null;
-          
-          return {
-            ...attempt,
-            creation,
-            end_time,
-            date: end_time || creation,
-            formatted_time: attempt.formatted_time || "0m 0s",
-            total_questions: attempt.total_questions || 0
-          };
-        });
-
-      console.log(`TopicWelcome: Final processed exam attempts for topic "${topicIdentifier}":`, processedAttempts);
-      console.log(`TopicWelcome: Final SRS data for topic "${topicIdentifier}":`, currentTopicSrsData);
-
-      // Set the validated data
-      setUserProgress({
-        srs: currentTopicSrsData,
-        examAttempts: processedAttempts
-      });
-
-      // Additional verification log
-      console.log(`TopicWelcome: Successfully loaded data for topic "${topicIdentifier}":`, {
-        srsCardCount: currentTopicSrsData.total_count || 0,
-        examAttemptCount: processedAttempts.length,
-        dueCards: currentTopicSrsData.due_count || 0
-      });
-
-    } catch (error) {
-      console.error(`TopicWelcome: Error loading user progress for topic "${topic.name}":`, error);
-      // Set empty progress instead of null to show 0% progress
+      
+      // Fallback: Nếu không thể tạo/cập nhật Topic Progress, hiển thị progress 0%
+      console.log(`TopicWelcome: Using fallback - no progress data available`);
       setUserProgress({
         srs: {
           success: true,
@@ -211,7 +300,26 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
           total_count: 0,
           topics: []
         },
-        examAttempts: []
+        examAttempts: [],
+        topicProgress: null
+      });
+
+    } catch (error) {
+      console.error(
+        `TopicWelcome: Error loading user progress for topic "${topic.name}":`,
+        error
+      );
+      // Set empty progress instead of null to show 0% progress
+      setUserProgress({
+        srs: {
+          success: true,
+          due_count: 0,
+          upcoming_count: 0,
+          total_count: 0,
+          topics: [],
+        },
+        examAttempts: [],
+        topicProgress: null
       });
     } finally {
       setLoadingProgress(false);
@@ -223,8 +331,10 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
     setUserProgress(null);
     setLoadingProgress(true);
 
-    console.log(`TopicWelcome: Topic changed to "${topic?.name}" (ID: ${topic?.id}), resetting state...`);
-    console.log('TopicWelcome: Clearing any cached data and reloading...');
+    console.log(
+      `TopicWelcome: Topic changed to "${topic?.name}" (ID: ${topic?.id}), resetting state...`
+    );
+    console.log("TopicWelcome: Clearing any cached data and reloading...");
     
     // Add a small delay to ensure state is fully reset
     setTimeout(() => {
@@ -237,75 +347,79 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
     {
       icon: <Clock className="w-5 h-5" />,
       title: "Học đều đặn mỗi ngày",
-      description: "Dành 15-30 phút mỗi ngày để ôn tập sẽ hiệu quả hơn học dồn 3-4 tiếng/tuần."
+      description:
+        "Dành 15-30 phút mỗi ngày để ôn tập sẽ hiệu quả hơn học dồn 3-4 tiếng/tuần.",
     },
     {
       icon: <Brain className="w-5 h-5" />,
       title: "Sử dụng kỹ thuật Active Recall",
-      description: "Thử nhớ lại kiến thức trước khi xem đáp án để tăng cường khả năng ghi nhớ."
+      description:
+        "Thử nhớ lại kiến thức trước khi xem đáp án để tăng cường khả năng ghi nhớ.",
     },
     {
       icon: <TrendingUp className="w-5 h-5" />,
       title: "Từ dễ đến khó",
-      description: "Bắt đầu với Exam Mode để làm quen, sau đó chuyển sang SRS để ôn tập lâu dài."
+      description:
+        "Bắt đầu với Exam Mode để làm quen, sau đó chuyển sang SRS để ôn tập lâu dài.",
     },
     {
       icon: <Sparkles className="w-5 h-5" />,
       title: "Đánh giá thành thật",
-      description: "Hãy đánh giá mức độ hiểu một cách chân thực để hệ thống đưa ra lịch ôn tập phù hợp."
-    }
+      description:
+        "Hãy đánh giá mức độ hiểu một cách chân thực để hệ thống đưa ra lịch ôn tập phù hợp.",
+    },
   ];
 
   // Learning modes with all three modes
   const learningModes = [
     {
-      id: 'basic',
-      title: 'Basic Mode',
-      description: 'Chế độ cơ bản để xem và ôn tập flashcards',
+      id: "basic",
+      title: "Basic Mode",
+      description: "Chế độ cơ bản để xem và ôn tập flashcards",
       features: [
-        'Xem câu hỏi và câu trả lời',
-        'Lật thẻ để xem đáp án',
-        'Điều hướng qua từng thẻ',
-        'Phù hợp cho việc làm quen với nội dung'
+        "Xem câu hỏi và câu trả lời",
+        "Lật thẻ để xem đáp án",
+        "Điều hướng qua từng thẻ",
+        "Phù hợp cho việc làm quen với nội dung",
       ],
-      icon: '📚',
-      bgColor: 'from-blue-50 to-cyan-50',
-      borderColor: 'border-blue-200',
-      textColor: 'text-blue-700',
-      buttonColor: 'bg-blue-600 hover:bg-blue-700'
+      icon: "📚",
+      bgColor: "from-blue-50 to-cyan-50",
+      borderColor: "border-blue-200",
+      textColor: "text-blue-700",
+      buttonColor: "bg-blue-600 hover:bg-blue-700",
     },
     {
-      id: 'exam',
-      title: 'Exam Mode', 
-      description: 'Chế độ kiểm tra để luyện tập và nhận phản hồi',
+      id: "exam",
+      title: "Exam Mode",
+      description: "Chế độ kiểm tra để luyện tập và nhận phản hồi",
       features: [
-        'Trả lời câu hỏi và nhận feedback từ AI',
-        'Tự đánh giá mức độ hiểu bài',
-        'Lời giải chi tiết cho từng câu',
-        'Tự động thêm thẻ khó vào SRS'
+        "Trả lời câu hỏi và nhận feedback từ AI",
+        "Tự đánh giá mức độ hiểu bài",
+        "Lời giải chi tiết cho từng câu",
+        "Tự động thêm thẻ khó vào SRS",
       ],
-      icon: '📝',
-      bgColor: 'from-emerald-50 to-green-50',
-      borderColor: 'border-emerald-200', 
-      textColor: 'text-emerald-700',
-      buttonColor: 'bg-emerald-600 hover:bg-emerald-700'
+      icon: "📝",
+      bgColor: "from-emerald-50 to-green-50",
+      borderColor: "border-emerald-200",
+      textColor: "text-emerald-700",
+      buttonColor: "bg-emerald-600 hover:bg-emerald-700",
     },
     {
-      id: 'srs',
-      title: 'SRS Mode',
-      description: 'Hệ thống ôn tập ngắt quãng thông minh',
+      id: "srs",
+      title: "SRS Mode",
+      description: "Hệ thống ôn tập ngắt quãng thông minh",
       features: [
-        'Ôn tập theo thuật toán spaced repetition',
-        'Điều chỉnh tần suất dựa trên độ khó',
-        'Tối ưu hóa khả năng ghi nhớ lâu dài',
-        'Nhắc nhở ôn tập đúng thời điểm'
+        "Ôn tập theo thuật toán spaced repetition",
+        "Điều chỉnh tần suất dựa trên độ khó",
+        "Tối ưu hóa khả năng ghi nhớ lâu dài",
+        "Nhắc nhở ôn tập đúng thời điểm",
       ],
-      icon: '🧠',
-      bgColor: 'from-purple-50 to-indigo-50',
-      borderColor: 'border-purple-200',
-      textColor: 'text-purple-700', 
-      buttonColor: 'bg-purple-600 hover:bg-purple-700'
-    }
+      icon: "🧠",
+      bgColor: "from-purple-50 to-indigo-50",
+      borderColor: "border-purple-200",
+      textColor: "text-purple-700",
+      buttonColor: "bg-purple-600 hover:bg-purple-700",
+    },
   ];
 
   // Auto-rotate tips
@@ -318,11 +432,19 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
 
   // Calculate topic stats
   const totalFlashcards = flashcards?.length || 0;
-  const conceptCards = flashcards?.filter(f => f.flashcard_type === "Concept/Theorem/Formula")?.length || 0;
+  const conceptCards =
+    flashcards?.filter((f) => f.flashcard_type === "Concept/Theorem/Formula")
+      ?.length || 0;
   const practiceCards = totalFlashcards - conceptCards;
 
   // Calculate learning progress percentage
   const calculateProgress = () => {
+    // Ưu tiên sử dụng progress từ Topic Progress DocType nếu có
+    if (userProgress?.topicProgress?.progress_percentage !== undefined) {
+      return userProgress.topicProgress.progress_percentage;
+    }
+    
+    // Fallback về logic cũ nếu không có Topic Progress
     if (!userProgress?.srs || !userProgress?.examAttempts) return 0;
     
     // Fix field names to match API response
@@ -332,38 +454,39 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
     
     if (totalCards === 0 && examAttempts === 0) return 0;
     
-    // Better progress calculation for SRS system:
-    // 1. If user has taken exams but no SRS cards yet -> small progress
-    // 2. If user has SRS cards -> calculate based on SRS progression
-    // 3. Having cards in SRS means they've been assessed and are being learned
+    let totalProgress = 0;
     
-    if (totalCards === 0) {
-      // No SRS cards yet, but has exam attempts
-      return examAttempts > 0 ? 10 : 0; // 10% for starting exams
+    // 1. Base progress for having SRS cards
+    if (totalCards > 0) {
+      totalProgress += 20; // 20% cơ bản cho SRS
+      
+      // SRS progression based on cards not due today
+      const srsProgress = (totalCards - dueCards) / totalCards * 60; // Giảm từ 80% xuống 60%
+      totalProgress += srsProgress;
     }
     
-    // SRS progress calculation:
-    // - Having cards in SRS means learning has started
-    // - Base progress for having SRS cards: 20%
-    // - Additional progress based on cards that don't need review today
-    const baseProgress = 20; // Base 20% for having SRS cards
-    const nonDueCards = Math.max(0, totalCards - dueCards);
-    const additionalProgress = totalCards > 0 ? (nonDueCards / totalCards) * 80 : 0;
+    // 2. Additional progress for exam attempts (luôn được tính)
+    if (examAttempts > 0) {
+      // Exam progress: 5% base + 2% per attempt, max 15%
+      const examProgress = Math.min(15, 5 + (examAttempts * 2));
+      totalProgress += examProgress;
+    }
     
-    return Math.min(100, Math.round(baseProgress + additionalProgress));
+    return Math.min(Math.round(totalProgress), 100); // Cap at 100%
   };
 
   // Fix hasProgress calculation with correct field names
-  const hasProgress = userProgress && 
-    ((userProgress.srs?.total_count > 0) || 
-     (userProgress.examAttempts?.length > 0));
+  const hasProgress =
+    userProgress &&
+    (userProgress.srs?.total_count > 0 ||
+      userProgress.examAttempts?.length > 0);
 
   const progressPercentage = calculateProgress();
 
   // Get topic content from imported data
   const getTopicContent = () => {
     // Find the topic data by matching topic name - with safe string comparison
-    const topicName = topic?.name || topic?.topic_name || '';
+    const topicName = topic?.name || topic?.topic_name || "";
     const topicId = topic?.id || topic?.name;
     
     // Try different matching strategies
@@ -371,10 +494,10 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
     
     // Strategy 1: Direct ID match (topic.name might be "1", "2", etc.)
     if (topicId) {
-      topicData = topicDescriptionsData.find(item => {
+      topicData = topicDescriptionsData.find((item) => {
         const itemId = item.id;
         if (String(itemId) === String(topicId)) {
-          console.log('Found ID match:', item.topic_name, 'ID:', itemId);
+          console.log("Found ID match:", item.topic_name, "ID:", itemId);
           return true;
         }
         return false;
@@ -383,7 +506,7 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
     
     // Strategy 2: Name-based matching if ID matching failed
     if (!topicData && topicName) {
-      topicData = topicDescriptionsData.find(item => {
+      topicData = topicDescriptionsData.find((item) => {
       if (!topicName || !item.topic_name) return false;
       
       const itemName = String(item.topic_name).toLowerCase();
@@ -391,13 +514,13 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
       
         // Strategy 2a: Exact match
         if (itemName === searchName) {
-          console.log('Found exact name match:', item.topic_name);
+          console.log("Found exact name match:", item.topic_name);
           return true;
         }
         
         // Strategy 2b: Contains match
         if (itemName.includes(searchName) || searchName.includes(itemName)) {
-          console.log('Found contains match:', item.topic_name);
+          console.log("Found contains match:", item.topic_name);
           return true;
         }
         
@@ -405,7 +528,18 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
         const extractChapterNumber = (str) => {
           const romanMatch = str.match(/chương\s+([ivx]+)/i);
           if (romanMatch) {
-            const romanToArabic = {'i': 1, 'ii': 2, 'iii': 3, 'iv': 4, 'v': 5, 'vi': 6, 'vii': 7, 'viii': 8, 'ix': 9, 'x': 10};
+            const romanToArabic = {
+              i: 1,
+              ii: 2,
+              iii: 3,
+              iv: 4,
+              v: 5,
+              vi: 6,
+              vii: 7,
+              viii: 8,
+              ix: 9,
+              x: 10,
+            };
             return romanToArabic[romanMatch[1].toLowerCase()];
           }
           
@@ -422,7 +556,12 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
         const itemChapter = extractChapterNumber(itemName);
         
         if (searchChapter && itemChapter && searchChapter === itemChapter) {
-          console.log('Found chapter number match:', item.topic_name, 'Chapter:', itemChapter);
+          console.log(
+            "Found chapter number match:",
+            item.topic_name,
+            "Chapter:",
+            itemChapter
+          );
           return true;
         }
         
@@ -438,14 +577,16 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
         totalFlashcards: flashcards?.length || 0,
         learningObjectives: topicData.learningObjectives,
         keyTopics: topicData.keyTopics,
-        prerequisites: topicData.prerequisites
+        prerequisites: topicData.prerequisites,
       };
     }
 
     // Fallback to basic info if no match found
-    console.log('No match found, using fallback data');
+    console.log("No match found, using fallback data");
     return {
-      overview: topic?.description || "Chương học này cung cấp kiến thức cơ bản và nâng cao về chủ đề được chọn.",
+      overview:
+        topic?.description ||
+        "Chương học này cung cấp kiến thức cơ bản và nâng cao về chủ đề được chọn.",
       estimatedTime: "4-6 tuần",
       difficulty: "Trung bình", 
       totalFlashcards: flashcards?.length || 0,
@@ -453,19 +594,19 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
         "Nắm vững các khái niệm cơ bản của chương",
         "Vận dụng kiến thức vào giải bài tập",
         "Phát triển tư duy logic và phân tích",
-        "Chuẩn bị tốt cho các chương tiếp theo"
+        "Chuẩn bị tốt cho các chương tiếp theo",
       ],
       keyTopics: [
         "Khái niệm cơ bản",
         "Định lý và tính chất",
         "Phương pháp giải bài tập",
-        "Ứng dụng thực tế"
+        "Ứng dụng thực tế",
       ],
       prerequisites: [
         "Kiến thức toán học cơ bản",
         "Các chương trước đó",
-        "Kỹ năng tính toán"
-      ]
+        "Kỹ năng tính toán",
+      ],
     };
   };
 
@@ -482,7 +623,9 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
               <div className="flex items-center">
                 <BookOpen className="w-6 h-6 sm:w-8 sm:h-8 mr-3 flex-shrink-0" />
                 <div>
-                  <h2 className="text-lg sm:text-2xl font-bold line-clamp-1">{topic?.topic_name}</h2>
+                  <h2 className="text-lg sm:text-2xl font-bold line-clamp-1">
+                    {topic?.topic_name}
+                  </h2>
                   <p className="text-white/80 text-sm">Nội dung chương học</p>
                 </div>
               </div>
@@ -504,7 +647,9 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
                 <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
                   <Info className="w-5 h-5 text-blue-600" />
                 </div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-gray-800">Tổng quan</h3>
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-800">
+                    Tổng quan
+                  </h3>
                 </div>
                 <div className="text-gray-600 leading-relaxed bg-gradient-to-r from-blue-50 to-indigo-50 p-4 sm:p-6 rounded-xl border border-blue-100">
                   {content.overview}
@@ -516,25 +661,37 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
                 <div className="bg-gradient-to-br from-emerald-50 to-green-50 p-4 rounded-xl border border-emerald-100 hover:shadow-md transition-shadow">
                 <div className="flex items-center mb-2">
                   <Clock className="w-5 h-5 text-emerald-600 mr-2" />
-                    <span className="font-semibold text-emerald-800 text-sm sm:text-base">Thời gian học</span>
+                    <span className="font-semibold text-emerald-800 text-sm sm:text-base">
+                      Thời gian học
+                    </span>
                   </div>
-                  <p className="text-emerald-700 font-medium">{content.estimatedTime}</p>
+                  <p className="text-emerald-700 font-medium">
+                    {content.estimatedTime}
+                  </p>
               </div>
               
                 <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-4 rounded-xl border border-amber-100 hover:shadow-md transition-shadow">
                 <div className="flex items-center mb-2">
                   <Star className="w-5 h-5 text-amber-600 mr-2" />
-                    <span className="font-semibold text-amber-800 text-sm sm:text-base">Độ khó</span>
+                    <span className="font-semibold text-amber-800 text-sm sm:text-base">
+                      Độ khó
+                    </span>
                   </div>
-                  <p className="text-amber-700 font-medium">{content.difficulty}</p>
+                  <p className="text-amber-700 font-medium">
+                    {content.difficulty}
+                  </p>
               </div>
               
                 <div className="bg-gradient-to-br from-purple-50 to-indigo-50 p-4 rounded-xl border border-purple-100 hover:shadow-md transition-shadow sm:col-span-2 lg:col-span-1">
                 <div className="flex items-center mb-2">
                   <FileText className="w-5 h-5 text-purple-600 mr-2" />
-                    <span className="font-semibold text-purple-800 text-sm sm:text-base">Số thẻ học</span>
+                    <span className="font-semibold text-purple-800 text-sm sm:text-base">
+                      Số thẻ học
+                    </span>
                   </div>
-                  <p className="text-purple-700 font-medium">{flashcards?.length || 0} flashcards</p>
+                  <p className="text-purple-700 font-medium">
+                    {flashcards?.length || 0} flashcards
+                  </p>
               </div>
             </div>
 
@@ -544,13 +701,20 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
                 <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3">
                   <Target className="w-5 h-5 text-green-600" />
                 </div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-gray-800">Mục tiêu học tập</h3>
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-800">
+                    Mục tiêu học tập
+                  </h3>
               </div>
               <div className="space-y-3">
                 {content.learningObjectives.map((objective, index) => (
-                    <div key={index} className="flex items-start bg-gradient-to-r from-green-50 to-emerald-50 p-3 sm:p-4 rounded-xl border border-green-100 hover:shadow-sm transition-shadow">
+                    <div
+                      key={index}
+                      className="flex items-start bg-gradient-to-r from-green-50 to-emerald-50 p-3 sm:p-4 rounded-xl border border-green-100 hover:shadow-sm transition-shadow"
+                    >
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700 text-sm sm:text-base leading-relaxed">{objective}</span>
+                      <span className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                        {objective}
+                      </span>
                   </div>
                 ))}
               </div>
@@ -562,15 +726,24 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
                 <div className="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center mr-3">
                   <List className="w-5 h-5 text-indigo-600" />
                 </div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-gray-800">Nội dung chính</h3>
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-800">
+                    Nội dung chính
+                  </h3>
               </div>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
                 {content.keyTopics.map((topic, index) => (
-                    <div key={index} className="flex items-center bg-gradient-to-r from-indigo-50 to-blue-50 p-3 sm:p-4 rounded-xl border border-indigo-100 hover:shadow-sm transition-shadow">
+                    <div
+                      key={index}
+                      className="flex items-center bg-gradient-to-r from-indigo-50 to-blue-50 p-3 sm:p-4 rounded-xl border border-indigo-100 hover:shadow-sm transition-shadow"
+                    >
                     <div className="w-6 h-6 bg-indigo-200 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                      <span className="text-indigo-700 text-sm font-semibold">{index + 1}</span>
+                        <span className="text-indigo-700 text-sm font-semibold">
+                          {index + 1}
+                        </span>
                       </div>
-                      <span className="text-gray-700 text-sm sm:text-base">{topic}</span>
+                      <span className="text-gray-700 text-sm sm:text-base">
+                        {topic}
+                      </span>
                   </div>
                 ))}
               </div>
@@ -582,13 +755,20 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
                 <div className="w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center mr-3">
                   <Brain className="w-5 h-5 text-amber-600" />
                 </div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-gray-800">Kiến thức cần có</h3>
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-800">
+                    Kiến thức cần có
+                  </h3>
               </div>
               <div className="space-y-2">
                 {content.prerequisites.map((prereq, index) => (
-                    <div key={index} className="flex items-center bg-gradient-to-r from-amber-50 to-yellow-50 p-3 sm:p-4 rounded-xl border border-amber-100 hover:shadow-sm transition-shadow">
+                    <div
+                      key={index}
+                      className="flex items-center bg-gradient-to-r from-amber-50 to-yellow-50 p-3 sm:p-4 rounded-xl border border-amber-100 hover:shadow-sm transition-shadow"
+                    >
                       <div className="w-2 h-2 bg-amber-400 rounded-full mr-3 flex-shrink-0"></div>
-                      <span className="text-gray-700 text-sm sm:text-base">{prereq}</span>
+                      <span className="text-gray-700 text-sm sm:text-base">
+                        {prereq}
+                      </span>
                   </div>
                 ))}
                 </div>
@@ -602,7 +782,7 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
               <button
                 onClick={() => {
                   setShowContentModal(false);
-                  onStartLearning('exam');
+                  onStartLearning("exam");
                 }}
                 className="px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center group"
               >
@@ -648,7 +828,10 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
   }, [topic?.topic_name, flashcards?.length]); // Only re-create when topic or flashcard count changes
 
   // Memoized tip rotation to prevent unnecessary updates
-  const studyTipDisplay = useMemo(() => studyTips[currentTipIndex], [currentTipIndex]);
+  const studyTipDisplay = useMemo(
+    () => studyTips[currentTipIndex],
+    [currentTipIndex]
+  );
 
   // Auto-rotate tips - Only run when modal is NOT open
   useEffect(() => {
@@ -667,7 +850,9 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
         <div className="text-center mb-8">
           <div className="inline-flex items-center px-4 py-2 bg-white rounded-full shadow-md mb-4">
             <Sparkles className="w-5 h-5 text-yellow-500 mr-2" />
-            <span className="text-sm font-medium text-gray-600">Chào mừng bạn đến với</span>
+            <span className="text-sm font-medium text-gray-600">
+              Chào mừng bạn đến với
+            </span>
           </div>
           <div className="flex items-center justify-center mb-4">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
@@ -682,7 +867,8 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
             </button>
           </div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Khám phá kiến thức mới, luyện tập và ôn tập một cách khoa học với các chế độ học tập thông minh
+            Khám phá kiến thức mới, luyện tập và ôn tập một cách khoa học với
+            các chế độ học tập thông minh
           </p>
           <div className="mt-4">
             <button
@@ -701,7 +887,9 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center">
                 <BarChart3 className="w-6 h-6 mr-3" />
-                <h3 className="text-xl font-semibold">Tiến độ học tập của bạn</h3>
+                <h3 className="text-xl font-semibold">
+                  Tiến độ học tập của bạn
+                </h3>
               </div>
               <div className="flex items-center bg-white/20 rounded-full px-3 py-1">
                 <Percent className="w-4 h-4 mr-1" />
@@ -711,17 +899,23 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
-                <div className="text-2xl font-bold mb-1">{userProgress.examAttempts.length}</div>
+                <div className="text-2xl font-bold mb-1">
+                  {userProgress.topicProgress?.exam_attempts_count || userProgress.examAttempts?.length || 0}
+                </div>
                 <div className="text-sm text-white/80">Lần kiểm tra đã hoàn thành</div>
               </div>
               
               <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
-                <div className="text-2xl font-bold mb-1">{userProgress.srs.total_count}</div>
+                <div className="text-2xl font-bold mb-1">
+                  {userProgress.topicProgress?.total_srs_cards || userProgress.srs?.total_count || 0}
+                </div>
                 <div className="text-sm text-white/80">Thẻ đã được đưa vào SRS</div>
               </div>
               
               <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
-                <div className="text-2xl font-bold mb-1">{userProgress.srs.due_count}</div>
+                <div className="text-2xl font-bold mb-1">
+                  {userProgress.topicProgress?.due_srs_cards || userProgress.srs?.due_count || 0}
+                </div>
                 <div className="text-sm text-white/80">Thẻ cần ôn tập hôm nay</div>
               </div>
             </div>
@@ -735,9 +929,29 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
                 ></div>
               </div>
             </div>
+            
+            {/* Additional progress info from Topic Progress DocType */}
+            {userProgress.topicProgress && (
+              <div className="mt-4 pt-4 border-t border-white/20">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                  <div className="bg-white/10 rounded-lg p-3 backdrop-blur-sm">
+                    <div className="text-white/80 mb-1">SRS Progress</div>
+                    <div className="text-lg font-semibold">{userProgress.topicProgress.srs_progress || 0}%</div>
+                  </div>
+                  <div className="bg-white/10 rounded-lg p-3 backdrop-blur-sm">
+                    <div className="text-white/80 mb-1">Exam Progress</div>
+                    <div className="text-lg font-semibold">{userProgress.topicProgress.exam_progress || 0}%</div>
+                  </div>
+                </div>
+                {userProgress.topicProgress.last_calculated && (
+                  <div className="text-center text-white/70 text-xs mt-3">
+                    Cập nhật lần cuối: {new Date(userProgress.topicProgress.last_calculated).toLocaleString('vi-VN')}
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         )}
-
 
         {/* Alternative Progress Display - Show even with no progress */}
         {!hasProgress && !loadingProgress && userProgress && (
@@ -745,7 +959,9 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center">
                 <BarChart3 className="w-6 h-6 mr-3" />
-                <h3 className="text-xl font-semibold">Bắt đầu hành trình học tập</h3>
+                <h3 className="text-xl font-semibold">
+                  Bắt đầu hành trình học tập
+                </h3>
               </div>
               <div className="flex items-center bg-white/20 rounded-full px-3 py-1">
                 <Percent className="w-4 h-4 mr-1" />
@@ -756,22 +972,30 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
                 <div className="text-2xl font-bold mb-1">0</div>
-                <div className="text-sm text-white/80">Lần kiểm tra đã hoàn thành</div>
+                <div className="text-sm text-white/80">
+                  Lần kiểm tra đã hoàn thành
+                </div>
               </div>
               
               <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
                 <div className="text-2xl font-bold mb-1">0</div>
-                <div className="text-sm text-white/80">Thẻ đã được đưa vào SRS</div>
+                <div className="text-sm text-white/80">
+                  Thẻ đã được đưa vào SRS
+                </div>
               </div>
               
               <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
                 <div className="text-2xl font-bold mb-1">0</div>
-                <div className="text-sm text-white/80">Thẻ cần ôn tập hôm nay</div>
+                <div className="text-sm text-white/80">
+                  Thẻ cần ôn tập hôm nay
+                </div>
               </div>
             </div>
             
             <div className="mt-4 text-center">
-              <p className="text-white/90">Hãy bắt đầu học để xây dựng tiến độ của bạn!</p>
+              <p className="text-white/90">
+                Hãy bắt đầu học để xây dựng tiến độ của bạn!
+              </p>
             </div>
           </div>
         )}
@@ -783,9 +1007,13 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
               <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center">
                 <BookOpen className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-bold text-gray-800">{totalFlashcards}</span>
+              <span className="text-2xl font-bold text-gray-800">
+                {totalFlashcards}
+              </span>
             </div>
-            <h3 className="font-semibold text-gray-800 mb-1">Tổng số thẻ học</h3>
+            <h3 className="font-semibold text-gray-800 mb-1">
+              Tổng số thẻ học
+            </h3>
             <p className="text-sm text-gray-600">Flashcards để bạn học tập</p>
           </div>
 
@@ -794,10 +1022,16 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
               <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-green-600 rounded-xl flex items-center justify-center">
                 <Target className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-bold text-gray-800">{conceptCards}</span>
+              <span className="text-2xl font-bold text-gray-800">
+                {conceptCards}
+              </span>
             </div>
-            <h3 className="font-semibold text-gray-800 mb-1">Khái niệm lý thuyết</h3>
-            <p className="text-sm text-gray-600">Công thức và định lý quan trọng</p>
+            <h3 className="font-semibold text-gray-800 mb-1">
+              Khái niệm lý thuyết
+            </h3>
+            <p className="text-sm text-gray-600">
+              Công thức và định lý quan trọng
+            </p>
           </div>
 
           <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
@@ -805,10 +1039,16 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
               <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center">
                 <Zap className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-bold text-gray-800">{practiceCards}</span>
+              <span className="text-2xl font-bold text-gray-800">
+                {practiceCards}
+              </span>
             </div>
-            <h3 className="font-semibold text-gray-800 mb-1">Bài tập thực hành</h3>
-            <p className="text-sm text-gray-600">Câu hỏi áp dụng và rèn luyện</p>
+            <h3 className="font-semibold text-gray-800 mb-1">
+              Bài tập thực hành
+            </h3>
+            <p className="text-sm text-gray-600">
+              Câu hỏi áp dụng và rèn luyện
+            </p>
           </div>
         </div>
 
@@ -818,7 +1058,9 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
             <div className="w-10 h-10 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center mr-4">
               <Award className="w-5 h-5 text-white" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-800">Kết quả học tập mong đợi</h2>
+            <h2 className="text-2xl font-bold text-gray-800">
+              Kết quả học tập mong đợi
+            </h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -826,16 +1068,25 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
               <div className="flex items-start">
                 <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-gray-800 mb-1">Nắm vững kiến thức cơ bản</h3>
-                  <p className="text-gray-600 text-sm">Hiểu rõ các khái niệm, công thức và định lý quan trọng trong chủ đề</p>
+                  <h3 className="font-semibold text-gray-800 mb-1">
+                    Nắm vững kiến thức cơ bản
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    Hiểu rõ các khái niệm, công thức và định lý quan trọng trong
+                    chủ đề
+                  </p>
                 </div>
               </div>
               
               <div className="flex items-start">
                 <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-gray-800 mb-1">Áp dụng vào bài tập</h3>
-                  <p className="text-gray-600 text-sm">Vận dụng kiến thức để giải quyết các dạng bài tập khác nhau</p>
+                  <h3 className="font-semibold text-gray-800 mb-1">
+                    Áp dụng vào bài tập
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    Vận dụng kiến thức để giải quyết các dạng bài tập khác nhau
+                  </p>
                 </div>
               </div>
             </div>
@@ -844,21 +1095,61 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
               <div className="flex items-start">
                 <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-gray-800 mb-1">Ghi nhớ lâu dài</h3>
-                  <p className="text-gray-600 text-sm">Sử dụng hệ thống SRS để duy trì kiến thức trong bộ nhớ dài hạn</p>
+                  <h3 className="font-semibold text-gray-800 mb-1">
+                    Ghi nhớ lâu dài
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    Sử dụng hệ thống SRS để duy trì kiến thức trong bộ nhớ dài
+                    hạn
+                  </p>
                 </div>
               </div>
               
               <div className="flex items-start">
                 <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-gray-800 mb-1">Tự đánh giá năng lực</h3>
-                  <p className="text-gray-600 text-sm">Nhận biết điểm mạnh, điểm yếu và cải thiện phương pháp học tập</p>
+                  <h3 className="font-semibold text-gray-800 mb-1">
+                    Tự đánh giá năng lực
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    Nhận biết điểm mạnh, điểm yếu và cải thiện phương pháp học
+                    tập
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        {/* Knowledge Summary - Display lesson content from des.json */}
+        {(() => {
+          const topicData = topicDescriptionsData.find((item) => {
+            const topicName = topic?.name || topic?.topic_name || "";
+            const topicId = topic?.id || topic?.name;
+            
+            // Try ID match first
+            if (topicId && String(item.id) === String(topicId)) {
+              return true;
+            }
+            
+            // Try name match
+            if (topicName && item.topic_name) {
+              const itemName = String(item.topic_name).toLowerCase();
+              const searchName = String(topicName).toLowerCase();
+              return (
+                itemName === searchName ||
+                itemName.includes(searchName) ||
+                searchName.includes(itemName)
+              );
+            }
+            
+            return false;
+          });
+          
+          return topicData?.knowledgeSummary ? (
+            <KnowledgeSummary knowledgeSummary={topicData.knowledgeSummary} />
+          ) : null;
+        })()}
 
         {/* Learning Modes */}
         <div className="mb-8">
@@ -867,14 +1158,21 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {learningModes.map((mode, index) => (
-              <div key={mode.id} className={`bg-gradient-to-br ${mode.bgColor} rounded-2xl p-6 border ${mode.borderColor} shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1`}>
+              <div
+                key={mode.id}
+                className={`bg-gradient-to-br ${mode.bgColor} rounded-2xl p-6 border ${mode.borderColor} shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1`}
+              >
                 <div className="flex items-center mb-4">
                   <div className="w-10 h-10 bg-white/70 rounded-lg flex items-center justify-center mr-3 text-xl">
                     {mode.icon}
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-800">{mode.title}</h3>
-                    <p className={`text-xs font-medium ${mode.textColor}`}>{mode.description}</p>
+                    <h3 className="text-lg font-bold text-gray-800">
+                      {mode.title}
+                    </h3>
+                    <p className={`text-xs font-medium ${mode.textColor}`}>
+                      {mode.description}
+                    </p>
                   </div>
                 </div>
                 
@@ -882,7 +1180,9 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
                   {mode.features.map((feature, idx) => (
                     <div key={idx} className="flex items-start">
                       <CheckCircle className="w-3 h-3 text-green-500 mr-2 mt-1 flex-shrink-0" />
-                      <span className="text-gray-700 text-xs leading-relaxed">{feature}</span>
+                      <span className="text-gray-700 text-xs leading-relaxed">
+                        {feature}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -912,8 +1212,12 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
                 {studyTipDisplay.icon}
               </div>
               <div className="flex-1">
-                <h3 className="font-semibold text-lg mb-2">{studyTipDisplay.title}</h3>
-                <p className="text-white/90 leading-relaxed">{studyTipDisplay.description}</p>
+                <h3 className="font-semibold text-lg mb-2">
+                  {studyTipDisplay.title}
+                </h3>
+                <p className="text-white/90 leading-relaxed">
+                  {studyTipDisplay.description}
+                </p>
               </div>
             </div>
             
@@ -924,7 +1228,7 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
                   key={index}
                   onClick={() => setCurrentTipIndex(index)}
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentTipIndex ? 'bg-white w-6' : 'bg-white/50'
+                    index === currentTipIndex ? "bg-white w-6" : "bg-white/50"
                   }`}
                 />
               ))}
@@ -935,11 +1239,13 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
-            onClick={() => onStartLearning('exam')}
+            onClick={() => onStartLearning("exam")}
             className="px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center group"
           >
             <BookOpen className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-            {hasProgress ? 'Tiếp tục với Exam Mode' : 'Bắt đầu học với Exam Mode'}
+            {hasProgress
+              ? "Tiếp tục với Exam Mode"
+              : "Bắt đầu học với Exam Mode"}
             <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
           </button>
           
