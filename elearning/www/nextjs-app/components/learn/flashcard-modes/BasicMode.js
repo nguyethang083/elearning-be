@@ -22,6 +22,7 @@ export default function BasicMode({
   const [isFlipped, setIsFlipped] = useState(false);
   const [showExplanation, setShowExplanation] = useState(false);
   const [showCompletionModal, setShowCompletionModal] = useState(false);
+  const [hasShownCompletionModal, setHasShownCompletionModal] = useState(false);
   const router = useRouter();
 
   // Use the hook to get flashcards with filtering and refreshing capability
@@ -41,14 +42,22 @@ export default function BasicMode({
       flashcards.length > 0 &&
       currentIndex === flashcards.length - 1 &&
       isFlipped &&
-      !showCompletionModal
+      !showCompletionModal &&
+      !hasShownCompletionModal
     ) {
       // Small delay to let user see the answer before showing modal
       setTimeout(() => {
         setShowCompletionModal(true);
+        setHasShownCompletionModal(true);
       }, 1000);
     }
-  }, [currentIndex, isFlipped, flashcards]);
+  }, [
+    currentIndex,
+    isFlipped,
+    flashcards,
+    showCompletionModal,
+    hasShownCompletionModal,
+  ]);
 
   const handleGoToTest = () => {
     setShowCompletionModal(false);
