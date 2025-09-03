@@ -1,1 +1,62 @@
-[]
+[
+ {
+  "docstatus": 0,
+  "doctype": "User Flashcard Setting",
+  "flashcard_arrange_mode": "chronological",
+  "flashcard_direction": "front_first",
+  "modified": "2025-09-02 13:48:23.874668",
+  "name": "UTS-00001",
+  "naming_series": "UTS-.#####",
+  "study_exam_flashcard_type_filter": "Ordering Steps",
+  "topic": "1",
+  "user": "nguyethang083@gmail.com"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "User Flashcard Setting",
+  "flashcard_arrange_mode": "chronological",
+  "flashcard_direction": "front_first",
+  "modified": "2025-09-03 16:44:08.774733",
+  "name": "UTS-00002",
+  "naming_series": "UTS-.#####",
+  "study_exam_flashcard_type_filter": "Fill in the Blank",
+  "topic": "3",
+  "user": "nguyethang083@gmail.com"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "User Flashcard Setting",
+  "flashcard_arrange_mode": "chronological",
+  "flashcard_direction": "front_first",
+  "modified": "2025-09-03 16:52:25.439620",
+  "name": "UTS-00003",
+  "naming_series": "UTS-.#####",
+  "study_exam_flashcard_type_filter": "Fill in the Blank",
+  "topic": "2",
+  "user": "nguyethang083@gmail.com"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "User Flashcard Setting",
+  "flashcard_arrange_mode": "chronological",
+  "flashcard_direction": "front_first",
+  "modified": "2025-09-03 16:59:43.473519",
+  "name": "UTS-00004",
+  "naming_series": "UTS-.#####",
+  "study_exam_flashcard_type_filter": "Concept/Theorem/Formula",
+  "topic": "4",
+  "user": "nguyethang083@gmail.com"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "User Flashcard Setting",
+  "flashcard_arrange_mode": "chronological",
+  "flashcard_direction": "front_first",
+  "modified": "2025-09-03 17:11:48.079183",
+  "name": "UTS-00005",
+  "naming_series": "UTS-.#####",
+  "study_exam_flashcard_type_filter": "Concept/Theorem/Formula",
+  "topic": "5",
+  "user": "nguyethang083@gmail.com"
+ }
+]

@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-05-19 12:05:33.652943",
+ "creation": "2025-06-06 21:49:48.745686",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -10,7 +10,8 @@
   "ai_feedback_what_was_correct",
   "ai_feedback_what_was_incorrect",
   "ai_feedback_what_to_include",
-  "user_self_assessment"
+  "user_self_assessment",
+  "detailed_explanation"
  ],
  "fields": [
   {
@@ -48,13 +49,18 @@
    "in_list_view": 1,
    "label": "User Self Assessment",
    "options": "Ch\u01b0a hi\u1ec3u\nM\u01a1 h\u1ed3\nKh\u00e1 \u1ed5n\nR\u1ea5t r\u00f5"
+  },
+  {
+   "fieldname": "detailed_explanation",
+   "fieldtype": "Text",
+   "label": "Detail Explanation"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-05-25 23:51:32.649633",
+ "modified": "2025-07-01 11:11:18.784868",
  "modified_by": "Administrator",
  "module": "Elearning",
  "name": "User Exam Attempt Detail",

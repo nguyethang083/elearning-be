@@ -1,0 +1,81 @@
+{
+  "actions": [],
+  "allow_rename": 1,
+  "autoname": "hash",
+  "creation": "2025-08-06 22:08:00.000000",
+  "custom": 1,
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "content",
+    "topic",
+    "difficulty",
+    "discrimination",
+    "guessing_probability",
+    "options"
+  ],
+  "fields": [
+    {
+      "fieldname": "content",
+      "fieldtype": "Text",
+      "label": "Content",
+      "reqd": 1
+    },
+    {
+      "fieldname": "topic",
+      "fieldtype": "Link",
+      "label": "Topic",
+      "options": "Topics",
+      "reqd": 1
+    },
+    {
+      "fieldname": "difficulty",
+      "fieldtype": "Float",
+      "label": "Difficulty",
+      "precision": "3"
+    },
+    {
+      "fieldname": "discrimination",
+      "fieldtype": "Float",
+      "label": "Discrimination",
+      "precision": "3"
+    },
+    {
+      "fieldname": "guessing_probability",
+      "fieldtype": "Float",
+      "label": "Guessing Probability",
+      "precision": "3"
+    },
+    {
+      "fieldname": "options",
+      "fieldtype": "Table",
+      "label": "Options",
+      "options": "Placement Question Option"
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "links": [],
+  "modified": "2025-08-06 22:08:00.000000",
+  "modified_by": "Administrator",
+  "module": "Elearning",
+  "name": "Placement Question",
+  "naming_rule": "Random",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": []
+}

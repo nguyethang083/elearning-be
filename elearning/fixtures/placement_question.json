@@ -1,0 +1,6316 @@
+[
+ {
+  "content": "Cho đường tròn \\[\\left( O \\right)\\] đường kính \\[AB\\] và dây \\[CD\\] không đi qua tâm. Khẳng định nào sau đây là đúng?",
+  "difficulty": 0,
+  "discrimination": 0.0,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:18:30.060999",
+  "name": "TP5T2Q5uwf9q",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[AB < CD.\\]",
+    "parent": "TP5T2Q5uwf9q",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[AB > CD.\\]",
+    "parent": "TP5T2Q5uwf9q",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[AB = CD.\\]",
+    "parent": "TP5T2Q5uwf9q",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[AB \\ge CD.\\]",
+    "parent": "TP5T2Q5uwf9q",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Góc ở tâm là góc",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:38:54",
+  "name": "TP5T2Qjfe5rn",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "có hai cạnh là hai đường kính của đường tròn",
+    "parent": "TP5T2Qjfe5rn",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "có đỉnh nằm trên đường tròn",
+    "parent": "TP5T2Qjfe5rn",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "có đỉnh trùng với tâm đường tròn",
+    "parent": "TP5T2Qjfe5rn",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "có đỉnh nằm trên bán kính của đường tròn",
+    "parent": "TP5T2Qjfe5rn",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Trong một đường tròn, số đo cung lớn bằng",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:39:33",
+  "name": "TP5T2Qxvjwbb",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "số đo cung nhỏ",
+    "parent": "TP5T2Qxvjwbb",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "số đo của nửa đường tròn",
+    "parent": "TP5T2Qxvjwbb",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "hiệu giữa \\[360^\\circ \\] và số đo của cung nhỏ (có chung hai mút với cung lớn)",
+    "parent": "TP5T2Qxvjwbb",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "tổng giữa \\[360^\\circ \\] và số đo của cung nhỏ (có chung hai mút với cung lớn)",
+    "parent": "TP5T2Qxvjwbb",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Chu vi đường tròn có bán kính \\[R = 9\\] là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:38:40",
+  "name": "TP5T3Qxdmvt3",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[9\\pi .\\]",
+    "parent": "TP5T3Qxdmvt3",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[18\\pi .\\]",
+    "parent": "TP5T3Qxdmvt3",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[27\\pi .\\]",
+    "parent": "TP5T3Qxdmvt3",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[12\\pi .\\]",
+    "parent": "TP5T3Qxdmvt3",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Phần hình tròn giới hạn bởi một cung tròn và hai bán kính đi qua hai đầu mút của cung tròn đó được gọi là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:38:49",
+  "name": "TP5T3Q55f55n",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "Hình quạt tròn",
+    "parent": "TP5T3Q55f55n",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Hình vành khuyên",
+    "parent": "TP5T3Q55f55n",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Hình vành khăn",
+    "parent": "TP5T3Q55f55n",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Hình viên phân",
+    "parent": "TP5T3Q55f55n",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Tâm đối xứng của đường tròn là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:38:47",
+  "name": "TP5T1Qcnydqf",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Điểm bất kì bên trong đường tròn",
+    "parent": "TP5T1Qcnydqf",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Điểm bất kì bên ngoài đường tròn",
+    "parent": "TP5T1Qcnydqf",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Điểm bất kì trên đường tròn",
+    "parent": "TP5T1Qcnydqf",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Tâm của đường tròn",
+    "parent": "TP5T1Qcnydqf",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Khẳng định nào sau đây là đúng khi nói về trục đối xứng của đường tròn?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:39:23",
+  "name": "TP5T1Q82cp9q",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Đường tròn không có trục đối xứng",
+    "parent": "TP5T1Q82cp9q",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Đường tròn có duy nhất một trục đối xứng",
+    "parent": "TP5T1Q82cp9q",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Đường tròn có hai trục đối xứng là hai đường thẳng đi qua tâm và vuông góc với nhau",
+    "parent": "TP5T1Q82cp9q",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Đường tròn có vô số trục đối xứng",
+    "parent": "TP5T1Q82cp9q",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Cho đường tròn \\[\\left( {O;\\,2{\\rm{\\;cm}}} \\right)\\] và một điểm \\[H\\] bất kì. Nếu \\[OH < 2{\\rm{\\;cm}}\\] thì",
+  "difficulty": 1,
+  "discrimination": 1.55,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.981860",
+  "name": "TP5T1Qcg55qy",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "điểm \\[H\\] nằm ngoài đường tròn \\[\\left( {O\\,;\\,2{\\rm{\\;cm}}} \\right).\\]",
+    "parent": "TP5T1Qcg55qy",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "điểm \\[H\\] nằm trên đường tròn \\[\\left( {O\\,;\\,2{\\rm{\\;cm}}} \\right).\\]",
+    "parent": "TP5T1Qcg55qy",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "điểm \\[H\\] nằm trong đường tròn \\[\\left( {O\\,;\\,2{\\rm{\\;cm}}} \\right).\\]",
+    "parent": "TP5T1Qcg55qy",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "điểm \\[H\\] trùng tâm \\[O\\] của đường tròn \\[\\left( {O\\,;\\,2{\\rm{\\;cm}}} \\right).\\]",
+    "parent": "TP5T1Qcg55qy",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Cho hai đường tròn đồng tâm \\[\\left( {O;2{\\rm{\\;cm}}} \\right)\\] và \\[\\left( {O;3{\\rm{\\;cm}}} \\right).\\] Diện tích hình vành khuyên được giới hạn bởi hai đường tròn đó là",
+  "difficulty": 0,
+  "discrimination": 1.7,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.2,
+  "modified": "2025-08-07 03:38:52",
+  "name": "TP5T1Qaifras",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "\\[5\\pi {\\rm{\\;c}}{{\\rm{m}}^2}.\\]",
+    "parent": "TP5T1Qaifras",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[3\\pi {\\rm{\\;c}}{{\\rm{m}}^2}.\\]",
+    "parent": "TP5T1Qaifras",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[1,5\\pi {\\rm{\\;c}}{{\\rm{m}}^2}.\\]",
+    "parent": "TP5T1Qaifras",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[2\\pi {\\rm{\\;c}}{{\\rm{m}}^2}.\\]",
+    "parent": "TP5T1Qaifras",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Nhóm số liệu \\[\\left[ {a;b} \\right)\\] là nhóm gồm các số liệu",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:31:47",
+  "name": "TP6T3Qmu88mi",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "lớn hơn \\[a\\] và nhỏ hơn \\[b.\\]",
+    "parent": "TP6T3Qmu88mi",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "lớn hơn hoặc bằng \\[a\\] và nhỏ hơn \\[b.\\]",
+    "parent": "TP6T3Qmu88mi",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "lớn hơn \\[a\\] và nhỏ hơn hoặc bằng \\[b.\\]",
+    "parent": "TP6T3Qmu88mi",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "lớn hơn hoặc bằng \\[a\\] và nhỏ hơn hoặc bằng \\[b.\\]",
+    "parent": "TP6T3Qmu88mi",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "content": "Trục ngang của biểu đồ tần số tương đối ghép nhóm dạng cột xác định",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:40:17",
+  "name": "TP6T3Qzac6zp",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "tần số tương đối của nhóm số liệu",
+    "parent": "TP6T3Qzac6zp",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "đơn vị độ dài phù hợp với các tần số tương đối",
+    "parent": "TP6T3Qzac6zp",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "các nhóm số liệu cần biểu diễn",
+    "parent": "TP6T3Qzac6zp",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "tiêu đề cho biểu đồ",
+    "parent": "TP6T3Qzac6zp",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "content": "Khối lượng (đơn vị: gam) của 32 củ khoai tây thu được được ghi lại trong bảng tần số tương đối ghép nhóm sau: Một củ khoai tây có khối lượng \\[86\\] gam. Vậy củ khoai tây đó nằm ở nhóm số liệu nào?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:40:22",
+  "name": "TP6T3Qkdppys",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\left[ {70;80} \\right).\\]",
+    "parent": "TP6T3Qkdppys",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[\\left[ {80;90} \\right).\\]",
+    "parent": "TP6T3Qkdppys",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\left[ {90;100} \\right).\\]",
+    "parent": "TP6T3Qkdppys",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\left[ {100;110} \\right).\\]",
+    "parent": "TP6T3Qkdppys",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "content": "Cỡ mẫu là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:40:19",
+  "name": "TP6T2Qt4vyvm",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "số phần tử của mẫu dữ liệu",
+    "parent": "TP6T2Qt4vyvm",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "dãy dữ liệu",
+    "parent": "TP6T2Qt4vyvm",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "số lần xuất hiện một giá trị trong mẫu dữ liệu",
+    "parent": "TP6T2Qt4vyvm",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "số lần xuất hiện một số giá trị trong mẫu dữ liệu",
+    "parent": "TP6T2Qt4vyvm",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "content": "Tần số của một giá trị là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:31:43",
+  "name": "TP6T2Q5a4my3",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "biểu đồ biểu diễn bảng tần số",
+    "parent": "TP6T2Q5a4my3",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "số lần xuất hiện giá trị đó trong mẫu dữ liệu",
+    "parent": "TP6T2Q5a4my3",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "số giá trị của mẫu dữ liệu",
+    "parent": "TP6T2Q5a4my3",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "bảng thống kê cho biết tần số của các giá trị trong mẫu dữ liệu",
+    "parent": "TP6T2Q5a4my3",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "content": "Cho \\[{x_1} = 3\\] là một trong các giá trị khác nhau của mẫu dữ liệu cỡ \\[n = 20.\\] Biết rằng tần số của giá trị này là \\[{m_1} = 8.\\] Khi đó tần số tương đối \\[{f_1}\\] của giá trị \\({x_1}\\) là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:40:10",
+  "name": "TP6T2Qg4tb47",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[15\\% .\\]",
+    "parent": "TP6T2Qg4tb47",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[20\\% .\\]",
+    "parent": "TP6T2Qg4tb47",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[40\\% .\\]",
+    "parent": "TP6T2Qg4tb47",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[60\\% .\\]",
+    "parent": "TP6T2Qg4tb47",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "content": "Cho phép thử \\[T\\], xét biến cố \\[E\\]. Kết quả của phép thử \\[T\\] làm cho biến cố \\[E\\] xảy ra được gọi là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:40:05",
+  "name": "TP6T4Qurzwh6",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Kết quả đúng với \\[E\\]",
+    "parent": "TP6T4Qurzwh6",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Kết quả phù hợp với \\[E\\]",
+    "parent": "TP6T4Qurzwh6",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Kết quả của \\[E\\]",
+    "parent": "TP6T4Qurzwh6",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Kết quả thuận lợi cho \\[E\\]",
+    "parent": "TP6T4Qurzwh6",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "content": "Chọn ngẫu nhiên một số tự nhiên từ 1 đến 10. Xác suất của biến cố \\(A\\): “Số được chọn là 10” là",
+  "difficulty": -2,
+  "discrimination": 1.82,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.743336",
+  "name": "TP6T4Qg2kap4",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\frac{4}{{10}}\\)",
+    "parent": "TP6T4Qg2kap4",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\frac{3}{{10}}\\)",
+    "parent": "TP6T4Qg2kap4",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\frac{2}{{10}}\\)",
+    "parent": "TP6T4Qg2kap4",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\(\\frac{1}{{10}}\\)",
+    "parent": "TP6T4Qg2kap4",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "content": "Tần số của một giá trị cho biết",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:39:53",
+  "name": "TP6T1Qv7zuzs",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "mẫu dữ liệu",
+    "parent": "TP6T1Qv7zuzs",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "giá trị đó xuất hiện trong mẫu dữ liệu nhiều hay ít, từ đó ta dễ dàng xác định được giá trị xuất hiện nhiều nhất, ít nhất",
+    "parent": "TP6T1Qv7zuzs",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "bảng thống kê của mẫu dữ liệu",
+    "parent": "TP6T1Qv7zuzs",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "bảng tần số của mẫu dữ liệu",
+    "parent": "TP6T1Qv7zuzs",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "content": "Một hộp chứa 4 quả cầu trắng và 6 quả cầu xanh có kích thước và khối lượng như nhau. Lấy ngẫu nhiên 3 quả cầu từ trong hộp. Hoạt động nào sau đây không phải là biến cố của phép thử trên?",
+  "difficulty": 0,
+  "discrimination": 1.2,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.2,
+  "modified": "2025-08-07 03:40:24",
+  "name": "TP6T1Qzws9ir",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Ba quả cầu lấy ra cùng màu với nhau",
+    "parent": "TP6T1Qzws9ir",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Ba quả cầu lấy ra có ít nhất một quả màu trắng",
+    "parent": "TP6T1Qzws9ir",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Ba quả cầu lấy ra gồm có ba màu",
+    "parent": "TP6T1Qzws9ir",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Ba quả cầu lấy ra có nhiều nhất hai quả cầu màu xanh",
+    "parent": "TP6T1Qzws9ir",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "content": "Chọn ngẫu nhiên một số tự nhiên có 3 chữ số. Số kết quả thuận lợi cho biến cố “Số được chọn chia hết cho 10” là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:31:45",
+  "name": "TP6T1Q67uprs",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "900",
+    "parent": "TP6T1Q67uprs",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "90",
+    "parent": "TP6T1Q67uprs",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "9",
+    "parent": "TP6T1Q67uprs",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "5",
+    "parent": "TP6T1Q67uprs",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "content": "Khi biểu diễn dữ liệu trên biểu đồ tranh, các đối tượng thống kê thường được biểu diễn ở",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:40:07",
+  "name": "TP6T1Qsaqvnf",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Dòng bất kì",
+    "parent": "TP6T1Qsaqvnf",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Cột tương ứng",
+    "parent": "TP6T1Qsaqvnf",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Cột đầu tiên",
+    "parent": "TP6T1Qsaqvnf",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Dòng tương ứng",
+    "parent": "TP6T1Qsaqvnf",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "content": "Nguyên tắc chuyển đổi số liệu của mỗi đối tượng thống kê (tính theo tỉ số phần trăm) về số đo cung tương ứng với đối tượng thống kê đó (tính theo độ) là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:40:01",
+  "name": "TP6T1Q3re8ii",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[x\\% \\] tương ứng với \\[x\\% \\cdot 180^\\circ .\\]",
+    "parent": "TP6T1Q3re8ii",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[x\\% \\] tương ứng với \\[x\\% \\cdot 360^\\circ .\\]",
+    "parent": "TP6T1Q3re8ii",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[x\\% \\] tương ứng với \\[\\frac{{x\\% }}{{360^\\circ }}.\\]",
+    "parent": "TP6T1Q3re8ii",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[x\\% \\] tương ứng với \\[x\\% \\cdot 90^\\circ .\\]",
+    "parent": "TP6T1Q3re8ii",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "content": "Để biểu diễn sự thay đổi của một đại lượng theo thời gian ta thường dùng",
+  "difficulty": -2,
+  "discrimination": 1.47,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.702472",
+  "name": "TP6T1Qdf3yt5",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Biểu đồ tranh",
+    "parent": "TP6T1Qdf3yt5",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Biểu đồ cột kép",
+    "parent": "TP6T1Qdf3yt5",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Biểu đồ hình quạt tròn",
+    "parent": "TP6T1Qdf3yt5",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Biểu đồ đoạn thẳng",
+    "parent": "TP6T1Qdf3yt5",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "content": "Một hình chữ nhật có chiều dài gấp \\(3\\) lần chiều rộng. Nếu cả chiều dài và chiều rộng cùng tăng thêm \\(5\\) cm thì được một hình chữ nhật mới có diện tích bằng \\(153\\,\\,{\\rm{c}}{{\\rm{m}}^{\\rm{2}}}.\\) Nếu gọi chiều rộng của hình chữ nhật là \\(x\\)(cm) với \\(x > 0\\) và chiều dài của hình chữ nhật là \\(3x\\) cm. Khi đó, chiều rộng và chiều dài hình chữ nhật sau khi tăng thêm lần lượt là là \\(x + 5\\) (cm) và \\(3x + 5\\) (cm). Phương trình của bài toán để tính chu vi hình chữ nhật ban đầu là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.2,
+  "modified": "2025-08-07 03:32:37",
+  "name": "TP7T1Qfnpgvc",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "\\(\\left( {x + 5} \\right)\\left( {3x + 5} \\right) = 153.\\)",
+    "parent": "TP7T1Qfnpgvc",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\left( {x - 5} \\right)\\left( {3x + 5} \\right) = 153.\\)",
+    "parent": "TP7T1Qfnpgvc",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\left( {x + 5} \\right)\\left( {3x - 5} \\right) = 153.\\)",
+    "parent": "TP7T1Qfnpgvc",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\left( {x + 5} \\right)\\left( {3 - x} \\right).5 = 153.\\)",
+    "parent": "TP7T1Qfnpgvc",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "content": "Kết luận nào sau đây là sai khi nói về đồ thị hàm số \\(y = a{x^2}\\,\\,\\left( {a \\ne 0} \\right)?\\)",
+  "difficulty": -2,
+  "discrimination": 1.57,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.537171",
+  "name": "TP7T1Qkymakc",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Đồ thị hàm số nhận trục tung làm trục đối xứng",
+    "parent": "TP7T1Qkymakc",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Với \\(a < 0\\) thì đồ thị nằm phía dưới trục hoành và \\(O\\left( {0;0} \\right)\\) là điểm cao nhất của đồ thị",
+    "parent": "TP7T1Qkymakc",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Với \\(a > 0\\) thì đồ thị nằm phía trên trục hoành và \\(O\\left( {0;0} \\right)\\) là điểm cao nhất của đồ thị",
+    "parent": "TP7T1Qkymakc",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Với \\(a > 0\\) thì đồ thị nằm phía trên trục hoành và \\(O\\left( {0;0} \\right)\\) là điểm thấp nhất của đồ thị",
+    "parent": "TP7T1Qkymakc",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "content": "Cho đồ thị của một hàm số bậc hai sau: Hệ số \\(a\\) của đồ thị hàm số bậc hai này là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:32:32",
+  "name": "TP7T1Q3th7ew",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\(a = - 1.\\)",
+    "parent": "TP7T1Q3th7ew",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[a = 1.\\]",
+    "parent": "TP7T1Q3th7ew",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\(a < 0.\\)",
+    "parent": "TP7T1Q3th7ew",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(a > 0.\\)",
+    "parent": "TP7T1Q3th7ew",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "content": "Trong mặt phẳng tọa độ \\[Oxy\\], cho hàm số \\(y = \\left( {m + 2} \\right){x^2}\\) có đồ thị đi qua điểm \\(\\left( { - 1\\,;\\,\\,3} \\right).\\) Khi đó giá trị của \\[m\\] tương ứng là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:32:41",
+  "name": "TP7T1Qeb2tzn",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "\\(m = - 1.\\)",
+    "parent": "TP7T1Qeb2tzn",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(m = 1.\\)",
+    "parent": "TP7T1Qeb2tzn",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(m = 0.\\)",
+    "parent": "TP7T1Qeb2tzn",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(m = 2.\\)",
+    "parent": "TP7T1Qeb2tzn",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "content": "Cho phương trình \\(a{x^2} + bx + c = 0\\,\\,\\left( {a \\ne 0} \\right)\\) có biệt thức \\(\\Delta = {b^2} - 4ac.\\) Phương trình đã cho có nghiệm khi",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:32:39",
+  "name": "TP7T2Qy3puxc",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\Delta < 0.\\)",
+    "parent": "TP7T2Qy3puxc",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\Delta = 0.\\)",
+    "parent": "TP7T2Qy3puxc",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\(\\Delta \\ge 0.\\)",
+    "parent": "TP7T2Qy3puxc",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\Delta > 0.\\)",
+    "parent": "TP7T2Qy3puxc",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "content": "Cho phương trình \\(a{x^2} + bx + c = 0\\,\\,\\left( {a \\ne 0} \\right).\\) Nếu \\(a - b + c = 0\\) thì nghiệm của phương trình là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:32:34",
+  "name": "TP7T3Qq6fdyy",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\({x_1} = 1;\\,\\,{x_2} = \\frac{{ - c}}{a}.\\)",
+    "parent": "TP7T3Qq6fdyy",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\({x_1} = - 1;\\,\\,{x_2} = \\frac{c}{a}.\\)",
+    "parent": "TP7T3Qq6fdyy",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\({x_1} = - 1;\\,\\,{x_2} = - \\frac{c}{a}.\\)",
+    "parent": "TP7T3Qq6fdyy",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\({x_1} = 1;\\,\\,{x_2} = \\frac{c}{a}.\\)",
+    "parent": "TP7T3Qq6fdyy",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "content": "Gọi \\({x_1},\\,x{}_2\\) là hai nghiệm của phương trình \\({x^2} - 3x + 2 = 0\\) khi đó ta có",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:32:29",
+  "name": "TP7T3Qh5bri8",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "\\[{x_1} + {x_2} = 3;\\,\\,\\,{x_1}{x_2} = 2.\\]",
+    "parent": "TP7T3Qh5bri8",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\({x_1} + {x_2} = - 3;\\,\\,{x_1}{x_2} = 2.\\)",
+    "parent": "TP7T3Qh5bri8",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\({x_1} + {x_2} = 3;\\,\\,{x_1}{x_2} = - 2.\\)",
+    "parent": "TP7T3Qh5bri8",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[{x_1} + {x_2} = - 3;\\,\\,{x_1}{x_2} = - 2.\\]",
+    "parent": "TP7T3Qh5bri8",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "content": "Trong các hình phẳng sau, các hình là hình phẳng có dạng là đa giác đều là:",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:33:54",
+  "name": "TP9T1Qirdg74",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Hình a",
+    "parent": "TP9T1Qirdg74",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Hình b",
+    "parent": "TP9T1Qirdg74",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Hình c",
+    "parent": "TP9T1Qirdg74",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Hình d",
+    "parent": "TP9T1Qirdg74",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "9"
+ },
+ {
+  "content": "Đa giác \\[GHIJKLM\\] là một hình gồm bao nhiêu đoạn thẳng?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:33:49",
+  "name": "TP9T1Qh8udt4",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "5",
+    "parent": "TP9T1Qh8udt4",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "8",
+    "parent": "TP9T1Qh8udt4",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "6",
+    "parent": "TP9T1Qh8udt4",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "7",
+    "parent": "TP9T1Qh8udt4",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "9"
+ },
+ {
+  "content": "Cho hình vẽ dưới đây. Bán kính hình cầu bằng",
+  "difficulty": 2,
+  "discrimination": 0.86,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.291023",
+  "name": "TP10T3Qh9ass3",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\sqrt {10} {\\rm{\\;cm}}.\\]",
+    "parent": "TP10T3Qh9ass3",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[5{\\rm{\\;cm}}.\\]",
+    "parent": "TP10T3Qh9ass3",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[10{\\rm{\\;cm}}.\\]",
+    "parent": "TP10T3Qh9ass3",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[20{\\rm{\\;cm}}.\\]",
+    "parent": "TP10T3Qh9ass3",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "10"
+ },
+ {
+  "content": "Khi cắt hình cầu tâm \\[O\\] bán kính \\[R\\] bởi một mặt phẳng bất kỳ thì mặt cắt thu được luôn là một",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:34:37",
+  "name": "TP10T3Qteueqk",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "hình vuông",
+    "parent": "TP10T3Qteueqk",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "hình chữ nhật",
+    "parent": "TP10T3Qteueqk",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "hình tam giác",
+    "parent": "TP10T3Qteueqk",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "hình tròn",
+    "parent": "TP10T3Qteueqk",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "10"
+ },
+ {
+  "content": "Mặt cầu bán kính \\[R\\] có diện tích là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:34:46",
+  "name": "TP10T3Q9qaf64",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[S = \\frac{4}{3}\\pi {R^3}.\\]",
+    "parent": "TP10T3Q9qaf64",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[S = 4\\pi {R^3}.\\]",
+    "parent": "TP10T3Q9qaf64",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[S = 4\\pi {R^2}.\\]",
+    "parent": "TP10T3Q9qaf64",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[S = \\pi {R^2}.\\]",
+    "parent": "TP10T3Q9qaf64",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "10"
+ },
+ {
+  "content": "Hình cầu bán kính \\[R\\] có thể tích bằng",
+  "difficulty": 2,
+  "discrimination": 1.55,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.297715",
+  "name": "TP10T3Qgrhf4d",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[V = \\frac{4}{3}\\pi {R^3}.\\]",
+    "parent": "TP10T3Qgrhf4d",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[V = 4\\pi {R^3}.\\]",
+    "parent": "TP10T3Qgrhf4d",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[V = 4\\pi {R^2}.\\]",
+    "parent": "TP10T3Qgrhf4d",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[V = \\pi {R^2}.\\]",
+    "parent": "TP10T3Qgrhf4d",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "10"
+ },
+ {
+  "content": "Gọi \\[l,h,R\\] lần lượt là độ dài đường sinh, chiều cao và bán kính của hình trụ. Đẳng thức luôn đúng là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:34:53",
+  "name": "TP10T1Qs3g68m",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[R = h.\\]",
+    "parent": "TP10T1Qs3g68m",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[l = h.\\]",
+    "parent": "TP10T1Qs3g68m",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[{l^2} = {h^2} + {R^2}.\\]",
+    "parent": "TP10T1Qs3g68m",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[{R^2} = {h^2} + {l^2}.\\]",
+    "parent": "TP10T1Qs3g68m",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "10"
+ },
+ {
+  "content": "Khi quay một tam giác vuông quanh đường thẳng cố định chứa một cạnh góc vuông của tam giác vuông đó thì ta được",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:34:24",
+  "name": "TP10T1Q6ahhgw",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "hình lập phương",
+    "parent": "TP10T1Q6ahhgw",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "hình cầu",
+    "parent": "TP10T1Q6ahhgw",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "hình trụ",
+    "parent": "TP10T1Q6ahhgw",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "hình nón",
+    "parent": "TP10T1Q6ahhgw",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "10"
+ },
+ {
+  "content": "Nếu cắt một hình cầu bởi một mặt phẳng không đi qua tâm hình cầu thì phần chung giữa chúng là một",
+  "difficulty": 0,
+  "discrimination": 1.2,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.2,
+  "modified": "2025-08-07 03:34:35",
+  "name": "TP10T1Qkpppnc",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "hình chữ nhật",
+    "parent": "TP10T1Qkpppnc",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "đường tròn",
+    "parent": "TP10T1Qkpppnc",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "đường tròn lớn",
+    "parent": "TP10T1Qkpppnc",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "hình tròn",
+    "parent": "TP10T1Qkpppnc",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "10"
+ },
+ {
+  "content": "Gọi \\[h,\\,\\,r\\] lần lượt là chiều cao và bán kính đáy của hình trụ \\[\\left( T \\right).\\] Thể tích \\[V\\] của hình trụ \\[\\left( T \\right)\\] có công thức là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:34:50",
+  "name": "TP10T1Q65kwrk",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[V = \\frac{4}{3}\\pi {r^2}h.\\]",
+    "parent": "TP10T1Q65kwrk",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[V = \\frac{2}{3}\\pi {r^2}h.\\]",
+    "parent": "TP10T1Q65kwrk",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[V = \\pi {r^2}h.\\]",
+    "parent": "TP10T1Q65kwrk",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[V = \\frac{1}{3}\\pi {r^2}h.\\]",
+    "parent": "TP10T1Q65kwrk",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "10"
+ },
+ {
+  "content": "Gọi \\[l,h,r\\] lần lượt là độ dài đường sinh, chiều cao và bán kính đáy của hình trụ \\[\\left( T \\right).\\] Diện tích xung quanh \\[{S_{xq}}\\] của hình trụ \\[\\left( T \\right)\\] có công thức là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:34:30",
+  "name": "TP10T1Q63aqv4",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "\\[{S_{xq}} = 2\\pi rl.\\]",
+    "parent": "TP10T1Q63aqv4",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[{S_{xq}} = \\pi rl.\\]",
+    "parent": "TP10T1Q63aqv4",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[{S_{xq}} = \\pi {r^2}h.\\]",
+    "parent": "TP10T1Q63aqv4",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[{S_{xq}} = \\pi rh.\\]",
+    "parent": "TP10T1Q63aqv4",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "10"
+ },
+ {
+  "content": "Gọi \\(l,\\,\\,h,\\,\\,r\\) lần lượt là độ dài đường sinh, chiều cao và bán kính đáy của hình nón. Diện tích toàn phần của hình nón là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:34:27",
+  "name": "TP10T2Q9yr6t2",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\({S_{tp}} = \\pi rl\\)",
+    "parent": "TP10T2Q9yr6t2",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\({S_{tp}} = \\pi rl + 2\\pi {r^2}.\\)",
+    "parent": "TP10T2Q9yr6t2",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\({S_{tp}} = 2\\pi r\\left( {l + r} \\right).\\)",
+    "parent": "TP10T2Q9yr6t2",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[{S_{tp}} = \\pi r\\left( {l + r} \\right).\\]",
+    "parent": "TP10T2Q9yr6t2",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "10"
+ },
+ {
+  "content": "Thể tích của hình nón có bán kính \\(r\\) và chiều cao \\(h\\) là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:34:21",
+  "name": "TP10T2Qupxuw7",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "\\[V = \\frac{1}{3}\\pi {r^2}h\\]",
+    "parent": "TP10T2Qupxuw7",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[V = \\pi {r^2}h\\]",
+    "parent": "TP10T2Qupxuw7",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[V = \\frac{4}{3}\\pi {r^2}h\\]",
+    "parent": "TP10T2Qupxuw7",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[V = 3\\pi {r^2}h\\]",
+    "parent": "TP10T2Qupxuw7",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "10"
+ },
+ {
+  "content": "Cho hai đường tròn \\[\\left( {O;R} \\right)\\] và \\[\\left( {O';r} \\right)\\] sao cho \\[OO' < R - r\\], với \\[R > r.\\] Khi đó ta nói",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.2,
+  "modified": "2025-08-07 03:39:30",
+  "name": "TP5T5Qaqx73i",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "hai đường tròn \\[\\left( {O;R} \\right)\\] và \\[\\left( {O';r} \\right)\\] ở ngoài nhau",
+    "parent": "TP5T5Qaqx73i",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "đường tròn \\[\\left( {O;R} \\right)\\] đựng \\[\\left( {O';r} \\right).\\]",
+    "parent": "TP5T5Qaqx73i",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "đường tròn \\[\\left( {O';r} \\right)\\] và \\[\\left( {O;R} \\right).\\]",
+    "parent": "TP5T5Qaqx73i",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "hai đường tròn \\[\\left( {O;R} \\right)\\] và \\[\\left( {O';r} \\right)\\] cắt nhau",
+    "parent": "TP5T5Qaqx73i",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "“Trong các dây của một đường tròn, đường kính là dây có độ dài …”. Cụm từ thích hợp điền vào chỗ trống là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:38:38",
+  "name": "TP5T1Qxua759",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "lớn nhất",
+    "parent": "TP5T1Qxua759",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "nhỏ nhất",
+    "parent": "TP5T1Qxua759",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "bằng \\[100{\\rm{\\;cm}}.\\]",
+    "parent": "TP5T1Qxua759",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "bằng tổng hai dây bất kì",
+    "parent": "TP5T1Qxua759",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Đường thẳng và đường tròn có nhiều nhất bao nhiêu điểm chung?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:39:01",
+  "name": "TP5T4Q9np6pd",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "1",
+    "parent": "TP5T4Q9np6pd",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "2",
+    "parent": "TP5T4Q9np6pd",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "3",
+    "parent": "TP5T4Q9np6pd",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "4",
+    "parent": "TP5T4Q9np6pd",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Nếu đường thẳng và đường tròn có duy nhất một điểm chung thì",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:39:03",
+  "name": "TP5T4Qru9css",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "Đường thẳng tiếp xúc với đường tròn",
+    "parent": "TP5T4Qru9css",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Đường thẳng cắt đường tròn",
+    "parent": "TP5T4Qru9css",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Đường thẳng và đường tròn không giao nhau",
+    "parent": "TP5T4Qru9css",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Đáp án khác",
+    "parent": "TP5T4Qru9css",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Biểu đồ tần số tương đối ghép nhóm dạng cột là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:39:51",
+  "name": "TP6T3Qu3frh2",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "biểu đồ gồm các cột dùng để biểu diễn bảng tần số",
+    "parent": "TP6T3Qu3frh2",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "biểu đồ gồm các cột liền nhau dùng để biểu diễn bảng tần số tương đối",
+    "parent": "TP6T3Qu3frh2",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "biểu đồ gồm các cột dùng để biểu diễn bảng tần số tương đối ghép nhóm",
+    "parent": "TP6T3Qu3frh2",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "biểu đồ gồm các cột liền nhau dùng để biểu diễn bảng tần số tương đối ghép nhóm",
+    "parent": "TP6T3Qu3frh2",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "content": "Dạng thường gặp của biểu đồ tần số tương đối là",
+  "difficulty": -2,
+  "discrimination": 1.58,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.696405",
+  "name": "TP6T2Q28tmhd",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "chỉ biểu đồ cột",
+    "parent": "TP6T2Q28tmhd",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "biểu đồ hình quạt tròn và biểu đồ đoạn thẳng",
+    "parent": "TP6T2Q28tmhd",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "biểu đổ cột và biểu đồ hình quạt tròn",
+    "parent": "TP6T2Q28tmhd",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "biểu đồ cột, biểu đồ đoạn thẳng và biểu đồ hình quạt tròn",
+    "parent": "TP6T2Q28tmhd",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "content": "Xét một phép thử có không gian mẫu \\(\\Omega \\) và \\(A\\) là một biến cố của phép thử đó. Xác suất của biến cố \\(A\\) là",
+  "difficulty": -2,
+  "discrimination": 1.72,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.729065",
+  "name": "TP6T4Qs2e624",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "\\(P\\left( A \\right) = \\frac{{n\\left( A \\right)}}{{n\\left( \\Omega \\right)}}\\)",
+    "parent": "TP6T4Qs2e624",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[P\\left( A \\right) = \\frac{{n\\left( \\Omega \\right)}}{{n\\left( A \\right)}}\\]",
+    "parent": "TP6T4Qs2e624",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(P\\left( A \\right) = n\\left( A \\right).n\\left( \\Omega \\right)\\)",
+    "parent": "TP6T4Qs2e624",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(n\\left( A \\right) = n\\left( \\Omega \\right)\\)",
+    "parent": "TP6T4Qs2e624",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "content": "Tần số tương đối \\[{f_2}\\] của giá trị \\[{x_2}\\] là tỉ số giữa",
+  "difficulty": -2,
+  "discrimination": 1.4,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.736444",
+  "name": "TP6T1Qaiqfme",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "giá trị \\[{x_2}\\] với \\[n.\\]",
+    "parent": "TP6T1Qaiqfme",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[n\\] với giá trị \\[{x_2}.\\]",
+    "parent": "TP6T1Qaiqfme",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "tần số \\[{m_2}\\] của \\[{x_2}\\] với \\[n.\\]",
+    "parent": "TP6T1Qaiqfme",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[n\\] với tần số \\[{m_2}\\] của \\[{x_2}.\\]",
+    "parent": "TP6T1Qaiqfme",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "content": "Nếu chiều cao mỗi cột biểu diễn tần số của nhóm số liệu thì ta có biểu đồ tần số tương đối ghép nhóm ở dạng",
+  "difficulty": -2,
+  "discrimination": 1.22,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.716134",
+  "name": "TP6T1Qgn3erd",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "dạng cột",
+    "parent": "TP6T1Qgn3erd",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "dạng đoạn thẳng",
+    "parent": "TP6T1Qgn3erd",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "dạng bảng",
+    "parent": "TP6T1Qgn3erd",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "dạng hình quạt tròn",
+    "parent": "TP6T1Qgn3erd",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "content": "Điểm đối xứng với điểm \\(\\left( {x;y} \\right)\\) qua trục \\(Oy\\)là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:33:00",
+  "name": "TP7T1Q9x2ivu",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\left( {0;0} \\right).\\)",
+    "parent": "TP7T1Q9x2ivu",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\(\\left( { - x;y} \\right).\\)",
+    "parent": "TP7T1Q9x2ivu",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\left( {x;y} \\right).\\)",
+    "parent": "TP7T1Q9x2ivu",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\left( {x; - y} \\right).\\]",
+    "parent": "TP7T1Q9x2ivu",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "content": "Phép quay với \\[O\\] là tâm biến tam giác đều thành chính nó là phép quay thuận chiều một góc",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:33:51",
+  "name": "TP9T1Qrkvfgb",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\(90^\\circ \\)",
+    "parent": "TP9T1Qrkvfgb",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(100^\\circ \\)",
+    "parent": "TP9T1Qrkvfgb",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(110^\\circ \\)",
+    "parent": "TP9T1Qrkvfgb",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\(120^\\circ \\)",
+    "parent": "TP9T1Qrkvfgb",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "9"
+ },
+ {
+  "content": "Khẳng định nào sau đây là đúng?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:34:03",
+  "name": "TP9T1Qpvet84",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "Đa giác lồi là đa giác luôn nằm về một phía của đường thẳng chứa một cạnh bất kì của đa giác đó;",
+    "parent": "TP9T1Qpvet84",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Ngũ giác đều là đa giác có tất cả các cạnh bằng nhau;",
+    "parent": "TP9T1Qpvet84",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Ngũ giác đều là đa giác có tất cả các góc bằng nhau;",
+    "parent": "TP9T1Qpvet84",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Phép quay giữ nguyên mọi điểm là phép quay 180°",
+    "parent": "TP9T1Qpvet84",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "9"
+ },
+ {
+  "content": "Gọi \\(l,\\,\\,h,\\,\\,r\\) lần lượt là độ dài đường sinh, chiều cao và bán kính đáy của hình nón. Khi đó",
+  "difficulty": -2,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.059464",
+  "name": "TP10T2Qji6ysw",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\(l = h + r\\)",
+    "parent": "TP10T2Qji6ysw",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(l = {h^2} + {r^2}\\)",
+    "parent": "TP10T2Qji6ysw",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\(l = \\sqrt {{h^2} + {r^2}} \\)",
+    "parent": "TP10T2Qji6ysw",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(l = \\sqrt {{h^2} - {r^2}} \\)",
+    "parent": "TP10T2Qji6ysw",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "10"
+ },
+ {
+  "content": "Một hình nón có độ dài đường sinh là \\(l\\) và diện tích xung quanh là \\({S_{xq}}.\\) Chu vi đáy của hình nón là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:34:39",
+  "name": "TP10T2Q4jkkgm",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\(C = \\frac{{{S_{xq}}}}{{2l}}.\\)",
+    "parent": "TP10T2Q4jkkgm",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(C = \\frac{{{S_{xq}}}}{l}.\\)",
+    "parent": "TP10T2Q4jkkgm",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\(C = \\frac{{2{S_{xq}}}}{l}.\\)",
+    "parent": "TP10T2Q4jkkgm",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(C = \\frac{{3{S_{xq}}}}{l}.\\)",
+    "parent": "TP10T2Q4jkkgm",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "10"
+ },
+ {
+  "content": "Cho hai đường tròn \\[\\left( {O;R} \\right)\\] và \\[\\left( {O';r} \\right)\\] với \\[R > r\\] cắt nhau tại hai điểm phân biệt và \\[OO' = d.\\] Chọn khẳng định đúng?",
+  "difficulty": 1,
+  "discrimination": 1.8,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.2,
+  "modified": "2025-08-07 03:38:57",
+  "name": "TP5T5Qw988q4",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[d > R + r.\\]",
+    "parent": "TP5T5Qw988q4",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[d = R - r.\\]",
+    "parent": "TP5T5Qw988q4",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[d < R - r.\\]",
+    "parent": "TP5T5Qw988q4",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[R - r < d < R + r.\\]",
+    "parent": "TP5T5Qw988q4",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Cho hai đường tròn \\[\\left( {O;R} \\right)\\] và \\[\\left( {O';r} \\right)\\] với \\[R > r.\\] Ta nói hai đường tròn \\[\\left( {O;R} \\right)\\] và \\[\\left( {O';r} \\right)\\] ở ngoài nhau khi",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:39:05",
+  "name": "TP5T5Qwpp5hs",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[OO' < R + r.\\]",
+    "parent": "TP5T5Qwpp5hs",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[OO' > R - r.\\]",
+    "parent": "TP5T5Qwpp5hs",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[OO' > R + r.\\]",
+    "parent": "TP5T5Qwpp5hs",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[OO' = R + r.\\]",
+    "parent": "TP5T5Qwpp5hs",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Cho đường tròn \\[\\left( {O;5{\\rm{\\;cm}}} \\right)\\] và một điểm \\[K\\] bất kì. Biết rằng \\[OK = 7{\\rm{\\;cm}}.\\] Khẳng định nào sau đây đúng?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:39:15",
+  "name": "TP5T1Qnfgdec",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Điểm \\[K\\] nằm trong đường tròn \\[\\left( {O;5{\\rm{\\;cm}}} \\right).\\]",
+    "parent": "TP5T1Qnfgdec",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Điểm \\[K\\] nằm ngoài đường tròn \\[\\left( {O;5{\\rm{\\;cm}}} \\right).\\]",
+    "parent": "TP5T1Qnfgdec",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Điểm \\[K\\] nằm trên đường tròn \\[\\left( {O;5{\\rm{\\;cm}}} \\right).\\]",
+    "parent": "TP5T1Qnfgdec",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Điểm \\[K\\] thuộc đường tròn \\[\\left( {O;5{\\rm{\\;cm}}} \\right).\\]",
+    "parent": "TP5T1Qnfgdec",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Hình tròn tâm \\[O\\] bán kính \\[R\\] là hình gồm các điểm",
+  "difficulty": -2,
+  "discrimination": 1.0,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.3,
+  "modified": "2025-08-07 03:38:58",
+  "name": "TP5T1Qyz2eye",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "nằm trên và nằm trong đường tròn \\[\\left( {O\\,;R} \\right).\\]",
+    "parent": "TP5T1Qyz2eye",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "nằm trên đường tròn \\[\\left( {O\\,;R} \\right).\\]",
+    "parent": "TP5T1Qyz2eye",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "nằm trong đường tròn \\[\\left( {O\\,;R} \\right).\\]",
+    "parent": "TP5T1Qyz2eye",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "nằm ngoài đường tròn \\[\\left( {O\\,;R} \\right).\\]",
+    "parent": "TP5T1Qyz2eye",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Nếu đường thẳng \\[d\\] là tiếp tuyến của đường tròn \\[\\left( O \\right)\\] tại \\[A\\] thì",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:38:45",
+  "name": "TP5T1Q9365je",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[d \\equiv OA.\\]",
+    "parent": "TP5T1Q9365je",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[d \\bot OA\\] tại \\[O.\\]",
+    "parent": "TP5T1Q9365je",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[d\\,{\\rm{//}}\\,OA.\\]",
+    "parent": "TP5T1Q9365je",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[d \\bot OA\\] tại \\[A.\\]",
+    "parent": "TP5T1Q9365je",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Cho hai tiếp tuyến của một đường tròn cắt nhau tại một điểm. Khẳng định nào sau đây là đúng?",
+  "difficulty": -1,
+  "discrimination": 1.78,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.961431",
+  "name": "TP5T4Qemj6dn",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Tia nối từ điểm đó tới tâm là tia phân giác của góc tạo bởi hai bán kính",
+    "parent": "TP5T4Qemj6dn",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Tia nối từ tâm tới điểm đó là tia phân giác của góc tạo bởi hai tiếp tuyến",
+    "parent": "TP5T4Qemj6dn",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Khoảng cách từ điểm đó đến hai tiếp điểm bằng nhau",
+    "parent": "TP5T4Qemj6dn",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Cả A, B, C đều đúng",
+    "parent": "TP5T4Qemj6dn",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Bảng thống kê cho biết tần số của các giá trị trong mẫu dữ liệu được gọi là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:39:56",
+  "name": "TP6T2Qgkrj4c",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "tần số",
+    "parent": "TP6T2Qgkrj4c",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "mẫu dữ liệu",
+    "parent": "TP6T2Qgkrj4c",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "bảng tần số",
+    "parent": "TP6T2Qgkrj4c",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "biểu đồ tần số",
+    "parent": "TP6T2Qgkrj4c",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "content": "Phương trình nào dưới đây là phương trình bậc hai một ẩn?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:32:43",
+  "name": "TP7T2Q77i6ws",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\(3{x^2} - 3\\sqrt x + 2 = 0.\\)",
+    "parent": "TP7T2Q77i6ws",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(2{x^2} - 2022 = 0.\\)",
+    "parent": "TP7T2Q77i6ws",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(4x + \\frac{1}{x} - 5 = 0.\\)",
+    "parent": "TP7T2Q77i6ws",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(5x - 1 = 0.\\)",
+    "parent": "TP7T2Q77i6ws",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "content": "Cho phương trình \\(a{x^2} + bx + c = 0\\,\\,\\left( {a \\ne 0} \\right).\\) Nếu \\(a + b + c = 0\\) thì nghiệm của phương trình là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:32:49",
+  "name": "TP7T3Qk6jruw",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\({x_1} = 1;\\,\\,{x_2} = \\frac{{ - c}}{a}.\\)",
+    "parent": "TP7T3Qk6jruw",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\({x_1} = 1;\\,\\,{x_2} = \\frac{c}{a}.\\)",
+    "parent": "TP7T3Qk6jruw",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\({x_1} = - 1;\\,\\,{x_2} = \\frac{c}{a}.\\)",
+    "parent": "TP7T3Qk6jruw",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\({x_1} = - 1;\\,\\,{x_2} = - \\frac{c}{a}.\\)",
+    "parent": "TP7T3Qk6jruw",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "content": "Hai số \\({x_1};\\,{x_2}\\) có tổng là \\(S\\) và tích là \\(P\\) (điều kiện \\({S^2} - 4P \\ge 0\\)). Khi đó \\({x_1};\\,{x_2}\\) là nghiệm của phương trình nào sau đây?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:33:10",
+  "name": "TP7T3Qa25i3e",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\({x^2} + Sx + P = 0.\\)",
+    "parent": "TP7T3Qa25i3e",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\({x^2} - Sx + P = 0.\\)",
+    "parent": "TP7T3Qa25i3e",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\({x^2} + Sx - P = 0.\\)",
+    "parent": "TP7T3Qa25i3e",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\({x^2} - Sx - P = 0.\\)",
+    "parent": "TP7T3Qa25i3e",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "content": "Cho hình nón có bán kính đáy \\[r = \\sqrt 3 {\\rm{\\;cm}},\\] độ dài đường sinh \\[l = 4{\\rm{\\;cm}}.\\] Diện tích xung quanh của hình nón đó bằng",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:34:42",
+  "name": "TP10T1Qbhh7yh",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "\\[4\\pi \\sqrt 3 {\\rm{\\;c}}{{\\rm{m}}^2}.\\]",
+    "parent": "TP10T1Qbhh7yh",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\pi \\sqrt {39} {\\rm{\\;c}}{{\\rm{m}}^2}.\\]",
+    "parent": "TP10T1Qbhh7yh",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[8\\pi \\sqrt 3 {\\rm{\\;c}}{{\\rm{m}}^2}.\\]",
+    "parent": "TP10T1Qbhh7yh",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[12\\pi {\\rm{\\;c}}{{\\rm{m}}^2}.\\]",
+    "parent": "TP10T1Qbhh7yh",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "10"
+ },
+ {
+  "content": "Độ dài cung \\[30^\\circ \\] của một đường tròn có bán kính \\[4{\\rm{\\;dm}}\\] là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:38:42",
+  "name": "TP5T3Qbbv4z8",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\frac{{4\\pi }}{3}{\\rm{\\;dm}}.\\]",
+    "parent": "TP5T3Qbbv4z8",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[\\frac{{2\\pi }}{3}{\\rm{\\;dm}}.\\]",
+    "parent": "TP5T3Qbbv4z8",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\frac{\\pi }{3}{\\rm{\\;dm}}.\\]",
+    "parent": "TP5T3Qbbv4z8",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\frac{\\pi }{6}{\\rm{\\;dm}}.\\]",
+    "parent": "TP5T3Qbbv4z8",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Nếu hai đường tròn phân biệt tiếp xúc nhau thì số điểm chung của hai đường tròn là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:39:36",
+  "name": "TP5T5Qewkc32",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "2",
+    "parent": "TP5T5Qewkc32",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "1",
+    "parent": "TP5T5Qewkc32",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "3",
+    "parent": "TP5T5Qewkc32",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "4",
+    "parent": "TP5T5Qewkc32",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Phát biểu đúng nhất trong các phát biểu sau là",
+  "difficulty": -3,
+  "discrimination": 1.79,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.709622",
+  "name": "TP6T4Qih6i2b",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "Tập hợp tất cả các kết quả có thể xảy ra của một phép thử được gọi là không gian mẫu của phép thử đó",
+    "parent": "TP6T4Qih6i2b",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Tập hợp tất cả các kết quả không thể xảy ra của một phép thử được gọi là không gian mẫu của phép thử đó",
+    "parent": "TP6T4Qih6i2b",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Tập hợp các kết quả có thể xảy ra của một phép thử với khả năng xuất hiện như nhau được gọi là không gian mẫu của phép thử đó",
+    "parent": "TP6T4Qih6i2b",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Tập hợp tất cả các kết quả không thể xảy ra của một phép thử với khả năng xuất hiện như nhau được gọi là không gian mẫu của phép thử đó",
+    "parent": "TP6T4Qih6i2b",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "content": "Trong biểu đồ hình quạt tròn, nửa đường tròn biểu diễn",
+  "difficulty": -3,
+  "discrimination": 1.75,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.750236",
+  "name": "TP6T1Qeae73z",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "25%",
+    "parent": "TP6T1Qeae73z",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "50%",
+    "parent": "TP6T1Qeae73z",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "75%",
+    "parent": "TP6T1Qeae73z",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "100%",
+    "parent": "TP6T1Qeae73z",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "content": "Nghiệm của phương trình \\(2{x^2} - 5x + 2 = 0\\) là",
+  "difficulty": -2,
+  "discrimination": 1.06,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.579798",
+  "name": "TP7T2Q3w5fzh",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\({x_1} = - 2;\\,\\,{x_2} = - 1.\\)",
+    "parent": "TP7T2Q3w5fzh",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\({x_1} = 2;\\,\\,{x_2} = - \\frac{1}{2}.\\)",
+    "parent": "TP7T2Q3w5fzh",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\({x_1} = 2;\\,\\,{x_2} = \\frac{1}{2}.\\)",
+    "parent": "TP7T2Q3w5fzh",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\({x_1} = - \\frac{1}{2};\\,\\,{x_2} = - 2.\\)",
+    "parent": "TP7T2Q3w5fzh",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "content": "Cho các hình dưới đây: Trong các hình trên, hình nào có dạng là đa giác đều?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:33:59",
+  "name": "TP9T1Qree24u",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Hình \\(a,\\,\\,b\\)",
+    "parent": "TP9T1Qree24u",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Hình \\(b,\\,\\,d\\)",
+    "parent": "TP9T1Qree24u",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Hình \\[c,\\,\\,e\\]",
+    "parent": "TP9T1Qree24u",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Hình \\(d,\\,\\,e\\)",
+    "parent": "TP9T1Qree24u",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "9"
+ },
+ {
+  "content": "Khi quay thuận chiều \\(\\alpha ^\\circ \\) tâm \\[O\\] điểm \\[A\\] thành điểm \\[B\\] thì điểm \\[A\\] tạo thành cung \\[AB\\] có số đo bằng",
+  "difficulty": -2,
+  "discrimination": 1.98,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.305684",
+  "name": "TP9T2Q9x4zjh",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\alpha ^\\circ \\)",
+    "parent": "TP9T2Q9x4zjh",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[ - \\alpha ^\\circ \\]",
+    "parent": "TP9T2Q9x4zjh",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(90^\\circ - \\alpha ^\\circ \\)",
+    "parent": "TP9T2Q9x4zjh",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(180^\\circ - \\alpha ^\\circ \\)",
+    "parent": "TP9T2Q9x4zjh",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "9"
+ },
+ {
+  "content": "Một phép quay gọi là giữ nguyên đa giác đều \\[H\\] nếu phép quay đó",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:33:57",
+  "name": "TP9T2Q6vywrx",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Giữ nguyên các điểm của \\[H\\]",
+    "parent": "TP9T2Q6vywrx",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Biến mỗi điểm của \\[H\\] thành một điểm của \\[H\\]",
+    "parent": "TP9T2Q6vywrx",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Giữ nguyên chu vi của \\[H\\]",
+    "parent": "TP9T2Q6vywrx",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Giữ nguyên diện tích của \\[H\\]",
+    "parent": "TP9T2Q6vywrx",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "9"
+ },
+ {
+  "content": "Khẳng định nào sau đây là sai?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:38:29",
+  "name": "TP5T2Qugmjkf",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "Khi dây \\[AB\\] không là đường kính của đường tròn \\[\\left( {O;R} \\right)\\] thì \\[AB \\le 2R.\\]",
+    "parent": "TP5T2Qugmjkf",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Đoạn thẳng nối hai điểm tuỳ ý của một đường tròn gọi là một dây cung của đường tròn",
+    "parent": "TP5T2Qugmjkf",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Khi dây \\[AB\\] là đường kính của đường tròn tâm \\[O\\] bán kính \\[R,\\] ta có \\[AB = AO + OB = 2R.\\]",
+    "parent": "TP5T2Qugmjkf",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Mỗi dây đi qua tâm là một đường kính của đường tròn",
+    "parent": "TP5T2Qugmjkf",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Cho đường tròn \\[\\left( {O\\,;R} \\right)\\] và một điểm \\[G\\] bất kì. Ta nói điểm \\[G\\] nằm trên đường tròn \\[\\left( {O\\,;R} \\right)\\] nếu",
+  "difficulty": 0,
+  "discrimination": 1.42,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.974959",
+  "name": "TP5T1Qux9pff",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[OG > R.\\]",
+    "parent": "TP5T1Qux9pff",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[OG < R.\\]",
+    "parent": "TP5T1Qux9pff",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[OG = R.\\]",
+    "parent": "TP5T1Qux9pff",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[OG \\ne R.\\]",
+    "parent": "TP5T1Qux9pff",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Cho đường tròn \\[\\left( {O;OA} \\right)\\] và đường tròn \\[\\left( {O'} \\right)\\] đường kính \\[OA.\\] Vị trí tương đối của hai đường tròn\\[\\left( O \\right)\\] và \\[\\left( {O'} \\right)\\] là",
+  "difficulty": -1,
+  "discrimination": 0.92,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.968339",
+  "name": "TP5T1Qpxjhnv",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "Tiếp xúc trong",
+    "parent": "TP5T1Qpxjhnv",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Tiếp xúc ngoài",
+    "parent": "TP5T1Qpxjhnv",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Nằm ngoài nhau",
+    "parent": "TP5T1Qpxjhnv",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Cắt nhau",
+    "parent": "TP5T1Qpxjhnv",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Cho đường tròn \\[\\left( O \\right)\\] và đường thẳng \\[a.\\] Kẻ \\[OH \\bot a\\] tại điểm \\[H,\\] biết \\[OH > R.\\] Khi đó, đường thẳng \\[a\\] và đường tròn \\[\\left( O \\right)\\] có vị trí tương đối là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:38:35",
+  "name": "TP5T4Qma6icu",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Tiếp xúc với nhau",
+    "parent": "TP5T4Qma6icu",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Cắt nhau",
+    "parent": "TP5T4Qma6icu",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Không cắt nhau",
+    "parent": "TP5T4Qma6icu",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Đáp án khác",
+    "parent": "TP5T4Qma6icu",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Muốn so sánh hai tập dữ liệu với nhau, ta nên dùng",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:39:48",
+  "name": "TP6T1Qdd3z8j",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "Biểu đồ cột kép",
+    "parent": "TP6T1Qdd3z8j",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Biểu đồ cột",
+    "parent": "TP6T1Qdd3z8j",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Biểu đồ tranh",
+    "parent": "TP6T1Qdd3z8j",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Biểu đồ hình quạt tròn",
+    "parent": "TP6T1Qdd3z8j",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "content": "Nếu phương trình \\(a{x^2} + bx + c = 0\\,\\,\\left( {a \\ne 0} \\right)\\)có hai nghiệm \\({x_1};\\,{x_2}\\) thì A. \\(\\left\\{ \\begin{array}{l}{x_1} + {x_2} = \\frac{b}{a}\\\\{x_1}{x_2} = \\frac{c}{a}\\end{array} \\right..\\)B. \\(\\left\\{ \\begin{array}{l}{x_1} + {x_2} = - \\frac{b}{a}\\\\{x_1}{x_2} = \\frac{c}{a}\\end{array} \\right..\\)C. \\(\\left\\{ \\begin{array}{l}{x_1} + {x_2} = \\frac{b}{a}\\\\{x_1}{x_2} = \\frac{a}{c}\\end{array} \\right..\\)D. \\(\\left\\{ \\begin{array}{l}{x_1} + {x_2} = \\frac{b}{a}\\\\{x_1}{x_2} = - \\frac{c}{a}\\end{array} \\right..\\) Hướng dẫn giải Đáp án đúng là: B Định lí Viète: Nếu \\({x_1};\\,{x_2}\\) là hai nghiệm của phương trình \\(a{x^2} + bx + c = 0\\,\\,\\left( {a \\ne 0} \\right)\\) thì \\(\\left\\{ \\begin{array}{l}{x_1} + {x_2} = - \\frac{b}{a}\\\\{x_1}{x_2} = \\frac{c}{a}\\end{array} \\right..\\)Câu 4. Nếu hai số \\(x;\\,y\\) có \\(x + y = S\\) và \\(xy = P\\) (điều kiện \\({S^2} - 4P \\ge 0\\)) thì \\(x;\\,y\\) là hai nghiệm của phương trình",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:32:52",
+  "name": "TP7T1Qf8q7xh",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\({x^2} + Sx + P = 0.\\)",
+    "parent": "TP7T1Qf8q7xh",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\({x^2} - Sx + P = 0.\\)",
+    "parent": "TP7T1Qf8q7xh",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\({x^2} + Sx - P = 0.\\)",
+    "parent": "TP7T1Qf8q7xh",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\({x^2} - Sx - P = 0.\\)",
+    "parent": "TP7T1Qf8q7xh",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "content": "Nếu phương trình \\(a{x^2} + bx + c = 0\\,\\,\\left( {a \\ne 0} \\right)\\) có hai nghiệm \\({x_1};\\,{x_2}\\) thì",
+  "difficulty": -2,
+  "discrimination": 1.25,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-16 19:28:08.041916",
+  "name": "TP7T3Q3gywqw",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\left\\{ \\begin{array}{l}{x_1} + {x_2} = \\frac{b}{a}\\\\{x_1}{x_2} = \\frac{c}{a}\\end{array} \\right..\\)",
+    "parent": "TP7T3Q3gywqw",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\left\\{ \\begin{array}{l}{x_1} + {x_2} = - \\frac{b}{a}\\\\{x_1}{x_2} = \\frac{c}{a}\\end{array} \\right..\\)",
+    "parent": "TP7T3Q3gywqw",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\left\\{ \\begin{array}{l}{x_1} + {x_2} = \\frac{b}{a}\\\\{x_1}{x_2} = \\frac{a}{c}\\end{array} \\right..\\)",
+    "parent": "TP7T3Q3gywqw",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\left\\{ \\begin{array}{l}{x_1} + {x_2} = \\frac{b}{a}\\\\{x_1}{x_2} = - \\frac{c}{a}\\end{array} \\right..\\)",
+    "parent": "TP7T3Q3gywqw",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "content": "Đa giác đều là một đa giác",
+  "difficulty": -1,
+  "discrimination": 1.2,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.371356",
+  "name": "TP9T1Qtmsb5r",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Có 3 cạnh và 3 góc bằng nhau",
+    "parent": "TP9T1Qtmsb5r",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Có 7 cạnh và 7 góc bằng nhau",
+    "parent": "TP9T1Qtmsb5r",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Có các cạnh và các góc bằng nhau",
+    "parent": "TP9T1Qtmsb5r",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Có 8 cạnh và 8 góc bằng nhau",
+    "parent": "TP9T1Qtmsb5r",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "9"
+ },
+ {
+  "content": "Cho các hình: Hình chữ nhật, hình thoi, hình vuông, tam giác cân, tam giác đều. Trong các hình trên, có bao nhiêu đa giác giác đều?",
+  "difficulty": -2,
+  "discrimination": 0.95,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.334744",
+  "name": "TP9T1Qeusga7",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "1",
+    "parent": "TP9T1Qeusga7",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "2",
+    "parent": "TP9T1Qeusga7",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "3",
+    "parent": "TP9T1Qeusga7",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "4",
+    "parent": "TP9T1Qeusga7",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "9"
+ },
+ {
+  "content": "Khẳng định nào sau đây là sai?",
+  "difficulty": -2,
+  "discrimination": 1.38,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.320159",
+  "name": "TP9T1Q3hdsdy",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Lục giác đều là lúc giác có sáu góc bằng nhau và sáu cạnh bằng nhau",
+    "parent": "TP9T1Q3hdsdy",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Hình thoi là đa giác không đều có các góc bằng nhau",
+    "parent": "TP9T1Q3hdsdy",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Ngũ giác có năm cạnh bằng nhau và năm góc bằng nhau là ngũ giác đều",
+    "parent": "TP9T1Q3hdsdy",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Hình chữ nhật là đa giác không đều có các góc bằng nhau",
+    "parent": "TP9T1Q3hdsdy",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "9"
+ },
+ {
+  "content": "Đa giác đều trong các hình dưới đây là",
+  "difficulty": -2,
+  "discrimination": 1.24,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.327515",
+  "name": "TP9T1Q6jt422",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Hình a",
+    "parent": "TP9T1Q6jt422",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Hình b",
+    "parent": "TP9T1Q6jt422",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Hình c",
+    "parent": "TP9T1Q6jt422",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Hình d",
+    "parent": "TP9T1Q6jt422",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "9"
+ },
+ {
+  "content": "Với một phép quay góc \\(\\alpha \\) thì \\(\\alpha \\) có thể nhận các giá trị:",
+  "difficulty": -2,
+  "discrimination": 0.83,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.341698",
+  "name": "TP9T2Q6it6g6",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\(0^\\circ \\le \\alpha \\le 180^\\circ \\)",
+    "parent": "TP9T2Q6it6g6",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(0^\\circ < \\alpha < 180^\\circ \\)",
+    "parent": "TP9T2Q6it6g6",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\(0^\\circ \\le \\alpha \\le 360^\\circ \\)",
+    "parent": "TP9T2Q6it6g6",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(0^\\circ < \\alpha < 360^\\circ \\)",
+    "parent": "TP9T2Q6it6g6",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "9"
+ },
+ {
+  "content": "Cho hình trụ nằm bên trong hình lập phương có cạnh bằng \\[40{\\rm{\\;cm}}\\] (như hình vẽ). Khẳng định nào sau đây sai?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:34:55",
+  "name": "TP10T1Qbgqzzf",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "Đường kính đáy của hình trụ là \\[20{\\rm{\\;cm}}.\\]",
+    "parent": "TP10T1Qbgqzzf",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Chiều cao của hình trụ là \\[40{\\rm{\\;cm}}.\\]",
+    "parent": "TP10T1Qbgqzzf",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Đường kính đáy của hình trụ là \\[40{\\rm{\\;cm}}.\\]",
+    "parent": "TP10T1Qbgqzzf",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Đường sinh của hình trụ là \\[40{\\rm{\\;cm}}.\\]",
+    "parent": "TP10T1Qbgqzzf",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "10"
+ },
+ {
+  "content": "Trong một đường tròn, số đo cung nhỏ bằng",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:38:32",
+  "name": "TP5T2Qk9pu83",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "số đo của góc ở tâm chắn cung đó",
+    "parent": "TP5T2Qk9pu83",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "số đo của nửa đường tròn",
+    "parent": "TP5T2Qk9pu83",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "nửa số đo của góc ở tâm chắn cung lớn",
+    "parent": "TP5T2Qk9pu83",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "hai lần số đo của góc ở tâm chắn cung lớn",
+    "parent": "TP5T2Qk9pu83",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Cho đường tròn \\[\\left( O \\right)\\] và đường thẳng \\[a.\\] Kẻ \\[OH \\bot a\\] tại điểm \\[H,\\] biết \\[OH < R.\\] Khi đó, đường thẳng \\[a\\] và đường tròn \\[\\left( O \\right)\\]",
+  "difficulty": -1,
+  "discrimination": 1.96,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.941188",
+  "name": "TP5T4Qc8jb6b",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Tiếp xúc với nhau",
+    "parent": "TP5T4Qc8jb6b",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Cắt nhau",
+    "parent": "TP5T4Qc8jb6b",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Không cắt nhau",
+    "parent": "TP5T4Qc8jb6b",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Đáp án khác",
+    "parent": "TP5T4Qc8jb6b",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Phát biểu nào sau đây đúng nhất?",
+  "difficulty": -1,
+  "discrimination": 1.19,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.378216",
+  "name": "TP9T1Qd35rai",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Đa giác lồi là đa giác luôn nằm về một phía của đường thẳng chứa một cạnh bất kì của đa giác đó",
+    "parent": "TP9T1Qd35rai",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Số cạnh và số góc của đa giác lồi luôn bằng nhau",
+    "parent": "TP9T1Qd35rai",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Đa giác đều là đa giác có tất cả các cạnh bằng nhau và tất cả các góc bằng nhau",
+    "parent": "TP9T1Qd35rai",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Cả A, B, C đều đúng",
+    "parent": "TP9T1Qd35rai",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "9"
+ },
+ {
+  "content": "Các phép quay có thể có với một đa giác đều tâm \\[O\\] là",
+  "difficulty": -2,
+  "discrimination": 0.83,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.313299",
+  "name": "TP9T2Qher7es",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Phép quay thuận chiều và phép quay đảo chiều",
+    "parent": "TP9T2Qher7es",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Phép quay thuận chiều và phép quay ngược chiều",
+    "parent": "TP9T2Qher7es",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Phép quay xuôi chiều và phép quay đảo chiều",
+    "parent": "TP9T2Qher7es",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Phép quay xuôi chiều và phép quay ngược chiều",
+    "parent": "TP9T2Qher7es",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "9"
+ },
+ {
+  "content": "Tỉ số giữa độ dài cung \\[n^\\circ \\] và chu vi đường tròn (cùng bán kính) luôn bằng",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:39:27",
+  "name": "TP5T3Qw9xg3r",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\frac{1}{n}.\\]",
+    "parent": "TP5T3Qw9xg3r",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\frac{1}{2}.\\]",
+    "parent": "TP5T3Qw9xg3r",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\frac{n}{{180}}.\\]",
+    "parent": "TP5T3Qw9xg3r",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[\\frac{n}{{360}}.\\]",
+    "parent": "TP5T3Qw9xg3r",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Hình cầu tâm \\[O\\] bán kính \\[R\\] được tạo ra khi quay",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:34:32",
+  "name": "TP10T3Qnixr62",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "tam giác vuông quanh cạnh góc vuông",
+    "parent": "TP10T3Qnixr62",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "hình chữ nhật quanh một cạnh của nó",
+    "parent": "TP10T3Qnixr62",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "nửa đường tròn tâm \\[O\\] bán kính \\[R\\] quanh đường kính của nó",
+    "parent": "TP10T3Qnixr62",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "nửa hình tròn tâm \\[O\\] bán kính \\[R\\] quanh đường kính của nó",
+    "parent": "TP10T3Qnixr62",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "10"
+ },
+ {
+  "content": "Một ống nước có dạng hình trụ (như hình vẽ). Kết luận nào sau đây là đúng?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:34:58",
+  "name": "TP10T1Qqt6a7x",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Chiều cao của hình trụ là \\[20{\\rm{\\;cm}}\\] và bán kính đáy là \\[10{\\rm{\\;cm}}.\\]",
+    "parent": "TP10T1Qqt6a7x",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Chiều cao của hình trụ là \\[50{\\rm{\\;cm}}\\] và bán kính đáy là \\[20{\\rm{\\;cm}}.\\]",
+    "parent": "TP10T1Qqt6a7x",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Chiều cao của hình trụ là \\[100{\\rm{\\;cm}}\\] và bán kính đáy là \\[10{\\rm{\\;cm}}.\\]",
+    "parent": "TP10T1Qqt6a7x",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Chiều cao của hình trụ là \\[100{\\rm{\\;cm}}\\] và bán kính đáy là \\[20{\\rm{\\;cm}}.\\]",
+    "parent": "TP10T1Qqt6a7x",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "10"
+ },
+ {
+  "content": "Cho hai đường parabol trong mặt phẳng tọa độ \\[{\\rm{Ox}}y.\\] Khẳng định nào sau đây là đúng?",
+  "difficulty": -3,
+  "discrimination": 1.91,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.565597",
+  "name": "TP7T1Qzxrpmz",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\(a < 0 < b.\\)",
+    "parent": "TP7T1Qzxrpmz",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(a < b < 0.\\)",
+    "parent": "TP7T1Qzxrpmz",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(a > b > 0.\\)",
+    "parent": "TP7T1Qzxrpmz",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(a > 0 > b.\\)",
+    "parent": "TP7T1Qzxrpmz",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "content": "Khẳng định nào sau đây sai?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:32:46",
+  "name": "TP7T2Qvk9u7i",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\({x^2} - 4x - 3 = 0\\) trong đó \\(a = 1;\\,\\,b = - 4;\\,\\,c = - 3.\\)",
+    "parent": "TP7T2Qvk9u7i",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(4{x^2} - \\sqrt 2 x + 1 = 0\\) trong đó \\(a = 4;\\,\\,b = - \\sqrt 2 ;\\,\\,c = 1.\\)",
+    "parent": "TP7T2Qvk9u7i",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\({x^2} - 4x - 5 = 0\\) trong đó \\(a = 1;\\,\\,b = - 4;\\,\\,c = 5.\\)",
+    "parent": "TP7T2Qvk9u7i",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\sqrt 5 {x^2} - m - 1 = 0\\)trong đó \\(a = \\sqrt 5 ;\\,\\,b = 0;\\,\\,c = - m - 1.\\)",
+    "parent": "TP7T2Qvk9u7i",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "content": "Phương trình \\(4{x^2} + 9 = 0\\) có bao nhiêu nghiệm?",
+  "difficulty": -2,
+  "discrimination": 1.16,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.558138",
+  "name": "TP7T2Qrqfxgd",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "vô nghiệm",
+    "parent": "TP7T2Qrqfxgd",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(1\\) nghiệm",
+    "parent": "TP7T2Qrqfxgd",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(2\\) nghiệm",
+    "parent": "TP7T2Qrqfxgd",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "3 nghiệm",
+    "parent": "TP7T2Qrqfxgd",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "content": "Hình chữ nhật có chiều dài \\[8{\\rm{\\;cm}},\\] chiều rộng \\[6{\\rm{\\;cm}}.\\] Quay hình chữ nhật đó một vòng quanh chiều dài của nó ta được một hình trụ có chiều cao \\[h\\] và bán kính đáy \\[r.\\] Kết luận nào sau đây là đúng?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:34:48",
+  "name": "TP10T1Qaj8fg4",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[r = 8{\\rm{\\;cm}};\\,\\,h = 6{\\rm{\\;cm}}.\\]",
+    "parent": "TP10T1Qaj8fg4",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[r = 4{\\rm{\\;cm}};\\,\\,h = 3{\\rm{\\;cm}}.\\]",
+    "parent": "TP10T1Qaj8fg4",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[r = 3{\\rm{\\;cm}};\\,\\,h = 4{\\rm{\\;cm}}.\\]",
+    "parent": "TP10T1Qaj8fg4",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[r = 6{\\rm{\\;cm}};\\,\\,h = 8{\\rm{\\;cm}}.\\]",
+    "parent": "TP10T1Qaj8fg4",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "10"
+ },
+ {
+  "content": "Diện tích xung quanh của hình nón có bán kính đáy \\[r\\] và chiều cao \\[h\\] là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.2,
+  "modified": "2025-08-07 03:35:01",
+  "name": "TP10T2Q8nftpz",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[{S_{xq}} = \\pi rh.\\]",
+    "parent": "TP10T2Q8nftpz",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[{S_{xq}} = \\pi r\\sqrt {{r^2} + {h^2}} .\\]",
+    "parent": "TP10T2Q8nftpz",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[{S_{xq}} = \\frac{1}{3}\\pi {r^2}h.\\]",
+    "parent": "TP10T2Q8nftpz",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[{S_{xq}} = \\pi r\\sqrt {{r^2} - {h^2}} .\\]",
+    "parent": "TP10T2Q8nftpz",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "10"
+ },
+ {
+  "content": "Căn bậc hai của một số \\(a\\) không âm là một số \\(x\\) sao cho",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:37:11",
+  "name": "642a993409",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\(a = x\\)",
+    "parent": "642a993409",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\(a = x^2\\)",
+    "parent": "642a993409",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(x = - a^2\\)",
+    "parent": "642a993409",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(x = 2a\\)",
+    "parent": "642a993409",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "3"
+ },
+ {
+  "content": "Nếu hai đường tròn không cắt nhau thì số điểm chung của hai đường tròn là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:39:25",
+  "name": "TP5T5Q3ad6pt",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "0",
+    "parent": "TP5T5Q3ad6pt",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "1",
+    "parent": "TP5T5Q3ad6pt",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "2",
+    "parent": "TP5T5Q3ad6pt",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "3",
+    "parent": "TP5T5Q3ad6pt",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Tâm đường tròn ngoại tiếp tam giác là giao điểm của các đường",
+  "difficulty": 2,
+  "discrimination": 1.82,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.503492",
+  "name": "TP8T1Qykzpxc",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "trung trực",
+    "parent": "TP8T1Qykzpxc",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "đường cao",
+    "parent": "TP8T1Qykzpxc",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "phân giác ngoài",
+    "parent": "TP8T1Qykzpxc",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "phân giác trong",
+    "parent": "TP8T1Qykzpxc",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "8"
+ },
+ {
+  "content": "Cho tứ giác \\[ABCD\\] nội tiếp đường tròn \\[\\left( O \\right)\\]. Khẳng định nào sau đây là sai?",
+  "difficulty": 3,
+  "discrimination": 1.64,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.517111",
+  "name": "TP8T2Qxf9ktt",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\widehat {BDC} = \\widehat {BAC}\\)",
+    "parent": "TP8T2Qxf9ktt",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\(\\widehat {BAC} = \\widehat {BAx}\\)",
+    "parent": "TP8T2Qxf9ktt",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\widehat {DCB} = \\widehat {BAx}.\\)",
+    "parent": "TP8T2Qxf9ktt",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\widehat {ABC} + \\widehat {ADC} = 180^\\circ .\\)",
+    "parent": "TP8T2Qxf9ktt",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "8"
+ },
+ {
+  "content": "Giá trị của biểu thức \\(\\sqrt[3]{{27 \\cdot 28}}\\) bằng",
+  "difficulty": 0,
+  "discrimination": 1.2,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.2,
+  "modified": "2025-08-16 19:25:08.482749",
+  "name": "bedd887306",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\(9\\sqrt[3]{28}\\)",
+    "parent": "bedd887306",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(27\\sqrt[3]{28}\\)",
+    "parent": "bedd887306",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\(3\\sqrt[3]{28}\\)",
+    "parent": "bedd887306",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\( - 3\\sqrt[3]{28}\\)",
+    "parent": "bedd887306",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "3"
+ },
+ {
+  "content": "Bạn Hà ghi lại cự li nhảy xa của các bạn trong câu lạc bộ thể thao ở bảng tần số ghép nhóm sau (đơn vị: mét): Trong bảng tần số ghép nhóm, có bao nhiêu nhóm số liệu?",
+  "difficulty": 0,
+  "discrimination": 1.79,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.764025",
+  "name": "TP6T3Qcmgevf",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "4 nhóm",
+    "parent": "TP6T3Qcmgevf",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "3 nhóm",
+    "parent": "TP6T3Qcmgevf",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "5 nhóm",
+    "parent": "TP6T3Qcmgevf",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "8 nhóm",
+    "parent": "TP6T3Qcmgevf",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "content": "Đường tròn ngoại tiếp tam giác đều cạnh \\(a\\) có bán kính bằng",
+  "difficulty": 2,
+  "discrimination": 1.68,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.510302",
+  "name": "TP8T1Qw7fesi",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\frac{{a\\sqrt 3 }}{6}\\)",
+    "parent": "TP8T1Qw7fesi",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\(\\frac{{a\\sqrt 3 }}{3}\\)",
+    "parent": "TP8T1Qw7fesi",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\frac{a}{6}\\)",
+    "parent": "TP8T1Qw7fesi",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\frac{a}{3}\\)",
+    "parent": "TP8T1Qw7fesi",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "8"
+ },
+ {
+  "content": "Tứ giác \\[ABCD\\] nội tiếp đường tròn có hai cạnh đối \\[AB\\] và \\[CD\\] cắt nhau tại \\[M\\] và \\(\\widehat {BAD} = 70^\\circ \\) thì số đo góc \\[BCM\\] là",
+  "difficulty": 0,
+  "discrimination": 1.7,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.2,
+  "modified": "2025-08-07 03:33:15",
+  "name": "TP8T2Qb8d8k8",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\(110^\\circ \\)",
+    "parent": "TP8T2Qb8d8k8",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(30^\\circ \\)",
+    "parent": "TP8T2Qb8d8k8",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\(70^\\circ \\)",
+    "parent": "TP8T2Qb8d8k8",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(55^\\circ \\)",
+    "parent": "TP8T2Qb8d8k8",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "8"
+ },
+ {
+  "content": "Tứ giác nội tiếp đường tròn là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:33:38",
+  "name": "TP8T1Qhjy5fw",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "tứ giác có bốn đỉnh nằm trên đường tròn đó;",
+    "parent": "TP8T1Qhjy5fw",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "tứ giác có nhiều nhất bốn đỉnh nằm trên đường tròn đó;",
+    "parent": "TP8T1Qhjy5fw",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "tứ giác có tổng số đo hai góc đối nhau bằng 90°;",
+    "parent": "TP8T1Qhjy5fw",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "tứ giác có ba đỉnh nằm trên đường tròn đó",
+    "parent": "TP8T1Qhjy5fw",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "8"
+ },
+ {
+  "content": "Đường tròn ngoại tiếp đa giác là đường tròn",
+  "difficulty": 2,
+  "discrimination": 1.29,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.523063",
+  "name": "TP8T1Qc7hcjt",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "tiếp xúc với tất cả các cạnh của đa giác đó",
+    "parent": "TP8T1Qc7hcjt",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "đi qua tất cả các đỉnh của đa giác đó",
+    "parent": "TP8T1Qc7hcjt",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "cắt tất cả các cạnh của đa giác đó",
+    "parent": "TP8T1Qc7hcjt",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "đi qua tâm của đa giác đó",
+    "parent": "TP8T1Qc7hcjt",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "8"
+ },
+ {
+  "content": "Tâm đường tròn nội tiếp của một tam giác là giao của các đường",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:33:28",
+  "name": "TP8T1Qpb9jgz",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "trung trực",
+    "parent": "TP8T1Qpb9jgz",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "phân giác trong",
+    "parent": "TP8T1Qpb9jgz",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "phân giác ngoài",
+    "parent": "TP8T1Qpb9jgz",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "đường cao",
+    "parent": "TP8T1Qpb9jgz",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "8"
+ },
+ {
+  "content": "Trong các phát biểu sau, phát biểu nào là đúng nhất?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:33:30",
+  "name": "TP8T1Q7sr3dh",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Mỗi tam giác luôn có một đường tròn ngoại tiếp",
+    "parent": "TP8T1Q7sr3dh",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Mỗi tam giác luôn có một đường tròn nội tiếp",
+    "parent": "TP8T1Q7sr3dh",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Cả A và B đều đúng",
+    "parent": "TP8T1Q7sr3dh",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Đường tròn tiếp xúc với các đường thẳng chứa các cạnh của tam giác là đường tròn nội tiếp tam giác đó",
+    "parent": "TP8T1Q7sr3dh",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "8"
+ },
+ {
+  "content": "Trong các hình dưới đây. Trong các hình trên, tứ giác trong hình nào là tứ giác nội tiếp?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:33:36",
+  "name": "TP8T2Qnsgwup",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Hình 1",
+    "parent": "TP8T2Qnsgwup",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Hình 2",
+    "parent": "TP8T2Qnsgwup",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Hình 3",
+    "parent": "TP8T2Qnsgwup",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Hình 4",
+    "parent": "TP8T2Qnsgwup",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "8"
+ },
+ {
+  "content": "Gọi \\[l,h,r\\] lần lượt là độ dài đường sinh, chiều cao và bán kính đáy của hình trụ \\[\\left( T \\right).\\] Diện tích toàn phần \\[{S_{tp}}\\] của hình trụ \\[\\left( T \\right)\\] có công thức là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:34:44",
+  "name": "TP10T1Qnttrcp",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[{S_{tp}} = \\pi rl + \\pi {r^2}.\\]",
+    "parent": "TP10T1Qnttrcp",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[{S_{tp}} = 2\\pi rh + 2\\pi {r^2}.\\]",
+    "parent": "TP10T1Qnttrcp",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[{S_{tp}} = \\pi rh + \\pi {r^2}.\\]",
+    "parent": "TP10T1Qnttrcp",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[{S_{tp}} = \\pi rl + 2\\pi {r^2}.\\]",
+    "parent": "TP10T1Qnttrcp",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "10"
+ },
+ {
+  "content": "Cho các hình vẽ sau: Trong các hình trên, hình nào đang nội tiếp đường tròn?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:33:47",
+  "name": "TP8T1Qnyn3dn",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "Hình 1",
+    "parent": "TP8T1Qnyn3dn",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Hình 2",
+    "parent": "TP8T1Qnyn3dn",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Hình 3",
+    "parent": "TP8T1Qnyn3dn",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Hình 4",
+    "parent": "TP8T1Qnyn3dn",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "8"
+ },
+ {
+  "content": "Số nào sau đây là căn bậc hai của 9?",
+  "difficulty": -2,
+  "discrimination": 1.8,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.3,
+  "modified": "2025-08-07 03:37:18",
+  "name": "54674d1597",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "3",
+    "parent": "54674d1597",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "5",
+    "parent": "54674d1597",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "9",
+    "parent": "54674d1597",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "81",
+    "parent": "54674d1597",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "3"
+ },
+ {
+  "content": "Nếu hai số \\(x;\\,y\\) có \\(x + y = S\\) và \\(xy = P\\) (điều kiện \\({S^2} - 4P \\ge 0\\)) thì \\(x;\\,y\\) là hai nghiệm của phương trình",
+  "difficulty": -3,
+  "discrimination": 1.88,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.544316",
+  "name": "TP7T1Qdq6eid",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\({x^2} + Sx + P = 0.\\)",
+    "parent": "TP7T1Qdq6eid",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\({x^2} - Sx + P = 0.\\)",
+    "parent": "TP7T1Qdq6eid",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\({x^2} + Sx - P = 0.\\)",
+    "parent": "TP7T1Qdq6eid",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\({x^2} - Sx - P = 0.\\)",
+    "parent": "TP7T1Qdq6eid",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "content": "Cho nửa đường tròn \\[\\left( {O;{\\rm{ }}R} \\right)\\] đường kính \\[BC\\]. Lấy điểm \\[A\\] trên tia đối của tia \\[CB\\]. Kẻ tiếp tuyến \\[AF,{\\rm{ }}Bx\\] của nửa kia đường tròn \\[\\left( O \\right)\\] (với \\[F\\] là tiếp điểm). Tia \\[AF\\] cắt tia \\[Bx\\] của nửa đường tròn tại \\[D\\]. Khi đó tứ giác \\[OBDF\\] là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.2,
+  "modified": "2025-08-07 03:33:24",
+  "name": "TP8T2Qp3ritq",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Hình thang",
+    "parent": "TP8T2Qp3ritq",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Tứ giác nội tiếp",
+    "parent": "TP8T2Qp3ritq",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Hình thang cân",
+    "parent": "TP8T2Qp3ritq",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Hình bình hành",
+    "parent": "TP8T2Qp3ritq",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "8"
+ },
+ {
+  "content": "Khi nhân cả hai vế của bất đẳng thức \\[ - 5x \\le 45\\] với \\[\\frac{{ - 2}}{5},\\] ta được bất đẳng thức nào sau đây?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-16 19:26:34.133947",
+  "name": "42090fb929",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\(2x \\leq 18.\\)",
+    "parent": "42090fb929",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(2x > 18.\\)",
+    "parent": "42090fb929",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(2x \\leq -18\\)",
+    "parent": "42090fb929",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\(2x \\geq - 18.\\)",
+    "parent": "42090fb929",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "2"
+ },
+ {
+  "content": "Gieo một con xúc xắc cân đối và đồng chất. Không gian mẫu của phép thử có số phần tử là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:39:59",
+  "name": "TP6T4Qd9x89z",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "3",
+    "parent": "TP6T4Qd9x89z",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "4",
+    "parent": "TP6T4Qd9x89z",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "5",
+    "parent": "TP6T4Qd9x89z",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "6",
+    "parent": "TP6T4Qd9x89z",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "content": "Đường tròn ngoại tiếp đa giác là đường tròn",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:33:41",
+  "name": "TP8T1Q75xy83",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Tiếp xúc tất cả các cạnh của đa giác đó",
+    "parent": "TP8T1Q75xy83",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Đi qua tất cả các đỉnh của đa giác đó",
+    "parent": "TP8T1Q75xy83",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Cắt tất cả các cạnh của đa giác đó",
+    "parent": "TP8T1Q75xy83",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Đi qua tâm của đa giác đó",
+    "parent": "TP8T1Q75xy83",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "8"
+ },
+ {
+  "content": "Phép quay giữ nguyên mọi điểm là phép quay",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:34:01",
+  "name": "TP9T2Q84pbj9",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\(0^\\circ \\)",
+    "parent": "TP9T2Q84pbj9",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(360^\\circ \\)",
+    "parent": "TP9T2Q84pbj9",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Cả A và B đều đúng",
+    "parent": "TP9T2Q84pbj9",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Cả A và B đều sai",
+    "parent": "TP9T2Q84pbj9",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "9"
+ },
+ {
+  "content": "Điều kiện xác định của phương trình \\(\\frac{1}{{{x^2} + 4}} = \\frac{1}{{x - 2}}\\) là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-16 19:23:26.562667",
+  "name": "61472b144b",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "\\(x \\neq 2.\\)",
+    "parent": "61472b144b",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(x \\neq - 2\\)",
+    "parent": "61472b144b",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(x \\neq 2;\\,\\,x \\neq - 2.\\)",
+    "parent": "61472b144b",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(x \\neq - 4\\)",
+    "parent": "61472b144b",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "2"
+ },
+ {
+  "content": "Nếu tam giác \\[MNP\\] vuông tại \\[M\\] có \\[NP = 7,\\,\\,\\sin P = \\frac{2}{9}\\] thì \\[MN\\] bằng",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:37:58",
+  "name": "TP4T4Qg9r9vo",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\frac{9}{{14}}.\\]",
+    "parent": "TP4T4Qg9r9vo",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\frac{{18}}{7}.\\]",
+    "parent": "TP4T4Qg9r9vo",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\frac{{63}}{2}.\\]",
+    "parent": "TP4T4Qg9r9vo",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[\\frac{{14}}{9}.\\]",
+    "parent": "TP4T4Qg9r9vo",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "4"
+ },
+ {
+  "content": "Cho \\[\\alpha ,\\,\\,\\beta \\] là số đo các góc nhọn của một tam giác vuông. Khẳng định nào sau đây là đúng?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:37:49",
+  "name": "TP4T4Qriy9z8",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\sin \\alpha - \\cos \\alpha = 0\\)",
+    "parent": "TP4T4Qriy9z8",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\cos \\alpha - \\cos \\beta = 0\\)",
+    "parent": "TP4T4Qriy9z8",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\(\\tan \\alpha - \\cot \\beta = 0\\)",
+    "parent": "TP4T4Qriy9z8",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\tan \\alpha \\cdot \\cot \\beta = 1\\)",
+    "parent": "TP4T4Qriy9z8",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "4"
+ },
+ {
+  "content": "Điểm nào sau đây thuộc đồ thị hàm số \\(y = 3{x^2}\\,?\\)",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:32:57",
+  "name": "TP7T1Quqsxij",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\left( { - 1\\,;\\, - 3} \\right).\\)",
+    "parent": "TP7T1Quqsxij",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\left( {4\\,;\\,\\,12} \\right).\\]",
+    "parent": "TP7T1Quqsxij",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\left( { - 2\\,;\\,\\, - 6} \\right).\\)",
+    "parent": "TP7T1Quqsxij",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\(\\left( {1\\,;\\,\\,3} \\right).\\)",
+    "parent": "TP7T1Quqsxij",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "content": "Điều kiện xác định của biểu thức \\(\\frac{{x + 3}}{{\\sqrt {2 - x} }}\\) là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.2,
+  "modified": "2025-08-16 19:25:38.345287",
+  "name": "c3eefd57f2",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\(x \\geq 0\\)",
+    "parent": "c3eefd57f2",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(x < 0\\)",
+    "parent": "c3eefd57f2",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(x \\geq 2\\)",
+    "parent": "c3eefd57f2",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\(x < 2\\)",
+    "parent": "c3eefd57f2",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "3"
+ },
+ {
+  "content": "Trong các hình sau, hình nội tiếp được trong đường tròn là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:33:34",
+  "name": "TP8T1Qs2iq7q",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Hình thang, hình chữ nhật",
+    "parent": "TP8T1Qs2iq7q",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Hình thang cân, hình bình hành",
+    "parent": "TP8T1Qs2iq7q",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Hình thoi, hình vuông",
+    "parent": "TP8T1Qs2iq7q",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Hình thang, hình chữ nhật, hình vuông",
+    "parent": "TP8T1Qs2iq7q",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "8"
+ },
+ {
+  "content": "Cho tam giác \\[DEF\\] vuông tại \\[E\\] có góc nhọn \\[F\\] bằng \\[\\alpha .\\] Khi đó \\[\\sin \\alpha \\] bằng",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:37:55",
+  "name": "TP4T4Q9x74uj",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\sin \\alpha = \\frac{{EF}}{{DF}}.\\]",
+    "parent": "TP4T4Q9x74uj",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[\\sin \\alpha = \\frac{{DE}}{{DF}}.\\]",
+    "parent": "TP4T4Q9x74uj",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\sin \\alpha = \\frac{{DE}}{{EF}}.\\]",
+    "parent": "TP4T4Q9x74uj",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\sin \\alpha = \\frac{{EF}}{{DE}}.\\]",
+    "parent": "TP4T4Q9x74uj",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "4"
+ },
+ {
+  "content": "Công thức tính diện tích hình vành khuyên tạo bởi hai đường tròn đồng tâm có bán kính \\[R\\] và \\[r\\] (với \\[R > r)\\] là",
+  "difficulty": 0,
+  "discrimination": 1.94,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-07-19 19:42:55.948049",
+  "name": "TP5T3Qkmqykq",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[{S_v} = \\pi {R^2} - {r^2}.\\]",
+    "parent": "TP5T3Qkmqykq",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[{S_v} = \\pi {\\left( {R - r} \\right)^2}.\\]",
+    "parent": "TP5T3Qkmqykq",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[{S_v} = \\pi \\left( {{R^2} - {r^2}} \\right).\\]",
+    "parent": "TP5T3Qkmqykq",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[{S_v} = \\pi \\left( {{r^2} - {R^2}} \\right).\\]",
+    "parent": "TP5T3Qkmqykq",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "content": "Cho \\[a > b\\] và các khẳng định sau: (I) \\[a - 5 > b - 5.\\] (II) \\[a - 5 > b.\\] (III) \\[a + 3 > b + 2.\\] Có bao nhiêu khẳng định đúng trong các khẳng định sau:",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:36:53",
+  "name": "9fefa6f139",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "[0.]",
+    "parent": "9fefa6f139",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "[1.]",
+    "parent": "9fefa6f139",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "[2.]",
+    "parent": "9fefa6f139",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "[3.]",
+    "parent": "9fefa6f139",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "2"
+ },
+ {
+  "content": "Tại một thời điểm trong ngày, các tia nắng mặt trời tạo với phương ngang một góc bằng \\[35^\\circ ,\\] khi đó cột \\[AH\\] có bóng trên mặt đất là đoạn \\[BH\\] dài \\[10,4\\] m. Trong các hệ thức sau, hệ thức nào là đúng?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:37:52",
+  "name": "TP4T2Qdqb5g3",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[AH = 10,4.\\sin 35^\\circ.\\]",
+    "parent": "TP4T2Qdqb5g3",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[AH = 10,4.\\cos 35^\\circ.\\]",
+    "parent": "TP4T2Qdqb5g3",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[AH = 10,4.\\tan 35^\\circ.\\]",
+    "parent": "TP4T2Qdqb5g3",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[AH = 10,4.\\cot 35^\\circ.\\]",
+    "parent": "TP4T2Qdqb5g3",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "4"
+ },
+ {
+  "content": "Cho tam giác \\[ABC\\] có hai đường cao \\[BD\\] và \\[CE\\] cắt nhau tại \\[H\\]. Trong các tứ giác sau, tứ giác nội tiếp là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:33:44",
+  "name": "TP8T2Qtf5ijr",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[AHBC\\]",
+    "parent": "TP8T2Qtf5ijr",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[BCDE\\]",
+    "parent": "TP8T2Qtf5ijr",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[BCDA\\]",
+    "parent": "TP8T2Qtf5ijr",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Không có tứ giác nào là tứ giác nội tiếp",
+    "parent": "TP8T2Qtf5ijr",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "8"
+ },
+ {
+  "content": "Cho \\[\\alpha \\] là góc nhọn thỏa mãn \\[\\tan \\alpha = \\frac{1}{6}.\\] Khi đó \\[\\cot \\alpha \\] bằng",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:37:32",
+  "name": "TP4T4Qhedmjv",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\cot \\alpha = \\frac{1}{6}.\\]",
+    "parent": "TP4T4Qhedmjv",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\cot \\alpha = - \\frac{1}{6}.\\]",
+    "parent": "TP4T4Qhedmjv",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\cot \\alpha = - 6.\\]",
+    "parent": "TP4T4Qhedmjv",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[\\cot \\alpha = 6.\\]",
+    "parent": "TP4T4Qhedmjv",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "4"
+ },
+ {
+  "content": "Cho \\[\\alpha ,\\beta \\] là hai góc phụ nhau. Kết luận nào sau đây đúng?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:37:44",
+  "name": "TP4T1Qlxz5n5",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\sin \\alpha = \\cot \\beta.\\]",
+    "parent": "TP4T1Qlxz5n5",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\sin \\alpha = \\tan \\beta.\\]",
+    "parent": "TP4T1Qlxz5n5",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[\\sin \\alpha = \\cos \\beta.\\]",
+    "parent": "TP4T1Qlxz5n5",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[{\\rm{cos}}\\alpha = \\cot \\beta.\\]",
+    "parent": "TP4T1Qlxz5n5",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "4"
+ },
+ {
+  "content": "Cho hệ phương trình \\[\\left\\{ \\begin{array}{l} - 2x + 2y = - 1\\\\3x + y = 7\\end{array} \\right..\\] Khi giải hệ phương trình bằng phương pháp thế (biểu diễn \\(y\\) theo \\(x)\\), ta được hệ thức biểu diễn \\(y\\) theo \\(x\\) là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:36:42",
+  "name": "df124e0ce3",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[y = 7 + 3x.\\]",
+    "parent": "df124e0ce3",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[y = 7 - 3x.\\]",
+    "parent": "df124e0ce3",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[y = 3x - 7.\\]",
+    "parent": "df124e0ce3",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[y = - 1 + 2x.\\]",
+    "parent": "df124e0ce3",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "1"
+ },
+ {
+  "content": "Cho các hoạt động sau: (1) Biểu diễn các đại lượng chưa biết theo ẩn và các đại lượng đã biết. (2) Đặt điều kiện thích hợp cho ẩn. (3) Lập hệ phương trình biểu thị mối quan hệ giữa các đại lượng. (4) Chọn ẩn số (thường chọn hai ẩn số). Khi lập hệ phương trình để giải bài toán cách lập hệ phương trình, ta thực hiện các bước trên theo thứ tự nào?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:36:41",
+  "name": "a6fc74238a",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "(4), (1), (2), (3)",
+    "parent": "a6fc74238a",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "(2), (4), (1), (3)",
+    "parent": "a6fc74238a",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "(4), (2), (1), (3)",
+    "parent": "a6fc74238a",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "(2), (4), (3), (1)",
+    "parent": "a6fc74238a",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "1"
+ },
+ {
+  "content": "Phương trình \\[\\left( {ax + b} \\right)\\left( {cx + d} \\right) = 0\\,\\,\\,\\left( {a \\ne 0,\\,\\,c \\ne 0} \\right)\\] có nhiều nhất bao nhiêu nghiệm?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:36:56",
+  "name": "e2d63f32ef",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Vô nghiệm",
+    "parent": "e2d63f32ef",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "1 nghiệm",
+    "parent": "e2d63f32ef",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "2 nghiệm",
+    "parent": "e2d63f32ef",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "3 nghiệm",
+    "parent": "e2d63f32ef",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "2"
+ },
+ {
+  "content": "Trục căn thức ở mẫu của biểu thức \\[\\frac{{\\sqrt {16} }}{{\\sqrt 5 }}\\] ta được",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:37:13",
+  "name": "9dd7821f55",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\frac{{\\sqrt {16} }}{5}\\)",
+    "parent": "9dd7821f55",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\(\\frac{{4\\sqrt 5 }}{5}\\)",
+    "parent": "9dd7821f55",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(\\frac{{16\\sqrt 5 }}{5}\\)",
+    "parent": "9dd7821f55",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\(- \\frac{{4\\sqrt 5 }}{5}\\)",
+    "parent": "9dd7821f55",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "3"
+ },
+ {
+  "content": "Một khúc sông rộng khoảng \\[250\\] m. Một con đò chèo qua sông bị dòng nước đẩy xiên nên phải chèo khoảng \\[320\\] m mới sang được bờ bên kia. Giả sử dòng nước đã đẩy con đò đi lệch một góc \\[\\alpha \\] (hình vẽ). Khi đó để tính giá trị của \\[\\alpha \\], cách đơn giản nhất là sử dụng tỉ số lượng giác nào của góc nhọn \\[\\alpha \\]?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:37:36",
+  "name": "TP4T2Qb2j9rx",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "sin",
+    "parent": "TP4T2Qb2j9rx",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "côsin",
+    "parent": "TP4T2Qb2j9rx",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "tang",
+    "parent": "TP4T2Qb2j9rx",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "côtang",
+    "parent": "TP4T2Qb2j9rx",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "4"
+ },
+ {
+  "content": "Cho tam giác \\[MNP\\] vuông tại \\[M\\] có góc nhọn \\[P\\] bằng \\[\\alpha .\\] Khi đó \\[\\cos \\alpha \\] bằng",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:37:35",
+  "name": "TP4T1Qegrfm9",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "\\[\\cos \\alpha = \\frac{{MP}}{{NP}}.\\]",
+    "parent": "TP4T1Qegrfm9",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\cos \\alpha = \\frac{{MN}}{{MP}}.\\]",
+    "parent": "TP4T1Qegrfm9",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\cos \\alpha = \\frac{{MN}}{{NP}}.\\]",
+    "parent": "TP4T1Qegrfm9",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\cos \\alpha = \\frac{{MP}}{{MN}}.\\]",
+    "parent": "TP4T1Qegrfm9",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "4"
+ },
+ {
+  "content": "Khẳng định nào sau đây là sai?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:33:26",
+  "name": "TP8T1Q42fvip",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Trọng tâm của tam giác đều vừa là tâm đường tròn ngoại tiếp, vừa là tâm đường tròn nội tiếp tam giác đều đó",
+    "parent": "TP8T1Q42fvip",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Tâm đường tròn nội tiếp tam giác là giao điểm của ba đường phân giác của tam giác đó",
+    "parent": "TP8T1Q42fvip",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Tâm đường tròn ngoại tiếp tam giác vuông là trung điểm của cạnh huyền",
+    "parent": "TP8T1Q42fvip",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Đường tròn ngoại tiếp một tam giác là đường tròn đi qua nhiều nhất là ba đỉnh của tam giác đó",
+    "parent": "TP8T1Q42fvip",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "8"
+ },
+ {
+  "content": "Cho góc nhọn \\[\\alpha .\\] Khẳng định nào sau đây đúng?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:37:38",
+  "name": "TP4T1Qasag5b",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "\\[0 < \\sin \\alpha < 1\\,;\\,\\,0 < \\cos \\alpha < 1.\\]",
+    "parent": "TP4T1Qasag5b",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[ - 1 < \\sin \\alpha < 1\\,;\\,\\, - 1 < \\cos \\alpha < 1.\\]",
+    "parent": "TP4T1Qasag5b",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[ - 1 < \\sin \\alpha < 0\\,;\\,\\, - 1 < \\cos \\alpha < 0.\\]",
+    "parent": "TP4T1Qasag5b",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[ - 1 \\le \\sin \\alpha < 0\\,;\\,\\, - 1 \\le \\cos \\alpha < 0.\\]",
+    "parent": "TP4T1Qasag5b",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "4"
+ },
+ {
+  "content": "Cho phương trình \\(a{x^2} + bx + c = 0\\,\\,\\,\\left( {a \\ne 0} \\right)\\) có \\(\\Delta = {b^2} - 4ac.\\) Khẳng định nào sau đây là đúng",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:32:54",
+  "name": "TP7T1Qxskvzn",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Phương trình có hai nghiệm phân biệt khi \\(\\Delta > 0\\); phương trình vô nghiệm khi \\(\\Delta = 0.\\)",
+    "parent": "TP7T1Qxskvzn",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Phương trình có hai nghiệm phân biệt khi \\(\\Delta > 0\\); phương trình có nghiệm kép khi \\(\\Delta = 0.\\)",
+    "parent": "TP7T1Qxskvzn",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Phương trình có nghiệm phân biệt khi \\(\\Delta \\ge 0\\); phương trình vô nghiệm khi \\(\\Delta = 0.\\)",
+    "parent": "TP7T1Qxskvzn",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Phương trình có hai nghiệm phân biệt khi \\(\\Delta = 0\\); phương trình vô nghiệm khi \\(\\Delta < 0.\\)",
+    "parent": "TP7T1Qxskvzn",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "content": "Khi giải bài toán bằng cách lập hệ phương trình, kiểm tra điều kiện của nghiệm là",
+  "difficulty": 0,
+  "discrimination": 1.2,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.2,
+  "modified": "2025-08-07 03:36:38",
+  "name": "a76546cd7b",
+  "options": [
+   {
+    "is_correct": 1,
+    "option_text": "Kiểm tra xem trong các nghiệm vừa tìm được của hệ phương trình, nghiệm nào thỏa mãn, nghiệm nào không thỏa mãn điều kiện của ẩn",
+    "parent": "a76546cd7b",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Kiểm tra ít nhất một nghiệm trong các nghiệm vừa tìm được của hệ phương trình, xem nghiệm đó thỏa mãn hay không thỏa mãn điều kiện của ẩn",
+    "parent": "a76546cd7b",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Kiểm tra bất kì một nghiệm trong các nghiệm vừa tìm được của hệ phương trình, xem nghiệm đó thỏa mãn hay không thỏa mãn điều kiện của ẩn",
+    "parent": "a76546cd7b",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Cả A, B, C đều sai",
+    "parent": "a76546cd7b",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "1"
+ },
+ {
+  "content": "Giả sử \\[a\\] là số tiết học của học sinh trong một ngày. Dùng kí hiệu để viết bất đẳng thức trong trường hợp: “Trong một ngày, học sinh có thể học tối đa 8 tiết học” ta được",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:36:50",
+  "name": "d3f79eb81d",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "[a ge 8.]",
+    "parent": "d3f79eb81d",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "[a le 8.]",
+    "parent": "d3f79eb81d",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "[a ne 8.]",
+    "parent": "d3f79eb81d",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "[a > 8.]",
+    "parent": "d3f79eb81d",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "2"
+ },
+ {
+  "content": "Cho \\[\\beta \\] là góc nhọn bất kì. Khẳng định nào sau đây đúng?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:37:46",
+  "name": "TP4T1Qaz2nnu",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\sin \\beta = \\frac{1}{{\\tan \\beta }}.\\]",
+    "parent": "TP4T1Qaz2nnu",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\cos \\beta = \\frac{1}{{\\tan \\beta }}.\\]",
+    "parent": "TP4T1Qaz2nnu",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[\\cot \\beta = \\frac{1}{{\\tan \\beta }}.\\]",
+    "parent": "TP4T1Qaz2nnu",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[\\cot \\beta = \\frac{1}{{\\sin \\beta }}.\\]",
+    "parent": "TP4T1Qaz2nnu",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "4"
+ },
+ {
+  "content": "Một mảnh vườn hình chữ nhật có chu vi \\[50{\\rm{\\;m}}.\\] Nếu chiều dài tăng thêm \\[5{\\rm{\\;m}}\\] và chiều rộng giảm đi \\[6{\\rm{\\;m}}\\] thì diện tích của mảnh vườn giảm đi \\[50{\\rm{\\;}}{{\\rm{m}}^2}.\\] Giả sử \\[x,y\\] lần lượt là chiều dài, chiều rộng của mảnh vườn. Từ dữ kiện mảnh vườn hình chữ nhật có chu vi \\[50{\\rm{\\;m}},\\] khi biểu diễn theo hai ẩn \\[x,y,\\] ta được phương trình nào trong các phương trình sau đây?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:36:36",
+  "name": "35b2e36f46",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[2x + y = 25.\\]",
+    "parent": "35b2e36f46",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[x - 2y = 25.\\]",
+    "parent": "35b2e36f46",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[x + y = 50.\\]",
+    "parent": "35b2e36f46",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[x + y = 25.\\]",
+    "parent": "35b2e36f46",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "1"
+ },
+ {
+  "content": "Cho các hoạt động sau: (1) Lập hệ phương trình và đặt điều kiện thích hợp cho ẩn. (2) Kiểm tra điều kiện của nghiệm. (3) Giải hệ phương trình vừa tìm được. (4) Kết luận. Để giải bài toán bằng cách lập hệ phương trình, ta thực hiện các bước trên theo thứ tự nào?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:36:27",
+  "name": "885663b832",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "(1), (3), (4), (2)",
+    "parent": "885663b832",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "(1), (3), (2), (4)",
+    "parent": "885663b832",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "(3), (2), (1), (4)",
+    "parent": "885663b832",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "(1), (2), (3), (4)",
+    "parent": "885663b832",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "1"
+ },
+ {
+  "content": "Một nhóm học sinh mua tổng cộng \\[15\\] cốc trà sữa và hồng trà. Giá của cốc trà sữa, hồng trà lần lượt là \\[25\\,\\,000\\] đồng và \\[22\\,\\,000\\] đồng. Tổng số tiền nhóm học sinh đó phải trả là \\[363\\,\\,000\\] đồng. Gọi \\[x,y\\] lần lượt là số cốc trà sữa và hồng trà nhóm học sinh đó đã mua. Khi đó điều kiện của hai ẩn \\[x,y\\] là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:36:25",
+  "name": "470c946d48",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "\\[x,y \\in \\mathbb{N}\\] và \\[x \\le 15.\\]",
+    "parent": "470c946d48",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "\\[x,y \\in \\mathbb{N}\\] và \\[x \\le 15,y \\le 15.\\]",
+    "parent": "470c946d48",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[x,y \\in \\mathbb{N}\\] và \\[x \\le y \\le 15.\\]",
+    "parent": "470c946d48",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "\\[x,y \\in \\mathbb{N}\\] và \\[x > y \\ge 15.\\]",
+    "parent": "470c946d48",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "1"
+ },
+ {
+  "content": "Cho hệ phương trình \\[\\left\\{ \\begin{array}{l}x + y = 5\\,\\,\\,\\,\\,\\,\\,\\,\\,\\,\\,\\,\\,\\,\\,\\,\\left( 1 \\right)\\\\2x + y = - 3\\,\\,\\,\\,\\,\\,\\,\\,\\,\\left( 2 \\right)\\end{array} \\right..\\] Khi giải hệ phương trình bằng phương pháp cộng đại số, để được phương trình bậc nhất một ẩn, cách đơn giản nhất là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:36:30",
+  "name": "784d84e372",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Cộng từng vế của phương trình (1) với phương trình (2)",
+    "parent": "784d84e372",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Trừ từng vế của phương trình (1) cho phương trình (2)",
+    "parent": "784d84e372",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Nhân hai vế phương trình (1) với 2 rồi trừ từng vế của phương trình mới cho phương trình (2)",
+    "parent": "784d84e372",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Nhân hai vế phương trình (1) với 2 rồi cộng từng vế của phương trình mới với phương trình (2)",
+    "parent": "784d84e372",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "1"
+ },
+ {
+  "content": "Cho hệ phương trình \\[\\left\\{ \\begin{array}{l}4x + 7y = 1\\,\\,\\,\\,\\,\\,\\,\\,\\,\\,\\,\\,\\,\\left( 1 \\right)\\\\ - x - 5y = 0\\,\\,\\,\\,\\,\\,\\,\\,\\,\\left( 2 \\right)\\end{array} \\right..\\] Khi giải hệ phương trình bằng phương pháp cộng đại số, để được phương trình bậc nhất một ẩn, một trong những cách đơn giản nhất là",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:36:33",
+  "name": "47b828aacb",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Cộng từng vế của phương trình (1) với phương trình (2)",
+    "parent": "47b828aacb",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Trừ từng vế của phương trình (1) cho phương trình (2)",
+    "parent": "47b828aacb",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Nhân hai vế phương trình (1) với 5 và nhân hai vế phương trình (2) với 7, rồi cộng từng vế của hai phương trình mới với nhau",
+    "parent": "47b828aacb",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Nhân phương trình (2) với 4 rồi cộng từng vế của phương trình mới với phương trình (1)",
+    "parent": "47b828aacb",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "1"
+ },
+ {
+  "content": "Cho tam giác vuông có góc nhọn \\[\\alpha .\\] Khẳng định nào sau đây sai?",
+  "difficulty": 0,
+  "discrimination": 1.5,
+  "docstatus": 0,
+  "doctype": "Placement Question",
+  "guessing_probability": 0.25,
+  "modified": "2025-08-07 03:37:41",
+  "name": "TP4T1Q6klt75",
+  "options": [
+   {
+    "is_correct": 0,
+    "option_text": "Tỉ số giữa cạnh đối và cạnh kề được gọi là tang của góc \\[\\alpha ,\\] kí hiệu \\[\\tan \\alpha .\\]",
+    "parent": "TP4T1Q6klt75",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Tỉ số giữa cạnh đối và cạnh huyền được gọi là sin của góc \\[\\alpha ,\\] kí hiệu \\[\\sin \\alpha .\\]",
+    "parent": "TP4T1Q6klt75",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 1,
+    "option_text": "Tỉ số giữa cạnh huyền và cạnh kề được gọi là côsin của góc \\[\\alpha ,\\] kí hiệu \\[\\cot \\alpha .\\]",
+    "parent": "TP4T1Q6klt75",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   },
+   {
+    "is_correct": 0,
+    "option_text": "Tỉ số giữa cạnh kề và cạnh huyền được gọi là côsin của góc \\[\\alpha ,\\] kí hiệu \\[\\cos \\alpha .\\]",
+    "parent": "TP4T1Q6klt75",
+    "parentfield": "options",
+    "parenttype": "Placement Question"
+   }
+  ],
+  "topic": "4"
+ }
+]

@@ -1,0 +1,5847 @@
+[
+ {
+  "custom_lo_id": "LO-C1-01",
+  "description": "Phân tích vế trái thành nhân tử để đưa phương trình về dạng A(x) * B(x) = 0 và tìm nghiệm.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Nhận dạng và giải phương trình tích",
+  "modified": "2025-07-31 11:31:00.218175",
+  "name": "LO-00001",
+  "naming_series": "LO-.#####",
+  "prerequisites": [],
+  "topic": "1"
+ },
+ {
+  "custom_lo_id": "LO-C1-02",
+  "description": "Tìm điều kiện xác định của phương trình, quy đồng mẫu thức hai vế, khử mẫu và giải phương trình nhận được.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Xác định điều kiện và giải phương trình chứa ẩn ở mẫu",
+  "modified": "2025-07-31 11:31:00.655019",
+  "name": "LO-00002",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00001",
+    "parent": "LO-00002",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00001",
+    "parent": "LO-00002",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00001",
+    "parent": "LO-00002",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00001",
+    "parent": "LO-00002",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00001",
+    "parent": "LO-00002",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00001",
+    "parent": "LO-00002",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00001",
+    "parent": "LO-00002",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00001",
+    "parent": "LO-00002",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "1"
+ },
+ {
+  "custom_lo_id": "LO-C1-03",
+  "description": "Phân tích bài toán thực tế, chọn ẩn số, lập phương trình và giải để tìm ra đáp số thỏa mãn điều kiện.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Giải bài toán bằng cách lập phương trình",
+  "modified": "2025-07-31 11:31:00.703710",
+  "name": "LO-00003",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00002",
+    "parent": "LO-00003",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00002",
+    "parent": "LO-00003",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00002",
+    "parent": "LO-00003",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00002",
+    "parent": "LO-00003",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00002",
+    "parent": "LO-00003",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00002",
+    "parent": "LO-00003",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00002",
+    "parent": "LO-00003",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00002",
+    "parent": "LO-00003",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "1"
+ },
+ {
+  "custom_lo_id": "LO-C1-04",
+  "description": "Hiểu định nghĩa phương trình dạng ax + by = c và cách kiểm tra một cặp số (x; y) có phải là nghiệm hay không.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Khái niệm phương trình bậc nhất hai ẩn và nghiệm",
+  "modified": "2025-07-31 11:31:00.758141",
+  "name": "LO-00004",
+  "naming_series": "LO-.#####",
+  "prerequisites": [],
+  "topic": "1"
+ },
+ {
+  "custom_lo_id": "LO-C1-05",
+  "description": "Biết rằng tập nghiệm của phương trình ax + by = c là một đường thẳng và cách vẽ đường thẳng đó trên mặt phẳng tọa độ.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Biểu diễn hình học tập nghiệm của phương trình bậc nhất hai ẩn",
+  "modified": "2025-07-31 11:31:00.852558",
+  "name": "LO-00005",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00004",
+    "parent": "LO-00005",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00004",
+    "parent": "LO-00005",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00004",
+    "parent": "LO-00005",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00004",
+    "parent": "LO-00005",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00004",
+    "parent": "LO-00005",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00004",
+    "parent": "LO-00005",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00004",
+    "parent": "LO-00005",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00004",
+    "parent": "LO-00005",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "1"
+ },
+ {
+  "custom_lo_id": "LO-C1-06",
+  "description": "Hiểu một hệ phương trình gồm hai phương trình bậc nhất hai ẩn và khái niệm nghiệm chung của hệ.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Khái niệm hệ hai phương trình bậc nhất hai ẩn và nghiệm",
+  "modified": "2025-07-31 11:31:00.898625",
+  "name": "LO-00006",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00004",
+    "parent": "LO-00006",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00004",
+    "parent": "LO-00006",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00004",
+    "parent": "LO-00006",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00004",
+    "parent": "LO-00006",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00004",
+    "parent": "LO-00006",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00004",
+    "parent": "LO-00006",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00004",
+    "parent": "LO-00006",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00004",
+    "parent": "LO-00006",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "1"
+ },
+ {
+  "custom_lo_id": "LO-C1-07",
+  "description": "Thực hiện các bước rút một ẩn theo ẩn kia từ một phương trình và thế vào phương trình còn lại để giải.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Giải hệ phương trình bằng phương pháp thế",
+  "modified": "2025-07-31 11:31:00.928015",
+  "name": "LO-00007",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00006",
+    "parent": "LO-00007",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00006",
+    "parent": "LO-00007",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00006",
+    "parent": "LO-00007",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00006",
+    "parent": "LO-00007",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00006",
+    "parent": "LO-00007",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00006",
+    "parent": "LO-00007",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00006",
+    "parent": "LO-00007",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00006",
+    "parent": "LO-00007",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "1"
+ },
+ {
+  "custom_lo_id": "LO-C1-08",
+  "description": "Thực hiện các bước nhân hai vế của phương trình với số thích hợp để làm hệ số của một ẩn đối nhau rồi cộng vế theo vế.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Giải hệ phương trình bằng phương pháp cộng đại số",
+  "modified": "2025-07-31 11:31:00.970037",
+  "name": "LO-00008",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00006",
+    "parent": "LO-00008",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00006",
+    "parent": "LO-00008",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00006",
+    "parent": "LO-00008",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00006",
+    "parent": "LO-00008",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00006",
+    "parent": "LO-00008",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00006",
+    "parent": "LO-00008",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00006",
+    "parent": "LO-00008",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00006",
+    "parent": "LO-00008",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "1"
+ },
+ {
+  "custom_lo_id": "LO-C1-09",
+  "description": "Dựa vào các tỉ số a/a', b/b', c/c' để xác định hệ phương trình có nghiệm duy nhất, vô số nghiệm hay vô nghiệm.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Xác định số nghiệm của hệ phương trình dựa vào tỉ số hệ số",
+  "modified": "2025-07-31 11:31:01.026232",
+  "name": "LO-00009",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00006",
+    "parent": "LO-00009",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00006",
+    "parent": "LO-00009",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00006",
+    "parent": "LO-00009",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00006",
+    "parent": "LO-00009",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00006",
+    "parent": "LO-00009",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00006",
+    "parent": "LO-00009",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00006",
+    "parent": "LO-00009",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00006",
+    "parent": "LO-00009",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "1"
+ },
+ {
+  "custom_lo_id": "LO-C1-10",
+  "description": "Phân tích bài toán thực tế, chọn hai ẩn số, lập hệ hai phương trình tương ứng và giải để tìm đáp số.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Giải bài toán bằng cách lập hệ phương trình",
+  "modified": "2025-07-31 11:31:01.077926",
+  "name": "LO-00010",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00008",
+    "parent": "LO-00010",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00007",
+    "parent": "LO-00010",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00007",
+    "parent": "LO-00010",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00008",
+    "parent": "LO-00010",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00008",
+    "parent": "LO-00010",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00007",
+    "parent": "LO-00010",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00007",
+    "parent": "LO-00010",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00008",
+    "parent": "LO-00010",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00008",
+    "parent": "LO-00010",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00007",
+    "parent": "LO-00010",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00007",
+    "parent": "LO-00010",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00008",
+    "parent": "LO-00010",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00007",
+    "parent": "LO-00010",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00008",
+    "parent": "LO-00010",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00007",
+    "parent": "LO-00010",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00008",
+    "parent": "LO-00010",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "1"
+ },
+ {
+  "custom_lo_id": "LO-C2-01",
+  "description": "Nắm vững các tính chất: cộng cùng một số, nhân với số dương, nhân với số âm và sự thay đổi chiều của bất đẳng thức.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Liên hệ giữa thứ tự và phép cộng, phép nhân",
+  "modified": "2025-07-31 11:31:01.128094",
+  "name": "LO-00011",
+  "naming_series": "LO-.#####",
+  "prerequisites": [],
+  "topic": "2"
+ },
+ {
+  "custom_lo_id": "LO-C2-02",
+  "description": "Nhận dạng được bất phương trình có dạng ax + b < 0 (hoặc >, ≤, ≥) với a ≠ 0.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Khái niệm bất phương trình bậc nhất một ẩn",
+  "modified": "2025-07-31 11:31:01.178281",
+  "name": "LO-00012",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00011",
+    "parent": "LO-00012",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00011",
+    "parent": "LO-00012",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00011",
+    "parent": "LO-00012",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00011",
+    "parent": "LO-00012",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00011",
+    "parent": "LO-00012",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00011",
+    "parent": "LO-00012",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00011",
+    "parent": "LO-00012",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00011",
+    "parent": "LO-00012",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "2"
+ },
+ {
+  "custom_lo_id": "LO-C2-03",
+  "description": "Vận dụng hai quy tắc biến đổi tương đương (chuyển vế và nhân/chia) để tìm tập nghiệm của bất phương trình.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Giải bất phương trình bậc nhất một ẩn",
+  "modified": "2025-07-31 11:31:01.338293",
+  "name": "LO-00013",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00012",
+    "parent": "LO-00013",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00012",
+    "parent": "LO-00013",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00012",
+    "parent": "LO-00013",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00012",
+    "parent": "LO-00013",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00012",
+    "parent": "LO-00013",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00012",
+    "parent": "LO-00013",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00012",
+    "parent": "LO-00013",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00012",
+    "parent": "LO-00013",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "2"
+ },
+ {
+  "custom_lo_id": "LO-C2-04",
+  "description": "Sử dụng các ký hiệu khoảng, đoạn và các loại ngoặc để biểu diễn chính xác tập nghiệm trên trục số.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Biểu diễn tập nghiệm của bất phương trình trên trục số",
+  "modified": "2025-07-31 11:31:01.359446",
+  "name": "LO-00014",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00014",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00014",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00014",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00014",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00014",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00014",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00014",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00014",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "2"
+ },
+ {
+  "custom_lo_id": "LO-C2-05",
+  "description": "Thực hiện các phép biến đổi như bỏ ngoặc, quy đồng để đưa các bất phương trình phức tạp hơn về dạng ax + b < 0.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Giải bất phương trình đưa được về dạng bậc nhất",
+  "modified": "2025-07-31 11:31:01.388237",
+  "name": "LO-00015",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00015",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00015",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00015",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00015",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00015",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00015",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00015",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00015",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "2"
+ },
+ {
+  "custom_lo_id": "LO-C2-06",
+  "description": "Sử dụng các tính chất cơ bản và biến đổi tương đương để chứng minh các bất đẳng thức đơn giản.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Chứng minh bất đẳng thức cơ bản",
+  "modified": "2025-07-31 11:31:01.411288",
+  "name": "LO-00016",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00011",
+    "parent": "LO-00016",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00011",
+    "parent": "LO-00016",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00011",
+    "parent": "LO-00016",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00011",
+    "parent": "LO-00016",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00011",
+    "parent": "LO-00016",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00011",
+    "parent": "LO-00016",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00011",
+    "parent": "LO-00016",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00011",
+    "parent": "LO-00016",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "2"
+ },
+ {
+  "custom_lo_id": "LO-C2-07",
+  "description": "Mô hình hóa các điều kiện của bài toán thực tế thành bất phương trình và giải để tìm ra giới hạn của các đại lượng.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Áp dụng bất đẳng thức để giải bài toán thực tế",
+  "modified": "2025-07-31 11:31:01.445053",
+  "name": "LO-00017",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00015",
+    "parent": "LO-00017",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00015",
+    "parent": "LO-00017",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00015",
+    "parent": "LO-00017",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00015",
+    "parent": "LO-00017",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00015",
+    "parent": "LO-00017",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00015",
+    "parent": "LO-00017",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00015",
+    "parent": "LO-00017",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00015",
+    "parent": "LO-00017",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "2"
+ },
+ {
+  "custom_lo_id": "LO-C2-08",
+  "description": "Vận dụng các tính chất của bất đẳng thức để so sánh giá trị của hai biểu thức số hoặc biểu thức chứa biến.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "So sánh hai số sử dụng tính chất bất đẳng thức",
+  "modified": "2025-07-31 11:31:01.484098",
+  "name": "LO-00018",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00011",
+    "parent": "LO-00018",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00011",
+    "parent": "LO-00018",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00011",
+    "parent": "LO-00018",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00011",
+    "parent": "LO-00018",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00011",
+    "parent": "LO-00018",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00011",
+    "parent": "LO-00018",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00011",
+    "parent": "LO-00018",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00011",
+    "parent": "LO-00018",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "2"
+ },
+ {
+  "custom_lo_id": "LO-C2-09",
+  "description": "Sử dụng các bất đẳng thức quen thuộc (như Cauchy cho 2 số) để tìm GTLN, GTNN của một biểu thức.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Tìm giá trị lớn nhất, nhỏ nhất sử dụng bất đẳng thức",
+  "modified": "2025-07-31 11:31:01.521051",
+  "name": "LO-00019",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00016",
+    "parent": "LO-00019",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00016",
+    "parent": "LO-00019",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00016",
+    "parent": "LO-00019",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00016",
+    "parent": "LO-00019",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00016",
+    "parent": "LO-00019",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00016",
+    "parent": "LO-00019",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00016",
+    "parent": "LO-00019",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00016",
+    "parent": "LO-00019",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "2"
+ },
+ {
+  "custom_lo_id": "LO-C2-10",
+  "description": "Sử dụng định nghĩa giá trị tuyệt đối để phá dấu và giải phương trình, thường liên quan đến việc xét các trường hợp của bất phương trình.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Giải phương trình chứa dấu giá trị tuyệt đối",
+  "modified": "2025-07-31 11:31:01.547000",
+  "name": "LO-00020",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00020",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00020",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00020",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00020",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00020",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00020",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00020",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00020",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "2"
+ },
+ {
+  "custom_lo_id": "LO-C3-01",
+  "description": "Hiểu định nghĩa căn bậc hai số học và quy tắc so sánh: với a, b ≥ 0, a < b ⇔ √a < √b.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Căn bậc hai số học và so sánh các căn bậc hai",
+  "modified": "2025-07-31 11:31:01.565221",
+  "name": "LO-00021",
+  "naming_series": "LO-.#####",
+  "prerequisites": [],
+  "topic": "3"
+ },
+ {
+  "custom_lo_id": "LO-C3-02",
+  "description": "Vận dụng quy tắc √A xác định khi A ≥ 0 để tìm điều kiện của biến.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Tìm điều kiện xác định của căn thức",
+  "modified": "2025-07-31 11:31:01.595195",
+  "name": "LO-00022",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00022",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00022",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00022",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00022",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00022",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00022",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00022",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00013",
+    "parent": "LO-00022",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "3"
+ },
+ {
+  "custom_lo_id": "LO-C3-03",
+  "description": "Áp dụng hằng đẳng thức để khai phương và rút gọn các biểu thức chứa bình phương.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Vận dụng hằng đẳng thức √A² = |A|",
+  "modified": "2025-07-31 11:31:01.625025",
+  "name": "LO-00023",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00021",
+    "parent": "LO-00023",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00021",
+    "parent": "LO-00023",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00021",
+    "parent": "LO-00023",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00021",
+    "parent": "LO-00023",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00021",
+    "parent": "LO-00023",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00021",
+    "parent": "LO-00023",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00021",
+    "parent": "LO-00023",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00021",
+    "parent": "LO-00023",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "3"
+ },
+ {
+  "custom_lo_id": "LO-C3-04",
+  "description": "Áp dụng các quy tắc khai phương một tích, một thương để tính toán và rút gọn biểu thức.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Khai phương một tích và một thương",
+  "modified": "2025-07-31 11:31:01.650429",
+  "name": "LO-00024",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00021",
+    "parent": "LO-00024",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00021",
+    "parent": "LO-00024",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00021",
+    "parent": "LO-00024",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00021",
+    "parent": "LO-00024",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00021",
+    "parent": "LO-00024",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00021",
+    "parent": "LO-00024",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00021",
+    "parent": "LO-00024",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00021",
+    "parent": "LO-00024",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "3"
+ },
+ {
+  "custom_lo_id": "LO-C3-05",
+  "description": "Thành thạo kỹ năng biến đổi √(a²b) = |a|√b và ngược lại để rút gọn và so sánh các căn thức.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Đưa thừa số ra ngoài và vào trong dấu căn",
+  "modified": "2025-07-31 11:31:01.672256",
+  "name": "LO-00025",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00023",
+    "parent": "LO-00025",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00023",
+    "parent": "LO-00025",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00023",
+    "parent": "LO-00025",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00023",
+    "parent": "LO-00025",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00023",
+    "parent": "LO-00025",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00023",
+    "parent": "LO-00025",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00023",
+    "parent": "LO-00025",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00023",
+    "parent": "LO-00025",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "3"
+ },
+ {
+  "custom_lo_id": "LO-C3-06",
+  "description": "Sử dụng phép nhân cả tử và mẫu với mẫu để làm mất dấu căn ở mẫu.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Khử mẫu của biểu thức lấy căn",
+  "modified": "2025-07-31 11:31:01.699627",
+  "name": "LO-00026",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00024",
+    "parent": "LO-00026",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00024",
+    "parent": "LO-00026",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00024",
+    "parent": "LO-00026",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00024",
+    "parent": "LO-00026",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00024",
+    "parent": "LO-00026",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00024",
+    "parent": "LO-00026",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00024",
+    "parent": "LO-00026",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00024",
+    "parent": "LO-00026",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "3"
+ },
+ {
+  "custom_lo_id": "LO-C3-07",
+  "description": "Nhân cả tử và mẫu với biểu thức liên hợp để làm mất dấu căn ở mẫu trong các biểu thức dạng phân số.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Trục căn thức ở mẫu",
+  "modified": "2025-07-31 11:31:01.739331",
+  "name": "LO-00027",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00025",
+    "parent": "LO-00027",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00025",
+    "parent": "LO-00027",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00025",
+    "parent": "LO-00027",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00025",
+    "parent": "LO-00027",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00025",
+    "parent": "LO-00027",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00025",
+    "parent": "LO-00027",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00025",
+    "parent": "LO-00027",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00025",
+    "parent": "LO-00027",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "3"
+ },
+ {
+  "custom_lo_id": "LO-C3-08",
+  "description": "Phối hợp tất cả các kỹ năng biến đổi đã học để rút gọn các biểu thức phức tạp chứa nhiều phép toán với căn thức.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Rút gọn biểu thức tổng hợp chứa căn thức",
+  "modified": "2025-07-31 11:31:01.764407",
+  "name": "LO-00028",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00027",
+    "parent": "LO-00028",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00027",
+    "parent": "LO-00028",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00027",
+    "parent": "LO-00028",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00027",
+    "parent": "LO-00028",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00027",
+    "parent": "LO-00028",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00027",
+    "parent": "LO-00028",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00027",
+    "parent": "LO-00028",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00027",
+    "parent": "LO-00028",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "3"
+ },
+ {
+  "custom_lo_id": "LO-C3-09",
+  "description": "Giải các phương trình dạng √A = B bằng cách đặt điều kiện và bình phương hai vế.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Giải phương trình chứa căn thức đơn giản",
+  "modified": "2025-07-31 11:31:01.788294",
+  "name": "LO-00029",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00022",
+    "parent": "LO-00029",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00001",
+    "parent": "LO-00029",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00022",
+    "parent": "LO-00029",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00001",
+    "parent": "LO-00029",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00001",
+    "parent": "LO-00029",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00022",
+    "parent": "LO-00029",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00022",
+    "parent": "LO-00029",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00001",
+    "parent": "LO-00029",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00022",
+    "parent": "LO-00029",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00001",
+    "parent": "LO-00029",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00022",
+    "parent": "LO-00029",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00001",
+    "parent": "LO-00029",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00022",
+    "parent": "LO-00029",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00001",
+    "parent": "LO-00029",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00022",
+    "parent": "LO-00029",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00001",
+    "parent": "LO-00029",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "3"
+ },
+ {
+  "custom_lo_id": "LO-C3-10",
+  "description": "Hiểu định nghĩa và các tính chất cơ bản của căn bậc ba, phân biệt với căn bậc hai.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Khái niệm và tính chất Căn bậc ba",
+  "modified": "2025-07-31 11:31:01.810508",
+  "name": "LO-00030",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00021",
+    "parent": "LO-00030",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00021",
+    "parent": "LO-00030",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00021",
+    "parent": "LO-00030",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00021",
+    "parent": "LO-00030",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00021",
+    "parent": "LO-00030",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00021",
+    "parent": "LO-00030",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00021",
+    "parent": "LO-00030",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00021",
+    "parent": "LO-00030",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "3"
+ },
+ {
+  "custom_lo_id": "LO-C4-01",
+  "description": "Xác định đúng các cạnh đối, kề, huyền trong tam giác vuông và lập các tỉ số lượng giác của một góc nhọn.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Định nghĩa tỉ số lượng giác Sin, Cos, Tan, Cot",
+  "modified": "2025-07-31 11:31:01.826793",
+  "name": "LO-00031",
+  "naming_series": "LO-.#####",
+  "prerequisites": [],
+  "topic": "4"
+ },
+ {
+  "custom_lo_id": "LO-C4-02",
+  "description": "Nắm vững các mối quan hệ chéo: sin(α) = cos(90°-α), tan(α) = cot(90°-α) và ngược lại.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Tỉ số lượng giác của hai góc phụ nhau",
+  "modified": "2025-07-31 11:31:01.849653",
+  "name": "LO-00032",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00032",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00032",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00032",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00032",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00032",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00032",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00032",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00032",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "4"
+ },
+ {
+  "custom_lo_id": "LO-C4-03",
+  "description": "Thành thạo việc sử dụng máy tính để tìm giá trị tỉ số lượng giác khi biết góc và ngược lại.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Sử dụng máy tính cầm tay để tính tỉ số lượng giác và góc",
+  "modified": "2025-07-31 11:31:01.881501",
+  "name": "LO-00033",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00033",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00033",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00033",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00033",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00033",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00033",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00033",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00033",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "4"
+ },
+ {
+  "custom_lo_id": "LO-C4-04",
+  "description": "Nắm vững và áp dụng các hệ thức như b² = ab', c² = ac', h² = b'c', ah = bc, 1/h² = 1/b² + 1/c².",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Hệ thức về cạnh và đường cao trong tam giác vuông",
+  "modified": "2025-07-31 11:31:01.899395",
+  "name": "LO-00034",
+  "naming_series": "LO-.#####",
+  "prerequisites": [],
+  "topic": "4"
+ },
+ {
+  "custom_lo_id": "LO-C4-05",
+  "description": "Vận dụng các hệ thức: cạnh góc vuông bằng cạnh huyền nhân sin góc đối hoặc cos góc kề.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Hệ thức về cạnh và góc trong tam giác vuông",
+  "modified": "2025-07-31 11:31:01.915417",
+  "name": "LO-00035",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00035",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00035",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00035",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00035",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00035",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00035",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00035",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00035",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "4"
+ },
+ {
+  "custom_lo_id": "LO-C4-06",
+  "description": "Tìm tất cả các cạnh và góc còn lại của một tam giác vuông khi biết hai yếu tố (trong đó có ít nhất một yếu tố về cạnh).",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Giải tam giác vuông",
+  "modified": "2025-07-31 11:31:01.942992",
+  "name": "LO-00036",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00034",
+    "parent": "LO-00036",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00035",
+    "parent": "LO-00036",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00035",
+    "parent": "LO-00036",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00034",
+    "parent": "LO-00036",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00035",
+    "parent": "LO-00036",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00034",
+    "parent": "LO-00036",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00034",
+    "parent": "LO-00036",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00035",
+    "parent": "LO-00036",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00034",
+    "parent": "LO-00036",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00035",
+    "parent": "LO-00036",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00035",
+    "parent": "LO-00036",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00034",
+    "parent": "LO-00036",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00035",
+    "parent": "LO-00036",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00034",
+    "parent": "LO-00036",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00034",
+    "parent": "LO-00036",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00035",
+    "parent": "LO-00036",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "4"
+ },
+ {
+  "custom_lo_id": "LO-C4-07",
+  "description": "Sử dụng giác kế và các hệ thức lượng để đo chiều cao của một vật thể (cây, cột cờ, tòa nhà) một cách gián tiếp.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Ứng dụng thực tế để đo chiều cao",
+  "modified": "2025-07-31 11:31:01.970906",
+  "name": "LO-00037",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00036",
+    "parent": "LO-00037",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00036",
+    "parent": "LO-00037",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00036",
+    "parent": "LO-00037",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00036",
+    "parent": "LO-00037",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00036",
+    "parent": "LO-00037",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00036",
+    "parent": "LO-00037",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00036",
+    "parent": "LO-00037",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00036",
+    "parent": "LO-00037",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "4"
+ },
+ {
+  "custom_lo_id": "LO-C4-08",
+  "description": "Sử dụng các công cụ và hệ thức lượng để đo khoảng cách giữa hai điểm mà không thể tiếp cận trực tiếp.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Ứng dụng thực tế để đo khoảng cách",
+  "modified": "2025-07-31 11:31:01.990028",
+  "name": "LO-00038",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00036",
+    "parent": "LO-00038",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00036",
+    "parent": "LO-00038",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00036",
+    "parent": "LO-00038",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00036",
+    "parent": "LO-00038",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00036",
+    "parent": "LO-00038",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00036",
+    "parent": "LO-00038",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00036",
+    "parent": "LO-00038",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00036",
+    "parent": "LO-00038",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "4"
+ },
+ {
+  "custom_lo_id": "LO-C4-09",
+  "description": "Sử dụng các định nghĩa và tính chất cơ bản (sin²α + cos²α = 1, tanα = sinα/cosα) để chứng minh các đẳng thức.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Chứng minh các đẳng thức lượng giác đơn giản",
+  "modified": "2025-07-31 11:31:02.017324",
+  "name": "LO-00039",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00032",
+    "parent": "LO-00039",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00032",
+    "parent": "LO-00039",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00032",
+    "parent": "LO-00039",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00032",
+    "parent": "LO-00039",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00032",
+    "parent": "LO-00039",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00032",
+    "parent": "LO-00039",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00032",
+    "parent": "LO-00039",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00032",
+    "parent": "LO-00039",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "4"
+ },
+ {
+  "custom_lo_id": "LO-C4-10",
+  "description": "Vận dụng các đẳng thức lượng giác cơ bản để rút gọn các biểu thức phức tạp hơn.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Rút gọn biểu thức lượng giác",
+  "modified": "2025-07-31 11:31:02.039739",
+  "name": "LO-00040",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00039",
+    "parent": "LO-00040",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00039",
+    "parent": "LO-00040",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00039",
+    "parent": "LO-00040",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00039",
+    "parent": "LO-00040",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00039",
+    "parent": "LO-00040",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00039",
+    "parent": "LO-00040",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00039",
+    "parent": "LO-00040",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00039",
+    "parent": "LO-00040",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "4"
+ },
+ {
+  "custom_lo_id": "LO-C5-01",
+  "description": "Hiểu rằng một đường tròn được xác định khi biết tâm và bán kính, và tính chất đối xứng của nó.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Sự xác định và các tính chất cơ bản của đường tròn",
+  "modified": "2025-07-31 11:31:02.055831",
+  "name": "LO-00041",
+  "naming_series": "LO-.#####",
+  "prerequisites": [],
+  "topic": "5"
+ },
+ {
+  "custom_lo_id": "LO-C5-02",
+  "description": "Nắm vững định lý: trong một đường tròn, đường kính vuông góc với một dây thì đi qua trung điểm của dây ấy và ngược lại.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Quan hệ vuông góc giữa đường kính và dây cung",
+  "modified": "2025-07-31 11:31:02.077567",
+  "name": "LO-00042",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00042",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00042",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00042",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00042",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00042",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00042",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00042",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00042",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "custom_lo_id": "LO-C5-03",
+  "description": "Dựa vào khoảng cách từ tâm đến đường thẳng để xác định vị trí tương đối (cắt nhau, tiếp xúc, không giao nhau).",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Vị trí tương đối của đường thẳng và đường tròn",
+  "modified": "2025-07-31 11:31:02.097459",
+  "name": "LO-00043",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00043",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00043",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00043",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00043",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00043",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00043",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00043",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00043",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "custom_lo_id": "LO-C5-04",
+  "description": "Nắm vững hai dấu hiệu chính để chứng minh một đường thẳng là tiếp tuyến của một đường tròn.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Dấu hiệu nhận biết tiếp tuyến của đường tròn",
+  "modified": "2025-07-31 11:31:02.119456",
+  "name": "LO-00044",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00043",
+    "parent": "LO-00044",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00043",
+    "parent": "LO-00044",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00043",
+    "parent": "LO-00044",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00043",
+    "parent": "LO-00044",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00043",
+    "parent": "LO-00044",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00043",
+    "parent": "LO-00044",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00043",
+    "parent": "LO-00044",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00043",
+    "parent": "LO-00044",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "custom_lo_id": "LO-C5-05",
+  "description": "Vận dụng tính chất về khoảng cách, góc tạo bởi hai tiếp tuyến và tia phân giác để giải các bài toán liên quan.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Tính chất của hai tiếp tuyến cắt nhau",
+  "modified": "2025-07-31 11:31:02.141089",
+  "name": "LO-00045",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00044",
+    "parent": "LO-00045",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00044",
+    "parent": "LO-00045",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00044",
+    "parent": "LO-00045",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00044",
+    "parent": "LO-00045",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00044",
+    "parent": "LO-00045",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00044",
+    "parent": "LO-00045",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00044",
+    "parent": "LO-00045",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00044",
+    "parent": "LO-00045",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "custom_lo_id": "LO-C5-06",
+  "description": "Dựa vào hệ thức giữa khoảng cách nối tâm và các bán kính để xác định vị trí tương đối (cắt nhau, tiếp xúc, đựng nhau...).",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Vị trí tương đối của hai đường tròn",
+  "modified": "2025-07-31 11:31:02.171700",
+  "name": "LO-00046",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00046",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00046",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00046",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00046",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00046",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00046",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00046",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00046",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "custom_lo_id": "LO-C5-07",
+  "description": "Hiểu mối quan hệ giữa số đo góc ở tâm và số đo cung bị chắn.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Góc ở tâm và số đo cung",
+  "modified": "2025-07-31 11:31:02.189773",
+  "name": "LO-00047",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00047",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00047",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00047",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00047",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00047",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00047",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00047",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00047",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "custom_lo_id": "LO-C5-08",
+  "description": "Nắm vững định lý: số đo góc nội tiếp bằng nửa số đo cung bị chắn và các hệ quả của nó.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Góc nội tiếp và tính chất",
+  "modified": "2025-07-31 11:31:02.207100",
+  "name": "LO-00048",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00047",
+    "parent": "LO-00048",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00047",
+    "parent": "LO-00048",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00047",
+    "parent": "LO-00048",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00047",
+    "parent": "LO-00048",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00047",
+    "parent": "LO-00048",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00047",
+    "parent": "LO-00048",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00047",
+    "parent": "LO-00048",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00047",
+    "parent": "LO-00048",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "custom_lo_id": "LO-C5-09",
+  "description": "Nắm vững định lý: số đo góc tạo bởi tia tiếp tuyến và dây cung bằng nửa số đo cung bị chắn.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Góc tạo bởi tia tiếp tuyến và dây cung",
+  "modified": "2025-07-31 11:31:02.231565",
+  "name": "LO-00049",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00047",
+    "parent": "LO-00049",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00047",
+    "parent": "LO-00049",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00047",
+    "parent": "LO-00049",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00047",
+    "parent": "LO-00049",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00047",
+    "parent": "LO-00049",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00047",
+    "parent": "LO-00049",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00047",
+    "parent": "LO-00049",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00047",
+    "parent": "LO-00049",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "custom_lo_id": "LO-C5-10",
+  "description": "Thành thạo việc sử dụng các công thức C = 2πR và S = πR² để giải các bài toán thực tế.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Công thức tính độ dài đường tròn và diện tích hình tròn",
+  "modified": "2025-07-31 11:31:02.250638",
+  "name": "LO-00050",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00050",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00050",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00050",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00050",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00050",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00050",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00050",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00050",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "5"
+ },
+ {
+  "custom_lo_id": "LO-C6-01",
+  "description": "Trích xuất thông tin, so sánh và đưa ra nhận xét từ các số liệu được trình bày trong bảng thống kê.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Đọc và phân tích dữ liệu từ bảng thống kê",
+  "modified": "2025-07-31 11:31:02.264985",
+  "name": "LO-00051",
+  "naming_series": "LO-.#####",
+  "prerequisites": [],
+  "topic": "6"
+ },
+ {
+  "custom_lo_id": "LO-C6-02",
+  "description": "Biểu diễn một bộ số liệu bằng biểu đồ cột đơn và biểu diễn hai bộ số liệu để so sánh bằng biểu đồ cột kép.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Vẽ biểu đồ cột và biểu đồ cột kép",
+  "modified": "2025-07-31 11:31:02.288028",
+  "name": "LO-00052",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00052",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00052",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00052",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00052",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00052",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00052",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00052",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00052",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "custom_lo_id": "LO-C6-03",
+  "description": "Biểu diễn sự thay đổi của một đại lượng theo thời gian bằng biểu đồ đoạn thẳng.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Vẽ biểu đồ đoạn thẳng",
+  "modified": "2025-07-31 11:31:02.317282",
+  "name": "LO-00053",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00053",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00053",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00053",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00053",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00053",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00053",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00053",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00053",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "custom_lo_id": "LO-C6-04",
+  "description": "Biểu diễn cơ cấu, tỉ lệ phần trăm của các thành phần trong một tổng thể bằng biểu đồ hình quạt tròn.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Vẽ biểu đồ hình quạt tròn",
+  "modified": "2025-07-31 11:31:02.342068",
+  "name": "LO-00054",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00054",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00054",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00054",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00054",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00054",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00054",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00054",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00054",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "custom_lo_id": "LO-C6-05",
+  "description": "Tổ chức một mẫu số liệu rời rạc vào bảng tần số và tính toán tần số tương đối (tỉ số phần trăm).",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Lập bảng tần số và tần số tương đối",
+  "modified": "2025-07-31 11:31:02.371622",
+  "name": "LO-00055",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00055",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00055",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00055",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00055",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00055",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00055",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00055",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00051",
+    "parent": "LO-00055",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "custom_lo_id": "LO-C6-06",
+  "description": "Hiểu cách chia một mẫu số liệu liên tục thành các nhóm (khoảng) và lập bảng tần số ghép nhóm.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Mẫu số liệu ghép nhóm",
+  "modified": "2025-07-31 11:31:02.390330",
+  "name": "LO-00056",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00055",
+    "parent": "LO-00056",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00055",
+    "parent": "LO-00056",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00055",
+    "parent": "LO-00056",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00055",
+    "parent": "LO-00056",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00055",
+    "parent": "LO-00056",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00055",
+    "parent": "LO-00056",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00055",
+    "parent": "LO-00056",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00055",
+    "parent": "LO-00056",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "custom_lo_id": "LO-C6-07",
+  "description": "Mô tả không gian mẫu của một phép thử ngẫu nhiên bằng cách liệt kê hoặc sử dụng quy tắc đếm.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Không gian mẫu và biến cố",
+  "modified": "2025-07-31 11:31:02.417385",
+  "name": "LO-00057",
+  "naming_series": "LO-.#####",
+  "prerequisites": [],
+  "topic": "6"
+ },
+ {
+  "custom_lo_id": "LO-C6-08",
+  "description": "Áp dụng công thức P(A) = n(A)/n(Ω) để tính xác suất trong các trường hợp đồng khả năng.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Tính xác suất của biến cố bằng định nghĩa cổ điển",
+  "modified": "2025-07-31 11:31:02.443910",
+  "name": "LO-00058",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00057",
+    "parent": "LO-00058",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00057",
+    "parent": "LO-00058",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00057",
+    "parent": "LO-00058",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00057",
+    "parent": "LO-00058",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00057",
+    "parent": "LO-00058",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00057",
+    "parent": "LO-00058",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00057",
+    "parent": "LO-00058",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00057",
+    "parent": "LO-00058",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "custom_lo_id": "LO-C6-09",
+  "description": "Hiểu rõ sự khác biệt giữa một hành động (phép thử) và một kết quả cụ thể của hành động đó (biến cố).",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Phân biệt biến cố và phép thử",
+  "modified": "2025-07-31 11:31:02.463852",
+  "name": "LO-00059",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00057",
+    "parent": "LO-00059",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00057",
+    "parent": "LO-00059",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00057",
+    "parent": "LO-00059",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00057",
+    "parent": "LO-00059",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00057",
+    "parent": "LO-00059",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00057",
+    "parent": "LO-00059",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00057",
+    "parent": "LO-00059",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00057",
+    "parent": "LO-00059",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "custom_lo_id": "LO-C6-10",
+  "description": "Mô hình hóa các bài toán thực tế (chọn vật, rút thăm) thành bài toán xác suất và giải quyết.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Giải bài toán xác suất thực tế đơn giản",
+  "modified": "2025-07-31 11:31:02.481237",
+  "name": "LO-00060",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00058",
+    "parent": "LO-00060",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00058",
+    "parent": "LO-00060",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00058",
+    "parent": "LO-00060",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00058",
+    "parent": "LO-00060",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00058",
+    "parent": "LO-00060",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00058",
+    "parent": "LO-00060",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00058",
+    "parent": "LO-00060",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00058",
+    "parent": "LO-00060",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "6"
+ },
+ {
+  "custom_lo_id": "LO-C7-01",
+  "description": "Nắm vững sự biến thiên (đồng biến, nghịch biến) và các đặc điểm của đồ thị Parabol tương ứng với dấu của a.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Tính chất và đồ thị của hàm số y = ax² (a ≠ 0)",
+  "modified": "2025-07-31 11:31:02.502617",
+  "name": "LO-00061",
+  "naming_series": "LO-.#####",
+  "prerequisites": [],
+  "topic": "7"
+ },
+ {
+  "custom_lo_id": "LO-C7-02",
+  "description": "Lập bảng giá trị và vẽ chính xác đồ thị Parabol đi qua các điểm đã xác định.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Vẽ đồ thị hàm số y = ax² (a ≠ 0)",
+  "modified": "2025-07-31 11:31:02.521698",
+  "name": "LO-00062",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00061",
+    "parent": "LO-00062",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00061",
+    "parent": "LO-00062",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00061",
+    "parent": "LO-00062",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00061",
+    "parent": "LO-00062",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00061",
+    "parent": "LO-00062",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00061",
+    "parent": "LO-00062",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00061",
+    "parent": "LO-00062",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00061",
+    "parent": "LO-00062",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "custom_lo_id": "LO-C7-03",
+  "description": "Lập và giải phương trình hoành độ giao điểm để tìm tọa độ các điểm chung (nếu có) của (P) và (d).",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Tìm tọa độ giao điểm của Parabol và đường thẳng",
+  "modified": "2025-07-31 11:31:02.544534",
+  "name": "LO-00063",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00063",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00062",
+    "parent": "LO-00063",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00062",
+    "parent": "LO-00063",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00063",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00062",
+    "parent": "LO-00063",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00062",
+    "parent": "LO-00063",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00063",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00063",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00063",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00062",
+    "parent": "LO-00063",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00062",
+    "parent": "LO-00063",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00063",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00062",
+    "parent": "LO-00063",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00063",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00062",
+    "parent": "LO-00063",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00063",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "custom_lo_id": "LO-C7-04",
+  "description": "Xác định đúng các hệ số a, b, c và giải các dạng phương trình bậc hai khuyết b, khuyết c.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Nhận dạng và giải phương trình bậc hai một ẩn",
+  "modified": "2025-07-31 11:31:02.575473",
+  "name": "LO-00064",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00001",
+    "parent": "LO-00064",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00001",
+    "parent": "LO-00064",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00001",
+    "parent": "LO-00064",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00001",
+    "parent": "LO-00064",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00001",
+    "parent": "LO-00064",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00001",
+    "parent": "LO-00064",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00001",
+    "parent": "LO-00064",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00001",
+    "parent": "LO-00064",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "custom_lo_id": "LO-C7-05",
+  "description": "Tính biệt thức Delta (Δ) và áp dụng công thức nghiệm để tìm nghiệm của phương trình bậc hai đầy đủ.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Giải phương trình bậc hai bằng công thức nghiệm",
+  "modified": "2025-07-31 11:31:02.593681",
+  "name": "LO-00065",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00064",
+    "parent": "LO-00065",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00064",
+    "parent": "LO-00065",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00064",
+    "parent": "LO-00065",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00064",
+    "parent": "LO-00065",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00064",
+    "parent": "LO-00065",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00064",
+    "parent": "LO-00065",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00064",
+    "parent": "LO-00065",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00064",
+    "parent": "LO-00065",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "custom_lo_id": "LO-C7-06",
+  "description": "Sử dụng biệt thức Delta phẩy (Δ') khi hệ số b là số chẵn để giải phương trình nhanh hơn.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Giải phương trình bậc hai bằng công thức nghiệm thu gọn",
+  "modified": "2025-07-31 11:31:02.616980",
+  "name": "LO-00066",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00066",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00066",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00066",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00066",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00066",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00066",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00066",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00066",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "custom_lo_id": "LO-C7-07",
+  "description": "Dựa vào dấu của biệt thức Delta (Δ) để xác định phương trình có hai nghiệm phân biệt, nghiệm kép hay vô nghiệm.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Biện luận số nghiệm của phương trình bậc hai",
+  "modified": "2025-07-31 11:31:02.634460",
+  "name": "LO-00067",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00067",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00067",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00067",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00067",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00067",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00067",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00067",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00067",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "custom_lo_id": "LO-C7-08",
+  "description": "Sử dụng hệ thức Vi-ète để tính S = x₁ + x₂ và P = x₁ * x₂ mà không cần giải phương trình.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Áp dụng Hệ thức Vi-ète để tính tổng và tích các nghiệm",
+  "modified": "2025-07-31 11:31:02.674344",
+  "name": "LO-00068",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00067",
+    "parent": "LO-00068",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00067",
+    "parent": "LO-00068",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00067",
+    "parent": "LO-00068",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00067",
+    "parent": "LO-00068",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00067",
+    "parent": "LO-00068",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00067",
+    "parent": "LO-00068",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00067",
+    "parent": "LO-00068",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00067",
+    "parent": "LO-00068",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "custom_lo_id": "LO-C7-09",
+  "description": "Vận dụng định lý Vi-ète đảo: nếu hai số có tổng S và tích P thì chúng là nghiệm của phương trình X² - SX + P = 0.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Tìm hai số khi biết tổng và tích",
+  "modified": "2025-07-31 11:31:02.704406",
+  "name": "LO-00069",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00068",
+    "parent": "LO-00069",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00068",
+    "parent": "LO-00069",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00068",
+    "parent": "LO-00069",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00068",
+    "parent": "LO-00069",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00068",
+    "parent": "LO-00069",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00068",
+    "parent": "LO-00069",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00068",
+    "parent": "LO-00069",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00068",
+    "parent": "LO-00069",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "custom_lo_id": "LO-C7-10",
+  "description": "Mô hình hóa các bài toán thực tế (chuyển động, năng suất, hình học) thành phương trình bậc hai và giải.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Giải bài toán thực tế bằng cách lập phương trình bậc hai",
+  "modified": "2025-07-31 11:31:02.725266",
+  "name": "LO-00070",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00070",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00070",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00070",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00070",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00070",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00070",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00070",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00065",
+    "parent": "LO-00070",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "7"
+ },
+ {
+  "custom_lo_id": "LO-C8-01",
+  "description": "Biết tâm đường tròn ngoại tiếp là giao điểm ba đường trung trực và cách xác định nó trong các trường hợp đặc biệt.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Xác định tâm và bán kính đường tròn ngoại tiếp tam giác",
+  "modified": "2025-07-31 11:31:02.745062",
+  "name": "LO-00071",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00071",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00071",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00071",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00071",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00071",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00071",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00071",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00071",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "8"
+ },
+ {
+  "custom_lo_id": "LO-C8-02",
+  "description": "Biết tâm đường tròn nội tiếp là giao điểm ba đường phân giác trong và cách xác định bán kính.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Xác định tâm và bán kính đường tròn nội tiếp tam giác",
+  "modified": "2025-07-31 11:31:02.764719",
+  "name": "LO-00072",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00072",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00072",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00072",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00072",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00072",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00072",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00072",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00041",
+    "parent": "LO-00072",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "8"
+ },
+ {
+  "custom_lo_id": "LO-C8-03",
+  "description": "Hiểu rằng một tứ giác nội tiếp khi bốn đỉnh của nó cùng nằm trên một đường tròn và tính chất về tổng hai góc đối.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Định nghĩa và tính chất của tứ giác nội tiếp",
+  "modified": "2025-07-31 11:31:02.788026",
+  "name": "LO-00073",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00048",
+    "parent": "LO-00073",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00048",
+    "parent": "LO-00073",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00048",
+    "parent": "LO-00073",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00048",
+    "parent": "LO-00073",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00048",
+    "parent": "LO-00073",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00048",
+    "parent": "LO-00073",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00048",
+    "parent": "LO-00073",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00048",
+    "parent": "LO-00073",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "8"
+ },
+ {
+  "custom_lo_id": "LO-C8-04",
+  "description": "Nắm vững và vận dụng các dấu hiệu để chứng minh một tứ giác là tứ giác nội tiếp (tổng hai góc đối bằng 180°, góc ngoài bằng góc trong đối diện, hai đỉnh kề cùng nhìn một cạnh dưới hai góc bằng nhau).",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Dấu hiệu nhận biết tứ giác nội tiếp",
+  "modified": "2025-07-31 11:31:02.822639",
+  "name": "LO-00074",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00073",
+    "parent": "LO-00074",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00073",
+    "parent": "LO-00074",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00073",
+    "parent": "LO-00074",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00073",
+    "parent": "LO-00074",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00073",
+    "parent": "LO-00074",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00073",
+    "parent": "LO-00074",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00073",
+    "parent": "LO-00074",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00073",
+    "parent": "LO-00074",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "8"
+ },
+ {
+  "custom_lo_id": "LO-C8-05",
+  "description": "Sử dụng các dấu hiệu của tứ giác nội tiếp hoặc các tính chất hình học khác để chứng minh 5 điểm, 6 điểm... cùng thuộc một đường tròn.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Chứng minh nhiều điểm cùng thuộc một đường tròn",
+  "modified": "2025-07-31 11:31:02.847286",
+  "name": "LO-00075",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00074",
+    "parent": "LO-00075",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00074",
+    "parent": "LO-00075",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00074",
+    "parent": "LO-00075",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00074",
+    "parent": "LO-00075",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00074",
+    "parent": "LO-00075",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00074",
+    "parent": "LO-00075",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00074",
+    "parent": "LO-00075",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00074",
+    "parent": "LO-00075",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "8"
+ },
+ {
+  "custom_lo_id": "LO-C8-06",
+  "description": "Sử dụng tính chất các góc nội tiếp cùng chắn một cung để suy ra các góc bằng nhau trong một bài toán hình học.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Áp dụng tính chất tứ giác nội tiếp để chứng minh góc bằng nhau",
+  "modified": "2025-07-31 11:31:02.868834",
+  "name": "LO-00076",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00074",
+    "parent": "LO-00076",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00074",
+    "parent": "LO-00076",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00074",
+    "parent": "LO-00076",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00074",
+    "parent": "LO-00076",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00074",
+    "parent": "LO-00076",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00074",
+    "parent": "LO-00076",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00074",
+    "parent": "LO-00076",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00074",
+    "parent": "LO-00076",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "8"
+ },
+ {
+  "custom_lo_id": "LO-C8-07",
+  "description": "Kết hợp tính chất tứ giác nội tiếp với các tam giác đồng dạng để chứng minh các hệ thức về cạnh.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Áp dụng tính chất tứ giác nội tiếp để chứng minh hệ thức hình học",
+  "modified": "2025-07-31 11:31:02.890292",
+  "name": "LO-00077",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00076",
+    "parent": "LO-00077",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00076",
+    "parent": "LO-00077",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00076",
+    "parent": "LO-00077",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00076",
+    "parent": "LO-00077",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00076",
+    "parent": "LO-00077",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00076",
+    "parent": "LO-00077",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00076",
+    "parent": "LO-00077",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00076",
+    "parent": "LO-00077",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "8"
+ },
+ {
+  "custom_lo_id": "LO-C8-08",
+  "description": "Hiểu và áp dụng định lý Ptolemy cho tứ giác nội tiếp: tổng các tích của các cặp cạnh đối bằng tích của hai đường chéo.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Định lý Ptolemy và ứng dụng (nâng cao)",
+  "modified": "2025-07-31 11:31:02.909525",
+  "name": "LO-00078",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00077",
+    "parent": "LO-00078",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00077",
+    "parent": "LO-00078",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00077",
+    "parent": "LO-00078",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00077",
+    "parent": "LO-00078",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00077",
+    "parent": "LO-00078",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00077",
+    "parent": "LO-00078",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00077",
+    "parent": "LO-00078",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00077",
+    "parent": "LO-00078",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "8"
+ },
+ {
+  "custom_lo_id": "LO-C8-09",
+  "description": "Phân biệt rõ ràng hai khái niệm, vị trí tâm và cách xác định bán kính của hai loại đường tròn này trong một tam giác.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Phân biệt đường tròn ngoại tiếp và nội tiếp",
+  "modified": "2025-07-31 11:31:02.939993",
+  "name": "LO-00079",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00071",
+    "parent": "LO-00079",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00072",
+    "parent": "LO-00079",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00071",
+    "parent": "LO-00079",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00072",
+    "parent": "LO-00079",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00071",
+    "parent": "LO-00079",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00072",
+    "parent": "LO-00079",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00071",
+    "parent": "LO-00079",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00072",
+    "parent": "LO-00079",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00071",
+    "parent": "LO-00079",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00072",
+    "parent": "LO-00079",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00071",
+    "parent": "LO-00079",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00072",
+    "parent": "LO-00079",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00071",
+    "parent": "LO-00079",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00072",
+    "parent": "LO-00079",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00071",
+    "parent": "LO-00079",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00072",
+    "parent": "LO-00079",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "8"
+ },
+ {
+  "custom_lo_id": "LO-C8-10",
+  "description": "Phối hợp nhiều kiến thức về đường tròn, tứ giác nội tiếp, tam giác đồng dạng để giải quyết một bài toán hình học phức tạp.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Giải các bài toán tổng hợp về đường tròn và tứ giác nội tiếp",
+  "modified": "2025-07-31 11:31:02.957861",
+  "name": "LO-00080",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00077",
+    "parent": "LO-00080",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00077",
+    "parent": "LO-00080",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00077",
+    "parent": "LO-00080",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00077",
+    "parent": "LO-00080",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00077",
+    "parent": "LO-00080",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00077",
+    "parent": "LO-00080",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00077",
+    "parent": "LO-00080",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00077",
+    "parent": "LO-00080",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "8"
+ },
+ {
+  "custom_lo_id": "LO-C9-01",
+  "description": "Phân biệt được đa giác lồi và đa giác không lồi. Hiểu định nghĩa đa giác đều là đa giác có tất cả các cạnh và các góc bằng nhau.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Khái niệm đa giác lồi và đa giác đều",
+  "modified": "2025-07-31 11:31:02.973945",
+  "name": "LO-00081",
+  "naming_series": "LO-.#####",
+  "prerequisites": [],
+  "topic": "9"
+ },
+ {
+  "custom_lo_id": "LO-C9-02",
+  "description": "Nắm vững và áp dụng công thức tính tổng số đo các góc trong của một đa giác n cạnh là (n-2) * 180°.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Công thức tính tổng số đo các góc của một đa giác",
+  "modified": "2025-07-31 11:31:02.993756",
+  "name": "LO-00082",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00082",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00082",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00082",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00082",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00082",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00082",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00082",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00082",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "9"
+ },
+ {
+  "custom_lo_id": "LO-C9-03",
+  "description": "Áp dụng công thức tính số đo mỗi góc của một đa giác đều n cạnh là [(n-2) * 180°] / n.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Tính số đo mỗi góc của một đa giác đều",
+  "modified": "2025-07-31 11:31:03.014083",
+  "name": "LO-00083",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00082",
+    "parent": "LO-00083",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00082",
+    "parent": "LO-00083",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00082",
+    "parent": "LO-00083",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00082",
+    "parent": "LO-00083",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00082",
+    "parent": "LO-00083",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00082",
+    "parent": "LO-00083",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00082",
+    "parent": "LO-00083",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00082",
+    "parent": "LO-00083",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "9"
+ },
+ {
+  "custom_lo_id": "LO-C9-04",
+  "description": "Sử dụng compa và thước thẳng để vẽ các đa giác đều cơ bản như tam giác đều, hình vuông, lục giác đều.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Vẽ các đa giác đều đơn giản",
+  "modified": "2025-07-31 11:31:03.035848",
+  "name": "LO-00084",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00084",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00084",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00084",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00084",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00084",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00084",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00084",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00084",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "9"
+ },
+ {
+  "custom_lo_id": "LO-C9-05",
+  "description": "Hiểu định nghĩa phép quay tâm O góc quay α biến một điểm M thành M' và các tính chất cơ bản của nó.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Khái niệm phép quay",
+  "modified": "2025-07-31 11:31:03.052893",
+  "name": "LO-00085",
+  "naming_series": "LO-.#####",
+  "prerequisites": [],
+  "topic": "9"
+ },
+ {
+  "custom_lo_id": "LO-C9-06",
+  "description": "Sử dụng thước đo góc và compa để xác định ảnh của một điểm qua một phép quay cho trước.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Xác định ảnh của một điểm qua phép quay",
+  "modified": "2025-07-31 11:31:03.071718",
+  "name": "LO-00086",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00085",
+    "parent": "LO-00086",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00085",
+    "parent": "LO-00086",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00085",
+    "parent": "LO-00086",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00085",
+    "parent": "LO-00086",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00085",
+    "parent": "LO-00086",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00085",
+    "parent": "LO-00086",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00085",
+    "parent": "LO-00086",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00085",
+    "parent": "LO-00086",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "9"
+ },
+ {
+  "custom_lo_id": "LO-C9-07",
+  "description": "Nhận biết các hình có tâm đối xứng quay và xác định góc quay nhỏ nhất để hình đó biến thành chính nó.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Ứng dụng phép quay để nhận biết tính đối xứng",
+  "modified": "2025-07-31 11:31:03.092383",
+  "name": "LO-00087",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00085",
+    "parent": "LO-00087",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00085",
+    "parent": "LO-00087",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00085",
+    "parent": "LO-00087",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00085",
+    "parent": "LO-00087",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00085",
+    "parent": "LO-00087",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00085",
+    "parent": "LO-00087",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00085",
+    "parent": "LO-00087",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00085",
+    "parent": "LO-00087",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "9"
+ },
+ {
+  "custom_lo_id": "LO-C9-08",
+  "description": "Hiểu rằng mọi đa giác đều đều có một đường tròn ngoại tiếp và một đường tròn nội tiếp, và chúng đồng tâm.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Mối liên hệ giữa đa giác đều và đường tròn",
+  "modified": "2025-07-31 11:31:03.117996",
+  "name": "LO-00088",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00088",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00072",
+    "parent": "LO-00088",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00071",
+    "parent": "LO-00088",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00088",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00072",
+    "parent": "LO-00088",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00071",
+    "parent": "LO-00088",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00088",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00071",
+    "parent": "LO-00088",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00071",
+    "parent": "LO-00088",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00088",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00072",
+    "parent": "LO-00088",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00072",
+    "parent": "LO-00088",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00088",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00072",
+    "parent": "LO-00088",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00071",
+    "parent": "LO-00088",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00088",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00072",
+    "parent": "LO-00088",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00071",
+    "parent": "LO-00088",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00088",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00072",
+    "parent": "LO-00088",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00071",
+    "parent": "LO-00088",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00088",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00071",
+    "parent": "LO-00088",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00072",
+    "parent": "LO-00088",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "9"
+ },
+ {
+  "custom_lo_id": "LO-C9-09",
+  "description": "Thiết lập và sử dụng các công thức tính R và r của đa giác đều theo độ dài cạnh a và số cạnh n.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Tính bán kính đường tròn ngoại tiếp, nội tiếp đa giác đều",
+  "modified": "2025-07-31 11:31:03.145802",
+  "name": "LO-00089",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00089",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00088",
+    "parent": "LO-00089",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00088",
+    "parent": "LO-00089",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00089",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00089",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00088",
+    "parent": "LO-00089",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00089",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00088",
+    "parent": "LO-00089",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00089",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00088",
+    "parent": "LO-00089",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00088",
+    "parent": "LO-00089",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00089",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00088",
+    "parent": "LO-00089",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00089",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00088",
+    "parent": "LO-00089",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00031",
+    "parent": "LO-00089",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "9"
+ },
+ {
+  "custom_lo_id": "LO-C9-10",
+  "description": "Nhận dạng các vật thể, kiến trúc, họa tiết trong tự nhiên và đời sống có hình dạng của các đa giác đều.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Nhận biết đa giác đều trong thực tiễn",
+  "modified": "2025-07-31 11:31:03.169622",
+  "name": "LO-00090",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00090",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00090",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00090",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00090",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00090",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00090",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00090",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00081",
+    "parent": "LO-00090",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "9"
+ },
+ {
+  "custom_lo_id": "LO-C10-01",
+  "description": "Nhận biết và gọi tên đúng các yếu tố của hình trụ: hai đáy, bán kính đáy, chiều cao, đường sinh.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Các yếu tố của hình trụ",
+  "modified": "2025-07-31 11:31:03.185690",
+  "name": "LO-00091",
+  "naming_series": "LO-.#####",
+  "prerequisites": [],
+  "topic": "10"
+ },
+ {
+  "custom_lo_id": "LO-C10-02",
+  "description": "Áp dụng công thức Sxq = 2πRh để tính diện tích xung quanh của hình trụ.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Tính diện tích xung quanh của hình trụ",
+  "modified": "2025-07-31 11:31:03.203831",
+  "name": "LO-00092",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00091",
+    "parent": "LO-00092",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00091",
+    "parent": "LO-00092",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00091",
+    "parent": "LO-00092",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00091",
+    "parent": "LO-00092",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00091",
+    "parent": "LO-00092",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00091",
+    "parent": "LO-00092",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00091",
+    "parent": "LO-00092",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00091",
+    "parent": "LO-00092",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "10"
+ },
+ {
+  "custom_lo_id": "LO-C10-03",
+  "description": "Áp dụng công thức V = πR²h để tính thể tích của khối trụ.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Tính thể tích của hình trụ",
+  "modified": "2025-07-31 11:31:03.227321",
+  "name": "LO-00093",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00091",
+    "parent": "LO-00093",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00091",
+    "parent": "LO-00093",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00091",
+    "parent": "LO-00093",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00091",
+    "parent": "LO-00093",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00091",
+    "parent": "LO-00093",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00091",
+    "parent": "LO-00093",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00091",
+    "parent": "LO-00093",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00091",
+    "parent": "LO-00093",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "10"
+ },
+ {
+  "custom_lo_id": "LO-C10-04",
+  "description": "Nhận biết và gọi tên đúng các yếu tố của hình nón: đáy, đỉnh, bán kính đáy, chiều cao, đường sinh.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Các yếu tố của hình nón",
+  "modified": "2025-07-31 11:31:03.240990",
+  "name": "LO-00094",
+  "naming_series": "LO-.#####",
+  "prerequisites": [],
+  "topic": "10"
+ },
+ {
+  "custom_lo_id": "LO-C10-05",
+  "description": "Áp dụng công thức Sxq = πRl để tính diện tích xung quanh của hình nón.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Tính diện tích xung quanh của hình nón",
+  "modified": "2025-07-31 11:31:03.255905",
+  "name": "LO-00095",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00094",
+    "parent": "LO-00095",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00094",
+    "parent": "LO-00095",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00094",
+    "parent": "LO-00095",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00094",
+    "parent": "LO-00095",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00094",
+    "parent": "LO-00095",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00094",
+    "parent": "LO-00095",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00094",
+    "parent": "LO-00095",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00094",
+    "parent": "LO-00095",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "10"
+ },
+ {
+  "custom_lo_id": "LO-C10-06",
+  "description": "Áp dụng công thức V = (1/3)πR²h để tính thể tích của khối nón.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Tính thể tích của hình nón",
+  "modified": "2025-07-31 11:31:03.284558",
+  "name": "LO-00096",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00094",
+    "parent": "LO-00096",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00094",
+    "parent": "LO-00096",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00094",
+    "parent": "LO-00096",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00094",
+    "parent": "LO-00096",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00094",
+    "parent": "LO-00096",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00094",
+    "parent": "LO-00096",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00094",
+    "parent": "LO-00096",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00094",
+    "parent": "LO-00096",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "10"
+ },
+ {
+  "custom_lo_id": "LO-C10-07",
+  "description": "Nhận biết và gọi tên đúng các yếu tố của hình cầu: tâm, bán kính, đường kính, mặt cầu.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Các yếu tố của hình cầu",
+  "modified": "2025-07-31 11:31:03.300402",
+  "name": "LO-00097",
+  "naming_series": "LO-.#####",
+  "prerequisites": [],
+  "topic": "10"
+ },
+ {
+  "custom_lo_id": "LO-C10-08",
+  "description": "Áp dụng công thức S = 4πR² để tính diện tích mặt cầu.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Tính diện tích mặt cầu",
+  "modified": "2025-07-31 11:31:03.337674",
+  "name": "LO-00098",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00097",
+    "parent": "LO-00098",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00097",
+    "parent": "LO-00098",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00097",
+    "parent": "LO-00098",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00097",
+    "parent": "LO-00098",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00097",
+    "parent": "LO-00098",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00097",
+    "parent": "LO-00098",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00097",
+    "parent": "LO-00098",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00097",
+    "parent": "LO-00098",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "10"
+ },
+ {
+  "custom_lo_id": "LO-C10-09",
+  "description": "Áp dụng công thức V = (4/3)πR³ để tính thể tích của khối cầu.",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Tính thể tích hình cầu",
+  "modified": "2025-07-31 11:31:03.362113",
+  "name": "LO-00099",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00097",
+    "parent": "LO-00099",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00097",
+    "parent": "LO-00099",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00097",
+    "parent": "LO-00099",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00097",
+    "parent": "LO-00099",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00097",
+    "parent": "LO-00099",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00097",
+    "parent": "LO-00099",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00097",
+    "parent": "LO-00099",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00097",
+    "parent": "LO-00099",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "10"
+ },
+ {
+  "custom_lo_id": "LO-C10-10",
+  "description": "Vận dụng các công thức diện tích, thể tích để giải quyết các bài toán có bối cảnh thực tế (tính dung tích, lượng vật liệu...).",
+  "docstatus": 0,
+  "doctype": "Learning Object",
+  "learning_object_title": "Giải các bài toán thực tế liên quan đến hình trụ, nón, cầu",
+  "modified": "2025-07-31 11:31:03.398294",
+  "name": "LO-00100",
+  "naming_series": "LO-.#####",
+  "prerequisites": [
+   {
+    "learning_object": "LO-00093",
+    "parent": "LO-00100",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00096",
+    "parent": "LO-00100",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00099",
+    "parent": "LO-00100",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00099",
+    "parent": "LO-00100",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00093",
+    "parent": "LO-00100",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00096",
+    "parent": "LO-00100",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00096",
+    "parent": "LO-00100",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00099",
+    "parent": "LO-00100",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00093",
+    "parent": "LO-00100",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00096",
+    "parent": "LO-00100",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00093",
+    "parent": "LO-00100",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00099",
+    "parent": "LO-00100",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00093",
+    "parent": "LO-00100",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00096",
+    "parent": "LO-00100",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00099",
+    "parent": "LO-00100",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00099",
+    "parent": "LO-00100",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00093",
+    "parent": "LO-00100",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00096",
+    "parent": "LO-00100",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00099",
+    "parent": "LO-00100",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00093",
+    "parent": "LO-00100",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00096",
+    "parent": "LO-00100",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00093",
+    "parent": "LO-00100",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00096",
+    "parent": "LO-00100",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   },
+   {
+    "learning_object": "LO-00099",
+    "parent": "LO-00100",
+    "parentfield": "prerequisites",
+    "parenttype": "Learning Object"
+   }
+  ],
+  "topic": "10"
+ }
+]

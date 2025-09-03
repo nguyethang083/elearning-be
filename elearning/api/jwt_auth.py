@@ -174,73 +174,22 @@ def jwt_auth_middleware():
     
     if user_id:
         try:
-            # Check for special header that forces session regeneration
-            force_regenerate = frappe.request.headers.get("X-Regenerate-Session") == "true"
-            
-            # Check if session exists for this user or if we need to force regeneration
-            if force_regenerate or not frappe.session.user or frappe.session.user == "Guest":
-                # No valid session exists or regeneration is forced, create a new one from JWT
-                success = regenerate_session_from_jwt(user_id, payload)
-                if force_regenerate:
-                    if success:
-                        frappe.log_error(f"Forced session regeneration successful for user {user_id}", "JWT Session Regeneration")
-                    else:
-                        frappe.log_error(f"Forced session regeneration failed for user {user_id}", "JWT Session Regeneration")
-            else:
-                # We already have a valid session
+            # Set Frappe's session user to the user from the token
+            frappe.local.login_manager.login_as(user_id)
+            frappe.log_error(f"Frappe session successfully set for user: {frappe.session.user} via JWT", "JWT Auth Success")
+        except OperationalError as e:
+            # Bắt chính xác lỗi race condition (1020)
+            if e.args[0] == 1020:
+                # Bỏ qua lỗi này một cách an toàn vì một request khác đã cập nhật session thành công
+                # Đảm bảo request hiện tại vẫn tiếp tục với session hợp lệ
+                frappe.local.login_manager.resume = True
                 pass
-        except Exception as e:
-            frappe.log_error(f"Error in JWT middleware: {str(e)}", "JWT Auth Error")
-            # Still allow the request to proceed with existing session if any
+            else:
+                # Nếu là lỗi database khác, hãy báo lỗi như bình thường
+                raise
     else:
         frappe.response.status_code = 401
         frappe.local.response["message"] = _("Invalid token payload")
-
-def regenerate_session_from_jwt(user_id, payload):
-    """
-    Regenerate a Frappe session from JWT token payload
-    This is useful after server restarts when Redis cache is cleared
-    """
-    try:
-        # Validate that user exists and is enabled
-        user = frappe.get_doc("User", user_id)
-        if not user or not user.enabled:
-            frappe.log_error(f"Failed to regenerate session: User {user_id} not found or disabled", "JWT Session Regeneration")
-            return False
-            
-        # Set Frappe's session user
-        frappe.set_user(user_id)
-        
-        # Initialize a new session
-        frappe.local.session_obj = frappe.sessions.Session(user=user_id, resume=False, full_name=user.full_name, user_type=user.user_type)
-        
-        # Set session data
-        session = frappe.local.session_obj.data
-        session.user = user_id
-        session.sid = frappe.utils.random_string(32)
-        session.data.user = user_id
-        session.data.session_ip = frappe.local.request_ip
-        session.data.last_updated = frappe.utils.now()
-        session.data.session_expiry = frappe.utils.add_days(None, 30)  # 30 day session expiry
-        session.data.full_name = user.full_name
-        session.data.user_type = user.user_type
-        session.data.roles = [role.role for role in user.roles]
-        
-        # Update the session in Redis
-        frappe.cache().set_value(
-            f"session:{session.sid}",
-            session.data,
-            expires_in_sec=86400  # 24 hours
-        )
-        
-        # Set cookie for session
-        frappe.local.cookie_manager.set_cookie("sid", session.sid)
-        
-        frappe.log_error(f"Successfully regenerated session for user {user_id} from JWT token", "JWT Session Regeneration")
-        return True
-    except Exception as e:
-        frappe.log_error(f"Failed to regenerate session: {str(e)}", "JWT Session Regeneration")
-        return False
 
 @frappe.whitelist()
 def get_user_info():

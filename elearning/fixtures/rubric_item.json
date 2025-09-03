@@ -4,11 +4,9 @@
   "docstatus": 0,
   "doctype": "Rubric Item",
   "max_score": 0.15,
-  "modified": "2025-06-01 15:34:19.489460",
+  "modified": "2025-08-31 17:38:09.552827",
   "name": "5upgc77jo3",
-  "parent": "5upuf9v9m7",
-  "parentfield": "rubric_items",
-  "parenttype": "Question",
+  "question": "5upuf9v9m7",
   "step_order": 1
  },
  {
@@ -16,11 +14,9 @@
   "docstatus": 0,
   "doctype": "Rubric Item",
   "max_score": 0.25,
-  "modified": "2025-06-01 15:34:19.489460",
+  "modified": "2025-08-31 17:38:00.728949",
   "name": "5up04apens",
-  "parent": "5upuf9v9m7",
-  "parentfield": "rubric_items",
-  "parenttype": "Question",
+  "question": "5upuf9v9m7",
   "step_order": 2
  },
  {
@@ -28,11 +24,9 @@
   "docstatus": 0,
   "doctype": "Rubric Item",
   "max_score": 0.25,
-  "modified": "2025-06-01 15:34:19.489460",
+  "modified": "2025-08-31 17:37:45.229893",
   "name": "5updc556b3",
-  "parent": "5upuf9v9m7",
-  "parentfield": "rubric_items",
-  "parenttype": "Question",
+  "question": "5upuf9v9m7",
   "step_order": 3
  },
  {
@@ -40,11 +34,39 @@
   "docstatus": 0,
   "doctype": "Rubric Item",
   "max_score": 0.1,
-  "modified": "2025-06-01 15:34:19.489460",
+  "modified": "2025-08-31 17:37:34.142116",
   "name": "5upbqernun",
-  "parent": "5upuf9v9m7",
-  "parentfield": "rubric_items",
-  "parenttype": "Question",
+  "question": "5upuf9v9m7",
   "step_order": 4
+ },
+ {
+  "description": "Không gian mẫu $\\Omega = \\{1;2;3;4;...;19;20\\}$ có 20 phần tử $\\Rightarrow n(\\Omega) = 20$. Vì các thẻ cùng loại và các thẻ khác nhau ghi số khác nhau nên các kết quả có thể là đồng khả năng\n",
+  "docstatus": 0,
+  "doctype": "Rubric Item",
+  "max_score": 0.25,
+  "modified": "2025-08-31 17:36:11.683308",
+  "name": "ecsio4hm7h",
+  "question": "97cgjhhvbt",
+  "step_order": 1
+ },
+ {
+  "description": "Có 4 kết quả thuận lợi cho biến cố A: Lấy tấm thẻ ghi số 1,4,9,16 $\\Rightarrow n(A) = 4$",
+  "docstatus": 0,
+  "doctype": "Rubric Item",
+  "max_score": 0.25,
+  "modified": "2025-08-31 17:36:03.740320",
+  "name": "ecsa5k01qc",
+  "question": "97cgjhhvbt",
+  "step_order": 2
+ },
+ {
+  "description": "Xác suất của biến cố A là $P(A) = \\frac{4}{20} = \\frac{1}{5}$.",
+  "docstatus": 0,
+  "doctype": "Rubric Item",
+  "max_score": 0.25,
+  "modified": "2025-08-31 17:35:52.361888",
+  "name": "ecsg5lqt2s",
+  "question": "97cgjhhvbt",
+  "step_order": 3
  }
 ]

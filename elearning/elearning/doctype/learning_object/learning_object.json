@@ -1,0 +1,114 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:LO-.#####",
+    "creation": "2025-07-31 10:23:46.941401",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+     "column_break_jrxm",
+     "naming_series",
+     "custom_lo_id",
+     "learning_object_title",
+     "topic",
+     "description",
+     "prerequisites"
+    ],
+    "fields": [
+     {
+      "default": "LO-.#####",
+      "fieldname": "column_break_jrxm",
+      "fieldtype": "Column Break",
+      "hidden": 1,
+      "read_only": 1
+     },
+     {
+      "default": "LO-.#####",
+      "fieldname": "naming_series",
+      "fieldtype": "Data",
+      "hidden": 1,
+      "label": "Naming Series",
+      "read_only": 1
+     },
+     {
+      "fieldname": "learning_object_title",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Learning Object Title",
+      "reqd": 1
+     },
+     {
+      "fieldname": "topic",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Topic",
+      "options": "Topics",
+      "reqd": 1
+     },
+     {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "in_list_view": 1,
+      "label": "Description"
+     },
+     {
+      "fieldname": "prerequisites",
+      "fieldtype": "Table",
+      "label": "Prerequisites",
+      "options": "Learning Object Prerequisite"
+     },
+     {
+      "fieldname": "custom_lo_id",
+      "fieldtype": "Data",
+      "hidden": 1,
+      "in_list_view": 1,
+      "label": "Custom LO ID",
+      "unique": 1
+     }
+    ],
+    "grid_page_length": 50,
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2025-07-31 11:33:24.571724",
+    "modified_by": "Administrator",
+    "module": "Elearning",
+    "name": "Learning Object",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+     {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+     },
+     {
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Student",
+      "share": 1
+     },
+     {
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Educator",
+      "share": 1
+     }
+    ],
+    "row_format": "Dynamic",
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": []
+   }

@@ -30,63 +30,108 @@ class UserFlashcardSetting(Document):
             frappe.throw(_("Topic {0} does not exist").format(self.topic))
 
 @frappe.whitelist()
-def get_user_flashcard_setting(topic_name):
+def get_user_flashcard_setting():
     """
     Get user flashcard settings for a specific topic
     
     Args:
-        topic_name (str): Name of the topic
+        topic_name (str): Name of the topic from request data
         
     Returns:
         dict: User flashcard settings for the topic
     """
-    user_id = get_current_user()
-    
-    # Check if topic exists
-    if not frappe.db.exists("Topics", topic_name):
-        frappe.throw(_("Topic does not exist"))
+    try:
+        # Extract topic_name from form_dict or JSON request
+        if frappe.local.form_dict.get('topic_name'):
+            topic_name = frappe.local.form_dict.get('topic_name')
+            frappe.logger().debug(f"get_user_flashcard_setting: Got topic_name from form_dict: {topic_name}")
+        else:
+            # Try to get from JSON body
+            try:
+                request_json = frappe.request.get_json()
+                topic_name = request_json.get('topic_name')
+                frappe.logger().debug(f"get_user_flashcard_setting: Got topic_name from JSON: {topic_name}")
+            except Exception as e:
+                frappe.logger().error(f"get_user_flashcard_setting: Error getting JSON data: {str(e)}")
+                frappe.throw(_("Topic name is required"))
+        
+        if not topic_name:
+            frappe.logger().error("get_user_flashcard_setting: topic_name is missing")
+            frappe.throw(_("Topic name is required"))
+        
+        user_id = get_current_user()
+        frappe.logger().debug(f"get_user_flashcard_setting: User: {user_id}, Topic: {topic_name}")
+        
+        # Check if topic exists
+        if not frappe.db.exists("Topics", topic_name):
+            frappe.logger().error(f"get_user_flashcard_setting: Topic does not exist: {topic_name}")
+            frappe.throw(_("Topic does not exist"))
 
-    # Find existing settings for this user and topic
-    settings_list = frappe.get_all(
-        "User Flashcard Setting",
-        filters={"user": user_id, "topic": topic_name},
-        fields=["name", "flashcard_arrange_mode", "flashcard_direction", "study_exam_flashcard_type_filter"]
-    )
-    
-    if settings_list:
-        # Return existing settings
-        settings = settings_list[0]
-        return {
-            "success": True,
-            "settings": {
-                "flashcard_arrange_mode": settings.flashcard_arrange_mode,
-                "flashcard_direction": settings.flashcard_direction,
-                "study_exam_flashcard_type_filter": settings.study_exam_flashcard_type_filter
+        # Find existing settings for this user and topic
+        settings_list = frappe.get_all(
+            "User Flashcard Setting",
+            filters={"user": user_id, "topic": topic_name},
+            fields=["name", "flashcard_arrange_mode", "flashcard_direction", "study_exam_flashcard_type_filter"]
+        )
+        
+        if settings_list:
+            # Return existing settings
+            settings = settings_list[0]
+            frappe.logger().debug(f"get_user_flashcard_setting: Found existing settings for user {user_id} and topic {topic_name}")
+            return {
+                "success": True,
+                "settings": {
+                    "flashcard_arrange_mode": settings.flashcard_arrange_mode,
+                    "flashcard_direction": settings.flashcard_direction,
+                    "study_exam_flashcard_type_filter": settings.study_exam_flashcard_type_filter
+                }
             }
-        }
-    else:
-        # Return default settings
-        return {
-            "success": True,
-            "settings": {
-                "flashcard_arrange_mode": "chronological",
-                "flashcard_direction": "front_first",
-                "study_exam_flashcard_type_filter": "All"
+        else:
+            # Return default settings
+            frappe.logger().debug(f"get_user_flashcard_setting: No settings found, returning defaults for user {user_id} and topic {topic_name}")
+            return {
+                "success": True,
+                "settings": {
+                    "flashcard_arrange_mode": "chronological",
+                    "flashcard_direction": "front_first",
+                    "study_exam_flashcard_type_filter": "All"
+                }
             }
+    except Exception as e:
+        frappe.logger().error(f"get_user_flashcard_setting error: {str(e)}")
+        return {
+            "success": False,
+            "message": str(e)
         }
 
 @frappe.whitelist()
-def save_user_flashcard_setting(topic_name, settings_data):
+def save_user_flashcard_setting():
     """
     Save user flashcard settings for a specific topic
     
-    Args:
+    Args (from request):
         topic_name (str): Name of the topic
         settings_data (dict): Settings data to save
         
     Returns:
         dict: Saved user flashcard settings
     """
+    # Extract parameters from form_dict or JSON request
+    if frappe.local.form_dict.get('topic_name') and frappe.local.form_dict.get('settings_data'):
+        topic_name = frappe.local.form_dict.get('topic_name')
+        settings_data = frappe.local.form_dict.get('settings_data')
+    else:
+        # Try to get from JSON body
+        try:
+            request_json = frappe.request.get_json()
+            topic_name = request_json.get('topic_name')
+            settings_data = request_json.get('settings_data')
+        except Exception:
+            frappe.throw(_("Topic name and settings data are required"))
+    
+    if not topic_name or settings_data is None:
+        frappe.throw(_("Topic name and settings data are required"))
+    
     user_id = get_current_user()
     
     # Check if topic exists
@@ -97,7 +142,7 @@ def save_user_flashcard_setting(topic_name, settings_data):
     if not isinstance(settings_data, dict):
         try:
             import json
-            settings_data = json.loads(settings_data)
+            settings_data = json.loads(settings_data) if isinstance(settings_data, str) else settings_data
         except Exception:
             frappe.throw(_("Invalid settings data format"))
     
@@ -148,16 +193,30 @@ def save_user_flashcard_setting(topic_name, settings_data):
     }
 
 @frappe.whitelist()
-def reset_srs_progress_for_topic(topic_name):
+def reset_srs_progress_for_topic():
     """
     Reset SRS progress for a specific topic
     
-    Args:
+    Args (from request):
         topic_name (str): Name of the topic
         
     Returns:
         dict: Success message and count of deleted records
     """
+    # Extract topic_name from form_dict or JSON request
+    if frappe.local.form_dict.get('topic_name'):
+        topic_name = frappe.local.form_dict.get('topic_name')
+    else:
+        # Try to get from JSON body
+        try:
+            request_json = frappe.request.get_json()
+            topic_name = request_json.get('topic_name')
+        except Exception:
+            frappe.throw(_("Topic name is required"))
+    
+    if not topic_name:
+        frappe.throw(_("Topic name is required"))
+    
     user_id = get_current_user()
     
     # Check if topic exists

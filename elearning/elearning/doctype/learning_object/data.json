@@ -1,0 +1,302 @@
+[
+    {
+      "lo_id": "LO-C1-01", "learning_object_title": "Nhận dạng và giải phương trình tích", "topic": 1, "description": "Phân tích vế trái thành nhân tử để đưa phương trình về dạng A(x) * B(x) = 0 và tìm nghiệm.", "prerequisites": []
+    },
+    {
+      "lo_id": "LO-C1-02", "learning_object_title": "Xác định điều kiện và giải phương trình chứa ẩn ở mẫu", "topic": 1, "description": "Tìm điều kiện xác định của phương trình, quy đồng mẫu thức hai vế, khử mẫu và giải phương trình nhận được.", "prerequisites": ["LO-C1-01"]
+    },
+    {
+      "lo_id": "LO-C1-03", "learning_object_title": "Giải bài toán bằng cách lập phương trình", "topic": 1, "description": "Phân tích bài toán thực tế, chọn ẩn số, lập phương trình và giải để tìm ra đáp số thỏa mãn điều kiện.", "prerequisites": ["LO-C1-02"]
+    },
+    {
+      "lo_id": "LO-C1-04", "learning_object_title": "Khái niệm phương trình bậc nhất hai ẩn và nghiệm", "topic": 1, "description": "Hiểu định nghĩa phương trình dạng ax + by = c và cách kiểm tra một cặp số (x; y) có phải là nghiệm hay không.", "prerequisites": []
+    },
+    {
+      "lo_id": "LO-C1-05", "learning_object_title": "Biểu diễn hình học tập nghiệm của phương trình bậc nhất hai ẩn", "topic": 1, "description": "Biết rằng tập nghiệm của phương trình ax + by = c là một đường thẳng và cách vẽ đường thẳng đó trên mặt phẳng tọa độ.", "prerequisites": ["LO-C1-04"]
+    },
+    {
+      "lo_id": "LO-C1-06", "learning_object_title": "Khái niệm hệ hai phương trình bậc nhất hai ẩn và nghiệm", "topic": 1, "description": "Hiểu một hệ phương trình gồm hai phương trình bậc nhất hai ẩn và khái niệm nghiệm chung của hệ.", "prerequisites": ["LO-C1-04"]
+    },
+    {
+      "lo_id": "LO-C1-07", "learning_object_title": "Giải hệ phương trình bằng phương pháp thế", "topic": 1, "description": "Thực hiện các bước rút một ẩn theo ẩn kia từ một phương trình và thế vào phương trình còn lại để giải.", "prerequisites": ["LO-C1-06"]
+    },
+    {
+      "lo_id": "LO-C1-08", "learning_object_title": "Giải hệ phương trình bằng phương pháp cộng đại số", "topic": 1, "description": "Thực hiện các bước nhân hai vế của phương trình với số thích hợp để làm hệ số của một ẩn đối nhau rồi cộng vế theo vế.", "prerequisites": ["LO-C1-06"]
+    },
+    {
+      "lo_id": "LO-C1-09", "learning_object_title": "Xác định số nghiệm của hệ phương trình dựa vào tỉ số hệ số", "topic": 1, "description": "Dựa vào các tỉ số a/a', b/b', c/c' để xác định hệ phương trình có nghiệm duy nhất, vô số nghiệm hay vô nghiệm.", "prerequisites": ["LO-C1-06"]
+    },
+    {
+      "lo_id": "LO-C1-10", "learning_object_title": "Giải bài toán bằng cách lập hệ phương trình", "topic": 1, "description": "Phân tích bài toán thực tế, chọn hai ẩn số, lập hệ hai phương trình tương ứng và giải để tìm đáp số.", "prerequisites": ["LO-C1-07", "LO-C1-08"]
+    },
+    {
+      "lo_id": "LO-C2-01", "learning_object_title": "Liên hệ giữa thứ tự và phép cộng, phép nhân", "topic": 2, "description": "Nắm vững các tính chất: cộng cùng một số, nhân với số dương, nhân với số âm và sự thay đổi chiều của bất đẳng thức.", "prerequisites": []
+    },
+    {
+      "lo_id": "LO-C2-02", "learning_object_title": "Khái niệm bất phương trình bậc nhất một ẩn", "topic": 2, "description": "Nhận dạng được bất phương trình có dạng ax + b < 0 (hoặc >, ≤, ≥) với a ≠ 0.", "prerequisites": ["LO-C2-01"]
+    },
+    {
+      "lo_id": "LO-C2-03", "learning_object_title": "Giải bất phương trình bậc nhất một ẩn", "topic": 2, "description": "Vận dụng hai quy tắc biến đổi tương đương (chuyển vế và nhân/chia) để tìm tập nghiệm của bất phương trình.", "prerequisites": ["LO-C2-02"]
+    },
+    {
+      "lo_id": "LO-C2-04", "learning_object_title": "Biểu diễn tập nghiệm của bất phương trình trên trục số", "topic": 2, "description": "Sử dụng các ký hiệu khoảng, đoạn và các loại ngoặc để biểu diễn chính xác tập nghiệm trên trục số.", "prerequisites": ["LO-C2-03"]
+    },
+    {
+      "lo_id": "LO-C2-05", "learning_object_title": "Giải bất phương trình đưa được về dạng bậc nhất", "topic": 2, "description": "Thực hiện các phép biến đổi như bỏ ngoặc, quy đồng để đưa các bất phương trình phức tạp hơn về dạng ax + b < 0.", "prerequisites": ["LO-C2-03"]
+    },
+    {
+      "lo_id": "LO-C2-06", "learning_object_title": "Chứng minh bất đẳng thức cơ bản", "topic": 2, "description": "Sử dụng các tính chất cơ bản và biến đổi tương đương để chứng minh các bất đẳng thức đơn giản.", "prerequisites": ["LO-C2-01"]
+    },
+    {
+      "lo_id": "LO-C2-07", "learning_object_title": "Áp dụng bất đẳng thức để giải bài toán thực tế", "topic": 2, "description": "Mô hình hóa các điều kiện của bài toán thực tế thành bất phương trình và giải để tìm ra giới hạn của các đại lượng.", "prerequisites": ["LO-C2-05"]
+    },
+    {
+      "lo_id": "LO-C2-08", "learning_object_title": "So sánh hai số sử dụng tính chất bất đẳng thức", "topic": 2, "description": "Vận dụng các tính chất của bất đẳng thức để so sánh giá trị của hai biểu thức số hoặc biểu thức chứa biến.", "prerequisites": ["LO-C2-01"]
+    },
+    {
+      "lo_id": "LO-C2-09", "learning_object_title": "Tìm giá trị lớn nhất, nhỏ nhất sử dụng bất đẳng thức", "topic": 2, "description": "Sử dụng các bất đẳng thức quen thuộc (như Cauchy cho 2 số) để tìm GTLN, GTNN của một biểu thức.", "prerequisites": ["LO-C2-06"]
+    },
+    {
+      "lo_id": "LO-C2-10", "learning_object_title": "Giải phương trình chứa dấu giá trị tuyệt đối", "topic": 2, "description": "Sử dụng định nghĩa giá trị tuyệt đối để phá dấu và giải phương trình, thường liên quan đến việc xét các trường hợp của bất phương trình.", "prerequisites": ["LO-C2-03"]
+    },
+    {
+      "lo_id": "LO-C3-01", "learning_object_title": "Căn bậc hai số học và so sánh các căn bậc hai", "topic": 3, "description": "Hiểu định nghĩa căn bậc hai số học và quy tắc so sánh: với a, b ≥ 0, a < b ⇔ √a < √b.", "prerequisites": []
+    },
+    {
+      "lo_id": "LO-C3-02", "learning_object_title": "Tìm điều kiện xác định của căn thức", "topic": 3, "description": "Vận dụng quy tắc √A xác định khi A ≥ 0 để tìm điều kiện của biến.", "prerequisites": ["LO-C2-03"]
+    },
+    {
+      "lo_id": "LO-C3-03", "learning_object_title": "Vận dụng hằng đẳng thức √A² = |A|", "topic": 3, "description": "Áp dụng hằng đẳng thức để khai phương và rút gọn các biểu thức chứa bình phương.", "prerequisites": ["LO-C3-01"]
+    },
+    {
+      "lo_id": "LO-C3-04", "learning_object_title": "Khai phương một tích và một thương", "topic": 3, "description": "Áp dụng các quy tắc khai phương một tích, một thương để tính toán và rút gọn biểu thức.", "prerequisites": ["LO-C3-01"]
+    },
+    {
+      "lo_id": "LO-C3-05", "learning_object_title": "Đưa thừa số ra ngoài và vào trong dấu căn", "topic": 3, "description": "Thành thạo kỹ năng biến đổi √(a²b) = |a|√b và ngược lại để rút gọn và so sánh các căn thức.", "prerequisites": ["LO-C3-03"]
+    },
+    {
+      "lo_id": "LO-C3-06", "learning_object_title": "Khử mẫu của biểu thức lấy căn", "topic": 3, "description": "Sử dụng phép nhân cả tử và mẫu với mẫu để làm mất dấu căn ở mẫu.", "prerequisites": ["LO-C3-04"]
+    },
+    {
+      "lo_id": "LO-C3-07", "learning_object_title": "Trục căn thức ở mẫu", "topic": 3, "description": "Nhân cả tử và mẫu với biểu thức liên hợp để làm mất dấu căn ở mẫu trong các biểu thức dạng phân số.", "prerequisites": ["LO-C3-05"]
+    },
+    {
+      "lo_id": "LO-C3-08", "learning_object_title": "Rút gọn biểu thức tổng hợp chứa căn thức", "topic": 3, "description": "Phối hợp tất cả các kỹ năng biến đổi đã học để rút gọn các biểu thức phức tạp chứa nhiều phép toán với căn thức.", "prerequisites": ["LO-C3-07"]
+    },
+    {
+      "lo_id": "LO-C3-09", "learning_object_title": "Giải phương trình chứa căn thức đơn giản", "topic": 3, "description": "Giải các phương trình dạng √A = B bằng cách đặt điều kiện và bình phương hai vế.", "prerequisites": ["LO-C3-02", "LO-C1-01"]
+    },
+    {
+      "lo_id": "LO-C3-10", "learning_object_title": "Khái niệm và tính chất Căn bậc ba", "topic": 3, "description": "Hiểu định nghĩa và các tính chất cơ bản của căn bậc ba, phân biệt với căn bậc hai.", "prerequisites": ["LO-C3-01"]
+    },
+    {
+      "lo_id": "LO-C4-01", "learning_object_title": "Định nghĩa tỉ số lượng giác Sin, Cos, Tan, Cot", "topic": 4, "description": "Xác định đúng các cạnh đối, kề, huyền trong tam giác vuông và lập các tỉ số lượng giác của một góc nhọn.", "prerequisites": []
+    },
+    {
+      "lo_id": "LO-C4-02", "learning_object_title": "Tỉ số lượng giác của hai góc phụ nhau", "topic": 4, "description": "Nắm vững các mối quan hệ chéo: sin(α) = cos(90°-α), tan(α) = cot(90°-α) và ngược lại.", "prerequisites": ["LO-C4-01"]
+    },
+    {
+      "lo_id": "LO-C4-03", "learning_object_title": "Sử dụng máy tính cầm tay để tính tỉ số lượng giác và góc", "topic": 4, "description": "Thành thạo việc sử dụng máy tính để tìm giá trị tỉ số lượng giác khi biết góc và ngược lại.", "prerequisites": ["LO-C4-01"]
+    },
+    {
+      "lo_id": "LO-C4-04", "learning_object_title": "Hệ thức về cạnh và đường cao trong tam giác vuông", "topic": 4, "description": "Nắm vững và áp dụng các hệ thức như b² = ab', c² = ac', h² = b'c', ah = bc, 1/h² = 1/b² + 1/c².", "prerequisites": []
+    },
+    {
+      "lo_id": "LO-C4-05", "learning_object_title": "Hệ thức về cạnh và góc trong tam giác vuông", "topic": 4, "description": "Vận dụng các hệ thức: cạnh góc vuông bằng cạnh huyền nhân sin góc đối hoặc cos góc kề.", "prerequisites": ["LO-C4-01"]
+    },
+    {
+      "lo_id": "LO-C4-06", "learning_object_title": "Giải tam giác vuông", "topic": 4, "description": "Tìm tất cả các cạnh và góc còn lại của một tam giác vuông khi biết hai yếu tố (trong đó có ít nhất một yếu tố về cạnh).", "prerequisites": ["LO-C4-04", "LO-C4-05"]
+    },
+    {
+      "lo_id": "LO-C4-07", "learning_object_title": "Ứng dụng thực tế để đo chiều cao", "topic": 4, "description": "Sử dụng giác kế và các hệ thức lượng để đo chiều cao của một vật thể (cây, cột cờ, tòa nhà) một cách gián tiếp.", "prerequisites": ["LO-C4-06"]
+    },
+    {
+      "lo_id": "LO-C4-08", "learning_object_title": "Ứng dụng thực tế để đo khoảng cách", "topic": 4, "description": "Sử dụng các công cụ và hệ thức lượng để đo khoảng cách giữa hai điểm mà không thể tiếp cận trực tiếp.", "prerequisites": ["LO-C4-06"]
+    },
+    {
+      "lo_id": "LO-C4-09", "learning_object_title": "Chứng minh các đẳng thức lượng giác đơn giản", "topic": 4, "description": "Sử dụng các định nghĩa và tính chất cơ bản (sin²α + cos²α = 1, tanα = sinα/cosα) để chứng minh các đẳng thức.", "prerequisites": ["LO-C4-02"]
+    },
+    {
+      "lo_id": "LO-C4-10", "learning_object_title": "Rút gọn biểu thức lượng giác", "topic": 4, "description": "Vận dụng các đẳng thức lượng giác cơ bản để rút gọn các biểu thức phức tạp hơn.", "prerequisites": ["LO-C4-09"]
+    },
+    {
+      "lo_id": "LO-C5-01", "learning_object_title": "Sự xác định và các tính chất cơ bản của đường tròn", "topic": 5, "description": "Hiểu rằng một đường tròn được xác định khi biết tâm và bán kính, và tính chất đối xứng của nó.", "prerequisites": []
+    },
+    {
+      "lo_id": "LO-C5-02", "learning_object_title": "Quan hệ vuông góc giữa đường kính và dây cung", "topic": 5, "description": "Nắm vững định lý: trong một đường tròn, đường kính vuông góc với một dây thì đi qua trung điểm của dây ấy và ngược lại.", "prerequisites": ["LO-C5-01"]
+    },
+    {
+      "lo_id": "LO-C5-03", "learning_object_title": "Vị trí tương đối của đường thẳng và đường tròn", "topic": 5, "description": "Dựa vào khoảng cách từ tâm đến đường thẳng để xác định vị trí tương đối (cắt nhau, tiếp xúc, không giao nhau).", "prerequisites": ["LO-C5-01"]
+    },
+    {
+      "lo_id": "LO-C5-04", "learning_object_title": "Dấu hiệu nhận biết tiếp tuyến của đường tròn", "topic": 5, "description": "Nắm vững hai dấu hiệu chính để chứng minh một đường thẳng là tiếp tuyến của một đường tròn.", "prerequisites": ["LO-C5-03"]
+    },
+    {
+      "lo_id": "LO-C5-05", "learning_object_title": "Tính chất của hai tiếp tuyến cắt nhau", "topic": 5, "description": "Vận dụng tính chất về khoảng cách, góc tạo bởi hai tiếp tuyến và tia phân giác để giải các bài toán liên quan.", "prerequisites": ["LO-C5-04"]
+    },
+    {
+      "lo_id": "LO-C5-06", "learning_object_title": "Vị trí tương đối của hai đường tròn", "topic": 5, "description": "Dựa vào hệ thức giữa khoảng cách nối tâm và các bán kính để xác định vị trí tương đối (cắt nhau, tiếp xúc, đựng nhau...).", "prerequisites": ["LO-C5-01"]
+    },
+    {
+      "lo_id": "LO-C5-07", "learning_object_title": "Góc ở tâm và số đo cung", "topic": 5, "description": "Hiểu mối quan hệ giữa số đo góc ở tâm và số đo cung bị chắn.", "prerequisites": ["LO-C5-01"]
+    },
+    {
+      "lo_id": "LO-C5-08", "learning_object_title": "Góc nội tiếp và tính chất", "topic": 5, "description": "Nắm vững định lý: số đo góc nội tiếp bằng nửa số đo cung bị chắn và các hệ quả của nó.", "prerequisites": ["LO-C5-07"]
+    },
+    {
+      "lo_id": "LO-C5-09", "learning_object_title": "Góc tạo bởi tia tiếp tuyến và dây cung", "topic": 5, "description": "Nắm vững định lý: số đo góc tạo bởi tia tiếp tuyến và dây cung bằng nửa số đo cung bị chắn.", "prerequisites": ["LO-C5-07"]
+    },
+    {
+      "lo_id": "LO-C5-10", "learning_object_title": "Công thức tính độ dài đường tròn và diện tích hình tròn", "topic": 5, "description": "Thành thạo việc sử dụng các công thức C = 2πR và S = πR² để giải các bài toán thực tế.", "prerequisites": ["LO-C5-01"]
+    },
+    {
+      "lo_id": "LO-C6-01", "learning_object_title": "Đọc và phân tích dữ liệu từ bảng thống kê", "topic": 6, "description": "Trích xuất thông tin, so sánh và đưa ra nhận xét từ các số liệu được trình bày trong bảng thống kê.", "prerequisites": []
+    },
+    {
+      "lo_id": "LO-C6-02", "learning_object_title": "Vẽ biểu đồ cột và biểu đồ cột kép", "topic": 6, "description": "Biểu diễn một bộ số liệu bằng biểu đồ cột đơn và biểu diễn hai bộ số liệu để so sánh bằng biểu đồ cột kép.", "prerequisites": ["LO-C6-01"]
+    },
+    {
+      "lo_id": "LO-C6-03", "learning_object_title": "Vẽ biểu đồ đoạn thẳng", "topic": 6, "description": "Biểu diễn sự thay đổi của một đại lượng theo thời gian bằng biểu đồ đoạn thẳng.", "prerequisites": ["LO-C6-01"]
+    },
+    {
+      "lo_id": "LO-C6-04", "learning_object_title": "Vẽ biểu đồ hình quạt tròn", "topic": 6, "description": "Biểu diễn cơ cấu, tỉ lệ phần trăm của các thành phần trong một tổng thể bằng biểu đồ hình quạt tròn.", "prerequisites": ["LO-C6-01"]
+    },
+    {
+      "lo_id": "LO-C6-05", "learning_object_title": "Lập bảng tần số và tần số tương đối", "topic": 6, "description": "Tổ chức một mẫu số liệu rời rạc vào bảng tần số và tính toán tần số tương đối (tỉ số phần trăm).", "prerequisites": ["LO-C6-01"]
+    },
+    {
+      "lo_id": "LO-C6-06", "learning_object_title": "Mẫu số liệu ghép nhóm", "topic": 6, "description": "Hiểu cách chia một mẫu số liệu liên tục thành các nhóm (khoảng) và lập bảng tần số ghép nhóm.", "prerequisites": ["LO-C6-05"]
+    },
+    {
+      "lo_id": "LO-C6-07", "learning_object_title": "Không gian mẫu và biến cố", "topic": 6, "description": "Mô tả không gian mẫu của một phép thử ngẫu nhiên bằng cách liệt kê hoặc sử dụng quy tắc đếm.", "prerequisites": []
+    },
+    {
+      "lo_id": "LO-C6-08", "learning_object_title": "Tính xác suất của biến cố bằng định nghĩa cổ điển", "topic": 6, "description": "Áp dụng công thức P(A) = n(A)/n(Ω) để tính xác suất trong các trường hợp đồng khả năng.", "prerequisites": ["LO-C6-07"]
+    },
+    {
+      "lo_id": "LO-C6-09", "learning_object_title": "Phân biệt biến cố và phép thử", "topic": 6, "description": "Hiểu rõ sự khác biệt giữa một hành động (phép thử) và một kết quả cụ thể của hành động đó (biến cố).", "prerequisites": ["LO-C6-07"]
+    },
+    {
+      "lo_id": "LO-C6-10", "learning_object_title": "Giải bài toán xác suất thực tế đơn giản", "topic": 6, "description": "Mô hình hóa các bài toán thực tế (chọn vật, rút thăm) thành bài toán xác suất và giải quyết.", "prerequisites": ["LO-C6-08"]
+    },
+    {
+      "lo_id": "LO-C7-01", "learning_object_title": "Tính chất và đồ thị của hàm số y = ax² (a ≠ 0)", "topic": 7, "description": "Nắm vững sự biến thiên (đồng biến, nghịch biến) và các đặc điểm của đồ thị Parabol tương ứng với dấu của a.", "prerequisites": []
+    },
+    {
+      "lo_id": "LO-C7-02", "learning_object_title": "Vẽ đồ thị hàm số y = ax² (a ≠ 0)", "topic": 7, "description": "Lập bảng giá trị và vẽ chính xác đồ thị Parabol đi qua các điểm đã xác định.", "prerequisites": ["LO-C7-01"]
+    },
+    {
+      "lo_id": "LO-C7-03", "learning_object_title": "Tìm tọa độ giao điểm của Parabol và đường thẳng", "topic": 7, "description": "Lập và giải phương trình hoành độ giao điểm để tìm tọa độ các điểm chung (nếu có) của (P) và (d).", "prerequisites": ["LO-C7-02", "LO-C7-05"]
+    },
+    {
+      "lo_id": "LO-C7-04", "learning_object_title": "Nhận dạng và giải phương trình bậc hai một ẩn", "topic": 7, "description": "Xác định đúng các hệ số a, b, c và giải các dạng phương trình bậc hai khuyết b, khuyết c.", "prerequisites": ["LO-C1-01"]
+    },
+    {
+      "lo_id": "LO-C7-05", "learning_object_title": "Giải phương trình bậc hai bằng công thức nghiệm", "topic": 7, "description": "Tính biệt thức Delta (Δ) và áp dụng công thức nghiệm để tìm nghiệm của phương trình bậc hai đầy đủ.", "prerequisites": ["LO-C7-04"]
+    },
+    {
+      "lo_id": "LO-C7-06", "learning_object_title": "Giải phương trình bậc hai bằng công thức nghiệm thu gọn", "topic": 7, "description": "Sử dụng biệt thức Delta phẩy (Δ') khi hệ số b là số chẵn để giải phương trình nhanh hơn.", "prerequisites": ["LO-C7-05"]
+    },
+    {
+      "lo_id": "LO-C7-07", "learning_object_title": "Biện luận số nghiệm của phương trình bậc hai", "topic": 7, "description": "Dựa vào dấu của biệt thức Delta (Δ) để xác định phương trình có hai nghiệm phân biệt, nghiệm kép hay vô nghiệm.", "prerequisites": ["LO-C7-05"]
+    },
+    {
+      "lo_id": "LO-C7-08", "learning_object_title": "Áp dụng Hệ thức Vi-ète để tính tổng và tích các nghiệm", "topic": 7, "description": "Sử dụng hệ thức Vi-ète để tính S = x₁ + x₂ và P = x₁ * x₂ mà không cần giải phương trình.", "prerequisites": ["LO-C7-07"]
+    },
+    {
+      "lo_id": "LO-C7-09", "learning_object_title": "Tìm hai số khi biết tổng và tích", "topic": 7, "description": "Vận dụng định lý Vi-ète đảo: nếu hai số có tổng S và tích P thì chúng là nghiệm của phương trình X² - SX + P = 0.", "prerequisites": ["LO-C7-08"]
+    },
+    {
+      "lo_id": "LO-C7-10", "learning_object_title": "Giải bài toán thực tế bằng cách lập phương trình bậc hai", "topic": 7, "description": "Mô hình hóa các bài toán thực tế (chuyển động, năng suất, hình học) thành phương trình bậc hai và giải.", "prerequisites": ["LO-C7-05"]
+    },
+    {
+      "lo_id": "LO-C8-01", "learning_object_title": "Xác định tâm và bán kính đường tròn ngoại tiếp tam giác", "topic": 8, "description": "Biết tâm đường tròn ngoại tiếp là giao điểm ba đường trung trực và cách xác định nó trong các trường hợp đặc biệt.", "prerequisites": ["LO-C5-01"]
+    },
+    {
+      "lo_id": "LO-C8-02", "learning_object_title": "Xác định tâm và bán kính đường tròn nội tiếp tam giác", "topic": 8, "description": "Biết tâm đường tròn nội tiếp là giao điểm ba đường phân giác trong và cách xác định bán kính.", "prerequisites": ["LO-C5-01"]
+    },
+    {
+      "lo_id": "LO-C8-03", "learning_object_title": "Định nghĩa và tính chất của tứ giác nội tiếp", "topic": 8, "description": "Hiểu rằng một tứ giác nội tiếp khi bốn đỉnh của nó cùng nằm trên một đường tròn và tính chất về tổng hai góc đối.", "prerequisites": ["LO-C5-08"]
+    },
+    {
+      "lo_id": "LO-C8-04", "learning_object_title": "Dấu hiệu nhận biết tứ giác nội tiếp", "topic": 8, "description": "Nắm vững và vận dụng các dấu hiệu để chứng minh một tứ giác là tứ giác nội tiếp (tổng hai góc đối bằng 180°, góc ngoài bằng góc trong đối diện, hai đỉnh kề cùng nhìn một cạnh dưới hai góc bằng nhau).", "prerequisites": ["LO-C8-03"]
+    },
+    {
+      "lo_id": "LO-C8-05", "learning_object_title": "Chứng minh nhiều điểm cùng thuộc một đường tròn", "topic": 8, "description": "Sử dụng các dấu hiệu của tứ giác nội tiếp hoặc các tính chất hình học khác để chứng minh 5 điểm, 6 điểm... cùng thuộc một đường tròn.", "prerequisites": ["LO-C8-04"]
+    },
+    {
+      "lo_id": "LO-C8-06", "learning_object_title": "Áp dụng tính chất tứ giác nội tiếp để chứng minh góc bằng nhau", "topic": 8, "description": "Sử dụng tính chất các góc nội tiếp cùng chắn một cung để suy ra các góc bằng nhau trong một bài toán hình học.", "prerequisites": ["LO-C8-04"]
+    },
+    {
+      "lo_id": "LO-C8-07", "learning_object_title": "Áp dụng tính chất tứ giác nội tiếp để chứng minh hệ thức hình học", "topic": 8, "description": "Kết hợp tính chất tứ giác nội tiếp với các tam giác đồng dạng để chứng minh các hệ thức về cạnh.", "prerequisites": ["LO-C8-06"]
+    },
+    {
+      "lo_id": "LO-C8-08", "learning_object_title": "Định lý Ptolemy và ứng dụng (nâng cao)", "topic": 8, "description": "Hiểu và áp dụng định lý Ptolemy cho tứ giác nội tiếp: tổng các tích của các cặp cạnh đối bằng tích của hai đường chéo.", "prerequisites": ["LO-C8-07"]
+    },
+    {
+      "lo_id": "LO-C8-09", "learning_object_title": "Phân biệt đường tròn ngoại tiếp và nội tiếp", "topic": 8, "description": "Phân biệt rõ ràng hai khái niệm, vị trí tâm và cách xác định bán kính của hai loại đường tròn này trong một tam giác.", "prerequisites": ["LO-C8-01", "LO-C8-02"]
+    },
+    {
+      "lo_id": "LO-C8-10", "learning_object_title": "Giải các bài toán tổng hợp về đường tròn và tứ giác nội tiếp", "topic": 8, "description": "Phối hợp nhiều kiến thức về đường tròn, tứ giác nội tiếp, tam giác đồng dạng để giải quyết một bài toán hình học phức tạp.", "prerequisites": ["LO-C8-07"]
+    },
+    {
+      "lo_id": "LO-C9-01", "learning_object_title": "Khái niệm đa giác lồi và đa giác đều", "topic": 9, "description": "Phân biệt được đa giác lồi và đa giác không lồi. Hiểu định nghĩa đa giác đều là đa giác có tất cả các cạnh và các góc bằng nhau.", "prerequisites": []
+    },
+    {
+      "lo_id": "LO-C9-02", "learning_object_title": "Công thức tính tổng số đo các góc của một đa giác", "topic": 9, "description": "Nắm vững và áp dụng công thức tính tổng số đo các góc trong của một đa giác n cạnh là (n-2) * 180°.", "prerequisites": ["LO-C9-01"]
+    },
+    {
+      "lo_id": "LO-C9-03", "learning_object_title": "Tính số đo mỗi góc của một đa giác đều", "topic": 9, "description": "Áp dụng công thức tính số đo mỗi góc của một đa giác đều n cạnh là [(n-2) * 180°] / n.", "prerequisites": ["LO-C9-02"]
+    },
+    {
+      "lo_id": "LO-C9-04", "learning_object_title": "Vẽ các đa giác đều đơn giản", "topic": 9, "description": "Sử dụng compa và thước thẳng để vẽ các đa giác đều cơ bản như tam giác đều, hình vuông, lục giác đều.", "prerequisites": ["LO-C9-01"]
+    },
+    {
+      "lo_id": "LO-C9-05", "learning_object_title": "Khái niệm phép quay", "topic": 9, "description": "Hiểu định nghĩa phép quay tâm O góc quay α biến một điểm M thành M' và các tính chất cơ bản của nó.", "prerequisites": []
+    },
+    {
+      "lo_id": "LO-C9-06", "learning_object_title": "Xác định ảnh của một điểm qua phép quay", "topic": 9, "description": "Sử dụng thước đo góc và compa để xác định ảnh của một điểm qua một phép quay cho trước.", "prerequisites": ["LO-C9-05"]
+    },
+    {
+      "lo_id": "LO-C9-07", "learning_object_title": "Ứng dụng phép quay để nhận biết tính đối xứng", "topic": 9, "description": "Nhận biết các hình có tâm đối xứng quay và xác định góc quay nhỏ nhất để hình đó biến thành chính nó.", "prerequisites": ["LO-C9-05"]
+    },
+    {
+      "lo_id": "LO-C9-08", "learning_object_title": "Mối liên hệ giữa đa giác đều và đường tròn", "topic": 9, "description": "Hiểu rằng mọi đa giác đều đều có một đường tròn ngoại tiếp và một đường tròn nội tiếp, và chúng đồng tâm.", "prerequisites": ["LO-C9-01", "LO-C8-01", "LO-C8-02"]
+    },
+    {
+      "lo_id": "LO-C9-09", "learning_object_title": "Tính bán kính đường tròn ngoại tiếp, nội tiếp đa giác đều", "topic": 9, "description": "Thiết lập và sử dụng các công thức tính R và r của đa giác đều theo độ dài cạnh a và số cạnh n.", "prerequisites": ["LO-C9-08", "LO-C4-01"]
+    },
+    {
+      "lo_id": "LO-C9-10", "learning_object_title": "Nhận biết đa giác đều trong thực tiễn", "topic": 9, "description": "Nhận dạng các vật thể, kiến trúc, họa tiết trong tự nhiên và đời sống có hình dạng của các đa giác đều.", "prerequisites": ["LO-C9-01"]
+    },
+    {
+      "lo_id": "LO-C10-01", "learning_object_title": "Các yếu tố của hình trụ", "topic": 10, "description": "Nhận biết và gọi tên đúng các yếu tố của hình trụ: hai đáy, bán kính đáy, chiều cao, đường sinh.", "prerequisites": []
+    },
+    {
+      "lo_id": "LO-C10-02", "learning_object_title": "Tính diện tích xung quanh của hình trụ", "topic": 10, "description": "Áp dụng công thức Sxq = 2πRh để tính diện tích xung quanh của hình trụ.", "prerequisites": ["LO-C10-01"]
+    },
+    {
+      "lo_id": "LO-C10-03", "learning_object_title": "Tính thể tích của hình trụ", "topic": 10, "description": "Áp dụng công thức V = πR²h để tính thể tích của khối trụ.", "prerequisites": ["LO-C10-01"]
+    },
+    {
+      "lo_id": "LO-C10-04", "learning_object_title": "Các yếu tố của hình nón", "topic": 10, "description": "Nhận biết và gọi tên đúng các yếu tố của hình nón: đáy, đỉnh, bán kính đáy, chiều cao, đường sinh.", "prerequisites": []
+    },
+    {
+      "lo_id": "LO-C10-05", "learning_object_title": "Tính diện tích xung quanh của hình nón", "topic": 10, "description": "Áp dụng công thức Sxq = πRl để tính diện tích xung quanh của hình nón.", "prerequisites": ["LO-C10-04"]
+    },
+    {
+      "lo_id": "LO-C10-06", "learning_object_title": "Tính thể tích của hình nón", "topic": 10, "description": "Áp dụng công thức V = (1/3)πR²h để tính thể tích của khối nón.", "prerequisites": ["LO-C10-04"]
+    },
+    {
+      "lo_id": "LO-C10-07", "learning_object_title": "Các yếu tố của hình cầu", "topic": 10, "description": "Nhận biết và gọi tên đúng các yếu tố của hình cầu: tâm, bán kính, đường kính, mặt cầu.", "prerequisites": []
+    },
+    {
+      "lo_id": "LO-C10-08", "learning_object_title": "Tính diện tích mặt cầu", "topic": 10, "description": "Áp dụng công thức S = 4πR² để tính diện tích mặt cầu.", "prerequisites": ["LO-C10-07"]
+    },
+    {
+      "lo_id": "LO-C10-09", "learning_object_title": "Tính thể tích hình cầu", "topic": 10, "description": "Áp dụng công thức V = (4/3)πR³ để tính thể tích của khối cầu.", "prerequisites": ["LO-C10-07"]
+    },
+    {
+      "lo_id": "LO-C10-10", "learning_object_title": "Giải các bài toán thực tế liên quan đến hình trụ, nón, cầu", "topic": 10, "description": "Vận dụng các công thức diện tích, thể tích để giải quyết các bài toán có bối cảnh thực tế (tính dung tích, lượng vật liệu...).", "prerequisites": ["LO-C10-03", "LO-C10-06", "LO-C10-09"]
+    }
+  ]

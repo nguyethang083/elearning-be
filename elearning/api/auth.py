@@ -524,12 +524,12 @@ def social_login_handler(provider, user_id, email, full_name, picture=None, acce
                 "access_token": access_token,
                 "user_info": {
                     "id": user_doc.name,
-                    "name": user_doc.full_name,
-                    "email": user_doc.email,
+                "name": user_doc.full_name,
+                "email": user_doc.email,
                     "image": user_doc.user_image,
                     "roles": user_roles
-                },
-                "is_new_user": is_new_user
+            },
+            "is_new_user": is_new_user
             }
         }
         
@@ -539,7 +539,6 @@ def social_login_handler(provider, user_id, email, full_name, picture=None, acce
         return {"success": False, "message": str(e)}
 
 
-# --- Password Update (Directly, use with caution) ---
 @frappe.whitelist(allow_guest=True)
 def update_user_password_api(user_email=None, new_password=None, user=None, reset_token=None):
     """
@@ -591,6 +590,7 @@ def update_user_password_api(user_email=None, new_password=None, user=None, rese
         
         # Password strength check
         user_doc = frappe.get_doc("User", user_email)
+        
         user_data = (
             user_doc.full_name or f"{user_doc.first_name} {user_doc.last_name}",
             user_doc.first_name,
@@ -598,6 +598,7 @@ def update_user_password_api(user_email=None, new_password=None, user=None, rese
             user_doc.email,
             user_doc.birth_date if hasattr(user_doc, "birth_date") else None
         )
+        
         test_password_strength(new_password, user_data=user_data)
         
         # Use Frappe's password update function which handles hashing

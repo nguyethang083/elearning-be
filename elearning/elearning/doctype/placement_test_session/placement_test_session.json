@@ -1,0 +1,73 @@
+{
+  "actions": [],
+  "allow_rename": 1,
+  "autoname": "hash",
+  "creation": "2025-08-06 21:55:00.000000",
+  "custom": 1,
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "student",
+    "status",
+    "start_time",
+    "end_time",
+    "topic_abilities"
+  ],
+  "fields": [
+    {
+      "fieldname": "student",
+      "fieldtype": "Link",
+      "label": "Student",
+      "options": "Student Knowledge Profile",
+      "reqd": 1
+    },
+    {
+      "default": "In Progress",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": "In Progress\nCompleted"
+    },
+    {
+      "fieldname": "start_time",
+      "fieldtype": "Datetime",
+      "label": "Start Time"
+    },
+    {
+      "fieldname": "end_time",
+      "fieldtype": "Datetime",
+      "label": "End Time"
+    },
+    {
+      "fieldname": "topic_abilities",
+      "fieldtype": "Table",
+      "label": "Topic Abilities",
+      "options": "Session Topic Ability"
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "links": [],
+  "modified": "2025-08-06 21:55:00.000000",
+  "modified_by": "Administrator",
+  "module": "Elearning",
+  "name": "Placement Test Session",
+  "naming_rule": "Random",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": []
+}

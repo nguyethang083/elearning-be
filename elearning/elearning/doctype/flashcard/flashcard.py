@@ -44,12 +44,12 @@ def get_flashcards_for_topic(topic_id=None):
 		frappe.throw(_("An error occurred while fetching flashcards."), exc=e)
 
 @frappe.whitelist(allow_guest=True)
-def get_flashcards_for_type(topic_id=None, flashcard_type=None):
+def get_flashcards_for_type():
 	"""
 	Retrieves a list of flashcards filtered by topic and flashcard_type.
 	Returns complete flashcard data including child tables for specific types.
 	
-	Args:
+	Args from request:
 		topic_id (str): The topic ID to filter by
 		flashcard_type (str): The flashcard type to filter by (optional)
 		
@@ -62,20 +62,54 @@ def get_flashcards_for_type(topic_id=None, flashcard_type=None):
 		frappe.throw(_("Authentication required."), frappe.AuthenticationError)
 
 	try:
+		# Extract parameters from form_dict or JSON request
+		if frappe.local.form_dict.get('topic_id'):
+			topic_id = frappe.local.form_dict.get('topic_id')
+			flashcard_type = frappe.local.form_dict.get('flashcard_type')
+			frappe.logger().debug(f"get_flashcards_for_type: Got params from form_dict: topic_id={topic_id}, type={flashcard_type}")
+		else:
+			# Try to get from JSON body
+			try:
+				request_json = frappe.request.get_json()
+				topic_id = request_json.get('topic_id')
+				flashcard_type = request_json.get('flashcard_type')
+				frappe.logger().debug(f"get_flashcards_for_type: Got params from JSON: topic_id={topic_id}, type={flashcard_type}")
+			except Exception as e:
+				frappe.logger().error(f"get_flashcards_for_type: Error getting JSON data: {str(e)}")
+				topic_id = None
+				flashcard_type = None
+				
+		# Ensure topic_id is in the correct format
+		if topic_id:
+			try:
+				# Check if it's a string representation of a number (e.g. "1")
+				topic_id = str(topic_id)
+				frappe.logger().debug(f"get_flashcards_for_type: Using topic_id: {topic_id}")
+			except Exception as e:
+				frappe.logger().error(f"get_flashcards_for_type: Error converting topic_id: {str(e)}")
+				topic_id = None
+		
 		filters = {}
 		if topic_id:
 			filters["topic"] = topic_id
+			frappe.logger().debug(f"get_flashcards_for_type: Filtering by topic: {topic_id}")
+		else:
+			frappe.logger().warning(f"get_flashcards_for_type: No topic_id provided, returning all flashcards")
 		
 		if flashcard_type and flashcard_type != "All":
 			filters["flashcard_type"] = flashcard_type
+			frappe.logger().debug(f"get_flashcards_for_type: Also filtering by type: {flashcard_type}")
 		
 		# Get basic flashcard data
+		frappe.logger().debug(f"get_flashcards_for_type: Final filters: {filters}")
 		flashcards = frappe.get_list(
 			"Flashcard",
 			filters=filters,
 			fields=["name", "topic", "flashcard_type", "question", "answer", "explanation", "hint"],
 			order_by="name"
 		)
+		
+		frappe.logger().debug(f"get_flashcards_for_type: Found {len(flashcards)} flashcards matching criteria")
 		
 		# For each flashcard, fetch additional data based on its type
 		for flashcard in flashcards:

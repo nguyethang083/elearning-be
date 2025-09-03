@@ -133,6 +133,20 @@ app_license = "mit"
 # ---------------
 # Hook on document methods and events
 
+doc_events = {
+    "Flashcard Session": {
+        "on_update": "elearning.elearning.doctype.student_topic_mastery.student_topic_mastery.update_mastery_on_session_completion",
+        "on_trash": "elearning.elearning.doctype.student_topic_mastery.student_topic_mastery.update_mastery_on_session_completion",
+    },
+    "Student Knowledge Profile": {
+        "on_update": "elearning.elearning.doctype.student_topic_mastery.student_topic_mastery.initialize_student_mastery_from_profile",
+        "on_trash": "elearning.elearning.doctype.student_topic_mastery.student_topic_mastery.initialize_student_mastery_from_profile",
+    },
+    "Knowledge Gap": {
+        "on_update": "elearning.elearning.doctype.student_topic_mastery.student_topic_mastery.update_mastery_on_gap_change",
+        "on_trash": "elearning.elearning.doctype.student_topic_mastery.student_topic_mastery.update_mastery_on_gap_change",
+    },
+}
 
 # Fixtures
 # ---------------
@@ -142,70 +156,62 @@ fixtures = [
     # Export DocType definitions
     {
         "dt": "DocType",
-        "filters": [["name", "in", [
-            "Test", "Question", "Topic", "Test Attempt", 
-            "Test Question Item", "Question Option", "Attempt Answer Item", "Rubric Score Item", "Rubric Item", "Answer Image",
-            "Flashcard", "User Exam Attempt", "User Exam Attempt Detail", "User SRS Progress", "User Flashcard Setting", "Flashcard Session",
-            "Ordering Step Item", "User", "Email Verification Token"
-        ]]]
+        "filters": [
+            [
+                "name",
+                "in",
+                [
+                    "Test",
+                    "Question",
+                    "Topic",
+                    "Test Attempt",
+                    "Test Question Item",
+                    "Question Option",
+                    "Attempt Answer Item",
+                    "Rubric Score Item",
+                    "Rubric Item",
+                    "Answer Image",
+                    "Flashcard",
+                    "User Exam Attempt",
+                    "User Exam Attempt Detail",
+                    "User SRS Progress",
+                    "User Flashcard Setting",
+                    "Flashcard Session",
+                    "User",
+                    "Email Verification Token",
+                    "Placement Question Option",
+                    "Placement Question",
+                    "Topic Mastery",
+                    "Placement Answer Log",
+                    "Placement Test Session",
+                    "Student Knowledge Profile",
+                    "Student Pathway Snapshot",
+                    "Knowledge Gap",
+                    "Learning Object",
+                    "Learning Object Prerequisite",
+                ],
+            ]
+        ],
     },
-    
     # Export data records
-    {
-        "dt": "Test", 
-        "filters": [["name", "!=", ""]]  # Export all Test records
-    },
-    {
-        "dt": "User",
-        "filters": [["name", "!=", ""]]
-    },
-    {
-        "dt": "Rubric Item",
-        "filters": [["name", "!=", ""]]
-    },
-    {
-        "dt": "Rubric Score Item",
-        "filters": [["name", "!=", ""]]
-    },
-    {
-        "dt": "Question", 
-        "filters": [["name", "!=", ""]]  # Export all Question records
-    },
-    {
-        "dt": "Topics", 
-        "filters": [["name", "like", "Topics%"]]
-    },
+    {"dt": "Test", "filters": [["name", "!=", ""]]},  # Export all Test records
+    {"dt": "User", "filters": [["name", "!=", ""]]},
+    {"dt": "Rubric Item", "filters": [["name", "!=", ""]]},
+    {"dt": "Rubric Score Item", "filters": [["name", "!=", ""]]},
+    {"dt": "Question", "filters": [["name", "!=", ""]]},  # Export all Question records
+    {"dt": "Topics", "filters": [["name", "like", "Topics%"]]},
     # {
-    #     "dt": "Email Verification Token" 
+    #     "dt": "Email Verification Token"
     # },
-    {
-        "dt": "Flashcard",
-        "filters": [["name", "!=", ""]] # Export tất cả các Flashcard
-    },
-    {
-        "dt": "User Exam Attempt",
-        "filters": [["name", "!=", ""]]
-    },
-    {
-        "dt": "User Exam Attempt Detail",
-        "filters": [["name", "!=", ""]]
-    },
-    {
-        "dt": "User SRS Progress",
-        "filters": [["name", "!=", ""]]
-    },
-    {
-        "dt": "User Flashcard Setting",
-        "filters": [["name", "!=", ""]]
-    },
-    {
-        "dt": "Flashcard Session",
-        "filters": [["name", "!=", ""]]
-    },
-    {
-        "dt": "Ordering Step Item",
-        "filters": [["name", "!=", ""]]
-    }
+    {"dt": "Flashcard", "filters": [["name", "!=", ""]]},  # Export tất cả các Flashcard
+    {"dt": "User Exam Attempt", "filters": [["name", "!=", ""]]},
+    {"dt": "User Exam Attempt Detail", "filters": [["name", "!=", ""]]},
+    {"dt": "User Flashcard Setting", "filters": [["name", "!=", ""]]},
+    {"dt": "Flashcard Session", "filters": [["name", "!=", ""]]},
+    {"dt": "Placement Question", "filters": [["name", "!=", ""]]},
+    {"dt": "Knowledge Gap", "filters": [["name", "!=", ""]]},
+    {"dt": "Learning Object", "filters": [["name", "!=", ""]]},
+    {"dt": "Learning Object Prerequisite", "filters": [["name", "!=", ""]]},
     # Not including Test Attempt as these are user-specific and typically not fixtures
 ]
 
@@ -253,9 +259,9 @@ fixtures = [
 # -------------------------
 cors_headers = [
     "Access-Control-Allow-Origin",
-    "Access-Control-Allow-Methods", 
+    "Access-Control-Allow-Methods",
     "Access-Control-Allow-Headers",
-    "Access-Control-Allow-Credentials"
+    "Access-Control-Allow-Credentials",
 ]
 
 # Response Hooks
@@ -333,5 +339,5 @@ before_request = ["elearning.api.jwt_auth.jwt_auth_middleware"]
 whitelisted_methods = {
     "elearning.api.topic.find_all_active_topics": "elearning.api.topic.find_all_active_topics",
     "elearning.api.flashcard.get_flashcards_by_topic": "elearning.api.flashcard.get_flashcards_by_topic",
-    "elearning.api.flashcard.get_flashcard_by_id": "elearning.api.flashcard.get_flashcard_by_id"
+    "elearning.api.flashcard.get_flashcard_by_id": "elearning.api.flashcard.get_flashcard_by_id",
 }

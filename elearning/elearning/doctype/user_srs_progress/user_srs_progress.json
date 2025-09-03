@@ -2,7 +2,7 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "naming_series:USRS-.#####",
- "creation": "2025-05-19 11:48:41.374827",
+ "creation": "2025-09-02 13:47:22.253313",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -16,7 +16,8 @@
   "learning_step",
   "last_review_timestamp",
   "next_review_timestamp",
-  "total_time_spent_seconds"
+  "total_time_spent_seconds",
+  "topic"
  ],
  "fields": [
   {
@@ -96,13 +97,19 @@
    "fieldname": "total_time_spent_seconds",
    "fieldtype": "Datetime",
    "label": "Total Time"
+  },
+  {
+   "fieldname": "topic",
+   "fieldtype": "Link",
+   "label": "Topic",
+   "options": "Topics"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-24 17:22:52.526864",
- "modified_by": "Administrator",
+ "modified": "2025-09-03 21:30:35.061047",
+ "modified_by": "nguyethang083@gmail.com",
  "module": "Elearning",
  "name": "User SRS Progress",
  "naming_rule": "By \"Naming Series\" field",

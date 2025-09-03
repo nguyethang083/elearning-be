@@ -1,0 +1,502 @@
+[
+  {
+    "lo_id": "LO-00100",
+    "title": "Giải các bài toán thực tế liên quan đến hình trụ, nón, cầu",
+    "content": "Giải các bài toán thực tế liên quan đến hình trụ, nón, cầu | Vận dụng các công thức diện tích, thể tích để giải quyết các bài toán có bối cảnh thực tế (tính dung tích, lượng vật liệu...). | Chủ đề: 10"
+  },
+  {
+    "lo_id": "LO-00099",
+    "title": "Tính thể tích hình cầu",
+    "content": "Tính thể tích hình cầu | Áp dụng công thức V = (4/3)πR³ để tính thể tích của khối cầu. | Chủ đề: 10"
+  },
+  {
+    "lo_id": "LO-00098",
+    "title": "Tính diện tích mặt cầu",
+    "content": "Tính diện tích mặt cầu | Áp dụng công thức S = 4πR² để tính diện tích mặt cầu. | Chủ đề: 10"
+  },
+  {
+    "lo_id": "LO-00097",
+    "title": "Các yếu tố của hình cầu",
+    "content": "Các yếu tố của hình cầu | Nhận biết và gọi tên đúng các yếu tố của hình cầu: tâm, bán kính, đường kính, mặt cầu. | Chủ đề: 10"
+  },
+  {
+    "lo_id": "LO-00096",
+    "title": "Tính thể tích của hình nón",
+    "content": "Tính thể tích của hình nón | Áp dụng công thức V = (1/3)πR²h để tính thể tích của khối nón. | Chủ đề: 10"
+  },
+  {
+    "lo_id": "LO-00095",
+    "title": "Tính diện tích xung quanh của hình nón",
+    "content": "Tính diện tích xung quanh của hình nón | Áp dụng công thức Sxq = πRl để tính diện tích xung quanh của hình nón. | Chủ đề: 10"
+  },
+  {
+    "lo_id": "LO-00094",
+    "title": "Các yếu tố của hình nón",
+    "content": "Các yếu tố của hình nón | Nhận biết và gọi tên đúng các yếu tố của hình nón: đáy, đỉnh, bán kính đáy, chiều cao, đường sinh. | Chủ đề: 10"
+  },
+  {
+    "lo_id": "LO-00093",
+    "title": "Tính thể tích của hình trụ",
+    "content": "Tính thể tích của hình trụ | Áp dụng công thức V = πR²h để tính thể tích của khối trụ. | Chủ đề: 10"
+  },
+  {
+    "lo_id": "LO-00092",
+    "title": "Tính diện tích xung quanh của hình trụ",
+    "content": "Tính diện tích xung quanh của hình trụ | Áp dụng công thức Sxq = 2πRh để tính diện tích xung quanh của hình trụ. | Chủ đề: 10"
+  },
+  {
+    "lo_id": "LO-00091",
+    "title": "Các yếu tố của hình trụ",
+    "content": "Các yếu tố của hình trụ | Nhận biết và gọi tên đúng các yếu tố của hình trụ: hai đáy, bán kính đáy, chiều cao, đường sinh. | Chủ đề: 10"
+  },
+  {
+    "lo_id": "LO-00090",
+    "title": "Nhận biết đa giác đều trong thực tiễn",
+    "content": "Nhận biết đa giác đều trong thực tiễn | Nhận dạng các vật thể, kiến trúc, họa tiết trong tự nhiên và đời sống có hình dạng của các đa giác đều. | Chủ đề: 9"
+  },
+  {
+    "lo_id": "LO-00089",
+    "title": "Tính bán kính đường tròn ngoại tiếp, nội tiếp đa giác đều",
+    "content": "Tính bán kính đường tròn ngoại tiếp, nội tiếp đa giác đều | Thiết lập và sử dụng các công thức tính R và r của đa giác đều theo độ dài cạnh a và số cạnh n. | Chủ đề: 9"
+  },
+  {
+    "lo_id": "LO-00088",
+    "title": "Mối liên hệ giữa đa giác đều và đường tròn",
+    "content": "Mối liên hệ giữa đa giác đều và đường tròn | Hiểu rằng mọi đa giác đều đều có một đường tròn ngoại tiếp và một đường tròn nội tiếp, và chúng đồng tâm. | Chủ đề: 9"
+  },
+  {
+    "lo_id": "LO-00087",
+    "title": "Ứng dụng phép quay để nhận biết tính đối xứng",
+    "content": "Ứng dụng phép quay để nhận biết tính đối xứng | Nhận biết các hình có tâm đối xứng quay và xác định góc quay nhỏ nhất để hình đó biến thành chính nó. | Chủ đề: 9"
+  },
+  {
+    "lo_id": "LO-00086",
+    "title": "Xác định ảnh của một điểm qua phép quay",
+    "content": "Xác định ảnh của một điểm qua phép quay | Sử dụng thước đo góc và compa để xác định ảnh của một điểm qua một phép quay cho trước. | Chủ đề: 9"
+  },
+  {
+    "lo_id": "LO-00085",
+    "title": "Khái niệm phép quay",
+    "content": "Khái niệm phép quay | Hiểu định nghĩa phép quay tâm O góc quay α biến một điểm M thành M' và các tính chất cơ bản của nó. | Chủ đề: 9"
+  },
+  {
+    "lo_id": "LO-00084",
+    "title": "Vẽ các đa giác đều đơn giản",
+    "content": "Vẽ các đa giác đều đơn giản | Sử dụng compa và thước thẳng để vẽ các đa giác đều cơ bản như tam giác đều, hình vuông, lục giác đều. | Chủ đề: 9"
+  },
+  {
+    "lo_id": "LO-00083",
+    "title": "Tính số đo mỗi góc của một đa giác đều",
+    "content": "Tính số đo mỗi góc của một đa giác đều | Áp dụng công thức tính số đo mỗi góc của một đa giác đều n cạnh là [(n-2) * 180°] / n. | Chủ đề: 9"
+  },
+  {
+    "lo_id": "LO-00082",
+    "title": "Công thức tính tổng số đo các góc của một đa giác",
+    "content": "Công thức tính tổng số đo các góc của một đa giác | Nắm vững và áp dụng công thức tính tổng số đo các góc trong của một đa giác n cạnh là (n-2) * 180°. | Chủ đề: 9"
+  },
+  {
+    "lo_id": "LO-00081",
+    "title": "Khái niệm đa giác lồi và đa giác đều",
+    "content": "Khái niệm đa giác lồi và đa giác đều | Phân biệt được đa giác lồi và đa giác không lồi. Hiểu định nghĩa đa giác đều là đa giác có tất cả các cạnh và các góc bằng nhau. | Chủ đề: 9"
+  },
+  {
+    "lo_id": "LO-00080",
+    "title": "Giải các bài toán tổng hợp về đường tròn và tứ giác nội tiếp",
+    "content": "Giải các bài toán tổng hợp về đường tròn và tứ giác nội tiếp | Phối hợp nhiều kiến thức về đường tròn, tứ giác nội tiếp, tam giác đồng dạng để giải quyết một bài toán hình học phức tạp. | Chủ đề: 8"
+  },
+  {
+    "lo_id": "LO-00079",
+    "title": "Phân biệt đường tròn ngoại tiếp và nội tiếp",
+    "content": "Phân biệt đường tròn ngoại tiếp và nội tiếp | Phân biệt rõ ràng hai khái niệm, vị trí tâm và cách xác định bán kính của hai loại đường tròn này trong một tam giác. | Chủ đề: 8"
+  },
+  {
+    "lo_id": "LO-00078",
+    "title": "Định lý Ptolemy và ứng dụng (nâng cao)",
+    "content": "Định lý Ptolemy và ứng dụng (nâng cao) | Hiểu và áp dụng định lý Ptolemy cho tứ giác nội tiếp: tổng các tích của các cặp cạnh đối bằng tích của hai đường chéo. | Chủ đề: 8"
+  },
+  {
+    "lo_id": "LO-00077",
+    "title": "Áp dụng tính chất tứ giác nội tiếp để chứng minh hệ thức hình học",
+    "content": "Áp dụng tính chất tứ giác nội tiếp để chứng minh hệ thức hình học | Kết hợp tính chất tứ giác nội tiếp với các tam giác đồng dạng để chứng minh các hệ thức về cạnh. | Chủ đề: 8"
+  },
+  {
+    "lo_id": "LO-00076",
+    "title": "Áp dụng tính chất tứ giác nội tiếp để chứng minh góc bằng nhau",
+    "content": "Áp dụng tính chất tứ giác nội tiếp để chứng minh góc bằng nhau | Sử dụng tính chất các góc nội tiếp cùng chắn một cung để suy ra các góc bằng nhau trong một bài toán hình học. | Chủ đề: 8"
+  },
+  {
+    "lo_id": "LO-00075",
+    "title": "Chứng minh nhiều điểm cùng thuộc một đường tròn",
+    "content": "Chứng minh nhiều điểm cùng thuộc một đường tròn | Sử dụng các dấu hiệu của tứ giác nội tiếp hoặc các tính chất hình học khác để chứng minh 5 điểm, 6 điểm... cùng thuộc một đường tròn. | Chủ đề: 8"
+  },
+  {
+    "lo_id": "LO-00074",
+    "title": "Dấu hiệu nhận biết tứ giác nội tiếp",
+    "content": "Dấu hiệu nhận biết tứ giác nội tiếp | Nắm vững và vận dụng các dấu hiệu để chứng minh một tứ giác là tứ giác nội tiếp (tổng hai góc đối bằng 180°, góc ngoài bằng góc trong đối diện, hai đỉnh kề cùng nhìn một cạnh dưới hai góc bằng nhau). | Chủ đề: 8"
+  },
+  {
+    "lo_id": "LO-00073",
+    "title": "Định nghĩa và tính chất của tứ giác nội tiếp",
+    "content": "Định nghĩa và tính chất của tứ giác nội tiếp | Hiểu rằng một tứ giác nội tiếp khi bốn đỉnh của nó cùng nằm trên một đường tròn và tính chất về tổng hai góc đối. | Chủ đề: 8"
+  },
+  {
+    "lo_id": "LO-00072",
+    "title": "Xác định tâm và bán kính đường tròn nội tiếp tam giác",
+    "content": "Xác định tâm và bán kính đường tròn nội tiếp tam giác | Biết tâm đường tròn nội tiếp là giao điểm ba đường phân giác trong và cách xác định bán kính. | Chủ đề: 8"
+  },
+  {
+    "lo_id": "LO-00071",
+    "title": "Xác định tâm và bán kính đường tròn ngoại tiếp tam giác",
+    "content": "Xác định tâm và bán kính đường tròn ngoại tiếp tam giác | Biết tâm đường tròn ngoại tiếp là giao điểm ba đường trung trực và cách xác định nó trong các trường hợp đặc biệt. | Chủ đề: 8"
+  },
+  {
+    "lo_id": "LO-00070",
+    "title": "Giải bài toán thực tế bằng cách lập phương trình bậc hai",
+    "content": "Giải bài toán thực tế bằng cách lập phương trình bậc hai | Mô hình hóa các bài toán thực tế (chuyển động, năng suất, hình học) thành phương trình bậc hai và giải. | Chủ đề: 7"
+  },
+  {
+    "lo_id": "LO-00069",
+    "title": "Tìm hai số khi biết tổng và tích",
+    "content": "Tìm hai số khi biết tổng và tích | Vận dụng định lý Vi-ète đảo: nếu hai số có tổng S và tích P thì chúng là nghiệm của phương trình X² - SX + P = 0. | Chủ đề: 7"
+  },
+  {
+    "lo_id": "LO-00068",
+    "title": "Áp dụng Hệ thức Vi-ète để tính tổng và tích các nghiệm",
+    "content": "Áp dụng Hệ thức Vi-ète để tính tổng và tích các nghiệm | Sử dụng hệ thức Vi-ète để tính S = x₁ + x₂ và P = x₁ * x₂ mà không cần giải phương trình. | Chủ đề: 7"
+  },
+  {
+    "lo_id": "LO-00067",
+    "title": "Biện luận số nghiệm của phương trình bậc hai",
+    "content": "Biện luận số nghiệm của phương trình bậc hai | Dựa vào dấu của biệt thức Delta (Δ) để xác định phương trình có hai nghiệm phân biệt, nghiệm kép hay vô nghiệm. | Chủ đề: 7"
+  },
+  {
+    "lo_id": "LO-00066",
+    "title": "Giải phương trình bậc hai bằng công thức nghiệm thu gọn",
+    "content": "Giải phương trình bậc hai bằng công thức nghiệm thu gọn | Sử dụng biệt thức Delta phẩy (Δ') khi hệ số b là số chẵn để giải phương trình nhanh hơn. | Chủ đề: 7"
+  },
+  {
+    "lo_id": "LO-00065",
+    "title": "Giải phương trình bậc hai bằng công thức nghiệm",
+    "content": "Giải phương trình bậc hai bằng công thức nghiệm | Tính biệt thức Delta (Δ) và áp dụng công thức nghiệm để tìm nghiệm của phương trình bậc hai đầy đủ. | Chủ đề: 7"
+  },
+  {
+    "lo_id": "LO-00064",
+    "title": "Nhận dạng và giải phương trình bậc hai một ẩn",
+    "content": "Nhận dạng và giải phương trình bậc hai một ẩn | Xác định đúng các hệ số a, b, c và giải các dạng phương trình bậc hai khuyết b, khuyết c. | Chủ đề: 7"
+  },
+  {
+    "lo_id": "LO-00063",
+    "title": "Tìm tọa độ giao điểm của Parabol và đường thẳng",
+    "content": "Tìm tọa độ giao điểm của Parabol và đường thẳng | Lập và giải phương trình hoành độ giao điểm để tìm tọa độ các điểm chung (nếu có) của (P) và (d). | Chủ đề: 7"
+  },
+  {
+    "lo_id": "LO-00062",
+    "title": "Vẽ đồ thị hàm số y = ax² (a ≠ 0)",
+    "content": "Vẽ đồ thị hàm số y = ax² (a ≠ 0) | Lập bảng giá trị và vẽ chính xác đồ thị Parabol đi qua các điểm đã xác định. | Chủ đề: 7"
+  },
+  {
+    "lo_id": "LO-00061",
+    "title": "Tính chất và đồ thị của hàm số y = ax² (a ≠ 0)",
+    "content": "Tính chất và đồ thị của hàm số y = ax² (a ≠ 0) | Nắm vững sự biến thiên (đồng biến, nghịch biến) và các đặc điểm của đồ thị Parabol tương ứng với dấu của a. | Chủ đề: 7"
+  },
+  {
+    "lo_id": "LO-00060",
+    "title": "Giải bài toán xác suất thực tế đơn giản",
+    "content": "Giải bài toán xác suất thực tế đơn giản | Mô hình hóa các bài toán thực tế (chọn vật, rút thăm) thành bài toán xác suất và giải quyết. | Chủ đề: 6"
+  },
+  {
+    "lo_id": "LO-00059",
+    "title": "Phân biệt biến cố và phép thử",
+    "content": "Phân biệt biến cố và phép thử | Hiểu rõ sự khác biệt giữa một hành động (phép thử) và một kết quả cụ thể của hành động đó (biến cố). | Chủ đề: 6"
+  },
+  {
+    "lo_id": "LO-00058",
+    "title": "Tính xác suất của biến cố bằng định nghĩa cổ điển",
+    "content": "Tính xác suất của biến cố bằng định nghĩa cổ điển | Áp dụng công thức P(A) = n(A)/n(Ω) để tính xác suất trong các trường hợp đồng khả năng. | Chủ đề: 6"
+  },
+  {
+    "lo_id": "LO-00057",
+    "title": "Không gian mẫu và biến cố",
+    "content": "Không gian mẫu và biến cố | Mô tả không gian mẫu của một phép thử ngẫu nhiên bằng cách liệt kê hoặc sử dụng quy tắc đếm. | Chủ đề: 6"
+  },
+  {
+    "lo_id": "LO-00056",
+    "title": "Mẫu số liệu ghép nhóm",
+    "content": "Mẫu số liệu ghép nhóm | Hiểu cách chia một mẫu số liệu liên tục thành các nhóm (khoảng) và lập bảng tần số ghép nhóm. | Chủ đề: 6"
+  },
+  {
+    "lo_id": "LO-00055",
+    "title": "Lập bảng tần số và tần số tương đối",
+    "content": "Lập bảng tần số và tần số tương đối | Tổ chức một mẫu số liệu rời rạc vào bảng tần số và tính toán tần số tương đối (tỉ số phần trăm). | Chủ đề: 6"
+  },
+  {
+    "lo_id": "LO-00054",
+    "title": "Vẽ biểu đồ hình quạt tròn",
+    "content": "Vẽ biểu đồ hình quạt tròn | Biểu diễn cơ cấu, tỉ lệ phần trăm của các thành phần trong một tổng thể bằng biểu đồ hình quạt tròn. | Chủ đề: 6"
+  },
+  {
+    "lo_id": "LO-00053",
+    "title": "Vẽ biểu đồ đoạn thẳng",
+    "content": "Vẽ biểu đồ đoạn thẳng | Biểu diễn sự thay đổi của một đại lượng theo thời gian bằng biểu đồ đoạn thẳng. | Chủ đề: 6"
+  },
+  {
+    "lo_id": "LO-00052",
+    "title": "Vẽ biểu đồ cột và biểu đồ cột kép",
+    "content": "Vẽ biểu đồ cột và biểu đồ cột kép | Biểu diễn một bộ số liệu bằng biểu đồ cột đơn và biểu diễn hai bộ số liệu để so sánh bằng biểu đồ cột kép. | Chủ đề: 6"
+  },
+  {
+    "lo_id": "LO-00051",
+    "title": "Đọc và phân tích dữ liệu từ bảng thống kê",
+    "content": "Đọc và phân tích dữ liệu từ bảng thống kê | Trích xuất thông tin, so sánh và đưa ra nhận xét từ các số liệu được trình bày trong bảng thống kê. | Chủ đề: 6"
+  },
+  {
+    "lo_id": "LO-00050",
+    "title": "Công thức tính độ dài đường tròn và diện tích hình tròn",
+    "content": "Công thức tính độ dài đường tròn và diện tích hình tròn | Thành thạo việc sử dụng các công thức C = 2πR và S = πR² để giải các bài toán thực tế. | Chủ đề: 5"
+  },
+  {
+    "lo_id": "LO-00049",
+    "title": "Góc tạo bởi tia tiếp tuyến và dây cung",
+    "content": "Góc tạo bởi tia tiếp tuyến và dây cung | Nắm vững định lý: số đo góc tạo bởi tia tiếp tuyến và dây cung bằng nửa số đo cung bị chắn. | Chủ đề: 5"
+  },
+  {
+    "lo_id": "LO-00048",
+    "title": "Góc nội tiếp và tính chất",
+    "content": "Góc nội tiếp và tính chất | Nắm vững định lý: số đo góc nội tiếp bằng nửa số đo cung bị chắn và các hệ quả của nó. | Chủ đề: 5"
+  },
+  {
+    "lo_id": "LO-00047",
+    "title": "Góc ở tâm và số đo cung",
+    "content": "Góc ở tâm và số đo cung | Hiểu mối quan hệ giữa số đo góc ở tâm và số đo cung bị chắn. | Chủ đề: 5"
+  },
+  {
+    "lo_id": "LO-00046",
+    "title": "Vị trí tương đối của hai đường tròn",
+    "content": "Vị trí tương đối của hai đường tròn | Dựa vào hệ thức giữa khoảng cách nối tâm và các bán kính để xác định vị trí tương đối (cắt nhau, tiếp xúc, đựng nhau...). | Chủ đề: 5"
+  },
+  {
+    "lo_id": "LO-00045",
+    "title": "Tính chất của hai tiếp tuyến cắt nhau",
+    "content": "Tính chất của hai tiếp tuyến cắt nhau | Vận dụng tính chất về khoảng cách, góc tạo bởi hai tiếp tuyến và tia phân giác để giải các bài toán liên quan. | Chủ đề: 5"
+  },
+  {
+    "lo_id": "LO-00044",
+    "title": "Dấu hiệu nhận biết tiếp tuyến của đường tròn",
+    "content": "Dấu hiệu nhận biết tiếp tuyến của đường tròn | Nắm vững hai dấu hiệu chính để chứng minh một đường thẳng là tiếp tuyến của một đường tròn. | Chủ đề: 5"
+  },
+  {
+    "lo_id": "LO-00043",
+    "title": "Vị trí tương đối của đường thẳng và đường tròn",
+    "content": "Vị trí tương đối của đường thẳng và đường tròn | Dựa vào khoảng cách từ tâm đến đường thẳng để xác định vị trí tương đối (cắt nhau, tiếp xúc, không giao nhau). | Chủ đề: 5"
+  },
+  {
+    "lo_id": "LO-00042",
+    "title": "Quan hệ vuông góc giữa đường kính và dây cung",
+    "content": "Quan hệ vuông góc giữa đường kính và dây cung | Nắm vững định lý: trong một đường tròn, đường kính vuông góc với một dây thì đi qua trung điểm của dây ấy và ngược lại. | Chủ đề: 5"
+  },
+  {
+    "lo_id": "LO-00041",
+    "title": "Sự xác định và các tính chất cơ bản của đường tròn",
+    "content": "Sự xác định và các tính chất cơ bản của đường tròn | Hiểu rằng một đường tròn được xác định khi biết tâm và bán kính, và tính chất đối xứng của nó. | Chủ đề: 5"
+  },
+  {
+    "lo_id": "LO-00040",
+    "title": "Rút gọn biểu thức lượng giác",
+    "content": "Rút gọn biểu thức lượng giác | Vận dụng các đẳng thức lượng giác cơ bản để rút gọn các biểu thức phức tạp hơn. | Chủ đề: 4"
+  },
+  {
+    "lo_id": "LO-00039",
+    "title": "Chứng minh các đẳng thức lượng giác đơn giản",
+    "content": "Chứng minh các đẳng thức lượng giác đơn giản | Sử dụng các định nghĩa và tính chất cơ bản (sin²α + cos²α = 1, tanα = sinα/cosα) để chứng minh các đẳng thức. | Chủ đề: 4"
+  },
+  {
+    "lo_id": "LO-00038",
+    "title": "Ứng dụng thực tế để đo khoảng cách",
+    "content": "Ứng dụng thực tế để đo khoảng cách | Sử dụng các công cụ và hệ thức lượng để đo khoảng cách giữa hai điểm mà không thể tiếp cận trực tiếp. | Chủ đề: 4"
+  },
+  {
+    "lo_id": "LO-00037",
+    "title": "Ứng dụng thực tế để đo chiều cao",
+    "content": "Ứng dụng thực tế để đo chiều cao | Sử dụng giác kế và các hệ thức lượng để đo chiều cao của một vật thể (cây, cột cờ, tòa nhà) một cách gián tiếp. | Chủ đề: 4"
+  },
+  {
+    "lo_id": "LO-00036",
+    "title": "Giải tam giác vuông",
+    "content": "Giải tam giác vuông | Tìm tất cả các cạnh và góc còn lại của một tam giác vuông khi biết hai yếu tố (trong đó có ít nhất một yếu tố về cạnh). | Chủ đề: 4"
+  },
+  {
+    "lo_id": "LO-00035",
+    "title": "Hệ thức về cạnh và góc trong tam giác vuông",
+    "content": "Hệ thức về cạnh và góc trong tam giác vuông | Vận dụng các hệ thức: cạnh góc vuông bằng cạnh huyền nhân sin góc đối hoặc cos góc kề. | Chủ đề: 4"
+  },
+  {
+    "lo_id": "LO-00034",
+    "title": "Hệ thức về cạnh và đường cao trong tam giác vuông",
+    "content": "Hệ thức về cạnh và đường cao trong tam giác vuông | Nắm vững và áp dụng các hệ thức như b² = ab', c² = ac', h² = b'c', ah = bc, 1/h² = 1/b² + 1/c². | Chủ đề: 4"
+  },
+  {
+    "lo_id": "LO-00033",
+    "title": "Sử dụng máy tính cầm tay để tính tỉ số lượng giác và góc",
+    "content": "Sử dụng máy tính cầm tay để tính tỉ số lượng giác và góc | Thành thạo việc sử dụng máy tính để tìm giá trị tỉ số lượng giác khi biết góc và ngược lại. | Chủ đề: 4"
+  },
+  {
+    "lo_id": "LO-00032",
+    "title": "Tỉ số lượng giác của hai góc phụ nhau",
+    "content": "Tỉ số lượng giác của hai góc phụ nhau | Nắm vững các mối quan hệ chéo: sin(α) = cos(90°-α), tan(α) = cot(90°-α) và ngược lại. | Chủ đề: 4"
+  },
+  {
+    "lo_id": "LO-00031",
+    "title": "Định nghĩa tỉ số lượng giác Sin, Cos, Tan, Cot",
+    "content": "Định nghĩa tỉ số lượng giác Sin, Cos, Tan, Cot | Xác định đúng các cạnh đối, kề, huyền trong tam giác vuông và lập các tỉ số lượng giác của một góc nhọn. | Chủ đề: 4"
+  },
+  {
+    "lo_id": "LO-00030",
+    "title": "Khái niệm và tính chất Căn bậc ba",
+    "content": "Khái niệm và tính chất Căn bậc ba | Hiểu định nghĩa và các tính chất cơ bản của căn bậc ba, phân biệt với căn bậc hai. | Chủ đề: 3"
+  },
+  {
+    "lo_id": "LO-00029",
+    "title": "Giải phương trình chứa căn thức đơn giản",
+    "content": "Giải phương trình chứa căn thức đơn giản | Giải các phương trình dạng √A = B bằng cách đặt điều kiện và bình phương hai vế. | Chủ đề: 3"
+  },
+  {
+    "lo_id": "LO-00028",
+    "title": "Rút gọn biểu thức tổng hợp chứa căn thức",
+    "content": "Rút gọn biểu thức tổng hợp chứa căn thức | Phối hợp tất cả các kỹ năng biến đổi đã học để rút gọn các biểu thức phức tạp chứa nhiều phép toán với căn thức. | Chủ đề: 3"
+  },
+  {
+    "lo_id": "LO-00027",
+    "title": "Trục căn thức ở mẫu",
+    "content": "Trục căn thức ở mẫu | Nhân cả tử và mẫu với biểu thức liên hợp để làm mất dấu căn ở mẫu trong các biểu thức dạng phân số. | Chủ đề: 3"
+  },
+  {
+    "lo_id": "LO-00026",
+    "title": "Khử mẫu của biểu thức lấy căn",
+    "content": "Khử mẫu của biểu thức lấy căn | Sử dụng phép nhân cả tử và mẫu với mẫu để làm mất dấu căn ở mẫu. | Chủ đề: 3"
+  },
+  {
+    "lo_id": "LO-00025",
+    "title": "Đưa thừa số ra ngoài và vào trong dấu căn",
+    "content": "Đưa thừa số ra ngoài và vào trong dấu căn | Thành thạo kỹ năng biến đổi √(a²b) = |a|√b và ngược lại để rút gọn và so sánh các căn thức. | Chủ đề: 3"
+  },
+  {
+    "lo_id": "LO-00024",
+    "title": "Khai phương một tích và một thương",
+    "content": "Khai phương một tích và một thương | Áp dụng các quy tắc khai phương một tích, một thương để tính toán và rút gọn biểu thức. | Chủ đề: 3"
+  },
+  {
+    "lo_id": "LO-00023",
+    "title": "Vận dụng hằng đẳng thức √A² = |A|",
+    "content": "Vận dụng hằng đẳng thức √A² = |A| | Áp dụng hằng đẳng thức để khai phương và rút gọn các biểu thức chứa bình phương. | Chủ đề: 3"
+  },
+  {
+    "lo_id": "LO-00022",
+    "title": "Tìm điều kiện xác định của căn thức",
+    "content": "Tìm điều kiện xác định của căn thức | Vận dụng quy tắc √A xác định khi A ≥ 0 để tìm điều kiện của biến. | Chủ đề: 3"
+  },
+  {
+    "lo_id": "LO-00021",
+    "title": "Căn bậc hai số học và so sánh các căn bậc hai",
+    "content": "Căn bậc hai số học và so sánh các căn bậc hai | Hiểu định nghĩa căn bậc hai số học và quy tắc so sánh: với a, b ≥ 0, a < b ⇔ √a < √b. | Chủ đề: 3"
+  },
+  {
+    "lo_id": "LO-00020",
+    "title": "Giải phương trình chứa dấu giá trị tuyệt đối",
+    "content": "Giải phương trình chứa dấu giá trị tuyệt đối | Sử dụng định nghĩa giá trị tuyệt đối để phá dấu và giải phương trình, thường liên quan đến việc xét các trường hợp của bất phương trình. | Chủ đề: 2"
+  },
+  {
+    "lo_id": "LO-00019",
+    "title": "Tìm giá trị lớn nhất, nhỏ nhất sử dụng bất đẳng thức",
+    "content": "Tìm giá trị lớn nhất, nhỏ nhất sử dụng bất đẳng thức | Sử dụng các bất đẳng thức quen thuộc (như Cauchy cho 2 số) để tìm GTLN, GTNN của một biểu thức. | Chủ đề: 2"
+  },
+  {
+    "lo_id": "LO-00018",
+    "title": "So sánh hai số sử dụng tính chất bất đẳng thức",
+    "content": "So sánh hai số sử dụng tính chất bất đẳng thức | Vận dụng các tính chất của bất đẳng thức để so sánh giá trị của hai biểu thức số hoặc biểu thức chứa biến. | Chủ đề: 2"
+  },
+  {
+    "lo_id": "LO-00017",
+    "title": "Áp dụng bất đẳng thức để giải bài toán thực tế",
+    "content": "Áp dụng bất đẳng thức để giải bài toán thực tế | Mô hình hóa các điều kiện của bài toán thực tế thành bất phương trình và giải để tìm ra giới hạn của các đại lượng. | Chủ đề: 2"
+  },
+  {
+    "lo_id": "LO-00016",
+    "title": "Chứng minh bất đẳng thức cơ bản",
+    "content": "Chứng minh bất đẳng thức cơ bản | Sử dụng các tính chất cơ bản và biến đổi tương đương để chứng minh các bất đẳng thức đơn giản. | Chủ đề: 2"
+  },
+  {
+    "lo_id": "LO-00015",
+    "title": "Giải bất phương trình đưa được về dạng bậc nhất",
+    "content": "Giải bất phương trình đưa được về dạng bậc nhất | Thực hiện các phép biến đổi như bỏ ngoặc, quy đồng để đưa các bất phương trình phức tạp hơn về dạng ax + b < 0. | Chủ đề: 2"
+  },
+  {
+    "lo_id": "LO-00014",
+    "title": "Biểu diễn tập nghiệm của bất phương trình trên trục số",
+    "content": "Biểu diễn tập nghiệm của bất phương trình trên trục số | Sử dụng các ký hiệu khoảng, đoạn và các loại ngoặc để biểu diễn chính xác tập nghiệm trên trục số. | Chủ đề: 2"
+  },
+  {
+    "lo_id": "LO-00013",
+    "title": "Giải bất phương trình bậc nhất một ẩn",
+    "content": "Giải bất phương trình bậc nhất một ẩn | Vận dụng hai quy tắc biến đổi tương đương (chuyển vế và nhân/chia) để tìm tập nghiệm của bất phương trình. | Chủ đề: 2"
+  },
+  {
+    "lo_id": "LO-00012",
+    "title": "Khái niệm bất phương trình bậc nhất một ẩn",
+    "content": "Khái niệm bất phương trình bậc nhất một ẩn | Nhận dạng được bất phương trình có dạng ax + b < 0 (hoặc >, ≤, ≥) với a ≠ 0. | Chủ đề: 2"
+  },
+  {
+    "lo_id": "LO-00011",
+    "title": "Liên hệ giữa thứ tự và phép cộng, phép nhân",
+    "content": "Liên hệ giữa thứ tự và phép cộng, phép nhân | Nắm vững các tính chất: cộng cùng một số, nhân với số dương, nhân với số âm và sự thay đổi chiều của bất đẳng thức. | Chủ đề: 2"
+  },
+  {
+    "lo_id": "LO-00010",
+    "title": "Giải bài toán bằng cách lập hệ phương trình",
+    "content": "Giải bài toán bằng cách lập hệ phương trình | Phân tích bài toán thực tế, chọn hai ẩn số, lập hệ hai phương trình tương ứng và giải để tìm đáp số. | Chủ đề: 1"
+  },
+  {
+    "lo_id": "LO-00009",
+    "title": "Xác định số nghiệm của hệ phương trình dựa vào tỉ số hệ số",
+    "content": "Xác định số nghiệm của hệ phương trình dựa vào tỉ số hệ số | Dựa vào các tỉ số a/a', b/b', c/c' để xác định hệ phương trình có nghiệm duy nhất, vô số nghiệm hay vô nghiệm. | Chủ đề: 1"
+  },
+  {
+    "lo_id": "LO-00008",
+    "title": "Giải hệ phương trình bằng phương pháp cộng đại số",
+    "content": "Giải hệ phương trình bằng phương pháp cộng đại số | Thực hiện các bước nhân hai vế của phương trình với số thích hợp để làm hệ số của một ẩn đối nhau rồi cộng vế theo vế. | Chủ đề: 1"
+  },
+  {
+    "lo_id": "LO-00007",
+    "title": "Giải hệ phương trình bằng phương pháp thế",
+    "content": "Giải hệ phương trình bằng phương pháp thế | Thực hiện các bước rút một ẩn theo ẩn kia từ một phương trình và thế vào phương trình còn lại để giải. | Chủ đề: 1"
+  },
+  {
+    "lo_id": "LO-00006",
+    "title": "Khái niệm hệ hai phương trình bậc nhất hai ẩn và nghiệm",
+    "content": "Khái niệm hệ hai phương trình bậc nhất hai ẩn và nghiệm | Hiểu một hệ phương trình gồm hai phương trình bậc nhất hai ẩn và khái niệm nghiệm chung của hệ. | Chủ đề: 1"
+  },
+  {
+    "lo_id": "LO-00005",
+    "title": "Biểu diễn hình học tập nghiệm của phương trình bậc nhất hai ẩn",
+    "content": "Biểu diễn hình học tập nghiệm của phương trình bậc nhất hai ẩn | Biết rằng tập nghiệm của phương trình ax + by = c là một đường thẳng và cách vẽ đường thẳng đó trên mặt phẳng tọa độ. | Chủ đề: 1"
+  },
+  {
+    "lo_id": "LO-00004",
+    "title": "Khái niệm phương trình bậc nhất hai ẩn và nghiệm",
+    "content": "Khái niệm phương trình bậc nhất hai ẩn và nghiệm | Hiểu định nghĩa phương trình dạng ax + by = c và cách kiểm tra một cặp số (x; y) có phải là nghiệm hay không. | Chủ đề: 1"
+  },
+  {
+    "lo_id": "LO-00003",
+    "title": "Giải bài toán bằng cách lập phương trình",
+    "content": "Giải bài toán bằng cách lập phương trình | Phân tích bài toán thực tế, chọn ẩn số, lập phương trình và giải để tìm ra đáp số thỏa mãn điều kiện. | Chủ đề: 1"
+  },
+  {
+    "lo_id": "LO-00002",
+    "title": "Xác định điều kiện và giải phương trình chứa ẩn ở mẫu",
+    "content": "Xác định điều kiện và giải phương trình chứa ẩn ở mẫu | Tìm điều kiện xác định của phương trình, quy đồng mẫu thức hai vế, khử mẫu và giải phương trình nhận được. | Chủ đề: 1"
+  },
+  {
+    "lo_id": "LO-00001",
+    "title": "Nhận dạng và giải phương trình tích",
+    "content": "Nhận dạng và giải phương trình tích | Phân tích vế trái thành nhân tử để đưa phương trình về dạng A(x) * B(x) = 0 và tìm nghiệm. | Chủ đề: 1"
+  }
+]
