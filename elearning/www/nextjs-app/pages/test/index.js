@@ -25,6 +25,7 @@ export default function Test() {
       try {
         setIsLoading(true);
         const profileExists = await checkUserProfile();
+        console.log("Profile exists:", profileExists);
         setHasProfile(profileExists);
       } catch (err) {
         setError("Không thể kiểm tra trạng thái người dùng. Vui lòng thử lại.");
