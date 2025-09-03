@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import { fetchWithAuth } from "@/pages/api/helper";
 import {
   Card,
   CardContent,
@@ -63,10 +64,10 @@ export default function AnalysisPage() {
       setPathwayLoading(true);
       setPathwayError(null);
       try {
-        const res = await fetch(
-          "/api/method/elearning.elearning.doctype.test.learning_pathway.get_latest_student_pathway_snapshot"
+        const data = await fetchWithAuth(
+          "test.learning_pathway.get_latest_student_pathway_snapshot",
+          { method: "GET" }
         );
-        const data = await res.json();
         if (data.message) {
           setPathwayData(data.message);
         } else {
@@ -87,10 +88,10 @@ export default function AnalysisPage() {
       setTrendLoading(true);
       setTrendError(null);
       try {
-        const res = await fetch(
-          "/api/method/elearning.elearning.doctype.test.analysis_processor.get_performance_trend"
+        const data = await fetchWithAuth(
+          "test.analysis_processor.get_performance_trend",
+          { method: "GET" }
         );
-        const data = await res.json();
         console.log("Trend data fetched:", data);
         if (data.message) {
           setTrendData(data.message);

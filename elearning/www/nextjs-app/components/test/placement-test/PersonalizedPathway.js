@@ -3,8 +3,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/router";
 import { Button } from "@/components/ui/button";
+import { fetchWithAuth } from "@/pages/api/helper";
 import LearningPathwayComponent from "@/components/shared/LearningPathwayComponent";
-import { useTopics } from "@/hooks/useTopics";
 
 export default function PersonalizedPathway({
   sessionId,
@@ -24,13 +24,13 @@ export default function PersonalizedPathway({
         if (!studentId) {
           throw new Error("Không tìm thấy thông tin phiên test");
         }
-        const response = await fetch(
-          `/api/method/elearning.elearning.doctype.test.learning_pathway.get_learning_pathway?session_id=${studentId}`
+        const result = await fetchWithAuth(
+          "test.learning_pathway.get_learning_pathway",
+          {
+            method: "GET",
+            params: { session_id: studentId }
+          }
         );
-        if (!response.ok) {
-          throw new Error(`Failed to generate pathway: ${response.status}`);
-        }
-        const result = await response.json();
         if (result.message) {
           setPathwayData(result.message);
           setLoading(false);
@@ -42,7 +42,7 @@ export default function PersonalizedPathway({
         setLoading(false);
       }
     };
-      fetchPlacementData();
+    fetchPlacementData();
   }, [studentId]);
 
   // Helper function for topic descriptions
@@ -110,230 +110,230 @@ export default function PersonalizedPathway({
   if (!pathwayData) return null;
 
   // Helper function for topic descriptions
-    const getMockTopicsForChapter = (chapterId, progress) => {
-      const mockTopicsMap = {
-        1: [
-          {
-            name: "Phương trình bậc nhất một ẩn",
-            status:
-              progress >= 70
-                ? "completed"
-                : progress >= 30
-                ? "in-progress"
-                : "not-started",
-          },
-          {
-            name: "Hệ phương trình bậc nhất hai ẩn",
-            status:
-              progress >= 50
-                ? "completed"
-                : progress >= 20
-                ? "in-progress"
-                : "not-started",
-          },
-          {
-            name: "Giải bài toán bằng cách lập phương trình",
-            status: progress >= 80 ? "completed" : "not-started",
-          },
-          {
-            name: "Ứng dụng thực tế",
-            status: progress >= 90 ? "completed" : "not-started",
-          },
-        ],
-        2: [
-          {
-            name: "Khái niệm bất đẳng thức",
-            status:
-              progress >= 70
-                ? "completed"
-                : progress >= 30
-                ? "in-progress"
-                : "not-started",
-          },
-          {
-            name: "Bất phương trình bậc nhất",
-            status: progress >= 50 ? "completed" : "not-started",
-          },
-          {
-            name: "Hệ bất phương trình",
-            status: progress >= 80 ? "completed" : "not-started",
-          },
-        ],
-        3: [
-          {
-            name: "Khái niệm căn bậc hai",
-            status:
-              progress >= 70
-                ? "completed"
-                : progress >= 30
-                ? "in-progress"
-                : "not-started",
-          },
-          {
-            name: "Phép toán với căn thức",
-            status: progress >= 50 ? "completed" : "not-started",
-          },
-          {
-            name: "Rút gọn biểu thức chứa căn",
-            status: progress >= 80 ? "completed" : "not-started",
-          },
-        ],
-        4: [
-          {
-            name: "Tỉ số lượng giác của góc nhọn",
-            status:
-              progress >= 70
-                ? "completed"
-                : progress >= 30
-                ? "in-progress"
-                : "not-started",
-          },
-          {
-            name: "Hệ thức lượng trong tam giác vuông",
-            status: progress >= 50 ? "completed" : "not-started",
-          },
-          {
-            name: "Ứng dụng thực tế",
-            status: progress >= 80 ? "completed" : "not-started",
-          },
-        ],
-        5: [
-          {
-            name: "Phương trình đường tròn",
-            status:
-              progress >= 70
-                ? "completed"
-                : progress >= 30
-                ? "in-progress"
-                : "not-started",
-          },
-          {
-            name: "Vị trí tương đối của đường thẳng và đường tròn",
-            status: progress >= 50 ? "completed" : "not-started",
-          },
-          {
-            name: "Góc nội tiếp và góc ở tâm",
-            status: progress >= 80 ? "completed" : "not-started",
-          },
-        ],
-        6: [
-          {
-            name: "Bảng tần số và biểu đồ",
-            status:
-              progress >= 70
-                ? "completed"
-                : progress >= 30
-                ? "in-progress"
-                : "not-started",
-          },
-          {
-            name: "Số trung bình và trung vị",
-            status: progress >= 50 ? "completed" : "not-started",
-          },
-          {
-            name: "Xác suất của biến cố",
-            status: progress >= 80 ? "completed" : "not-started",
-          },
-        ],
-        7: [
-          {
-            name: "Hàm số bậc hai y = ax²",
-            status:
-              progress >= 70
-                ? "completed"
-                : progress >= 30
-                ? "in-progress"
-                : "not-started",
-          },
-          {
-            name: "Đồ thị hàm số y = ax²",
-            status: progress >= 50 ? "completed" : "not-started",
-          },
-          {
-            name: "Phương trình bậc hai",
-            status: progress >= 80 ? "completed" : "not-started",
-          },
-          {
-            name: "Định lý Viète",
-            status: progress >= 90 ? "completed" : "not-started",
-          },
-        ],
-        8: [
-          {
-            name: "Đường tròn ngoại tiếp tam giác",
-            status:
-              progress >= 70
-                ? "completed"
-                : progress >= 30
-                ? "in-progress"
-                : "not-started",
-          },
-          {
-            name: "Đường tròn nội tiếp tam giác",
-            status: progress >= 50 ? "completed" : "not-started",
-          },
-          {
-            name: "Tứ giác nội tiếp",
-            status: progress >= 80 ? "completed" : "not-started",
-          },
-        ],
-        9: [
-          {
-            name: "Khái niệm đa giác đều",
-            status:
-              progress >= 70
-                ? "completed"
-                : progress >= 30
-                ? "in-progress"
-                : "not-started",
-          },
-          {
-            name: "Diện tích đa giác đều",
-            status: progress >= 50 ? "completed" : "not-started",
-          },
-          {
-            name: "Đường tròn ngoại tiếp và nội tiếp đa giác đều",
-            status: progress >= 80 ? "completed" : "not-started",
-          },
-        ],
-        10: [
-          {
-            name: "Hình khối cơ bản",
-            status:
-              progress >= 70
-                ? "completed"
-                : progress >= 30
-                ? "in-progress"
-                : "not-started",
-          },
-          {
-            name: "Thể tích và diện tích bề mặt",
-            status: progress >= 50 ? "completed" : "not-started",
-          },
-          {
-            name: "Ứng dụng trong thực tế",
-            status: progress >= 80 ? "completed" : "not-started",
-          },
-        ],
-      };
-      return (
-        mockTopicsMap[chapterId] || [
-          {
-            name: "Khái niệm cơ bản",
-            status:
-              progress >= 70
-                ? "completed"
-                : progress >= 30
-                ? "in-progress"
-                : "not-started",
-          },
-          {
-            name: "Bài tập thực hành",
-            status: progress >= 50 ? "completed" : "not-started",
-          },
-        ]
-      );
+  const getMockTopicsForChapter = (chapterId, progress) => {
+    const mockTopicsMap = {
+      1: [
+        {
+          name: "Phương trình bậc nhất một ẩn",
+          status:
+            progress >= 70
+              ? "completed"
+              : progress >= 30
+              ? "in-progress"
+              : "not-started",
+        },
+        {
+          name: "Hệ phương trình bậc nhất hai ẩn",
+          status:
+            progress >= 50
+              ? "completed"
+              : progress >= 20
+              ? "in-progress"
+              : "not-started",
+        },
+        {
+          name: "Giải bài toán bằng cách lập phương trình",
+          status: progress >= 80 ? "completed" : "not-started",
+        },
+        {
+          name: "Ứng dụng thực tế",
+          status: progress >= 90 ? "completed" : "not-started",
+        },
+      ],
+      2: [
+        {
+          name: "Khái niệm bất đẳng thức",
+          status:
+            progress >= 70
+              ? "completed"
+              : progress >= 30
+              ? "in-progress"
+              : "not-started",
+        },
+        {
+          name: "Bất phương trình bậc nhất",
+          status: progress >= 50 ? "completed" : "not-started",
+        },
+        {
+          name: "Hệ bất phương trình",
+          status: progress >= 80 ? "completed" : "not-started",
+        },
+      ],
+      3: [
+        {
+          name: "Khái niệm căn bậc hai",
+          status:
+            progress >= 70
+              ? "completed"
+              : progress >= 30
+              ? "in-progress"
+              : "not-started",
+        },
+        {
+          name: "Phép toán với căn thức",
+          status: progress >= 50 ? "completed" : "not-started",
+        },
+        {
+          name: "Rút gọn biểu thức chứa căn",
+          status: progress >= 80 ? "completed" : "not-started",
+        },
+      ],
+      4: [
+        {
+          name: "Tỉ số lượng giác của góc nhọn",
+          status:
+            progress >= 70
+              ? "completed"
+              : progress >= 30
+              ? "in-progress"
+              : "not-started",
+        },
+        {
+          name: "Hệ thức lượng trong tam giác vuông",
+          status: progress >= 50 ? "completed" : "not-started",
+        },
+        {
+          name: "Ứng dụng thực tế",
+          status: progress >= 80 ? "completed" : "not-started",
+        },
+      ],
+      5: [
+        {
+          name: "Phương trình đường tròn",
+          status:
+            progress >= 70
+              ? "completed"
+              : progress >= 30
+              ? "in-progress"
+              : "not-started",
+        },
+        {
+          name: "Vị trí tương đối của đường thẳng và đường tròn",
+          status: progress >= 50 ? "completed" : "not-started",
+        },
+        {
+          name: "Góc nội tiếp và góc ở tâm",
+          status: progress >= 80 ? "completed" : "not-started",
+        },
+      ],
+      6: [
+        {
+          name: "Bảng tần số và biểu đồ",
+          status:
+            progress >= 70
+              ? "completed"
+              : progress >= 30
+              ? "in-progress"
+              : "not-started",
+        },
+        {
+          name: "Số trung bình và trung vị",
+          status: progress >= 50 ? "completed" : "not-started",
+        },
+        {
+          name: "Xác suất của biến cố",
+          status: progress >= 80 ? "completed" : "not-started",
+        },
+      ],
+      7: [
+        {
+          name: "Hàm số bậc hai y = ax²",
+          status:
+            progress >= 70
+              ? "completed"
+              : progress >= 30
+              ? "in-progress"
+              : "not-started",
+        },
+        {
+          name: "Đồ thị hàm số y = ax²",
+          status: progress >= 50 ? "completed" : "not-started",
+        },
+        {
+          name: "Phương trình bậc hai",
+          status: progress >= 80 ? "completed" : "not-started",
+        },
+        {
+          name: "Định lý Viète",
+          status: progress >= 90 ? "completed" : "not-started",
+        },
+      ],
+      8: [
+        {
+          name: "Đường tròn ngoại tiếp tam giác",
+          status:
+            progress >= 70
+              ? "completed"
+              : progress >= 30
+              ? "in-progress"
+              : "not-started",
+        },
+        {
+          name: "Đường tròn nội tiếp tam giác",
+          status: progress >= 50 ? "completed" : "not-started",
+        },
+        {
+          name: "Tứ giác nội tiếp",
+          status: progress >= 80 ? "completed" : "not-started",
+        },
+      ],
+      9: [
+        {
+          name: "Khái niệm đa giác đều",
+          status:
+            progress >= 70
+              ? "completed"
+              : progress >= 30
+              ? "in-progress"
+              : "not-started",
+        },
+        {
+          name: "Diện tích đa giác đều",
+          status: progress >= 50 ? "completed" : "not-started",
+        },
+        {
+          name: "Đường tròn ngoại tiếp và nội tiếp đa giác đều",
+          status: progress >= 80 ? "completed" : "not-started",
+        },
+      ],
+      10: [
+        {
+          name: "Hình khối cơ bản",
+          status:
+            progress >= 70
+              ? "completed"
+              : progress >= 30
+              ? "in-progress"
+              : "not-started",
+        },
+        {
+          name: "Thể tích và diện tích bề mặt",
+          status: progress >= 50 ? "completed" : "not-started",
+        },
+        {
+          name: "Ứng dụng trong thực tế",
+          status: progress >= 80 ? "completed" : "not-started",
+        },
+      ],
     };
+    return (
+      mockTopicsMap[chapterId] || [
+        {
+          name: "Khái niệm cơ bản",
+          status:
+            progress >= 70
+              ? "completed"
+              : progress >= 30
+              ? "in-progress"
+              : "not-started",
+        },
+        {
+          name: "Bài tập thực hành",
+          status: progress >= 50 ? "completed" : "not-started",
+        },
+      ]
+    );
+  };
 
   // Merge backend chapters with mock topics and description
   // Debug: log pathwayData to console
@@ -346,7 +346,7 @@ export default function PersonalizedPathway({
     ? pathwayData.pathway.map((chapter) => {
         // Use mastery_weight percent for progress bar
         const percent = Math.round((chapter.mastery_weight || 0) / 10);
-      return {
+        return {
           ...chapter,
           progress: percent, // for progress bar UI
           percent, // for pie chart or percent display
@@ -403,12 +403,12 @@ export default function PersonalizedPathway({
                   lại kết quả đánh giá hoặc liên hệ hỗ trợ.
                 </div>
               ) : (
-              <LearningPathwayComponent
-                chapters={chapters}
-                onChapterStart={handleChapterStart}
-                showEncouragement={true}
-                variant="default"
-              />
+                <LearningPathwayComponent
+                  chapters={chapters}
+                  onChapterStart={handleChapterStart}
+                  showEncouragement={true}
+                  variant="default"
+                />
               )}
 
               {/* Action Buttons */}

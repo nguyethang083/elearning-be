@@ -48,14 +48,33 @@ export default function PerformanceSection({ userData }) {
     const mode = getModeFromUrl(modeFromUrl);
     setSelectedMode(mode);
 
-    if (mode === "Practice Test") {
+    // If we have a topicId but no mode, or mode is Topics, treat it as Practice Test mode
+    const shouldShowTopicTests =
+      mode === "Practice Test" ||
+      (topicIdFromUrl && (mode === "Topics" || !modeFromUrl));
+
+    if (shouldShowTopicTests) {
       setShowTopicTests(true);
+      if (mode !== "Practice Test") {
+        setSelectedMode("Practice Test"); // Ensure mode is set to Practice Test
+      }
       if (topicIdFromUrl) {
         setSelectedTopicId(topicIdFromUrl);
+        // Find topic by id (which is mapped from name in useTopics)
         if (allTopics && allTopics.length > 0) {
-          const selectedTopic = allTopics.find((t) => t.id === topicIdFromUrl);
+          const selectedTopic = allTopics.find(
+            (t) => String(t.id) === String(topicIdFromUrl)
+          );
           if (selectedTopic) {
             setSelectedTopicName(selectedTopic.topic_name);
+          } else {
+            // If topic not found, try to find by name field as fallback
+            const topicByName = allTopics.find(
+              (t) => String(t.name) === String(topicIdFromUrl)
+            );
+            if (topicByName) {
+              setSelectedTopicName(topicByName.topic_name);
+            }
           }
         }
       }
@@ -173,7 +192,8 @@ export default function PerformanceSection({ userData }) {
       </div>
 
       <div className="mt-8">
-        {selectedMode === "Topics" && showTopicTests && (
+        {(selectedMode === "Practice Test" && showTopicTests) ||
+        (selectedMode === "Topics" && showTopicTests) ? (
           <button
             className="flex items-center text-blue-600 hover:underline mb-4"
             onClick={handleBackToTopics}
@@ -182,7 +202,7 @@ export default function PerformanceSection({ userData }) {
             <ArrowLeft className="w-4 h-4 mr-1" />
             <span>Quay trở lại Danh sách các chuyên đề</span>
           </button>
-        )}
+        ) : null}
       </div>
 
       {/* Conditionally render content based on selected mode */}
