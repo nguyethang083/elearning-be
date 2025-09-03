@@ -48,7 +48,7 @@ export default function BasicMode({
         setShowCompletionModal(true);
       }, 1000);
     }
-  }, [currentIndex, isFlipped, flashcards, showCompletionModal]);
+  }, [currentIndex, isFlipped, flashcards]);
 
   const handleGoToTest = () => {
     setShowCompletionModal(false);
