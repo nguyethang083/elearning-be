@@ -214,7 +214,7 @@ const DashboardContent = ({ user }) => {
             <div className="w-16 h-16 flex-shrink-0 overflow-hidden rounded-lg">
               <Image
                 src="/images/skill3.jpg"
-                alt="Topic Practice"
+                alt="Learning Analysis"
                 width={64}
                 height={64}
                 className="w-full h-full object-cover"
@@ -222,14 +222,17 @@ const DashboardContent = ({ user }) => {
             </div>
             <div className="flex-grow">
               <h3 className="text-sm font-semibold text-gray-800 mb-0.5">
-                Làm bài tập chủ đề
+                Phân tích điểm yếu
               </h3>
               <p className="text-xs text-gray-500 mb-2.5">
-                Bài tập cho chủ đề Toán lớp 9
+                Xem báo cáo chi tiết về tiến độ và điểm yếu của bạn
               </p>
-              <button className="text-xs bg-blue-50 text-blue-600 px-3 py-1.5 rounded-lg font-medium hover:bg-blue-100 transition">
-                Làm bài tập ngay
-              </button>
+              <Link
+                href="/analysis"
+                className="inline-block whitespace-nowrap text-xs bg-blue-50 text-blue-600 px-3 py-1.5 rounded-lg font-medium hover:bg-blue-100 transition"
+              >
+                Xem phân tích
+              </Link>
             </div>
           </div>
         </div>

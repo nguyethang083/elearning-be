@@ -37,7 +37,6 @@ export async function fetchWithAuth(path, options = {}) {
 
     const headers = {
       Accept: "application/json",
-      "ngrok-skip-browser-warning": "true",
       ...(options.headers || {}),
     };
 
@@ -254,19 +253,22 @@ export async function createOrUpdateTopicProgress(user, topic) {
       method: "POST",
       body: {
         user: user,
-        topic: topic,
-      },
+        topic: topic
+      }
     }
   );
 }
 
 // Get topic progress
 export async function getTopicProgress(user, topic) {
-  return fetchWithAuth("topic_progress.topic_progress.get_topic_progress", {
-    method: "POST",
-    body: {
-      user: user,
-      topic: topic,
-    },
-  });
+  return fetchWithAuth(
+    "topic_progress.topic_progress.get_topic_progress",
+    {
+      method: "POST",
+      body: {
+        user: user,
+        topic: topic
+      }
+    }
+  );
 }

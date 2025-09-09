@@ -15,10 +15,10 @@ from frappe.utils import now
 import math
 
 # Define constants for weights to be used across functions
-W_ACCURACY = 0.25   
-W_PACING = 0.15    
-W_DECAY = 0.40     
-W_GAP = 0.20   
+W_ACCURACY = 0.25
+W_PACING = 0.15
+W_DECAY = 0.40
+W_GAP = 0.20
 
 
 class StudentTopicMastery(Document):
@@ -65,7 +65,10 @@ def update_mastery_on_session_completion(session_doc, method=None):
 
         # Step 4: Calculate the final Weakness Score using the new normalized formula
         final_score = calculate_normalized_weakness_score(
-            mastery_doc.accuracy_component, pacing_component, decay_component, gap_component
+            mastery_doc.accuracy_component,
+            pacing_component,
+            decay_component,
+            gap_component,
         )
 
         # Step 5: Update the document with the newly calculated values.
@@ -94,6 +97,7 @@ def update_mastery_on_session_completion(session_doc, method=None):
 # HELPER FUNCTIONS (for calculating individual components)
 # ==============================================================================
 
+
 def calculate_gap_component(student, topic):
     """
     Calculates the Gap Component based on the number of unresolved Knowledge Gaps.
@@ -104,9 +108,9 @@ def calculate_gap_component(student, topic):
             "Knowledge Gap",
             {
                 "user": student,
-                "learning_object.topic": topic, # Giả sử LO có trường 'topic'
-                "status": ["!=", "Resolved"]
-            }
+                "learning_object.topic": topic,  # Giả sử LO có trường 'topic'
+                "status": ["!=", "Resolved"],
+            },
         )
 
         if num_gaps == 0:
@@ -128,7 +132,7 @@ def calculate_gap_component(student, topic):
         except OverflowError:
             # Handle cases where the exponent is too large/small
             gap_score = 1.0 if num_gaps > midpoint else 0.0
-            
+
         return gap_score
 
     except Exception:
@@ -171,19 +175,21 @@ def calculate_decay_component(student, topic):
     return max(0, min(1, decay_component))
 
 
-def calculate_normalized_weakness_score(accuracy_component, pacing_component=None, decay_component=None):
+def calculate_normalized_weakness_score(
+    accuracy_component, pacing_component=None, decay_component=None
+):
     """
     Tính toán Weakness Score được chuẩn hóa dựa trên tổng trọng số có sẵn.
 
     Công thức mới:
     Weakness Score = (Tổng điểm yếu có trọng số) / (Tổng trọng số có sẵn)
-    
+
     Args:
         accuracy_component: Điểm yếu về độ chính xác (0-1), luôn có giá trị
         pacing_component: Điểm yếu về tốc độ (0-1), None nếu không có dữ liệu
         decay_component: Điểm yếu về quên lãng (0-1), None nếu không có dữ liệu
         gap_component: Điểm yếu về khoảng cách (0-1), None nếu không có dữ liệu
-    
+
     Bước 1: Tính điểm yếu thô cho từng thành phần (0-1)
     Bước 2: Tính tổng điểm yếu có trọng số
     Bước 3: Tính tổng trọng số có sẵn
@@ -195,33 +201,33 @@ def calculate_normalized_weakness_score(accuracy_component, pacing_component=Non
     pacing_weakness = pacing_component if pacing_component is not None else 0
     decay_weakness = decay_component if decay_component is not None else 0
     gap_weakness = gap_component if gap_component is not None else 0
-    
+
     # Bước 2: Tính tổng điểm yếu có trọng số (chỉ tính các thành phần có dữ liệu)
     weighted_sum = 0
     total_weight = 0
-    
+
     # Bước 3: Tính tổng trọng số có sẵn (chỉ cộng trọng số của thành phần có dữ liệu)
-    
+
     # Accuracy: Luôn có dữ liệu từ test đầu vào
     if accuracy_component is not None:
         weighted_sum += accuracy_weakness * W_ACCURACY
         total_weight += W_ACCURACY
-    
+
     # Pacing: Chỉ có sau khi học sinh hoàn thành ít nhất 1 session
     if pacing_component is not None:
         weighted_sum += pacing_weakness * W_PACING
         total_weight += W_PACING
-    
+
     # Decay: Chỉ có sau khi học sinh có SRS progress
     if decay_component is not None:
         weighted_sum += decay_weakness * W_DECAY
         total_weight += W_DECAY
 
     # Gap: Có sau khi chatbot phát hiện điểm yếu
-    if gap_component is not None: # Thêm khối này
+    if gap_component is not None:  # Thêm khối này
         weighted_sum += gap_weakness * W_GAP
         total_weight += W_GAP
-    
+
     # Bước 4: Chuẩn hóa kết quả
     if total_weight > 0:
         normalized_score = weighted_sum / total_weight
@@ -243,7 +249,18 @@ def initialize_student_mastery_from_profile(profile_doc, method=None):
     This is triggered by a hook on `on_update` of `Student Knowledge Profile`.
     """
     try:
+        if (
+            hasattr(profile_doc, "_skip_mastery_hook")
+            and profile_doc._skip_mastery_hook
+        ):
+            return
+
         student = profile_doc.student
+
+        # Only process if there are topic_mastery records
+        if not hasattr(profile_doc, "topic_mastery") or not profile_doc.topic_mastery:
+            return
+
         for topic_entry in profile_doc.topic_mastery:
             # Make sure you have a field named 'topic' in your child table linking to the Topic DocType
             topic_id = str(topic_entry.topic)
@@ -312,27 +329,29 @@ def update_mastery_on_gap_change(gap_doc, method=None):
     except Exception:
         frappe.log_error(frappe.get_traceback(), "update_mastery_on_gap_change Failed")
 
+
 def recalculate_mastery_for_topic(student, topic):
     """A general function to recalculate mastery for a student-topic pair."""
-    if not frappe.db.exists("Student Topic Mastery", {"student": student, "topic": topic}):
+    if not frappe.db.exists(
+        "Student Topic Mastery", {"student": student, "topic": topic}
+    ):
         return
 
-    mastery_doc = frappe.get_doc("Student Topic Mastery", {"student": student, "topic": topic})
-    
+    mastery_doc = frappe.get_doc(
+        "Student Topic Mastery", {"student": student, "topic": topic}
+    )
+
     # Lấy lại các giá trị component đã có
     # Pacing và Decay không thay đổi khi KG thay đổi, nên đọc lại giá trị cũ
     pacing_component = mastery_doc.pacing_component
     decay_component = mastery_doc.decay_component
-    
+
     # Chỉ tính lại Gap component
     gap_component = calculate_gap_component(student, topic)
 
     # Tính điểm cuối cùng
     final_score = calculate_normalized_weakness_score(
-        mastery_doc.accuracy_component, 
-        pacing_component, 
-        decay_component,
-        gap_component
+        mastery_doc.accuracy_component, pacing_component, decay_component, gap_component
     )
 
     # Cập nhật và lưu
@@ -340,7 +359,10 @@ def recalculate_mastery_for_topic(student, topic):
     mastery_doc.last_updated_on = now()
     mastery_doc.save(ignore_permissions=True)
     frappe.db.commit()
-    frappe.log_info(f"Mastery recalculated on gap change for student {student}, topic {topic}. New score: {final_score}")
+    frappe.log_info(
+        f"Mastery recalculated on gap change for student {student}, topic {topic}. New score: {final_score}"
+    )
+
 
 # ==============================================================================
 # API ENDPOINT (for frontend to fetch data)

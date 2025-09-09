@@ -41,7 +41,6 @@ def check_student_profile_exists():
     if current_user == "Guest":
         return {"exists": False}
     exists = frappe.db.exists("Student Knowledge Profile", {"student": current_user})
-    print("Student profile exists:", exists)
     return {"exists": exists}
 
 
@@ -787,11 +786,7 @@ def _finalize_session_and_get_results(session):
 
         profile.append(
             "topic_mastery",
-            {
-                "topic": t.topic,
-                "mastery_weight": mw,
-                "last_assessed": frappe.utils.today(),
-            },
+            {"topic": t.topic, "mastery_weight": mw},
         )
 
         # === THAY ĐỔI: Lấy topic_name từ DocType Topics ===
@@ -808,6 +803,8 @@ def _finalize_session_and_get_results(session):
             }
         )
 
+    # Set flag to skip the mastery hook during Topic Mastery operations
+    profile._skip_mastery_hook = True
     profile.save(ignore_permissions=True)
     frappe.db.commit()
 

@@ -29,12 +29,12 @@ const SettingsSidebar = ({ isCollapsed }) => {
   };
 
   const menuItems = [
-    { label: "Dashboard", href: "/dashboard", icon: <LayoutDashboard /> },
-    { label: "Learn", href: "/learn", icon: <GraduationCap /> },
-    { label: "My Pathway", href: "/my-pathway", icon: <Compass /> },
-    { label: "Test", href: "/test", icon: <FileText /> },
-    { label: "Report", href: "/report", icon: <PieChart /> },
-    { label: "Analytics", href: "/analysis", icon: <BarChart3 /> },
+    { label: "Trang chủ", href: "/dashboard", icon: <LayoutDashboard /> },
+    { label: "Học tập", href: "/learn", icon: <GraduationCap /> },
+    { label: "Lộ trình", href: "/my-pathway", icon: <Compass /> },
+    { label: "Kiểm tra", href: "/test", icon: <FileText /> },
+    { label: "Báo cáo", href: "/report", icon: <PieChart /> },
+    { label: "Phân tích", href: "/analysis", icon: <BarChart3 /> },
   ];
 
   const settingsItems = [
@@ -58,7 +58,9 @@ const SettingsSidebar = ({ isCollapsed }) => {
                   className={`flex items-center ${
                     isCollapsed ? "justify-center" : "px-4"
                   } py-2.5 rounded-lg transition-all duration-200 ${
-                    router.pathname === item.href
+                    router.pathname === item.href ||
+                    (item.href === "/learn" &&
+                      router.pathname.startsWith("/learn"))
                       ? "bg-indigo-50 text-indigo-600 shadow-sm"
                       : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                   }`}
@@ -66,7 +68,9 @@ const SettingsSidebar = ({ isCollapsed }) => {
                   <span>
                     {React.cloneElement(item.icon, {
                       className: `w-5 h-5 ${
-                        router.pathname === item.href
+                        router.pathname === item.href ||
+                        (item.href === "/learn" &&
+                          router.pathname.startsWith("/learn"))
                           ? "stroke-indigo-600"
                           : "stroke-current"
                       }`,

@@ -26,10 +26,12 @@ export default function PlacementTest() {
     mathLevel: 45,
   });
   const [topicAbilities, setTopicAbilities] = useState([]);
+  const [progress, setProgress] = useState(0);
 
   const handleStartTest = async () => {
     setView("testing");
     setIsLoading(true);
+    setProgress(0);
     try {
       const response = await startPlacementTest();
       if (response.message) {
@@ -70,6 +72,7 @@ export default function PlacementTest() {
         setView("results");
       } else if (message.status === "in_progress") {
         setCurrentQuestion(message.question);
+        setProgress((prev) => prev + 1);
       }
     } catch (err) {
       setError("Đã xảy ra lỗi khi nộp câu trả lời.");
@@ -86,6 +89,7 @@ export default function PlacementTest() {
     setError(null);
     setView("instructions");
     setTopicAbilities([]);
+    setProgress(0);
   };
 
   const handleContinueLearning = () => {
@@ -154,7 +158,23 @@ export default function PlacementTest() {
     if (view === "testing" && currentQuestion) {
       return (
         <div className="flex items-center justify-center min-h-[60vh] w-full">
-          <div className="w-full max-w-3xl flex justify-center">
+          <div className="w-full max-w-3xl flex flex-col justify-center">
+            <div className="mb-4">
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-sm font-medium text-gray-700">
+                  Tiến độ bài kiểm tra
+                </span>
+                <span className="text-sm text-gray-500">
+                  {progress} câu hỏi đã trả lời
+                </span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-2.5">
+                <div
+                  className="bg-blue-600 h-2.5 rounded-full transition-all duration-300"
+                  style={{ width: `${Math.min((progress / 40) * 100, 100)}%` }}
+                ></div>
+              </div>
+            </div>
             <PlacementQuestionCard
               question={currentQuestion}
               onAnswer={handleAnswer}
