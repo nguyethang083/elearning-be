@@ -83,29 +83,12 @@ export default function AnalysisPage() {
   }, []);
 
   useEffect(() => {
-    // Fetch performance trend from backend
-    const fetchTrend = async () => {
-      setTrendLoading(true);
-      setTrendError(null);
-      try {
-        const data = await fetchWithAuth(
-          "test.analysis_processor.get_performance_trend",
-          { method: "GET" }
-        );
-        console.log("Trend data fetched:", data);
-        if (data.message) {
-          setTrendData(data.message);
-        } else {
-          setTrendError("Không lấy được dữ liệu xu hướng");
-        }
-      } catch (err) {
-        setTrendError(err.message);
-      } finally {
-        setTrendLoading(false);
-      }
-    };
-    fetchTrend();
-  }, []);
+    // Use the topic-based performance trend data from studentData
+    if (studentData) {
+      setTrendData(studentData.performanceTrend);
+      setTrendLoading(false);
+    }
+  }, [studentData]);
 
   // --- Helper functions for topic descriptions and mock topics ---
   const getTopicDescription = (topicId) => {

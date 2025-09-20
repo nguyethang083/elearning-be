@@ -111,14 +111,46 @@ export default function TestRow({ test }) {
         </div>
       </TableCell>
 
-      {/* Optional Action Cell (Example) */}
-      {/* <TableCell className="py-4 px-6 text-right">
-                <Link href={testUrl} passHref>
-                    <Button size="sm" variant="outline">
-                        View <Play className="h-3 w-3 ml-1" />
-                    </Button>
-                </Link>
-            </TableCell> */}
+      {/* Status Cell */}
+      <TableCell className="py-4 px-6">
+        {test.latestAttempt ? (
+          (() => {
+            const attempt = test.latestAttempt;
+            const normalizedStatus = attempt.status?.toLowerCase();
+
+            if (normalizedStatus === "in progress") {
+              return (
+                <span className="text-blue-600 font-medium">Đang làm</span>
+              );
+            }
+
+            const totalPossibleScore = test.total_possible_score;
+            const hasEssayQuestion = test.has_essay_question;
+            const canCalculatePercentage =
+              attempt.final_score !== null &&
+              typeof attempt.final_score === "number" &&
+              totalPossibleScore !== null &&
+              totalPossibleScore !== undefined &&
+              typeof totalPossibleScore === "number" &&
+              totalPossibleScore > 0;
+
+            if (canCalculatePercentage) {
+              const scorePercentage =
+                (attempt.final_score / totalPossibleScore) * 100;
+              const scoreOnScale10 = scorePercentage / 10;
+              return (
+                <span className="font-medium text-green-600">
+                  {scoreOnScale10.toFixed(1)}/10
+                </span>
+              );
+            } else {
+              return <span className="text-gray-500">N/A</span>;
+            }
+          })()
+        ) : (
+          <span className="text-gray-500">Chưa làm</span>
+        )}
+      </TableCell>
     </TableRow>
   );
 }

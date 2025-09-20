@@ -38,6 +38,7 @@ export async function fetchWithAuth(path, options = {}) {
     const headers = {
       Accept: "application/json",
       ...(options.headers || {}),
+      "ngrok-skip-browser-warning": "true",
     };
 
     let dataToSend = options.body;
@@ -246,29 +247,67 @@ export async function getKnowledgeConstellation() {
 }
 
 // Create or update topic progress
-export async function createOrUpdateTopicProgress(user, topic) {
+export async function createOrUpdateTopicProgress(topic) {
   return fetchWithAuth(
     "topic_progress.topic_progress.create_or_update_topic_progress",
     {
       method: "POST",
       body: {
-        user: user,
-        topic: topic
-      }
+        topic: topic,
+      },
     }
   );
 }
 
 // Get topic progress
-export async function getTopicProgress(user, topic) {
+export async function getTopicProgress(topic) {
+  return fetchWithAuth("topic_progress.topic_progress.get_topic_progress", {
+    method: "POST",
+    body: {
+      topic: topic,
+    },
+  });
+}
+
+// New API for Knowledge Tree (moved to knowledge_gap.py)
+export async function getKnowledgeTreeForTopic(topicId) {
   return fetchWithAuth(
-    "topic_progress.topic_progress.get_topic_progress",
+    "knowledge_gap.knowledge_gap.get_knowledge_tree_for_topic",
     {
       method: "POST",
-      body: {
-        user: user,
-        topic: topic
-      }
+      body: { topic_id: topicId },
+    }
+  );
+}
+
+export async function getTopicsWithProgress() {
+  return fetchWithAuth("knowledge_gap.knowledge_gap.get_topics_with_progress", {
+    method: "GET",
+  });
+}
+
+// Get practice questions for a specific Learning Object
+export async function getPracticeQuestionsForLO(learningObjectId) {
+  return fetchWithAuth(
+    "lo_question.lo_question.get_practice_questions_for_lo",
+    {
+      method: "GET",
+      params: {
+        learning_object_id: learningObjectId,
+      },
+    }
+  );
+}
+
+export async function submitLOAnswerAndGetFeedback(questionName, userAnswer) {
+  return fetchWithAuth(
+    "lo_question.lo_question.submit_lo_answer_and_get_feedback",
+    {
+      method: "POST",
+      params: {
+        question_name: questionName,
+        user_answer: userAnswer,
+      },
     }
   );
 }

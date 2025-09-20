@@ -409,22 +409,109 @@ export default function SrsMode({ topicId }) {
   if (noExamsMessage) {
     return (
       <div className="w-full max-w-full">
-        <div className="bg-white p-8 rounded-lg shadow-sm mb-8">
-          <h2 className="text-xl font-semibold mb-4">Chưa có thẻ để ôn tập</h2>
-          <p className="text-gray-600 mb-6">
-            Bạn chưa có flashcard nào cần ôn tập. Hãy vào 'Exam Mode' để luyện
-            tập, nhận feedback, và tự đánh giá. Những thẻ bạn cần củng cố sẽ
-            được tự động thêm vào đây để ôn tập nhé!
-          </p>
-          <div className="flex flex-col items-center gap-4">
+        {/* SRS Introduction */}
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-200 mb-6">
+          <div className="flex items-center mb-4">
+            <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+              <svg
+                className="w-6 h-6 text-blue-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                />
+              </svg>
+            </div>
+            <div>
+              <h2 className="text-xl font-bold text-blue-800">
+                Hệ thống Ôn tập Thông minh (SRS)
+              </h2>
+              <p className="text-blue-600 text-sm">
+                Spaced Repetition System - Tối ưu hóa quá trình ghi nhớ
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-lg p-4 mb-4">
+            <h3 className="font-semibold text-gray-800 mb-2">
+              🧠 SRS hoạt động như thế nào?
+            </h3>
+            <div className="grid md:grid-cols-3 gap-4 text-sm">
+              <div className="flex items-start">
+                <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mr-2 mt-0.5">
+                  <span className="text-purple-600 font-bold text-xs">1</span>
+                </div>
+                <div>
+                  <div className="font-medium text-purple-800">Học mới</div>
+                  <div className="text-gray-600">
+                    Thẻ mới xuất hiện thường xuyên để bạn làm quen
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-start">
+                <div className="w-6 h-6 bg-amber-100 rounded-full flex items-center justify-center mr-2 mt-0.5">
+                  <span className="text-amber-600 font-bold text-xs">2</span>
+                </div>
+                <div>
+                  <div className="font-medium text-amber-800">Củng cố</div>
+                  <div className="text-gray-600">
+                    Thẻ khó sẽ xuất hiện nhiều hơn để rèn luyện
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-start">
+                <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-2 mt-0.5">
+                  <span className="text-green-600 font-bold text-xs">3</span>
+                </div>
+                <div>
+                  <div className="font-medium text-green-800">Duy trì</div>
+                  <div className="text-gray-600">
+                    Thẻ đã thuộc xuất hiện ít dần để duy trì
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white p-8 rounded-lg shadow-sm">
+          <div className="text-center">
+            <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg
+                className="w-8 h-8 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                />
+              </svg>
+            </div>
+            <h3 className="text-xl font-semibold mb-2">
+              Chưa có thẻ để ôn tập
+            </h3>
+            <p className="text-gray-600 mb-6 max-w-md mx-auto">
+              Để bắt đầu với SRS, bạn cần hoàn thành một số bài tập trong Exam
+              Mode và tự đánh giá mức độ hiểu. Hệ thống sẽ tự động tạo lịch ôn
+              tập phù hợp cho bạn.
+            </p>
             <button
               onClick={() =>
                 (window.location.href = `/learn/${topicId}?mode=exam`)
               }
-              className="flex items-center px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700"
+              className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-medium"
             >
               <ArrowRightCircle className="w-5 h-5 mr-2" />
-              Chuyển đến Exam Mode
+              Bắt đầu với Exam Mode
             </button>
           </div>
         </div>
@@ -436,24 +523,97 @@ export default function SrsMode({ topicId }) {
   if (noAssessmentsMessage) {
     return (
       <div className="w-full max-w-full">
-        <div className="bg-white p-8 rounded-lg shadow-sm mb-8">
-          <h2 className="text-xl font-semibold mb-4">
-            Chưa đánh giá mức độ hiểu
-          </h2>
-          <p className="text-gray-600 mb-6">
-            Bạn chưa có flashcard nào được đưa vào hệ thống ôn tập SRS. Sau khi
-            trả lời các câu hỏi trong Exam Mode, hãy đánh giá mức độ hiểu của
-            bạn để hệ thống tự động thêm các thẻ vào lịch ôn tập!
-          </p>
-          <div className="flex flex-col items-center gap-4">
+        {/* SRS Introduction */}
+        <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-xl border border-amber-200 mb-6">
+          <div className="flex items-center mb-4">
+            <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mr-4">
+              <svg
+                className="w-6 h-6 text-amber-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                />
+              </svg>
+            </div>
+            <div>
+              <h2 className="text-xl font-bold text-amber-800">
+                Cần đánh giá mức độ hiểu
+              </h2>
+              <p className="text-amber-600 text-sm">
+                Hệ thống cần feedback từ bạn để tối ưu lịch ôn tập
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-lg p-4 mb-4">
+            <h3 className="font-semibold text-gray-800 mb-3">
+              📊 Tại sao cần tự đánh giá?
+            </h3>
+            <div className="space-y-3 text-sm">
+              <div className="flex items-center">
+                <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                <span>
+                  <strong>Cá nhân hóa:</strong> Mỗi người có tốc độ học khác
+                  nhau
+                </span>
+              </div>
+              <div className="flex items-center">
+                <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                <span>
+                  <strong>Hiệu quả:</strong> Thẻ khó sẽ xuất hiện nhiều hơn, thẻ
+                  dễ ít hơn
+                </span>
+              </div>
+              <div className="flex items-center">
+                <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                <span>
+                  <strong>Tiết kiệm thời gian:</strong> Chỉ ôn tập những gì thực
+                  sự cần thiết
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white p-8 rounded-lg shadow-sm">
+          <div className="text-center">
+            <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg
+                className="w-8 h-8 text-amber-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.732 14.5c-.77.833.192 2.5 1.732 2.5z"
+                />
+              </svg>
+            </div>
+            <h3 className="text-xl font-semibold mb-2">
+              Chưa đánh giá mức độ hiểu
+            </h3>
+            <p className="text-gray-600 mb-6 max-w-md mx-auto">
+              Sau khi trả lời câu hỏi trong Exam Mode, hãy đánh giá mức độ hiểu
+              của bạn (Quên/Khó/Nhớ) để hệ thống SRS có thể tạo lịch ôn tập tối
+              ưu.
+            </p>
             <button
               onClick={() =>
                 (window.location.href = `/learn/${topicId}?mode=exam`)
               }
-              className="flex items-center px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700"
+              className="inline-flex items-center px-6 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors font-medium"
             >
               <ArrowRightCircle className="w-5 h-5 mr-2" />
-              Chuyển đến Exam Mode
+              Tiếp tục với Exam Mode
             </button>
           </div>
         </div>
@@ -492,120 +652,210 @@ export default function SrsMode({ topicId }) {
 
     return (
       <div className="w-full max-w-full">
-        <div className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4">Round Complete</h2>
-          <p className="text-gray-600 mb-8">
-            Great job! Keep studying to reach 100%
-          </p>
-
-          {/* Progress Donut */}
-          <div className="relative w-48 h-48 mx-auto mb-6">
-            <svg className="w-full h-full" viewBox="0 0 100 100">
-              {/* Background circle */}
-              <circle
-                cx="50"
-                cy="50"
-                r="45"
+        {/* Round Completion Header */}
+        <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-xl border border-green-200 mb-6">
+          <div className="flex items-center mb-4">
+            <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+              <svg
+                className="w-6 h-6 text-green-600"
                 fill="none"
-                stroke="#e0e0fe"
-                strokeWidth="10"
-              />
-
-              {/* Progress arc */}
-              <circle
-                cx="50"
-                cy="50"
-                r="45"
-                fill="none"
-                stroke="#6366f1"
-                strokeWidth="10"
-                strokeDasharray={`${correctPercent * 2.83} ${
-                  283 - correctPercent * 2.83
-                }`}
-                strokeDashoffset="70.75"
-                transform="rotate(-90 50 50)"
-              />
-
-              {/* Percentage text */}
-              <text
-                x="50"
-                y="55"
-                textAnchor="middle"
-                fontSize="20"
-                fontWeight="bold"
-                fill="#4f46e5"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                {correctPercent}%
-              </text>
-              <text
-                x="50"
-                y="70"
-                textAnchor="middle"
-                fontSize="12"
-                fill="#6b7280"
-              >
-                Know
-              </text>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <div>
+              <h2 className="text-xl font-bold text-green-800">
+                Hoàn thành phiên ôn tập!
+              </h2>
+              <p className="text-green-600 text-sm">
+                Bạn đã ôn tập xong {totalReviewed} thẻ trong phiên này
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Session Results */}
+        <div className="bg-white rounded-xl shadow-sm p-6 mb-6">
+          <h3 className="text-lg font-semibold mb-4 flex items-center">
+            <svg
+              className="w-5 h-5 mr-2 text-blue-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+              />
             </svg>
-          </div>
+            Kết quả phiên ôn tập
+          </h3>
 
-          {/* Statistics */}
-          <div className="grid grid-cols-4 gap-4 mb-8 max-w-lg mx-auto">
-            <div className="bg-purple-100 p-3 rounded-lg">
-              <span className="inline-block px-2 py-1 bg-purple-200 rounded text-xs font-medium mb-1">
-                Mới
-              </span>
-              <p className="text-xl font-bold text-purple-800">
-                {remainingNewCards}
-              </p>
-              <p className="text-xs text-purple-600">thẻ còn lại để học</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+            <div className="text-center p-4 bg-gray-50 rounded-lg">
+              <div className="text-2xl font-bold text-gray-700">
+                {totalReviewed}
+              </div>
+              <div className="text-sm text-gray-600">Tổng thẻ ôn</div>
             </div>
-
-            <div className="bg-amber-100 p-3 rounded-lg">
-              <span className="inline-block px-2 py-1 bg-amber-200 rounded text-xs font-medium mb-1">
-                Không biết
-              </span>
-              <p className="text-xl font-bold text-amber-800">{wrongAnswers}</p>
-              <p className="text-xs text-amber-600">thẻ còn lại để học lại</p>
-            </div>
-
-            <div className="bg-green-100 p-3 rounded-lg">
-              <span className="inline-block px-2 py-1 bg-green-200 rounded text-xs font-medium mb-1">
-                Đã học
-              </span>
-              <p className="text-xl font-bold text-green-800">
+            <div className="text-center p-4 bg-green-50 rounded-lg">
+              <div className="text-2xl font-bold text-green-600">
                 {correctAnswers}
-              </p>
-              <p className="text-xs text-green-600">thẻ đã học đúng</p>
+              </div>
+              <div className="text-sm text-green-600">Nhớ rõ</div>
             </div>
-
-            <div className="bg-red-100 p-3 rounded-lg">
-              <span className="inline-block px-2 py-1 bg-red-200 rounded text-xs font-medium mb-1">
-                Khó
-              </span>
-              <p className="text-xl font-bold text-red-800">{hardAnswers}</p>
-              <p className="text-xs text-red-600">thẻ được đánh dấu là khó</p>
+            <div className="text-center p-4 bg-amber-50 rounded-lg">
+              <div className="text-2xl font-bold text-amber-600">
+                {hardAnswers}
+              </div>
+              <div className="text-sm text-amber-600">Khó nhớ</div>
+            </div>
+            <div className="text-center p-4 bg-red-50 rounded-lg">
+              <div className="text-2xl font-bold text-red-600">
+                {wrongAnswers}
+              </div>
+              <div className="text-sm text-red-600">Chưa nhớ</div>
             </div>
           </div>
 
-          {/* Only show Start Next Round if there are any wrong answers */}
-          {showStartNextRound ? (
-            <div className="flex justify-center">
+          {/* Performance indicator */}
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg mb-4">
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-medium text-gray-700">
+                Tỷ lệ nhớ rõ:
+              </span>
+              <span className="text-lg font-bold text-indigo-600">
+                {correctPercent}%
+              </span>
+            </div>
+            <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
+              <div
+                className="bg-gradient-to-r from-indigo-400 to-blue-500 h-2 rounded-full transition-all duration-500"
+                style={{ width: `${correctPercent}%` }}
+              ></div>
+            </div>
+          </div>
+
+          {/* Next steps guidance */}
+          <div className="border-t pt-4">
+            <h4 className="font-medium text-gray-800 mb-2">
+              🎯 Bước tiếp theo:
+            </h4>
+            {showStartNextRound ? (
+              <div className="bg-amber-50 p-3 rounded-lg mb-3">
+                <p className="text-amber-800 text-sm">
+                  Bạn có {wrongAnswers} thẻ cần ôn lại. Hệ thống khuyến nghị bạn
+                  làm thêm một phiên nữa để củng cố kiến thức.
+                </p>
+              </div>
+            ) : (
+              <div className="bg-green-50 p-3 rounded-lg mb-3">
+                <p className="text-green-800 text-sm">
+                  Tuyệt vời! Bạn đã nắm vững các thẻ trong phiên này. Hãy quay
+                  lại vào lúc khác để ôn tập theo lịch SRS.
+                </p>
+              </div>
+            )}
+          </div>
+
+          {/* Action buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 mt-4">
+            {showStartNextRound && (
               <button
                 onClick={startNewRound}
-                className="px-6 py-3 bg-indigo-600 text-white rounded-md font-medium hover:bg-indigo-700 transition-colors"
+                className="flex-1 bg-gradient-to-r from-indigo-500 to-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:from-indigo-600 hover:to-blue-700 transition-all duration-200 flex items-center justify-center"
               >
-                Bắt đầu vòng tiếp theo
+                <svg
+                  className="w-5 h-5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                  />
+                </svg>
+                Ôn lại thẻ khó
               </button>
+            )}
+            <button
+              onClick={() => (window.location.href = `/learn/${topicId}`)}
+              className="flex-1 bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors flex items-center justify-center"
+            >
+              <svg
+                className="w-5 h-5 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"
+                />
+              </svg>
+              Quay lại trang chủ
+            </button>
+          </div>
+        </div>
+
+        {/* SRS Stats for reference */}
+        <div className="bg-white rounded-lg p-4 shadow-sm">
+          <h3 className="text-sm font-medium text-gray-700 mb-3 flex items-center">
+            <svg
+              className="w-4 h-4 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+              />
+            </svg>
+            Tổng quan thẻ học
+          </h3>
+          <div className="grid grid-cols-4 gap-2 text-center">
+            <div className="bg-purple-50 p-2 rounded">
+              <div className="text-lg font-semibold text-purple-700">
+                {srsStats.new || 0}
+              </div>
+              <div className="text-xs text-purple-600">Mới</div>
             </div>
-          ) : (
-            <div className="flex justify-center">
-              <p className="text-green-700 font-medium">
-                Tất cả thẻ đã hoàn thành! Kiểm tra lại sau để có thêm thẻ để ôn
-                tập.
-              </p>
+            <div className="bg-amber-50 p-2 rounded">
+              <div className="text-lg font-semibold text-amber-700">
+                {srsStats.learning || 0}
+              </div>
+              <div className="text-xs text-amber-600">Đang học</div>
             </div>
-          )}
+            <div className="bg-green-50 p-2 rounded">
+              <div className="text-lg font-semibold text-green-700">
+                {srsStats.review || 0}
+              </div>
+              <div className="text-xs text-green-600">Ôn tập</div>
+            </div>
+            <div className="bg-red-50 p-2 rounded">
+              <div className="text-lg font-semibold text-red-700">
+                {srsStats.lapsed || 0}
+              </div>
+              <div className="text-xs text-red-600">Cần ôn</div>
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -615,12 +865,112 @@ export default function SrsMode({ topicId }) {
   if (cards.length === 0) {
     return (
       <div className="w-full max-w-full">
-        <div className="bg-white p-8 rounded-lg shadow-sm mb-8">
-          <h2 className="text-xl font-semibold mb-4">Không có thẻ để ôn tập</h2>
-          <p className="text-gray-600 mb-6">
-            Bạn đã hoàn thành tất cả các ôn tập của bạn. Kiểm tra lại sau để có
-            thêm thẻ để ôn tập.
-          </p>
+        {/* SRS Introduction */}
+        <div className="bg-gradient-to-r from-gray-50 to-slate-50 p-6 rounded-xl border border-gray-200 mb-6">
+          <div className="flex items-center mb-4">
+            <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mr-4">
+              <svg
+                className="w-6 h-6 text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"
+                />
+              </svg>
+            </div>
+            <div>
+              <h2 className="text-xl font-bold text-gray-800">
+                Chưa có thẻ cần ôn tập
+              </h2>
+              <p className="text-gray-600 text-sm">
+                Tất cả thẻ đã được ôn tập theo lịch trình
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-lg p-4">
+            <h3 className="font-semibold text-gray-800 mb-3">✨ Tuyệt vời!</h3>
+            <p className="text-gray-600 text-sm mb-3">
+              Bạn đã hoàn thành tất cả các thẻ cần ôn tập hôm nay. Hệ thống SRS
+              sẽ tự động lên lịch cho những thẻ cần ôn tập tiếp theo.
+            </p>
+            <div className="text-xs text-gray-500">
+              💡 Tip: Quay lại vào ngày mai để tiếp tục với lịch ôn tập được tối
+              ưu hóa!
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white p-8 rounded-lg shadow-sm">
+          <div className="text-center">
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg
+                className="w-8 h-8 text-green-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <h3 className="text-xl font-semibold mb-2">Hoàn thành xuất sắc!</h3>
+            <p className="text-gray-600 mb-6 max-w-md mx-auto">
+              Bạn đã ôn tập xong tất cả thẻ cần thiết. Hãy tiếp tục học thêm
+              trong Exam Mode hoặc quay lại khi có thẻ mới cần ôn tập.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <button
+                onClick={() =>
+                  (window.location.href = `/learn/${topicId}?mode=exam`)
+                }
+                className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-medium"
+              >
+                <svg
+                  className="w-5 h-5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                  />
+                </svg>
+                Tiếp tục học mới
+              </button>
+              <button
+                onClick={() => (window.location.href = `/learn/${topicId}`)}
+                className="inline-flex items-center px-6 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors font-medium"
+              >
+                <svg
+                  className="w-5 h-5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"
+                  />
+                </svg>
+                Quay lại trang chủ
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -629,6 +979,89 @@ export default function SrsMode({ topicId }) {
   // Regular SRS mode view with card
   return (
     <div className="w-full max-w-full">
+      {/* SRS Mode Header with explanation */}
+      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-200 mb-6">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center">
+            <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+              <svg
+                className="w-5 h-5 text-blue-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                />
+              </svg>
+            </div>
+            <div>
+              <h1 className="text-lg font-bold text-blue-800">
+                Chế độ Ôn tập Thông minh (SRS)
+              </h1>
+              <p className="text-blue-600 text-sm">
+                Thẻ {currentCardIndex + 1}/{cards.length} - Ôn tập theo lịch
+                trình tối ưu
+              </p>
+            </div>
+          </div>
+
+          {/* Quick guide toggle */}
+          <button
+            className="text-blue-600 hover:text-blue-700 text-xs font-medium px-3 py-1 bg-white rounded-full border border-blue-200 hover:bg-blue-50 transition-colors"
+            onClick={() => {
+              const guide = document.getElementById("srs-guide");
+              guide.classList.toggle("hidden");
+            }}
+          >
+            <svg
+              className="w-3 h-3 inline mr-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            Hướng dẫn
+          </button>
+        </div>
+
+        {/* Collapsible guide */}
+        <div id="srs-guide" className="hidden bg-white rounded-lg p-4 text-sm">
+          <div className="grid md:grid-cols-2 gap-4">
+            <div>
+              <h4 className="font-semibold text-gray-800 mb-2">
+                🎯 Cách sử dụng:
+              </h4>
+              <ol className="space-y-1 text-gray-600">
+                <li>1. Đọc câu hỏi và suy nghĩ về câu trả lời</li>
+                <li>2. Nhập câu trả lời của bạn</li>
+                <li>3. So sánh với lời giải và đánh giá thật lòng</li>
+                <li>4. Chọn mức độ hiểu: Quên/Khó/Nhớ</li>
+              </ol>
+            </div>
+            <div>
+              <h4 className="font-semibold text-gray-800 mb-2">
+                🤖 Hệ thống sẽ:
+              </h4>
+              <ul className="space-y-1 text-gray-600">
+                <li>• Thẻ "Quên" → Xuất hiện lại sớm</li>
+                <li>• Thẻ "Khó" → Xuất hiện với tần suất vừa</li>
+                <li>• Thẻ "Nhớ" → Xuất hiện ít dần theo thời gian</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Current card */}
       <div className="bg-white rounded-xl shadow-md overflow-hidden mb-6">
         <div className="p-8">
@@ -894,60 +1327,125 @@ export default function SrsMode({ topicId }) {
                   )}
                 </div>
 
-                {/* Action buttons */}
-                <div className="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
-                  <button
-                    onClick={resetCurrentCard}
-                    className="flex items-center px-5 py-3 bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 rounded-xl font-medium hover:from-amber-200 hover:to-orange-200 transition-all duration-200 shadow-sm hover:shadow-md"
-                  >
-                    <RefreshCw className="w-5 h-5 mr-2" />
-                    Làm lại
-                  </button>
-
-                  <div className="flex space-x-3">
-                    <button
-                      onClick={() =>
-                        handleProcessRating(currentCard?.name, "wrong")
-                      }
-                      disabled={isProcessingRating}
-                      className="flex items-center px-5 py-3 bg-gradient-to-r from-red-100 to-pink-100 text-red-800 rounded-xl font-medium hover:from-red-200 hover:to-pink-200 disabled:opacity-50 transition-all duration-200 shadow-sm hover:shadow-md"
-                    >
-                      <XCircle className="w-5 h-5 mr-2" />
-                      Quên
-                    </button>
-                    <button
-                      onClick={() =>
-                        handleProcessRating(currentCard?.name, "hard")
-                      }
-                      disabled={isProcessingRating}
-                      className="flex items-center px-5 py-3 bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-800 rounded-xl font-medium hover:from-amber-200 hover:to-yellow-200 disabled:opacity-50 transition-all duration-200 shadow-sm hover:shadow-md"
-                    >
+                {/* Enhanced Action buttons with explanations */}
+                <div className="mt-8 pt-6 border-t border-gray-200">
+                  {/* Rating explanation */}
+                  <div className="bg-blue-50 p-4 rounded-lg mb-4 border border-blue-200">
+                    <h4 className="text-sm font-semibold text-blue-800 mb-2 flex items-center">
                       <svg
-                        className="w-5 h-5 mr-2"
+                        className="w-4 h-4 mr-2"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
                           strokeWidth={2}
-                          d="M13 10V3L4 14h7v7l9-11h-7z"
+                          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                         />
                       </svg>
-                      Khó
-                    </button>
+                      Đánh giá mức độ hiểu của bạn:
+                    </h4>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+                      <div className="flex items-center">
+                        <div className="w-3 h-3 bg-red-400 rounded-full mr-2"></div>
+                        <span>
+                          <strong>Quên:</strong> Sẽ xuất hiện lại sớm (1-10
+                          phút)
+                        </span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-3 h-3 bg-amber-400 rounded-full mr-2"></div>
+                        <span>
+                          <strong>Khó:</strong> Xuất hiện sau 1-3 ngày
+                        </span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-3 h-3 bg-green-400 rounded-full mr-2"></div>
+                        <span>
+                          <strong>Nhớ:</strong> Xuất hiện sau 4+ ngày
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
                     <button
-                      onClick={() =>
-                        handleProcessRating(currentCard?.name, "correct")
-                      }
-                      disabled={isProcessingRating}
-                      className="flex items-center px-5 py-3 bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 rounded-xl font-medium hover:from-green-200 hover:to-emerald-200 disabled:opacity-50 transition-all duration-200 shadow-sm hover:shadow-md"
+                      onClick={resetCurrentCard}
+                      className="flex items-center px-4 py-2 bg-gradient-to-r from-gray-100 to-gray-200 text-gray-700 rounded-lg font-medium hover:from-gray-200 hover:to-gray-300 transition-all duration-200 shadow-sm hover:shadow-md"
                     >
-                      <CheckCircle className="w-5 h-5 mr-2" />
-                      Nhớ
+                      <RefreshCw className="w-4 h-4 mr-2" />
+                      Làm lại
                     </button>
+
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      <button
+                        onClick={() =>
+                          handleProcessRating(currentCard?.name, "wrong")
+                        }
+                        disabled={isProcessingRating}
+                        className="group relative flex items-center justify-center px-6 py-3 bg-gradient-to-r from-red-100 to-red-200 text-red-800 rounded-xl font-medium hover:from-red-200 hover:to-red-300 disabled:opacity-50 transition-all duration-200 shadow-sm hover:shadow-md min-w-[120px]"
+                      >
+                        <XCircle className="w-5 h-5 mr-2" />
+                        <div className="text-center">
+                          <div className="font-semibold">Quên</div>
+                          <div className="text-xs opacity-75">1-10 phút</div>
+                        </div>
+                        {/* Tooltip */}
+                        <div className="absolute bottom-full mb-2 hidden group-hover:block bg-gray-800 text-white text-xs rounded py-1 px-2 whitespace-nowrap">
+                          Tôi hoàn toàn không nhớ
+                        </div>
+                      </button>
+
+                      <button
+                        onClick={() =>
+                          handleProcessRating(currentCard?.name, "hard")
+                        }
+                        disabled={isProcessingRating}
+                        className="group relative flex items-center justify-center px-6 py-3 bg-gradient-to-r from-amber-100 to-amber-200 text-amber-800 rounded-xl font-medium hover:from-amber-200 hover:to-amber-300 disabled:opacity-50 transition-all duration-200 shadow-sm hover:shadow-md min-w-[120px]"
+                      >
+                        <svg
+                          className="w-5 h-5 mr-2"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M13 10V3L4 14h7v7l9-11h-7z"
+                          />
+                        </svg>
+                        <div className="text-center">
+                          <div className="font-semibold">Khó</div>
+                          <div className="text-xs opacity-75">1-3 ngày</div>
+                        </div>
+                        {/* Tooltip */}
+                        <div className="absolute bottom-full mb-2 hidden group-hover:block bg-gray-800 text-white text-xs rounded py-1 px-2 whitespace-nowrap">
+                          Khó nhớ, cần xem lại
+                        </div>
+                      </button>
+
+                      <button
+                        onClick={() =>
+                          handleProcessRating(currentCard?.name, "correct")
+                        }
+                        disabled={isProcessingRating}
+                        className="group relative flex items-center justify-center px-6 py-3 bg-gradient-to-r from-green-100 to-green-200 text-green-800 rounded-xl font-medium hover:from-green-200 hover:to-green-300 disabled:opacity-50 transition-all duration-200 shadow-sm hover:shadow-md min-w-[120px]"
+                      >
+                        <CheckCircle className="w-5 h-5 mr-2" />
+                        <div className="text-center">
+                          <div className="font-semibold">Nhớ</div>
+                          <div className="text-xs opacity-75">4+ ngày</div>
+                        </div>
+                        {/* Tooltip */}
+                        <div className="absolute bottom-full mb-2 hidden group-hover:block bg-gray-800 text-white text-xs rounded py-1 px-2 whitespace-nowrap">
+                          Tôi nhớ rất rõ
+                        </div>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1036,99 +1534,409 @@ export default function SrsMode({ topicId }) {
         </div>
       </div>
 
-      {/* Review Stats */}
-      <div className="bg-white rounded-lg p-4 shadow-sm mb-6">
-        <div className="flex justify-between items-center">
-          <h3 className="text-sm font-medium text-gray-700">Ôn tập hiện tại</h3>
-        </div>
-        <div className="grid grid-cols-4 gap-2 text-center mt-2">
-          <div className="bg-purple-50 p-2 rounded">
-            <div className="text-lg font-semibold text-purple-700">
-              {srsStats.current_review?.new || 0}
-            </div>
-            <div className="text-xs text-purple-600">Mới</div>
-          </div>
-          <div className="bg-amber-50 p-2 rounded">
-            <div className="text-lg font-semibold text-amber-700">
-              {(srsStats.current_review?.learning || 0) +
-                (srsStats.current_review?.lapsed || 0)}
-            </div>
-            <div className="text-xs text-amber-600">Đang học</div>
-          </div>
-          <div className="bg-green-50 p-2 rounded">
-            <div className="text-lg font-semibold text-green-700">
-              {srsStats.current_review?.review || 0}
-            </div>
-            <div className="text-xs text-green-600">Ôn tập</div>
-          </div>
-          <div className="bg-blue-50 p-2 rounded">
-            <div className="text-lg font-semibold text-blue-700">
-              {srsStats.due || 0}
-            </div>
-            <div className="text-xs text-blue-600">Tổng số</div>
+      {/* Unified Learning Progress Dashboard */}
+      <div className="bg-white rounded-lg p-6 shadow-sm mb-6">
+        <div className="flex items-center justify-between mb-6">
+          <h3 className="text-lg font-semibold text-gray-800 flex items-center">
+            <svg
+              className="w-5 h-5 mr-2 text-indigo-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2-2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+              />
+            </svg>
+            Bảng điều khiển học tập
+          </h3>
+          <div className="text-xs text-gray-500 bg-gray-50 px-3 py-1 rounded-full">
+            Cập nhật theo thời gian thực
           </div>
         </div>
 
-        {/* Overall Stats */}
-        <div className="mt-4 pt-4 border-t border-gray-200">
-          <h4 className="text-sm font-medium text-gray-700 mb-2">
-            Thống kê tổng
-          </h4>
-          <div className="grid grid-cols-4 gap-2 text-center">
-            <div className="bg-purple-50 p-2 rounded">
-              <div className="text-lg font-semibold text-purple-700">
-                {srsStats.new || 0}
-              </div>
-              <div className="text-xs text-purple-600">Mới</div>
-            </div>
-            <div className="bg-amber-50 p-2 rounded">
-              <div className="text-lg font-semibold text-amber-700">
-                {srsStats.learning || 0}
-              </div>
-              <div className="text-xs text-amber-600">Đang học</div>
-            </div>
-            <div className="bg-green-50 p-2 rounded">
-              <div className="text-lg font-semibold text-green-700">
-                {srsStats.review || 0}
-              </div>
-              <div className="text-xs text-green-600">Ôn tập</div>
-            </div>
-            <div className="bg-red-50 p-2 rounded">
-              <div className="text-lg font-semibold text-red-700">
-                {srsStats.lapsed || 0}
-              </div>
-              <div className="text-xs text-red-600">Đã học</div>
-            </div>
-          </div>
-        </div>
-
-        {/* Upcoming Reviews */}
-        {srsStats && (
-          <div className="mt-4 pt-4 border-t border-gray-200">
-            <h4 className="text-sm font-medium text-gray-700 mb-2">
-              Thẻ sắp đến hạn ôn tập
+        {/* Current Session Progress */}
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-5 mb-6 border border-blue-200">
+          <div className="flex items-center justify-between mb-4">
+            <h4 className="font-semibold text-blue-800 flex items-center">
+              <svg
+                className="w-4 h-4 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
+              </svg>
+              Phiên ôn tập hiện tại
             </h4>
-            {srsStats.upcoming && srsStats.upcoming > 0 ? (
-              <div className="flex items-center justify-between bg-amber-50 p-3 rounded">
-                <div>
-                  <span className="text-amber-800 font-medium">
-                    {srsStats.upcoming}
-                  </span>
-                  <span className="text-amber-700 text-sm ml-1">
-                    thẻ sắp đến hạn ôn tập
-                  </span>
+            <div className="text-blue-700 font-medium">
+              {Object.keys(reviewedCards).length}/{cards.length} thẻ đã ôn
+            </div>
+          </div>
+
+          {/* Session progress bar */}
+          <div className="w-full bg-blue-200 rounded-full h-3 mb-4">
+            <div
+              className="bg-gradient-to-r from-blue-500 to-indigo-600 h-3 rounded-full transition-all duration-500 flex items-center justify-end pr-2"
+              style={{
+                width: `${Math.max(
+                  8,
+                  (Object.keys(reviewedCards).length / cards.length) * 100
+                )}%`,
+              }}
+            >
+              {Object.keys(reviewedCards).length > 0 && (
+                <span className="text-xs text-white font-bold">
+                  {Math.round(
+                    (Object.keys(reviewedCards).length / cards.length) * 100
+                  )}
+                  %
+                </span>
+              )}
+            </div>
+          </div>
+
+          {/* Session performance breakdown */}
+          {Object.keys(reviewedCards).length > 0 ? (
+            <div className="grid grid-cols-3 gap-4 text-center">
+              <div className="bg-white bg-opacity-60 rounded-lg p-3">
+                <div className="text-green-700 text-xl font-bold">
+                  {
+                    Object.values(reviewedCards).filter((r) => r === "correct")
+                      .length
+                  }
                 </div>
-                <div className="text-xs text-amber-600">Trong 2 ngày tới</div>
+                <div className="text-green-600 text-xs font-medium">
+                  ✅ Nhớ rõ
+                </div>
               </div>
-            ) : (
-              <div className="flex items-center justify-center bg-gray-50 p-3 rounded">
-                <span className="text-gray-600 text-sm">
-                  Không có thẻ nào sắp đến hạn ôn tập
+              <div className="bg-white bg-opacity-60 rounded-lg p-3">
+                <div className="text-amber-700 text-xl font-bold">
+                  {
+                    Object.values(reviewedCards).filter((r) => r === "hard")
+                      .length
+                  }
+                </div>
+                <div className="text-amber-600 text-xs font-medium">
+                  ⚡ Hơi khó
+                </div>
+              </div>
+              <div className="bg-white bg-opacity-60 rounded-lg p-3">
+                <div className="text-red-700 text-xl font-bold">
+                  {
+                    Object.values(reviewedCards).filter((r) => r === "wrong")
+                      .length
+                  }
+                </div>
+                <div className="text-red-600 text-xs font-medium">
+                  🔄 Cần ôn lại
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="text-center text-blue-700 py-4">
+              <svg
+                className="w-8 h-8 mx-auto mb-2 opacity-60"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                />
+              </svg>
+              <p className="text-sm">Bắt đầu ôn tập để xem thống kê</p>
+            </div>
+          )}
+        </div>
+
+        {/* Learning Collection Overview */}
+        <div className="border-t pt-5">
+          <h4 className="font-semibold text-gray-800 mb-4 flex items-center">
+            <svg
+              className="w-4 h-4 mr-2 text-gray-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+              />
+            </svg>
+            Bộ sưu tập học tập của bạn
+          </h4>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-5">
+            {/* New Cards */}
+            <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg border border-purple-200 hover:shadow-md transition-shadow">
+              <div className="flex items-center justify-between mb-3">
+                <div className="w-10 h-10 bg-purple-200 rounded-full flex items-center justify-center">
+                  <svg
+                    className="w-5 h-5 text-purple-700"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                    />
+                  </svg>
+                </div>
+                <span className="text-xs bg-purple-200 text-purple-700 px-2 py-1 rounded-full">
+                  MỚI
                 </span>
               </div>
-            )}
+              <div className="text-2xl font-bold text-purple-700 mb-1">
+                {srsStats.new || 0}
+              </div>
+              <div className="text-purple-600 text-sm mb-2 font-medium">
+                Thẻ mới học
+              </div>
+              <div className="text-purple-500 text-xs">
+                Lần đầu gặp, cần làm quen
+              </div>
+            </div>
+
+            {/* Learning Cards */}
+            <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-4 rounded-lg border border-amber-200 hover:shadow-md transition-shadow">
+              <div className="flex items-center justify-between mb-3">
+                <div className="w-10 h-10 bg-amber-200 rounded-full flex items-center justify-center">
+                  <svg
+                    className="w-5 h-5 text-amber-700"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    />
+                  </svg>
+                </div>
+                <span className="text-xs bg-amber-200 text-amber-700 px-2 py-1 rounded-full">
+                  HỌC
+                </span>
+              </div>
+              <div className="text-2xl font-bold text-amber-700 mb-1">
+                {(srsStats.learning || 0) + (srsStats.lapsed || 0)}
+              </div>
+              <div className="text-amber-600 text-sm mb-2 font-medium">
+                Đang rèn luyện
+              </div>
+              <div className="text-amber-500 text-xs">
+                Cần lặp lại để ghi nhớ
+              </div>
+            </div>
+
+            {/* Review Cards */}
+            <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg border border-green-200 hover:shadow-md transition-shadow">
+              <div className="flex items-center justify-between mb-3">
+                <div className="w-10 h-10 bg-green-200 rounded-full flex items-center justify-center">
+                  <svg
+                    className="w-5 h-5 text-green-700"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
+                <span className="text-xs bg-green-200 text-green-700 px-2 py-1 rounded-full">
+                  ỔN
+                </span>
+              </div>
+              <div className="text-2xl font-bold text-green-700 mb-1">
+                {srsStats.review || 0}
+              </div>
+              <div className="text-green-600 text-sm mb-2 font-medium">
+                Duy trì kiến thức
+              </div>
+              <div className="text-green-500 text-xs">
+                Ôn tập định kỳ để nhớ lâu
+              </div>
+            </div>
+
+            {/* Today's Target */}
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border border-blue-200 hover:shadow-md transition-shadow">
+              <div className="flex items-center justify-between mb-3">
+                <div className="w-10 h-10 bg-blue-200 rounded-full flex items-center justify-center">
+                  <svg
+                    className="w-5 h-5 text-blue-700"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
+                <span className="text-xs bg-blue-200 text-blue-700 px-2 py-1 rounded-full">
+                  HÔM NAY
+                </span>
+              </div>
+              <div className="text-2xl font-bold text-blue-700 mb-1">
+                {srsStats.due || 0}
+              </div>
+              <div className="text-blue-600 text-sm mb-2 font-medium">
+                Cần ôn hôm nay
+              </div>
+              <div className="text-blue-500 text-xs">
+                Thẻ đã đến lịch ôn tập
+              </div>
+            </div>
           </div>
-        )}
+
+          {/* Smart recommendations */}
+          <div className="bg-gray-50 rounded-lg p-4">
+            <div className="flex items-center mb-3">
+              <svg
+                className="w-4 h-4 text-indigo-600 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                />
+              </svg>
+              <span className="font-medium text-gray-800">
+                🤖 Gợi ý thông minh
+              </span>
+            </div>
+
+            {(() => {
+              const totalCards =
+                (srsStats.new || 0) +
+                (srsStats.learning || 0) +
+                (srsStats.review || 0) +
+                (srsStats.lapsed || 0);
+              const dueCards = srsStats.due || 0;
+              const reviewedToday = Object.keys(reviewedCards).length;
+
+              if (dueCards === 0) {
+                return (
+                  <div className="flex items-center text-green-700 bg-green-50 p-3 rounded border border-green-200">
+                    <svg
+                      className="w-5 h-5 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    <span className="text-sm font-medium">
+                      Tuyệt vời! Bạn đã hoàn thành xong mục tiêu học tập hôm
+                      nay.
+                    </span>
+                  </div>
+                );
+              } else if (reviewedToday === 0) {
+                return (
+                  <div className="flex items-center text-blue-700 bg-blue-50 p-3 rounded border border-blue-200">
+                    <svg
+                      className="w-5 h-5 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      />
+                    </svg>
+                    <span className="text-sm font-medium">
+                      Hôm nay bạn có {dueCards} thẻ cần ôn tập. Hãy bắt đầu
+                      ngay!
+                    </span>
+                  </div>
+                );
+              } else if (reviewedToday < dueCards) {
+                const remaining = dueCards - reviewedToday;
+                return (
+                  <div className="flex items-center text-amber-700 bg-amber-50 p-3 rounded border border-amber-200">
+                    <svg
+                      className="w-5 h-5 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    <span className="text-sm font-medium">
+                      Tốt lắm! Bạn còn {remaining} thẻ nữa để hoàn thành mục
+                      tiêu hôm nay.
+                    </span>
+                  </div>
+                );
+              } else {
+                return (
+                  <div className="flex items-center text-purple-700 bg-purple-50 p-3 rounded border border-purple-200">
+                    <svg
+                      className="w-5 h-5 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                      />
+                    </svg>
+                    <span className="text-sm font-medium">
+                      Xuất sắc! Bạn đã vượt qua mục tiêu. Có thể học thêm hoặc
+                      nghỉ ngơi.
+                    </span>
+                  </div>
+                );
+              }
+            })()}
+          </div>
+        </div>
       </div>
 
       {/* Completion Modal */}

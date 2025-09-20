@@ -1,7 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
+import LearningObjectView from "./LearningObjectView";
+import { getTopicsWithProgress, getKnowledgeTreeForTopic } from "../../pages/api/helper";
 
-const KnowledgeConstellation = ({ data, onTopicClick, compact = false }) => {
+const KnowledgeConstellation = ({ 
+  data, 
+  onTopicClick, 
+  compact = false,
+  learningObjects = [], // Learning Objects data for selected topic
+  knowledgeGaps = [], // Knowledge Gaps data
+  onLearningObjectAction // Callback for LO actions (practice, video, chat)
+}) => {
   const svgRef = useRef(null);
   const tooltipRef = useRef(null);
   const containerRef = useRef(null);
@@ -10,6 +19,18 @@ const KnowledgeConstellation = ({ data, onTopicClick, compact = false }) => {
     height: compact ? 192 : 600, // 192px = h-48 in Tailwind
   });
   const simulation = useRef(null);
+  
+  // State for Progressive Disclosure
+  const [currentView, setCurrentView] = useState('topics'); // 'topics' or 'learning-objects'
+  const [selectedTopic, setSelectedTopic] = useState(null);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  
+  // Real data state
+  const [realTopicsData, setRealTopicsData] = useState([]);
+  const [realLearningObjects, setRealLearningObjects] = useState([]);
+  const [realKnowledgeGaps, setRealKnowledgeGaps] = useState([]);
+  const [isLoadingTopics, setIsLoadingTopics] = useState(true);
+  const [isLoadingLOs, setIsLoadingLOs] = useState(false);
 
   // Use real data or fallback to mock data
   const mockData = [
@@ -118,9 +139,112 @@ const KnowledgeConstellation = ({ data, onTopicClick, compact = false }) => {
     );
   }
 
+  // Load real topics data on component mount
+  useEffect(() => {
+    const loadTopicsData = async () => {
+      try {
+        setIsLoadingTopics(true);
+        const response = await getTopicsWithProgress();
+        
+        // Frappe returns data in response.message
+        const data = response.message || response;
+        
+        if (data.success && data.topics) {
+          console.log('🌟 Loaded real topics data:', data.topics);
+          setRealTopicsData(data.topics);
+        } else {
+          console.warn('Failed to load topics, using mock data');
+        }
+      } catch (error) {
+        console.error('Error loading topics:', error);
+      } finally {
+        setIsLoadingTopics(false);
+      }
+    };
+
+    loadTopicsData();
+  }, []);
+
+  // Use real data or fallback to mock data
   const currentData = filterUnlocked(
-    data && Array.isArray(data) && data.length > 0 ? data : mockData
+    realTopicsData.length > 0 ? realTopicsData : 
+    (data && Array.isArray(data) && data.length > 0 ? data : mockData)
   );
+
+  // Handle topic selection and transition
+  const handleTopicSelection = async (topicData) => {
+    setIsTransitioning(true);
+    setIsLoadingLOs(true);
+    
+    try {
+      console.log('🎯 Loading Knowledge Tree for topic:', topicData.topic_id || topicData.name);
+      
+      // Load Knowledge Tree data for this topic
+      const response = await getKnowledgeTreeForTopic(topicData.topic_id || topicData.name);
+      
+      console.log('🔍 Full API Response:', response);
+      
+      // Frappe returns data in response.message, not at root level
+      const data = response.message || response;
+      
+      console.log('🔍 Extracted data:', data);
+      console.log('🔍 Response success?', data?.success);
+      console.log('🔍 Learning Objects count:', data?.learning_objects?.length);
+      console.log('🔍 Knowledge Gaps count:', data?.knowledge_gaps?.length);
+      
+      if (data && data.success) {
+        console.log('📊 Knowledge Tree loaded successfully');
+        console.log('📊 Learning Objects:', data.learning_objects);
+        console.log('📊 Knowledge Gaps:', data.knowledge_gaps);
+        
+        setRealLearningObjects(data.learning_objects || []);
+        setRealKnowledgeGaps(data.knowledge_gaps || []);
+        setSelectedTopic({
+          ...topicData,
+          ...data.topic_info
+        });
+      } else {
+        console.error('❌ Failed to load Knowledge Tree:', data?.error || 'Unknown error');
+        console.error('❌ Full response:', response);
+        // Keep existing mock behavior as fallback
+        setSelectedTopic(topicData);
+      }
+      
+    } catch (error) {
+      console.error('Error loading Knowledge Tree:', error);
+      setSelectedTopic(topicData);
+    } finally {
+      setIsLoadingLOs(false);
+      
+      // Animate transition
+      setTimeout(() => {
+        setCurrentView('learning-objects');
+        setIsTransitioning(false);
+      }, 300);
+    }
+  };
+
+  // Handle back to topics view
+  const handleBackToTopics = () => {
+    setIsTransitioning(true);
+    
+    // Clear Learning Objects data
+    setRealLearningObjects([]);
+    setRealKnowledgeGaps([]);
+    
+    setTimeout(() => {
+      setCurrentView('topics');
+      setSelectedTopic(null);
+      setIsTransitioning(false);
+    }, 300);
+  };
+
+  // Handle Learning Object actions
+  const handleLearningObjectAction = (actionType, learningObject) => {
+    if (onLearningObjectAction) {
+      onLearningObjectAction(actionType, learningObject, selectedTopic);
+    }
+  };
 
   // Helper function to extract chapter number from topic name
   const getChapterDisplay = (topicName, topicId) => {
@@ -1001,7 +1125,7 @@ const KnowledgeConstellation = ({ data, onTopicClick, compact = false }) => {
           .style("opacity", 0);
       })
       .on("click", function (event, d) {
-        // Enhanced click animation
+        // Enhanced click animation with transition to Learning Objects view
         const star = d3.select(this);
         const style = getStarStyle(d.weakness_score);
 
@@ -1034,9 +1158,11 @@ const KnowledgeConstellation = ({ data, onTopicClick, compact = false }) => {
           .style("opacity", 0)
           .remove();
 
-        if (onTopicClick) {
-          onTopicClick(d.topic_id);
-        }
+        // Handle topic selection and view transition (internal navigation)
+        handleTopicSelection(d);
+        
+        // Note: We don't call onTopicClick here to prevent auto-redirect
+        // onTopicClick is only for external navigation when needed
       });
 
     // Update positions on simulation tick
@@ -1063,8 +1189,40 @@ const KnowledgeConstellation = ({ data, onTopicClick, compact = false }) => {
     };
   }, [data, dimensions, onTopicClick]);
 
+    // Conditional rendering based on current view
+  if (currentView === 'learning-objects' && selectedTopic) {
   return (
-    <div className="w-full h-full relative overflow-hidden">
+      <div className={`w-full h-full transition-all duration-300 ${isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
+        {isLoadingLOs ? (
+          // Loading state for Learning Objects
+          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+            <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 shadow-lg">
+              <div className="text-6xl mb-4 animate-spin">🌀</div>
+              <p className="text-xl font-medium text-gray-700">Đang tải cây tri thức...</p>
+              <p className="text-gray-500 mt-2">{selectedTopic.topic_name}</p>
+              <div className="mt-4 flex justify-center space-x-1">
+                <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce"></div>
+                <div className="w-2 h-2 bg-purple-500 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                <div className="w-2 h-2 bg-pink-500 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+      </div>
+            </div>
+          </div>
+        ) : (
+          <LearningObjectView
+            topicData={selectedTopic}
+            learningObjects={realLearningObjects}
+            knowledgeGaps={realKnowledgeGaps}
+            onBackToTopics={handleBackToTopics}
+            onLearningObjectAction={handleLearningObjectAction}
+            compact={compact}
+          />
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <div className={`w-full h-full relative overflow-hidden transition-all duration-300 ${isTransitioning ? 'opacity-0 scale-105' : 'opacity-100 scale-100'}`}>
       {/* Light Theme Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
         {/* Soft geometric patterns */}
@@ -1078,6 +1236,15 @@ const KnowledgeConstellation = ({ data, onTopicClick, compact = false }) => {
         <div className="grid-overlay"></div>
       </div>
 
+      {/* View indicator for topics view */}
+      <div className="absolute top-4 left-4 z-40 bg-white/90 backdrop-blur-sm rounded-xl px-4 py-2 shadow-lg border border-gray-200/50">
+        <div className="flex items-center space-x-2">
+          <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+          <span className="text-sm font-semibold text-gray-700">Tổng quan Chòm sao</span>
+        </div>
+        <div className="text-xs text-gray-500 mt-1">Nhấp vào ngôi sao để xem chi tiết</div>
+      </div>
+
       <div ref={containerRef} className="w-full h-full min-h-[500px] relative z-10">
         <svg ref={svgRef} className="w-full h-full" />
 
@@ -1088,14 +1255,23 @@ const KnowledgeConstellation = ({ data, onTopicClick, compact = false }) => {
           style={{ visibility: "hidden", opacity: 0 }}
         />
 
-        {/* No data message */}
-        {(!currentData ||
-          !Array.isArray(currentData) ||
-          currentData.length === 0) && (
+        {/* Loading or No data message */}
+        {(isLoadingTopics || !currentData || !Array.isArray(currentData) || currentData.length === 0) && (
           <div className="absolute inset-0 flex items-center justify-center text-gray-700 z-20">
             <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 shadow-lg">
-              <div className="text-6xl mb-4 animate-pulse">🌟</div>
-              <p className="text-xl font-medium text-gray-700">Đang tải chòm sao tri thức của bạn...</p>
+              {isLoadingTopics ? (
+                <>
+                  <div className="text-6xl mb-4 animate-spin">🌀</div>
+                  <p className="text-xl font-medium text-gray-700">Đang tải chòm sao tri thức của bạn...</p>
+                  <p className="text-gray-500 mt-2">Lấy dữ liệu thật từ server...</p>
+                </>
+              ) : (
+                <>
+                  <div className="text-6xl mb-4 animate-pulse">🌟</div>
+                  <p className="text-xl font-medium text-gray-700">Không có dữ liệu chòm sao</p>
+                  <p className="text-gray-500 mt-2">Vui lòng kiểm tra kết nối hoặc thử lại</p>
+                </>
+              )}
               <div className="mt-4 flex justify-center space-x-1">
                 <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce"></div>
                 <div className="w-2 h-2 bg-purple-500 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>

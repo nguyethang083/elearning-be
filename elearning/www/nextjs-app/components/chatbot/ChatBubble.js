@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MessageCircle } from 'lucide-react';
 import ChatModal from './ChatModal';
 import ChatPanel from './ChatPanel';
@@ -6,6 +6,7 @@ import ChatPanel from './ChatPanel';
 const ChatBubble = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [prefilledMessage, setPrefilledMessage] = useState('');
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -25,6 +26,29 @@ const ChatBubble = () => {
     setIsExpanded(false);
   };
 
+  // Listen for custom event to open chatbot with pre-filled message
+  useEffect(() => {
+    const handleOpenChatbotWithMessage = (event) => {
+      const { message } = event.detail;
+      setPrefilledMessage(message);
+      setIsOpen(true);
+      setIsExpanded(true); // Open in expanded mode for better visibility
+    };
+
+    window.addEventListener('openChatbotWithMessage', handleOpenChatbotWithMessage);
+
+    return () => {
+      window.removeEventListener('openChatbotWithMessage', handleOpenChatbotWithMessage);
+    };
+  }, []);
+
+  // Clear prefilled message when chat is closed
+  const handleCloseWithClear = () => {
+    setIsOpen(false);
+    setIsExpanded(false);
+    setPrefilledMessage('');
+  };
+
   return (
     <>
       {/* Chat Bubble Button */}
@@ -40,7 +64,8 @@ const ChatBubble = () => {
       {isOpen && !isExpanded && (
         <ChatPanel 
           onExpand={handleExpand}
-          onClose={handleClose}
+          onClose={handleCloseWithClear}
+          prefilledMessage={prefilledMessage}
         />
       )}
 
@@ -48,7 +73,8 @@ const ChatBubble = () => {
       {isOpen && isExpanded && (
         <ChatModal 
           isOpen={isExpanded} 
-          onClose={handleMinimize}
+          onClose={handleCloseWithClear}
+          prefilledMessage={prefilledMessage}
         />
       )}
     </>

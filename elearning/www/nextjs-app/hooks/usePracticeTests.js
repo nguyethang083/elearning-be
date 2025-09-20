@@ -85,7 +85,57 @@ export function usePracticeTests(filters = {}) {
           // Add any other transformations if your TestRow expects different prop names
         }));
 
-        setTests(adaptedTests);
+        // Fetch test details and latest attempt for each test
+        const testsWithDetails = await Promise.all(
+          adaptedTests.map(async (test) => {
+            try {
+              // Fetch test details
+              const detailsResponse = await fetchWithAuth(
+                "test.test.get_test_details",
+                {
+                  method: "GET",
+                  params: { test_id: test.id },
+                }
+              );
+              const testDetails = detailsResponse?.message || {};
+
+              // Fetch attempts
+              const attemptsResponse = await fetchWithAuth(
+                "test_attempt.test_attempt.get_user_attempts_for_test",
+                {
+                  method: "GET",
+                  params: { test_id: test.id },
+                }
+              );
+              const attempts = attemptsResponse?.message || [];
+              // Sort attempts by start_time descending to get the latest
+              attempts.sort(
+                (a, b) => new Date(b.start_time) - new Date(a.start_time)
+              );
+              const latestAttempt = attempts.length > 0 ? attempts[0] : null;
+
+              return {
+                ...test,
+                total_possible_score: testDetails.total_possible_score,
+                has_essay_question: testDetails.has_essay_question,
+                latestAttempt,
+              };
+            } catch (err) {
+              console.error(
+                `Failed to fetch details/attempts for test ${test.id}:`,
+                err
+              );
+              return {
+                ...test,
+                total_possible_score: null,
+                has_essay_question: false,
+                latestAttempt: null,
+              };
+            }
+          })
+        );
+
+        setTests(testsWithDetails);
       } catch (err) {
         console.error(
           "usePracticeTests: Failed to fetch tests from Frappe:",

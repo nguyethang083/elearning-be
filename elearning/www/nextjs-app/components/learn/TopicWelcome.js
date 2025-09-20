@@ -251,23 +251,32 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
       // Luôn tạo/cập nhật Topic Progress DocType để đảm bảo có dữ liệu mới nhất
       try {
         const createProgressResponse = await createOrUpdateTopicProgress(
-          frappe.session?.user || 'Administrator',
           topicIdentifier
         );
         
-        if (createProgressResponse?.success) {
+        console.log(`TopicWelcome: Full createProgressResponse structure:`, createProgressResponse);
+        
+        // Kiểm tra nhiều cấu trúc response có thể có
+        const isSuccess = createProgressResponse?.success || createProgressResponse?.message?.success;
+        
+        if (isSuccess) {
           console.log(`TopicWelcome: Successfully created/updated topic progress:`, createProgressResponse);
           
           // Lấy dữ liệu mới nhất từ Topic Progress
           const topicProgressResponse = await getTopicProgress(
-            frappe.session?.user || 'Administrator',
             topicIdentifier
           );
           
-          if (topicProgressResponse?.success && topicProgressResponse?.data) {
-            console.log(`TopicWelcome: Retrieved updated topic progress:`, topicProgressResponse.data);
+          console.log(`TopicWelcome: Full getTopicProgress response structure:`, topicProgressResponse);
+          
+          // Kiểm tra cấu trúc response của getTopicProgress
+          const hasData = topicProgressResponse?.success && topicProgressResponse?.data || 
+                          topicProgressResponse?.message?.success && topicProgressResponse?.message?.data;
+          
+          if (hasData) {
+            console.log(`TopicWelcome: Retrieved updated topic progress:`, topicProgressResponse?.data || topicProgressResponse?.message?.data);
             
-            const progressData = topicProgressResponse.data;
+            const progressData = topicProgressResponse?.data || topicProgressResponse?.message?.data;
             setUserProgress({
               srs: {
         success: true,
@@ -929,27 +938,6 @@ const TopicWelcome = ({ topic, flashcards, onStartLearning, onClose }) => {
                 ></div>
               </div>
             </div>
-            
-            {/* Additional progress info from Topic Progress DocType */}
-            {userProgress.topicProgress && (
-              <div className="mt-4 pt-4 border-t border-white/20">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                  <div className="bg-white/10 rounded-lg p-3 backdrop-blur-sm">
-                    <div className="text-white/80 mb-1">SRS Progress</div>
-                    <div className="text-lg font-semibold">{userProgress.topicProgress.srs_progress || 0}%</div>
-                  </div>
-                  <div className="bg-white/10 rounded-lg p-3 backdrop-blur-sm">
-                    <div className="text-white/80 mb-1">Exam Progress</div>
-                    <div className="text-lg font-semibold">{userProgress.topicProgress.exam_progress || 0}%</div>
-                  </div>
-                </div>
-                {userProgress.topicProgress.last_calculated && (
-                  <div className="text-center text-white/70 text-xs mt-3">
-                    Cập nhật lần cuối: {new Date(userProgress.topicProgress.last_calculated).toLocaleString('vi-VN')}
-                  </div>
-                )}
-              </div>
-            )}
           </div>
         )}
 

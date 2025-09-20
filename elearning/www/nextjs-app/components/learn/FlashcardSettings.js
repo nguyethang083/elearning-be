@@ -216,21 +216,21 @@ export default function FlashcardSettings({ topicId, onClose, onSettingsChange }
           </p>
         </div>
 
-        {/* SRS Reset Section */}
+        {/* Reset Progress Section */}
         <div className="border-t border-gray-200 pt-6">
-          <h3 className="text-sm font-medium text-gray-700 mb-2">Tiến độ SRS</h3>
+          <h3 className="text-sm font-medium text-gray-700 mb-2">Đặt lại tiến độ học tập</h3>
           <p className="text-xs text-gray-500 mb-3">
-            Đặt lại tiến độ lặp lại khoảng cách cho chủ đề này. Điều này sẽ xóa tất cả lịch sử SRS của bạn và bắt đầu mới.
+            Đặt lại tiến độ ôn tập cách quãng cho chủ đề này. Điều này sẽ xóa tất cả lịch sử học tập của bạn và bắt đầu mới.
           </p>
           <button
             onClick={handleResetSRSProgress}
             disabled={isResettingSRS}
             className="flex items-center px-4 py-2 text-red-600 bg-white border border-red-300 rounded-md hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:opacity-50"
           >
-            {isResettingSRS ? 'Đang đặt lại...' : 'Đặt lại tiến độ SRS'}
+            {isResettingSRS ? 'Đang đặt lại...' : 'Đặt lại tiến độ học tập'}
           </button>
           {resetSuccess && (
-            <div className="mt-2 text-sm text-green-600">Tiến độ SRS đã được đặt lại thành công!</div>
+            <div className="mt-2 text-sm text-green-600">Tiến độ học tập đã được đặt lại thành công!</div>
           )}
         </div>
 
@@ -268,4 +268,4 @@ export default function FlashcardSettings({ topicId, onClose, onSettingsChange }
       </div>
     </div>
   );
-} 
+}

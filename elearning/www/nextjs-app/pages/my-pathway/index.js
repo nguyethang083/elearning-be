@@ -7,8 +7,8 @@ export default function MyPathway() {
   const [constellationData, setConstellationData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [isStatsCollapsed, setIsStatsCollapsed] = useState(false);
-  const [isLegendCollapsed, setIsLegendCollapsed] = useState(false);
+  const [isStatsCollapsed, setIsStatsCollapsed] = useState(true);
+  const [isLegendCollapsed, setIsLegendCollapsed] = useState(true);
   const router = useRouter();
 
   useEffect(() => {

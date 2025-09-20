@@ -23,6 +23,41 @@ export default function TopicsSection({ onTopicSelect }) {
   // Change page function
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  // Mock recommended skills and progress for each topic
+  const mockTopicDetails = {
+    2: {
+      progress: 200,
+      max: 1000,
+      skills: [
+        { name: "Số nguyên tố và hợp số (Đại số)", url: "#", code: "8PL" },
+        { name: "Số nguyên tố đến 20 (Đại số)", url: "#", code: "TNF" },
+      ],
+    },
+    4: {
+      progress: 0,
+      max: 1000,
+      skills: [
+        {
+          name: "Hoàn thành dãy số theo quy luật (Đại số)",
+          url: "#",
+          code: "5P2",
+        },
+        { name: "So sánh số bằng phép nhân (Đại số)", url: "#", code: "GGE" },
+      ],
+    },
+    9: {
+      progress: 0,
+      max: 1000,
+      skills: [
+        {
+          name: "Nhận diện phân số tương đương (Đại số)",
+          url: "#",
+          code: "GSG",
+        },
+      ],
+    },
+  };
+
   // --- Render Logic ---
 
   if (loading) {
@@ -49,23 +84,68 @@ export default function TopicsSection({ onTopicSelect }) {
   return (
     <div>
       <h3 className="text-xl font-bold mb-4 mt-8">Chuyên đề</h3>
-
       {topics.length === 0 && !loading ? (
-        <p className="text-gray-500">No topics found.</p>
+        <p className="text-gray-500">Không tìm thấy chuyên đề nào.</p>
       ) : (
-        // Render the list using the TopicItem component
         <div className="space-y-4">
-          {currentTopics.map((topic) => (
-            // Pass the full topic object (including color) as a prop
-            <TopicItem
-              key={topic.id}
-              topic={topic}
-              onTopicSelect={onTopicSelect}
-            />
-          ))}
+          {currentTopics.map((topic) => {
+            // Use mock details for demonstration
+            const details = mockTopicDetails[topic.id] || {
+              progress: 0,
+              max: 1000,
+              skills: [],
+            };
+            return (
+              <div key={topic.id}>
+                <TopicItem topic={topic} onTopicSelect={onTopicSelect} />
+                {/* Compact progress bar and recommended skills below each topic */}
+                <div className="mt-2 mb-4">
+                  <div className="flex items-center justify-between mb-1">
+                    {details.progress > 0 && (
+                      <span className="text-xs text-gray-500">
+                        Tiến độ: {details.progress} / {details.max}
+                      </span>
+                    )}
+                    {details.skills.length > 0 && (
+                      <span className="text-xs text-indigo-700 font-medium">
+                        {details.skills.length} kỹ năng được đề xuất
+                      </span>
+                    )}
+                  </div>
+                  {details.progress > 0 && (
+                    <div className="w-full bg-gray-200 rounded-full h-1 mb-2">
+                      <div
+                        className="bg-indigo-600 h-1 rounded-full transition-all duration-300"
+                        style={{
+                          width: `${(details.progress / details.max) * 100}%`,
+                        }}
+                      ></div>
+                    </div>
+                  )}
+                  <ul className="mt-1 space-y-1">
+                    {details.skills.map((skill, idx) => (
+                      <li key={idx} className="flex items-center gap-2 text-xs">
+                        <input
+                          type="checkbox"
+                          className="h-3 w-3 rounded border-gray-300"
+                          readOnly
+                        />
+                        <a
+                          href={skill.url}
+                          className="text-indigo-600 hover:underline"
+                        >
+                          {skill.name}
+                        </a>
+                        <span className="text-gray-400">{skill.code}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            );
+          })}
         </div>
       )}
-
       {/* Pagination */}
       {/* Only show pagination if there are more topics than fit on one page */}
       {topics.length > topicsPerPage && (

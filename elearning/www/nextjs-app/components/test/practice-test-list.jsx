@@ -71,7 +71,7 @@ export default function PracticeTestList({
               <Table>
                 <TableHeader className="bg-gray-50">
                   <TableRow>
-                    <TableHead className="w-[50%] py-3 px-6 text-xs font-medium uppercase tracking-wider text-gray-500">
+                    <TableHead className="w-[40%] py-3 px-6 text-xs font-medium uppercase tracking-wider text-gray-500">
                       Đề
                     </TableHead>
                     <TableHead className="w-[15%] py-3 px-6 text-xs font-medium uppercase tracking-wider text-gray-500">
@@ -80,10 +80,12 @@ export default function PracticeTestList({
                     <TableHead className="w-[15%] py-3 px-6 text-xs font-medium uppercase tracking-wider text-gray-500">
                       Thời gian
                     </TableHead>
-                    <TableHead className="w-[20%] py-3 px-6 text-xs font-medium uppercase tracking-wider text-gray-500">
+                    <TableHead className="w-[15%] py-3 px-6 text-xs font-medium uppercase tracking-wider text-gray-500">
                       Câu hỏi
                     </TableHead>
-                    {/* Removed Status Header */}
+                    <TableHead className="w-[15%] py-3 px-6 text-xs font-medium uppercase tracking-wider text-gray-500">
+                      Trạng thái
+                    </TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>

@@ -419,14 +419,14 @@ export default function ExamMode({ topicId }) {
       return;
     }
 
-    console.log("Submitting self-assessment:", selfAssessment);
+    console.log("Submitting đánh giá bản thân:", selfAssessment);
     setIsSubmittingSelfAssessment(true);
     try {
       const success = await submitSelfAssessment(
         activeQuestionFlashcardName,
         selfAssessment
       );
-      console.log("Self-assessment submission result:", success);
+      console.log("Đánh giá bản thân submission result:", success);
       if (success) {
         setShowSelfAssessment(false);
         setSelfAssessment("");
@@ -452,7 +452,7 @@ export default function ExamMode({ topicId }) {
         }
       }
     } catch (error) {
-      console.error("Error submitting self-assessment:", error);
+      console.error("Error submitting đánh giá bản thân:", error);
     } finally {
       setIsSubmittingSelfAssessment(false);
     }
@@ -485,6 +485,16 @@ export default function ExamMode({ topicId }) {
 
   // Current flashcard
   const currentFlashcard = examFlashcards[currentQuestionIndex];
+
+  // Check if current question is fully completed (has detailed explanation)
+  const isCurrentQuestionCompleted =
+    activeQuestionFlashcardName &&
+    userAnswers[activeQuestionFlashcardName] &&
+    aiFeedbacks[activeQuestionFlashcardName] &&
+    detailedExplanations[activeQuestionFlashcardName];
+
+  // Check if user can navigate to next question
+  const canGoToNext = isCurrentQuestionCompleted;
 
   // Exam complete view
   if (isExamCompleted) {
@@ -1030,19 +1040,11 @@ export default function ExamMode({ topicId }) {
                       <button
                         onClick={() => {
                           setShowDetailedExplanation(false);
-                          // Auto advance to next question if not the last one
-                          if (
-                            currentQuestionIndex <
-                            examFlashcards.length - 1
-                          ) {
-                            goToNextQuestion();
-                          }
+                          // Don't auto advance anymore - user needs to manually click next
                         }}
                         className="px-4 py-2 rounded text-sm bg-emerald-600 text-white hover:bg-emerald-700"
                       >
-                        {currentQuestionIndex < examFlashcards.length - 1
-                          ? "Tiếp tục câu tiếp theo"
-                          : "Hoàn thành"}
+                        Đã hiểu lời giải
                       </button>
                     </div>
                   )}
@@ -1093,6 +1095,18 @@ export default function ExamMode({ topicId }) {
                 ? "Đang lấy phản hồi..."
                 : "Gửi câu trả lời & Nhận phản hồi"}
             </button>
+          ) : !isCurrentQuestionCompleted ? (
+            <div className="flex flex-col items-center">
+              <div className="text-amber-600 text-sm mb-2 font-medium">
+                Vui lòng hoàn thành đánh giá bản thân và xem lời giải
+              </div>
+              <button
+                disabled={true}
+                className="bg-gray-300 text-gray-500 px-4 py-2 rounded-md font-medium cursor-not-allowed"
+              >
+                Hoàn thành đánh giá bản thân trước
+              </button>
+            </div>
           ) : (
             <button
               onClick={goToNextQuestion}
@@ -1110,7 +1124,17 @@ export default function ExamMode({ topicId }) {
           {answeredCount === totalQuestions && (
             <button
               onClick={handleCompleteExam}
-              className="bg-green-600 text-white px-4 py-2 rounded-md font-medium hover:bg-green-700 transition-colors"
+              disabled={!isCurrentQuestionCompleted}
+              className={`bg-green-600 text-white px-4 py-2 rounded-md font-medium transition-colors ${
+                !isCurrentQuestionCompleted
+                  ? "opacity-50 cursor-not-allowed"
+                  : "hover:bg-green-700"
+              }`}
+              title={
+                !isCurrentQuestionCompleted
+                  ? "Vui lòng hoàn thành đánh giá bản thân cho câu cuối cùng"
+                  : ""
+              }
             >
               Hoàn thành bài kiểm tra
             </button>
@@ -1119,12 +1143,19 @@ export default function ExamMode({ topicId }) {
 
         <button
           onClick={goToNextQuestion}
-          disabled={currentQuestionIndex === examFlashcards.length - 1}
+          disabled={
+            currentQuestionIndex === examFlashcards.length - 1 || !canGoToNext
+          }
           className={`flex items-center justify-center w-12 h-12 rounded-full border ${
-            currentQuestionIndex === examFlashcards.length - 1
+            currentQuestionIndex === examFlashcards.length - 1 || !canGoToNext
               ? "border-gray-200 text-gray-300 cursor-not-allowed"
               : "border-indigo-200 text-indigo-600 hover:bg-indigo-50"
           }`}
+          title={
+            !canGoToNext
+              ? "Vui lòng hoàn thành đánh giá bản thân trước khi chuyển câu"
+              : ""
+          }
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

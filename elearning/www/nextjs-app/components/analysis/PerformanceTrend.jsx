@@ -23,7 +23,8 @@ export default function PerformanceTrend({ data }) {
   const chartData = data.labels.map((label, index) => {
     const entry = { month: label };
     data.datasets.forEach((dataset) => {
-      entry[dataset.label] = dataset.data[index] || 0;
+      const value = dataset.data[index];
+      entry[dataset.label] = value === null ? null : value;
     });
     return entry;
   });
@@ -59,38 +60,46 @@ export default function PerformanceTrend({ data }) {
             📅 Tháng: {label}
           </div>
           <div className="space-y-2">
-            {payload.map((entry, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-between gap-3"
-              >
-                <div className="flex items-center gap-2">
-                  <div
-                    className="w-3 h-3 rounded-full"
-                    style={{ backgroundColor: entry.color }}
-                  />
-                  <span className="text-sm font-medium text-gray-700">
-                    {entry.dataKey}
+            {payload
+              .filter((entry) => entry.value !== null)
+              .map((entry, index) => (
+                <div
+                  key={index}
+                  className="flex items-center justify-between gap-3"
+                >
+                  <div className="flex items-center gap-2">
+                    <div
+                      className="w-3 h-3 rounded-full"
+                      style={{ backgroundColor: entry.color }}
+                    />
+                    <span className="text-sm font-medium text-gray-700">
+                      {entry.dataKey}
+                    </span>
+                  </div>
+                  <span className="text-sm font-bold text-gray-900">
+                    {entry.value.toFixed(2)}/10
                   </span>
                 </div>
-                <span className="text-sm font-bold text-gray-900">
-                  {entry.value}%
-                </span>
-              </div>
-            ))}
+              ))}
           </div>
-          {payload.length > 1 && (
+          {payload.filter((entry) => entry.value !== null).length > 1 && (
             <div className="mt-3 pt-2 border-t border-gray-100">
               <div className="flex justify-between items-center">
                 <span className="text-xs font-medium text-gray-600">
                   Trung bình:
                 </span>
                 <span className="text-sm font-bold text-indigo-600">
-                  {Math.round(
-                    payload.reduce((sum, item) => sum + item.value, 0) /
-                      payload.length
-                  )}
-                  %
+                  {(() => {
+                    const validValues = payload.filter(
+                      (item) => item.value !== null && item.value > 0
+                    );
+                    if (validValues.length === 0) return "0.00";
+                    return (
+                      validValues.reduce((sum, item) => sum + item.value, 0) /
+                      validValues.length
+                    ).toFixed(2);
+                  })()}
+                  /10
                 </span>
               </div>
             </div>
@@ -151,21 +160,21 @@ export default function PerformanceTrend({ data }) {
         />
 
         <YAxis
-          domain={[0, 100]}
+          domain={[0, 10]}
           tickLine={false}
           axisLine={false}
           tickMargin={15}
           tick={{ fontSize: 12, fill: "#6b7280" }}
-          tickFormatter={(value) => `${value}%`}
+          tickFormatter={(value) => `${value}`}
         />
 
         <ReferenceLine
-          y={80}
+          y={8}
           stroke="#10b981"
           strokeDasharray="8 4"
           strokeWidth={2.5}
           label={{
-            value: "🎯 Mục tiêu (80%)",
+            value: "🎯 Mục tiêu (8/10)",
             position: "insideTopRight",
             fontSize: 11,
             fontWeight: 600,
@@ -222,6 +231,7 @@ export default function PerformanceTrend({ data }) {
               fill={`url(#gradient-${index})`}
               strokeLinecap="round"
               strokeLinejoin="round"
+              connectNulls={false}
             />
           );
         })}

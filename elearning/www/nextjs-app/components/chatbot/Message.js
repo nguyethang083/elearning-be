@@ -9,6 +9,12 @@ const Message = ({ message, onTutoringButtonClick }) => {
   const isUser = message.role === 'user';
   const isProactive = message.isProactive;
   const hasIntelligentTutoring = message.tutoring_data && typeof message.tutoring_data === 'object';
+  
+  // Detect template message (starts with "Xin chào ISY!" and contains specific patterns)
+  const isTemplateMessage = isUser && message.content && 
+    message.content.includes('Xin chào ISY!') && 
+    message.content.includes('📝 MÔ TẢ KỸ NĂNG:') &&
+    message.content.includes('🎯 NHỮNG GÌ EM CẦN HỖ TRỢ:');
 
   return (
     <div className={`flex items-start space-x-3 ${isUser ? 'flex-row-reverse space-x-reverse' : ''}`}>
@@ -32,13 +38,15 @@ const Message = ({ message, onTutoringButtonClick }) => {
             onButtonClick={onTutoringButtonClick}
           />
         ) : (
-          <div className={`rounded-2xl p-4 inline-block shadow-sm ${
-            isUser 
-              ? 'bg-indigo-600 text-white' 
+        <div className={`rounded-2xl p-4 inline-block shadow-sm ${
+          isUser && !isTemplateMessage
+            ? 'bg-indigo-600 text-white' 
+            : isTemplateMessage
+              ? 'bg-gradient-to-r from-green-50 to-blue-50 text-gray-900 border border-green-200'
               : isProactive
                 ? 'bg-gradient-to-r from-purple-50 to-blue-50 text-gray-900 border border-purple-200'
-                : 'bg-gray-50 text-gray-900 border border-gray-100'
-          }`}>
+            : 'bg-gray-50 text-gray-900 border border-gray-100'
+        }`}>
           {/* Attachments */}
           {message.attachments && message.attachments.length > 0 && (
             <div className={`mb-3 ${isUser ? 'text-right' : 'text-left'}`}>
@@ -65,14 +73,51 @@ const Message = ({ message, onTutoringButtonClick }) => {
           
           {/* Text Content */}
           {message.content && (
-            <div className={`text-sm leading-relaxed ${
-              isUser ? 'text-white' : 'text-gray-900'
-            }`}>
-              {isUser ? (
-                // For user messages, use simple text display
-                <div className="whitespace-pre-wrap">{message.content}</div>
+          <div className={`text-sm leading-relaxed ${
+            isUser && !isTemplateMessage ? 'text-white' : 'text-gray-900'
+          }`}>
+              {isUser && !isTemplateMessage ? (
+                // For regular user messages, use simple text display
+                <div className="whitespace-pre-wrap text-left">{message.content}</div>
+              ) : isUser && isTemplateMessage ? (
+                // For template messages, use left-aligned text with markdown
+                <div className="text-left">
+                  <ReactMarkdown
+                    components={{
+                      strong({ children }) {
+                        return <strong>{children}</strong>;
+                      },
+                      em({ children }) {
+                        return <em>{children}</em>;
+                      },
+                      h1({ children }) {
+                        return <h1 className="text-xl font-bold mb-2">{children}</h1>;
+                      },
+                      h2({ children }) {
+                        return <h2 className="text-lg font-bold mb-2">{children}</h2>;
+                      },
+                      h3({ children }) {
+                        return <h3 className="text-md font-bold mb-1">{children}</h3>;
+                      },
+                      ul({ children }) {
+                        return <ul className="list-disc list-inside mb-2">{children}</ul>;
+                      },
+                      ol({ children }) {
+                        return <ol className="list-decimal list-inside mb-2">{children}</ol>;
+                      },
+                      li({ children }) {
+                        return <li className="mb-1">{children}</li>;
+                      },
+                      p({ children }) {
+                        return <p className="mb-2">{children}</p>;
+                      }
+                    }}
+                  >
+                    {message.content}
+                  </ReactMarkdown>
+                </div>
               ) : (
-                // For AI messages, check if content has math expressions
+                // For AI messages or template messages, check if content has math expressions
                 (() => {
                   const content = message.content || '';
                   const hasMath = content.includes('\\(') || content.includes('\\[');
@@ -88,8 +133,8 @@ const Message = ({ message, onTutoringButtonClick }) => {
                     // If no math, use ReactMarkdown for formatting
                     return (
                       <div className="markdown-content ai-message">
-                        <ReactMarkdown
-                          components={{
+            <ReactMarkdown
+              components={{
                             strong({ children }) {
                               return <strong>{children}</strong>;
                             },
@@ -120,7 +165,7 @@ const Message = ({ message, onTutoringButtonClick }) => {
                           }}
                         >
                           {content}
-                        </ReactMarkdown>
+            </ReactMarkdown>
                       </div>
                     );
                   }
