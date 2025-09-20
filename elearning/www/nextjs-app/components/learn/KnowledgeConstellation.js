@@ -1,15 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import LearningObjectView from "./LearningObjectView";
-import { getTopicsWithProgress, getKnowledgeTreeForTopic } from "../../pages/api/helper";
+import {
+  getTopicsWithProgress,
+  getKnowledgeTreeForTopic,
+} from "../../pages/api/helper";
 
-const KnowledgeConstellation = ({ 
-  data, 
-  onTopicClick, 
+const KnowledgeConstellation = ({
+  data,
+  onTopicClick,
   compact = false,
   learningObjects = [], // Learning Objects data for selected topic
   knowledgeGaps = [], // Knowledge Gaps data
-  onLearningObjectAction // Callback for LO actions (practice, video, chat)
+  onLearningObjectAction, // Callback for LO actions (practice, video, chat)
+  onViewChange, // Callback for view changes (topics <-> learning-objects)
 }) => {
   const svgRef = useRef(null);
   const tooltipRef = useRef(null);
@@ -19,12 +23,12 @@ const KnowledgeConstellation = ({
     height: compact ? 192 : 600, // 192px = h-48 in Tailwind
   });
   const simulation = useRef(null);
-  
+
   // State for Progressive Disclosure
-  const [currentView, setCurrentView] = useState('topics'); // 'topics' or 'learning-objects'
+  const [currentView, setCurrentView] = useState("topics"); // 'topics' or 'learning-objects'
   const [selectedTopic, setSelectedTopic] = useState(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  
+
   // Real data state
   const [realTopicsData, setRealTopicsData] = useState([]);
   const [realLearningObjects, setRealLearningObjects] = useState([]);
@@ -145,18 +149,18 @@ const KnowledgeConstellation = ({
       try {
         setIsLoadingTopics(true);
         const response = await getTopicsWithProgress();
-        
+
         // Frappe returns data in response.message
         const data = response.message || response;
-        
+
         if (data.success && data.topics) {
-          console.log('🌟 Loaded real topics data:', data.topics);
+          console.log("🌟 Loaded real topics data:", data.topics);
           setRealTopicsData(data.topics);
         } else {
-          console.warn('Failed to load topics, using mock data');
+          console.warn("Failed to load topics, using mock data");
         }
       } catch (error) {
-        console.error('Error loading topics:', error);
+        console.error("Error loading topics:", error);
       } finally {
         setIsLoadingTopics(false);
       }
@@ -167,59 +171,75 @@ const KnowledgeConstellation = ({
 
   // Use real data or fallback to mock data
   const currentData = filterUnlocked(
-    realTopicsData.length > 0 ? realTopicsData : 
-    (data && Array.isArray(data) && data.length > 0 ? data : mockData)
+    realTopicsData.length > 0
+      ? realTopicsData
+      : data && Array.isArray(data) && data.length > 0
+      ? data
+      : mockData
   );
 
   // Handle topic selection and transition
   const handleTopicSelection = async (topicData) => {
     setIsTransitioning(true);
     setIsLoadingLOs(true);
-    
+
     try {
-      console.log('🎯 Loading Knowledge Tree for topic:', topicData.topic_id || topicData.name);
-      
+      console.log(
+        "🎯 Loading Knowledge Tree for topic:",
+        topicData.topic_id || topicData.name
+      );
+
       // Load Knowledge Tree data for this topic
-      const response = await getKnowledgeTreeForTopic(topicData.topic_id || topicData.name);
-      
-      console.log('🔍 Full API Response:', response);
-      
+      const response = await getKnowledgeTreeForTopic(
+        topicData.topic_id || topicData.name
+      );
+
+      console.log("🔍 Full API Response:", response);
+
       // Frappe returns data in response.message, not at root level
       const data = response.message || response;
-      
-      console.log('🔍 Extracted data:', data);
-      console.log('🔍 Response success?', data?.success);
-      console.log('🔍 Learning Objects count:', data?.learning_objects?.length);
-      console.log('🔍 Knowledge Gaps count:', data?.knowledge_gaps?.length);
-      
+
+      console.log("🔍 Extracted data:", data);
+      console.log("🔍 Response success?", data?.success);
+      console.log("🔍 Learning Objects count:", data?.learning_objects?.length);
+      console.log("🔍 Knowledge Gaps count:", data?.knowledge_gaps?.length);
+
       if (data && data.success) {
-        console.log('📊 Knowledge Tree loaded successfully');
-        console.log('📊 Learning Objects:', data.learning_objects);
-        console.log('📊 Knowledge Gaps:', data.knowledge_gaps);
-        
+        console.log("📊 Knowledge Tree loaded successfully");
+        console.log("📊 Learning Objects:", data.learning_objects);
+        console.log("📊 Knowledge Gaps:", data.knowledge_gaps);
+
         setRealLearningObjects(data.learning_objects || []);
         setRealKnowledgeGaps(data.knowledge_gaps || []);
         setSelectedTopic({
           ...topicData,
-          ...data.topic_info
+          ...data.topic_info,
         });
       } else {
-        console.error('❌ Failed to load Knowledge Tree:', data?.error || 'Unknown error');
-        console.error('❌ Full response:', response);
+        console.error(
+          "❌ Failed to load Knowledge Tree:",
+          data?.error || "Unknown error"
+        );
+        console.error("❌ Full response:", response);
         // Keep existing mock behavior as fallback
         setSelectedTopic(topicData);
       }
-      
     } catch (error) {
-      console.error('Error loading Knowledge Tree:', error);
+      console.error("Error loading Knowledge Tree:", error);
       setSelectedTopic(topicData);
     } finally {
       setIsLoadingLOs(false);
-      
+
       // Animate transition
+      // Update view and notify parent
       setTimeout(() => {
-        setCurrentView('learning-objects');
+        setCurrentView("learning-objects");
         setIsTransitioning(false);
+
+        // Notify parent component about view change
+        if (onViewChange) {
+          onViewChange("learning-objects", topicData);
+        }
       }, 300);
     }
   };
@@ -227,15 +247,57 @@ const KnowledgeConstellation = ({
   // Handle back to topics view
   const handleBackToTopics = () => {
     setIsTransitioning(true);
-    
+
     // Clear Learning Objects data
     setRealLearningObjects([]);
     setRealKnowledgeGaps([]);
-    
+
+    // Reload topics data when returning to topics view
+    const reloadTopicsData = async () => {
+      setIsLoadingTopics(true);
+      try {
+        const response = await fetch(
+          "/api/method/elearning.elearning.doctype.student_topic_mastery.student_topic_mastery.get_knowledge_constellation",
+          {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+          }
+        );
+
+        if (response.ok) {
+          const data = await response.json();
+          if (data.message && Array.isArray(data.message)) {
+            const transformedData = data.message.map((item) => ({
+              topic_id: item.topic_id,
+              topic_name: item.topic_name,
+              weakness_score: item.weakness_score || 0,
+              is_unlocked: item.is_unlocked,
+              x: 0,
+              y: 0,
+              components: item.components || {},
+            }));
+            setRealTopicsData(transformedData);
+          }
+        }
+      } catch (error) {
+        console.error("Error reloading topics data:", error);
+      } finally {
+        setIsLoadingTopics(false);
+      }
+    };
+
     setTimeout(() => {
-      setCurrentView('topics');
+      setCurrentView("topics");
       setSelectedTopic(null);
       setIsTransitioning(false);
+
+      // Notify parent component about view change
+      if (onViewChange) {
+        onViewChange("topics");
+      }
+
+      // Reload data after transition
+      reloadTopicsData();
     }, 300);
   };
 
@@ -479,14 +541,34 @@ const KnowledgeConstellation = ({
 
     // Create gradients for each level optimized for light background
     createAdvancedGradient("extremeGradient", "#991b1b", "#dc2626", "#fecaca");
-    createAdvancedGradient("criticalHighGradient", "#c2410c", "#ea580c", "#fed7aa");
+    createAdvancedGradient(
+      "criticalHighGradient",
+      "#c2410c",
+      "#ea580c",
+      "#fed7aa"
+    );
     createAdvancedGradient("criticalGradient", "#d97706", "#f59e0b", "#fef3c7");
-    createAdvancedGradient("moderateHighGradient", "#ca8a04", "#eab308", "#fef08a");
+    createAdvancedGradient(
+      "moderateHighGradient",
+      "#ca8a04",
+      "#eab308",
+      "#fef08a"
+    );
     createAdvancedGradient("moderateGradient", "#65a30d", "#84cc16", "#d9f99d");
-    createAdvancedGradient("moderateLowGradient", "#0891b2", "#06b6d4", "#a5f3fc");
+    createAdvancedGradient(
+      "moderateLowGradient",
+      "#0891b2",
+      "#06b6d4",
+      "#a5f3fc"
+    );
     createAdvancedGradient("goodGradient", "#2563eb", "#3b82f6", "#bfdbfe");
     createAdvancedGradient("veryGoodGradient", "#059669", "#10b981", "#a7f3d0");
-    createAdvancedGradient("excellentGradient", "#d97706", "#f59e0b", "#fef3c7");
+    createAdvancedGradient(
+      "excellentGradient",
+      "#d97706",
+      "#f59e0b",
+      "#fef3c7"
+    );
 
     // Create filters for different glow effects
     const createGlowFilter = (id, intensity, color) => {
@@ -530,27 +612,30 @@ const KnowledgeConstellation = ({
     createGlowFilter("excellentGlow", 6, "#f59e0b");
 
     // Create subtle decorative elements for light background
-    const backgroundStars = svg.append("g").attr("class", "background-elements");
+    const backgroundStars = svg
+      .append("g")
+      .attr("class", "background-elements");
     const elementCount = compact ? 15 : 60; // Fewer elements for cleaner look
     const elementColors = [
-      "rgba(59, 130, 246, 0.15)",   // Blue
-      "rgba(139, 92, 246, 0.12)",  // Purple
-      "rgba(236, 72, 153, 0.1)",   // Pink
-      "rgba(34, 197, 94, 0.08)",   // Green
-      "rgba(251, 146, 60, 0.1)",   // Orange
-      "rgba(99, 102, 241, 0.12)",  // Indigo
+      "rgba(59, 130, 246, 0.15)", // Blue
+      "rgba(139, 92, 246, 0.12)", // Purple
+      "rgba(236, 72, 153, 0.1)", // Pink
+      "rgba(34, 197, 94, 0.08)", // Green
+      "rgba(251, 146, 60, 0.1)", // Orange
+      "rgba(99, 102, 241, 0.12)", // Indigo
     ];
-    
+
     for (let i = 0; i < elementCount; i++) {
       const elementType = Math.random();
-      const color = elementColors[Math.floor(Math.random() * elementColors.length)];
-      
+      const color =
+        elementColors[Math.floor(Math.random() * elementColors.length)];
+
       if (elementType < 0.6) {
         // Soft circular elements
-      backgroundStars
-        .append("circle")
-        .attr("cx", Math.random() * dimensions.width)
-        .attr("cy", Math.random() * dimensions.height)
+        backgroundStars
+          .append("circle")
+          .attr("cx", Math.random() * dimensions.width)
+          .attr("cy", Math.random() * dimensions.height)
           .attr("r", Math.random() * (compact ? 2 : 3) + 1)
           .style("fill", color)
           .style("opacity", Math.random() * 0.4 + 0.1)
@@ -561,10 +646,15 @@ const KnowledgeConstellation = ({
         const x = Math.random() * dimensions.width;
         const y = Math.random() * dimensions.height;
         const size = Math.random() * (compact ? 3 : 4) + 2;
-        
+
         backgroundStars
           .append("polygon")
-          .attr("points", `${x},${y-size} ${x+size},${y} ${x},${y+size} ${x-size},${y}`)
+          .attr(
+            "points",
+            `${x},${y - size} ${x + size},${y} ${x},${y + size} ${
+              x - size
+            },${y}`
+          )
           .style("fill", color)
           .style("opacity", Math.random() * 0.3 + 0.1)
           .style("filter", "blur(0.8px)")
@@ -574,12 +664,14 @@ const KnowledgeConstellation = ({
         const x = Math.random() * dimensions.width;
         const y = Math.random() * dimensions.height;
         const size = Math.random() * (compact ? 2 : 3) + 1;
-        
-        const plusElement = backgroundStars.append("g")
+
+        const plusElement = backgroundStars
+          .append("g")
           .attr("transform", `translate(${x}, ${y})`);
-          
+
         // Horizontal line
-        plusElement.append("line")
+        plusElement
+          .append("line")
           .attr("x1", -size)
           .attr("y1", 0)
           .attr("x2", size)
@@ -587,9 +679,10 @@ const KnowledgeConstellation = ({
           .style("stroke", color)
           .style("stroke-width", 1)
           .style("opacity", Math.random() * 0.3 + 0.1);
-          
+
         // Vertical line
-        plusElement.append("line")
+        plusElement
+          .append("line")
           .attr("x1", 0)
           .attr("y1", -size)
           .attr("x2", 0)
@@ -597,7 +690,7 @@ const KnowledgeConstellation = ({
           .style("stroke", color)
           .style("stroke-width", 1)
           .style("opacity", Math.random() * 0.3 + 0.1);
-          
+
         plusElement.call(gentleTwinkle);
       }
     }
@@ -816,10 +909,12 @@ const KnowledgeConstellation = ({
 
     // Add enhanced chapter labels with better contrast and styling
     const chapterLabels = stars.append("g").attr("class", "chapter-label");
-    
+
     // Helper function to calculate text dimensions more accurately
     const getTextDimensions = (d) => {
-      const text = compact ? `C${d.topic_id}` : getChapterDisplay(d.topic_name, d.topic_id);
+      const text = compact
+        ? `C${d.topic_id}`
+        : getChapterDisplay(d.topic_name, d.topic_id);
       const fontSize = Math.max(
         compact ? 9 : 12,
         Math.min(compact ? 11 : 14, sizeScale(d.weakness_score) * 0.3)
@@ -833,7 +928,7 @@ const KnowledgeConstellation = ({
         textWidth,
         padding,
         boxWidth: textWidth + padding * 2,
-        boxHeight: fontSize + padding
+        boxHeight: fontSize + padding,
       };
     };
 
@@ -846,7 +941,9 @@ const KnowledgeConstellation = ({
       })
       .attr("y", (d) => {
         const dims = getTextDimensions(d);
-        return sizeScale(d.weakness_score) + (compact ? 10 : 20) - dims.padding / 2;
+        return (
+          sizeScale(d.weakness_score) + (compact ? 10 : 20) - dims.padding / 2
+        );
       })
       .attr("width", (d) => getTextDimensions(d).boxWidth)
       .attr("height", (d) => getTextDimensions(d).boxHeight)
@@ -864,7 +961,8 @@ const KnowledgeConstellation = ({
       .attr("dy", (d) => {
         const dims = getTextDimensions(d);
         // Center text vertically within the box - calculate the center of the box
-        const boxTop = sizeScale(d.weakness_score) + (compact ? 10 : 20) - dims.padding / 2;
+        const boxTop =
+          sizeScale(d.weakness_score) + (compact ? 10 : 20) - dims.padding / 2;
         const boxCenter = boxTop + dims.boxHeight / 2;
         // Adjust for text baseline (text renders from baseline, not center)
         return boxCenter + dims.fontSize * 0.3;
@@ -876,7 +974,10 @@ const KnowledgeConstellation = ({
       })
       .style("font-size", (d) => getTextDimensions(d).fontSize + "px")
       .style("font-weight", "600")
-      .style("font-family", "'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif")
+      .style(
+        "font-family",
+        "'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+      )
       .style("text-shadow", "0 1px 2px rgba(0,0,0,0.1)")
       .style("pointer-events", "none")
       .style("letter-spacing", compact ? "0.2px" : "0.3px")
@@ -1003,26 +1104,41 @@ const KnowledgeConstellation = ({
         const tooltipHTML = compact
           ? // Compact tooltip with light theme
             `<div class="backdrop-blur-md bg-white/95 text-gray-800 px-3 py-2 rounded-xl shadow-2xl text-sm max-w-xs border border-gray-200/80" 
-                  style="border-left: 3px solid ${style.primaryColor}; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);">
+                  style="border-left: 3px solid ${
+                    style.primaryColor
+                  }; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);">
               <div class="font-semibold text-gray-800">${d.topic_name}</div>
               <div class="text-xs text-gray-600 mt-1">
-                <span style="color: ${style.primaryColor}">${Math.round(d.weakness_score * 100)}%</span> 
+                <span style="color: ${style.primaryColor}">${Math.round(
+              d.weakness_score * 100
+            )}%</span> 
                 mức độ yếu
               </div>
             </div>`
           : // Full tooltip with light theme design
             `<div class="backdrop-blur-lg bg-white/95 text-gray-800 p-5 rounded-2xl shadow-2xl border border-gray-200/60 max-w-sm" 
-                  style="border-color: ${style.primaryColor}40; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px ${style.primaryColor}20;">
+                  style="border-color: ${
+                    style.primaryColor
+                  }40; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px ${
+              style.primaryColor
+            }20;">
               
               <!-- Header with icon and title -->
               <div class="flex items-center mb-4">
                 <div class="text-2xl mr-3 p-2 rounded-full" 
-                     style="background: linear-gradient(135deg, ${style.primaryColor}15, ${style.secondaryColor}10);">
+                     style="background: linear-gradient(135deg, ${
+                       style.primaryColor
+                     }15, ${style.secondaryColor}10);">
                   ${style.icon}
               </div>
                 <div>
-                  <div class="font-bold text-lg text-gray-800">${d.topic_name}</div>
-                  <div class="text-xs text-gray-500">${getChapterDisplay(d.topic_name, d.topic_id)}</div>
+                  <div class="font-bold text-lg text-gray-800">${
+                    d.topic_name
+                  }</div>
+                  <div class="text-xs text-gray-500">${getChapterDisplay(
+                    d.topic_name,
+                    d.topic_id
+                  )}</div>
                 </div>
                 </div>
               
@@ -1030,7 +1146,9 @@ const KnowledgeConstellation = ({
               <div class="mb-4">
                 <div class="flex items-center justify-between mb-2">
                   <span class="text-sm text-gray-600 font-medium">Mức độ yếu:</span>
-                  <span class="font-bold text-xl" style="color: ${style.primaryColor}">
+                  <span class="font-bold text-xl" style="color: ${
+                    style.primaryColor
+                  }">
                     ${Math.round(d.weakness_score * 100)}%
                   </span>
                 </div>
@@ -1040,7 +1158,9 @@ const KnowledgeConstellation = ({
                   <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse"></div>
                   <div class="h-3 rounded-full transition-all duration-500 relative overflow-hidden" 
                        style="width: ${d.weakness_score * 100}%; 
-                              background: linear-gradient(90deg, ${style.primaryColor}, ${style.secondaryColor});">
+                              background: linear-gradient(90deg, ${
+                                style.primaryColor
+                              }, ${style.secondaryColor});">
                     <div class="absolute inset-0 bg-gradient-to-r from-white/30 via-transparent to-white/20"></div>
                   </div>
                 </div>
@@ -1048,7 +1168,9 @@ const KnowledgeConstellation = ({
                 <!-- Status badge -->
                 <div class="text-center">
                   <span class="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-semibold backdrop-blur-sm" 
-                        style="background: linear-gradient(135deg, ${style.primaryColor}20, ${style.secondaryColor}10); 
+                        style="background: linear-gradient(135deg, ${
+                          style.primaryColor
+                        }20, ${style.secondaryColor}10); 
                                color: ${style.primaryColor}; 
                                border: 1px solid ${style.primaryColor}25;">
                     <span class="mr-1">${style.icon}</span>
@@ -1160,7 +1282,7 @@ const KnowledgeConstellation = ({
 
         // Handle topic selection and view transition (internal navigation)
         handleTopicSelection(d);
-        
+
         // Note: We don't call onTopicClick here to prevent auto-redirect
         // onTopicClick is only for external navigation when needed
       });
@@ -1189,22 +1311,34 @@ const KnowledgeConstellation = ({
     };
   }, [data, dimensions, onTopicClick]);
 
-    // Conditional rendering based on current view
-  if (currentView === 'learning-objects' && selectedTopic) {
-  return (
-      <div className={`w-full h-full transition-all duration-300 ${isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
+  // Conditional rendering based on current view
+  if (currentView === "learning-objects" && selectedTopic) {
+    return (
+      <div
+        className={`w-full h-full transition-all duration-300 ${
+          isTransitioning ? "opacity-0 scale-95" : "opacity-100 scale-100"
+        }`}
+      >
         {isLoadingLOs ? (
           // Loading state for Learning Objects
           <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
             <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 shadow-lg">
               <div className="text-6xl mb-4 animate-spin">🌀</div>
-              <p className="text-xl font-medium text-gray-700">Đang tải cây tri thức...</p>
+              <p className="text-xl font-medium text-gray-700">
+                Đang tải cây tri thức...
+              </p>
               <p className="text-gray-500 mt-2">{selectedTopic.topic_name}</p>
               <div className="mt-4 flex justify-center space-x-1">
                 <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce"></div>
-                <div className="w-2 h-2 bg-purple-500 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                <div className="w-2 h-2 bg-pink-500 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
-      </div>
+                <div
+                  className="w-2 h-2 bg-purple-500 rounded-full animate-bounce"
+                  style={{ animationDelay: "0.1s" }}
+                ></div>
+                <div
+                  className="w-2 h-2 bg-pink-500 rounded-full animate-bounce"
+                  style={{ animationDelay: "0.2s" }}
+                ></div>
+              </div>
             </div>
           </div>
         ) : (
@@ -1222,30 +1356,45 @@ const KnowledgeConstellation = ({
   }
 
   return (
-    <div className={`w-full h-full relative overflow-hidden transition-all duration-300 ${isTransitioning ? 'opacity-0 scale-105' : 'opacity-100 scale-100'}`}>
+    <div
+      className={`w-full h-full relative overflow-hidden transition-all duration-300 ${
+        isTransitioning ? "opacity-0 scale-105" : "opacity-100 scale-100"
+      }`}
+    >
       {/* Light Theme Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
         {/* Soft geometric patterns */}
         <div className="geometric-bg"></div>
-        
+
         {/* Subtle light effects */}
         <div className="light-effect-1"></div>
         <div className="light-effect-2"></div>
-        
+
         {/* Minimal grid overlay */}
         <div className="grid-overlay"></div>
       </div>
 
-      {/* View indicator for topics view */}
+      {/* View indicator - different for topics vs learning objects */}
       <div className="absolute top-4 left-4 z-40 bg-white/90 backdrop-blur-sm rounded-xl px-4 py-2 shadow-lg border border-gray-200/50">
         <div className="flex items-center space-x-2">
           <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-          <span className="text-sm font-semibold text-gray-700">Tổng quan Chòm sao</span>
+          <span className="text-sm font-semibold text-gray-700">
+            {currentView === "topics"
+              ? "Tổng quan Chòm sao"
+              : `Cây tri thức - ${selectedTopic?.topic_name || "Chi tiết"}`}
+          </span>
         </div>
-        <div className="text-xs text-gray-500 mt-1">Nhấp vào ngôi sao để xem chi tiết</div>
+        <div className="text-xs text-gray-500 mt-1">
+          {currentView === "topics"
+            ? "Nhấp vào ngôi sao để xem chi tiết"
+            : "Learning Objects và mối quan hệ"}
+        </div>
       </div>
 
-      <div ref={containerRef} className="w-full h-full min-h-[500px] relative z-10">
+      <div
+        ref={containerRef}
+        className="w-full h-full min-h-[500px] relative z-10"
+      >
         <svg ref={svgRef} className="w-full h-full" />
 
         {/* Enhanced Tooltip */}
@@ -1256,26 +1405,43 @@ const KnowledgeConstellation = ({
         />
 
         {/* Loading or No data message */}
-        {(isLoadingTopics || !currentData || !Array.isArray(currentData) || currentData.length === 0) && (
+        {(isLoadingTopics ||
+          !currentData ||
+          !Array.isArray(currentData) ||
+          currentData.length === 0) && (
           <div className="absolute inset-0 flex items-center justify-center text-gray-700 z-20">
             <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 shadow-lg">
               {isLoadingTopics ? (
                 <>
                   <div className="text-6xl mb-4 animate-spin">🌀</div>
-                  <p className="text-xl font-medium text-gray-700">Đang tải chòm sao tri thức của bạn...</p>
-                  <p className="text-gray-500 mt-2">Lấy dữ liệu thật từ server...</p>
+                  <p className="text-xl font-medium text-gray-700">
+                    Đang tải chòm sao tri thức của bạn...
+                  </p>
+                  <p className="text-gray-500 mt-2">
+                    Lấy dữ liệu thật từ server...
+                  </p>
                 </>
               ) : (
                 <>
                   <div className="text-6xl mb-4 animate-pulse">🌟</div>
-                  <p className="text-xl font-medium text-gray-700">Không có dữ liệu chòm sao</p>
-                  <p className="text-gray-500 mt-2">Vui lòng kiểm tra kết nối hoặc thử lại</p>
+                  <p className="text-xl font-medium text-gray-700">
+                    Không có dữ liệu chòm sao
+                  </p>
+                  <p className="text-gray-500 mt-2">
+                    Vui lòng kiểm tra kết nối hoặc thử lại
+                  </p>
                 </>
               )}
               <div className="mt-4 flex justify-center space-x-1">
                 <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce"></div>
-                <div className="w-2 h-2 bg-purple-500 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                <div className="w-2 h-2 bg-pink-500 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                <div
+                  className="w-2 h-2 bg-purple-500 rounded-full animate-bounce"
+                  style={{ animationDelay: "0.1s" }}
+                ></div>
+                <div
+                  className="w-2 h-2 bg-pink-500 rounded-full animate-bounce"
+                  style={{ animationDelay: "0.2s" }}
+                ></div>
               </div>
             </div>
           </div>
@@ -1288,12 +1454,31 @@ const KnowledgeConstellation = ({
           width: 200%;
           height: 200%;
           animation: gentle-drift 180s linear infinite;
-          background: 
-            radial-gradient(2px 2px at 40px 60px, rgba(59,130,246,0.15), transparent),
-            radial-gradient(1px 1px at 120px 30px, rgba(139,92,246,0.12), transparent),
-            radial-gradient(1.5px 1.5px at 200px 140px, rgba(236,72,153,0.1), transparent),
-            radial-gradient(1px 1px at 80px 180px, rgba(34,197,94,0.08), transparent),
-            radial-gradient(2px 2px at 300px 80px, rgba(251,146,60,0.1), transparent);
+          background: radial-gradient(
+              2px 2px at 40px 60px,
+              rgba(59, 130, 246, 0.15),
+              transparent
+            ),
+            radial-gradient(
+              1px 1px at 120px 30px,
+              rgba(139, 92, 246, 0.12),
+              transparent
+            ),
+            radial-gradient(
+              1.5px 1.5px at 200px 140px,
+              rgba(236, 72, 153, 0.1),
+              transparent
+            ),
+            radial-gradient(
+              1px 1px at 80px 180px,
+              rgba(34, 197, 94, 0.08),
+              transparent
+            ),
+            radial-gradient(
+              2px 2px at 300px 80px,
+              rgba(251, 146, 60, 0.1),
+              transparent
+            );
           background-repeat: repeat;
           background-size: 400px 400px;
         }
@@ -1304,8 +1489,16 @@ const KnowledgeConstellation = ({
           left: -30%;
           width: 160%;
           height: 160%;
-          background: radial-gradient(ellipse at 25% 25%, rgba(59,130,246,0.08) 0%, transparent 60%),
-                      radial-gradient(ellipse at 75% 75%, rgba(139,92,246,0.06) 0%, transparent 50%);
+          background: radial-gradient(
+              ellipse at 25% 25%,
+              rgba(59, 130, 246, 0.08) 0%,
+              transparent 60%
+            ),
+            radial-gradient(
+              ellipse at 75% 75%,
+              rgba(139, 92, 246, 0.06) 0%,
+              transparent 50%
+            );
           animation: light-float 120s ease-in-out infinite alternate;
         }
 
@@ -1315,34 +1508,62 @@ const KnowledgeConstellation = ({
           right: -30%;
           width: 160%;
           height: 160%;
-          background: radial-gradient(ellipse at 70% 30%, rgba(236,72,153,0.05) 0%, transparent 70%),
-                      radial-gradient(ellipse at 30% 70%, rgba(34,197,94,0.04) 0%, transparent 60%);
+          background: radial-gradient(
+              ellipse at 70% 30%,
+              rgba(236, 72, 153, 0.05) 0%,
+              transparent 70%
+            ),
+            radial-gradient(
+              ellipse at 30% 70%,
+              rgba(34, 197, 94, 0.04) 0%,
+              transparent 60%
+            );
           animation: light-float 100s ease-in-out infinite alternate-reverse;
         }
 
         .grid-overlay {
           position: absolute;
           inset: 0;
-          background-image: 
-            linear-gradient(rgba(148,163,184,0.08) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(148,163,184,0.08) 1px, transparent 1px);
+          background-image: linear-gradient(
+              rgba(148, 163, 184, 0.08) 1px,
+              transparent 1px
+            ),
+            linear-gradient(
+              90deg,
+              rgba(148, 163, 184, 0.08) 1px,
+              transparent 1px
+            );
           background-size: 60px 60px;
           animation: grid-gentle-pulse 12s ease-in-out infinite;
         }
 
         @keyframes gentle-drift {
-          from { transform: translate(0, 0) rotate(0deg); }
-          to { transform: translate(-25%, -25%) rotate(180deg); }
+          from {
+            transform: translate(0, 0) rotate(0deg);
+          }
+          to {
+            transform: translate(-25%, -25%) rotate(180deg);
+          }
         }
 
         @keyframes light-float {
-          0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-          50% { transform: translate(15px, -10px) scale(1.05) rotate(2deg); }
+          0%,
+          100% {
+            transform: translate(0, 0) scale(1) rotate(0deg);
+          }
+          50% {
+            transform: translate(15px, -10px) scale(1.05) rotate(2deg);
+          }
         }
 
         @keyframes grid-gentle-pulse {
-          0%, 100% { opacity: 0.4; }
-          50% { opacity: 0.15; }
+          0%,
+          100% {
+            opacity: 0.4;
+          }
+          50% {
+            opacity: 0.15;
+          }
         }
       `}</style>
     </div>
