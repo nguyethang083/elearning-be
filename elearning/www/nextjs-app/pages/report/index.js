@@ -31,7 +31,7 @@ import {
   Bar,
 } from "recharts";
 import { fetchWithAuth } from "../api/helper";
-import { admissionScores } from "./admissionScores";
+import { admissionScores } from "../../data/admissionScores";
 import PerformanceTrend from "@/components/analysis/PerformanceTrend";
 
 // --- Demo Data ---
