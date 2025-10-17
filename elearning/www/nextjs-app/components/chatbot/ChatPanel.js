@@ -174,7 +174,7 @@ const ChatPanel = ({ onExpand, onClose, initialPrompt }) => {
 
   const handleAudioUpload = (audioBlob) => {
     const audioAttachment = {
-      name: audio_${Date.now()}.wav,
+      name: `audio_${Date.now()}.wav`,
       url: URL.createObjectURL(audioBlob),
       contentType: 'audio/wav',
       type: 'audio',
