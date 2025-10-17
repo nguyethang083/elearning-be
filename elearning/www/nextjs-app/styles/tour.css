@@ -1,0 +1,196 @@
+/* Professional Tour Styles for nextstepjs */
+
+/* Tour overlay with subtle backdrop */
+[data-nextstep-overlay] {
+  z-index: 9998 !important;
+  backdrop-filter: blur(3px) !important;
+  background: rgba(0, 0, 0, 0.35) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Tour content with clean shadow */
+[data-nextstep-content] {
+  z-index: 9999 !important;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15)) !important;
+}
+
+/* Clean arrow styling */
+[data-nextstep-arrow] {
+  z-index: 9999 !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1)) !important;
+}
+
+/* Subtle spotlight effect for highlighted elements */
+[data-nextstep-spotlight] {
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.4), 0 0 0 1px rgba(79, 70, 229, 0.2) !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Smooth transitions for all tour elements */
+[data-nextstep-overlay],
+[data-nextstep-content],
+[data-nextstep-arrow] {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Tour spotlight effect */
+.tour-spotlight {
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.4),
+    0 0 0 8px rgba(99, 102, 241, 0.2);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+/* Tour popup customization */
+.nextstepjs-popover {
+  background: white !important;
+  border-radius: 16px !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15) !important;
+  border: 1px solid #e5e7eb !important;
+  max-width: 400px !important;
+  padding: 0 !important;
+  z-index: 9999 !important;
+  position: relative !important;
+}
+
+.nextstepjs-popover-header {
+  padding: 20px 24px 16px !important;
+  border-bottom: 1px solid #f3f4f6 !important;
+}
+
+.nextstepjs-popover-title {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: #1f2937 !important;
+  margin: 0 !important;
+}
+
+.nextstepjs-popover-content {
+  padding: 16px 24px !important;
+  color: #6b7280 !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}
+
+.nextstepjs-popover-footer {
+  padding: 16px 24px 20px !important;
+  border-top: 1px solid #f3f4f6 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+/* Button styles */
+.nextstepjs-button {
+  padding: 8px 16px !important;
+  border-radius: 8px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+  border: none !important;
+}
+
+.nextstepjs-button-primary {
+  background: #4f46e5 !important;
+  color: white !important;
+}
+
+.nextstepjs-button-primary:hover {
+  background: #4338ca !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3) !important;
+}
+
+.nextstepjs-button-secondary {
+  background: #f3f4f6 !important;
+  color: #6b7280 !important;
+}
+
+.nextstepjs-button-secondary:hover {
+  background: #e5e7eb !important;
+  color: #374151 !important;
+}
+
+.nextstepjs-button-skip {
+  background: transparent !important;
+  color: #9ca3af !important;
+  text-decoration: none !important;
+}
+
+.nextstepjs-button-skip:hover {
+  color: #6b7280 !important;
+  background: #f9fafb !important;
+}
+
+/* Progress indicator */
+.nextstepjs-progress {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+.nextstepjs-progress-dot {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background: #e5e7eb !important;
+  transition: all 0.3s ease !important;
+}
+
+.nextstepjs-progress-dot.active {
+  background: #4f46e5 !important;
+  transform: scale(1.2) !important;
+}
+
+/* Arrow/pointer */
+.nextstepjs-arrow {
+  fill: white !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1)) !important;
+  z-index: 9999 !important;
+}
+
+/* Overlay */
+.nextstepjs-overlay {
+  background: rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(2px) !important;
+  transition: all 0.3s ease !important;
+  z-index: 9998 !important;
+}
+
+/* Animation */
+@keyframes tourFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.nextstepjs-popover {
+  animation: tourFadeIn 0.3s ease !important;
+}
+
+/* Ensure popover is above fixed headers */
+div[style*="position: fixed"][data-nextstep] {
+  z-index: 9999 !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .nextstepjs-popover {
+    max-width: calc(100vw - 32px) !important;
+    margin: 16px !important;
+  }
+
+  .nextstepjs-popover-header,
+  .nextstepjs-popover-content,
+  .nextstepjs-popover-footer {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}

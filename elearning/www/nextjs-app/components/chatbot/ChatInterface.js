@@ -7,7 +7,7 @@ import SuggestedActions from './SuggestedActions';
 import QuickActions from './QuickActions';
 import { useChat } from '../../hooks/useChat';
 
-const ChatInterface = ({ onClose, prefilledMessage }) => {
+const ChatInterface = ({ onClose }) => {
   const {
     messages,
     input,
@@ -24,7 +24,6 @@ const ChatInterface = ({ onClose, prefilledMessage }) => {
   const [uploadQueue, setUploadQueue] = useState([]);
   const [showClearConfirm, setShowClearConfirm] = useState(false);
   const messagesEndRef = useRef(null);
-  const prefilledProcessedRef = useRef(false);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -34,58 +33,13 @@ const ChatInterface = ({ onClose, prefilledMessage }) => {
     scrollToBottom();
   }, [messages, attachments]);
 
-  // Also scroll when input changes (for prefilled messages)
-  useEffect(() => {
-    if (input.length > 100) { // Only for long messages like templates
-      setTimeout(() => {
-        scrollToBottom();
-      }, 100);
-    }
-  }, [input]);
-
-  // Handle prefilled message
-  useEffect(() => {
-    if (prefilledMessage && prefilledMessage.trim() && !prefilledProcessedRef.current) {
-      console.log('🔄 Setting prefilled message:', prefilledMessage);
-      setInput(prefilledMessage);
-      prefilledProcessedRef.current = true;
-      
-      // Force focus and select text after React has updated (only for prefilled messages)
-      const timer = setTimeout(() => {
-        const textarea = document.querySelector('textarea[placeholder*="Bạn muốn hỏi gì"]');
-        if (textarea && textarea.value === prefilledMessage) {
-          console.log('🎯 Focusing textarea, current value:', textarea.value);
-          textarea.focus();
-          
-          // Wait a bit more for React to update the DOM
-          setTimeout(() => {
-            textarea.select();
-            console.log('✂️ Text selected, selection range:', textarea.selectionStart, '-', textarea.selectionEnd);
-          }, 50);
-        }
-      }, 100);
-      
-      return () => clearTimeout(timer);
-    }
-  }, [prefilledMessage, setInput]);
-  
-  // Reset processed flag when prefilledMessage changes
-  useEffect(() => {
-    prefilledProcessedRef.current = false;
-  }, [prefilledMessage]);
-
   const handleActionClick = (actionText) => {
     setInput(actionText);
     // Auto-submit after a short delay
     setTimeout(() => {
       handleSubmit(null, attachments);
       setAttachments([]); // Clear attachments after sending
-      
-      // Clear input after submit completes
-      setTimeout(() => {
-        setInput('');
-      }, 100);
-    }, 150);
+    }, 100);
   };
 
   const handleQuickActionClick = (message) => {
@@ -94,12 +48,7 @@ const ChatInterface = ({ onClose, prefilledMessage }) => {
     setTimeout(() => {
       handleSubmit(null, attachments);
       setAttachments([]); // Clear attachments after sending
-      
-      // Clear input after submit completes
-      setTimeout(() => {
-        setInput('');
-      }, 100);
-    }, 150);
+    }, 100);
   };
 
   const handleAttachmentRemove = (attachmentToRemove) => {

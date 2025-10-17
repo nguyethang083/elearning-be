@@ -76,19 +76,33 @@ export const useChat = () => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${session.accessToken}`,
           },
           body: JSON.stringify({
             user: session.user.email,
           }),
         }
       );
-
       if (!response.ok) {
         throw new Error("Failed to create chat session");
       }
 
       const data = await response.json();
-      return data.message; // The agents API directly returns the session_id
+
+      // Handle new response format from agents API
+      if (
+        data.message &&
+        typeof data.message === "object" &&
+        data.message.session_id
+      ) {
+        return data.message.session_id;
+      } else if (data.message && typeof data.message === "string") {
+        // Fallback for old format
+        return data.message;
+      } else {
+        console.error("Invalid session creation response:", data);
+        return null;
+      }
     } catch (error) {
       console.error("Error creating chat session:", error);
       return null;
@@ -119,14 +133,19 @@ export const useChat = () => {
         let sessionId = currentSessionId;
         if (!sessionId) {
           sessionId = await createChatSession();
+          if (!sessionId) {
+            throw new Error("Failed to create chat session");
+          }
           setCurrentSessionId(sessionId);
         }
+
+        console.log("📝 Using session ID:", sessionId);
 
         // Prepare form data for file uploads
         const formData = new FormData();
         formData.append("user", session.user.email);
         formData.append("user_input", content.trim());
-        formData.append("session_id", sessionId);
+        formData.append("session_id", sessionId || ""); // Ensure string
 
         // Add conversation history for trigger analysis (include current user message)
         const conversationForAnalysis = [...messages, userMessage];
@@ -152,6 +171,9 @@ export const useChat = () => {
           `${baseUrl}/api/method/elearning.elearning.agents.tutor.handle_chat_message`,
           {
             method: "POST",
+            headers: {
+              Authorization: `Bearer ${session.accessToken}`,
+            },
             body: formData,
           }
         );

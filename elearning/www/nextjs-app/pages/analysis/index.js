@@ -371,8 +371,9 @@ export default function AnalysisPage() {
   if (pathwayError) {
     return (
       <div className="p-6">
-        <div className="bg-red-100 text-red-700 p-6 rounded-lg">
-          Lỗi khi lấy lộ trình học tập: {pathwayError}
+        <div className="bg-blue-100 text-blue-700 p-6 rounded-lg">
+          Chưa có hồ sơ năng lực, hãy làm bài kiểm tra đầu vào và học tập để có
+          dữ liệu.
         </div>
       </div>
     );

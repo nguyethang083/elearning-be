@@ -82,7 +82,7 @@ export default function TopicsSection({ onTopicSelect }) {
   }
 
   return (
-    <div>
+    <div id="topics-section">
       <h3 className="text-xl font-bold mb-4 mt-8">Chuyên đề</h3>
       {topics.length === 0 && !loading ? (
         <p className="text-gray-500">Không tìm thấy chuyên đề nào.</p>

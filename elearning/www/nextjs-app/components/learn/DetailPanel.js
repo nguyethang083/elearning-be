@@ -20,14 +20,13 @@ const DetailPanel = ({
     prerequisites = []
   } = selectedLO;
 
-  const weaknessPercentage = Math.round(weakness_score * 100);
+  const weaknessPercentage = hasKnowledgeGap ? 90 : Math.round(weakness_score * 100);
   const masteryPercentage = 100 - weaknessPercentage;
 
-  // Get prerequisite details
-  const prerequisiteDetails = prerequisites.map(prereqId => {
-    const prereq = allLearningObjects.find(lo => lo.data.id === prereqId);
-    return prereq ? prereq.data : { id: prereqId, title: prereqId };
-  });
+  // Get prerequisite details - remove duplicates
+  const prerequisiteDetails = [...new Set(prerequisites)].map(prereqId => {
+    return allLearningObjects.find(lo => lo.id === prereqId)?.data;
+  }).filter(Boolean); // Remove undefined values
 
   // Get dependent nodes (nodes that depend on this one)
   const dependentNodes = allLearningObjects.filter(lo => 

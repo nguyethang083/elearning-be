@@ -121,7 +121,7 @@ export default function PerformanceSection({ userData }) {
   };
 
   return (
-    <div className="mb-8">
+    <div id="performance-section" className="mb-8">
       <h3 className="text-xl font-sora font-bold mb-4">Trình độ tổng thể</h3>
 
       <div className="relative h-8 bg-gray-200 rounded-full mb-6">
@@ -166,6 +166,7 @@ export default function PerformanceSection({ userData }) {
 
         <div className="relative">
           <Button
+            id="test-mode-selector"
             variant="outline"
             className="w-full sm:w-[180px] justify-between"
             onClick={() => setShowModeDropdown(!showModeDropdown)}

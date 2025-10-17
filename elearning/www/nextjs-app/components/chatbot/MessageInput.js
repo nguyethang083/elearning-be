@@ -8,7 +8,6 @@ const MessageInput = ({ input, setInput, handleSubmit, isLoading, stop, onFileUp
   const [isRecording, setIsRecording] = useState(false);
   const [mediaRecorder, setMediaRecorder] = useState(null);
   const [recordedChunks, setRecordedChunks] = useState([]);
-  const [textareaKey, setTextareaKey] = useState(0);
 
   const adjustHeight = () => {
     if (textareaRef.current) {
@@ -21,13 +20,6 @@ const MessageInput = ({ input, setInput, handleSubmit, isLoading, stop, onFileUp
     adjustHeight();
   }, [input]);
 
-  // Force refresh textarea when input is cleared
-  useEffect(() => {
-    if (input === '') {
-      setTextareaKey(prev => prev + 1);
-    }
-  }, [input]);
-
   const handleKeyPress = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
@@ -38,11 +30,8 @@ const MessageInput = ({ input, setInput, handleSubmit, isLoading, stop, onFileUp
   };
 
   const handleSubmitClick = (e) => {
-    console.log('🔘 Send button clicked - Input:', input, 'Length:', input.length, 'Trimmed:', input.trim().length);
     if (!isLoading && input.trim()) {
       handleSubmit(e);
-    } else {
-      console.log('❌ Submit blocked - isLoading:', isLoading, 'hasInput:', !!input.trim());
     }
   };
 
@@ -201,21 +190,14 @@ const MessageInput = ({ input, setInput, handleSubmit, isLoading, stop, onFileUp
         <div className="flex-1 relative">
           <div className="relative border border-gray-300 rounded-xl bg-white focus-within:border-indigo-500 focus-within:ring-2 focus-within:ring-indigo-200 transition-all">
             <textarea
-              key={textareaKey}
               ref={textareaRef}
               value={input}
-              onChange={(e) => {
-                console.log('📝 Textarea onChange:', e.target.value);
-                setInput(e.target.value);
-              }}
+              onChange={(e) => setInput(e.target.value)}
               onKeyPress={handleKeyPress}
-              onFocus={() => console.log('🎯 Textarea focused, value:', input)}
-              onBlur={() => console.log('👋 Textarea blurred')}
               placeholder="Bạn muốn hỏi gì không?"
-              className="w-full resize-none bg-transparent border-0 rounded-xl px-4 py-3 pr-12 focus:outline-none focus:ring-0 text-sm min-h-[48px] max-h-[200px] leading-relaxed whitespace-pre-wrap overflow-y-auto"
+              className="w-full resize-none bg-transparent border-0 rounded-xl px-4 py-3 pr-12 focus:outline-none focus:ring-0 text-sm min-h-[48px] max-h-[120px]"
               rows={1}
               disabled={isLoading}
-              readOnly={false}
             />
 
             {/* Send/Stop Button */}
@@ -230,7 +212,6 @@ const MessageInput = ({ input, setInput, handleSubmit, isLoading, stop, onFileUp
                     ? 'bg-indigo-600 hover:bg-indigo-700 text-white shadow-md hover:shadow-lg'
                     : 'bg-gray-200 text-gray-400 cursor-not-allowed'
                 }`}
-                title={`Send button - Input: ${input.length} chars, Disabled: ${(!input.trim() && attachments.length === 0) && !isLoading}`}
               >
                 {isLoading ? (
                   <StopCircle size={18} />

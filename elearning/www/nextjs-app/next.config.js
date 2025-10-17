@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  experimental: {
+    esmExternals: true,
+  },
+  transpilePackages: ["nextstepjs"],
   images: {
     unoptimized: true, // THÊM DÒNG NÀY ĐỂ TẮT TỐI ƯU HÓA HÌNH ẢNH
     remotePatterns: [

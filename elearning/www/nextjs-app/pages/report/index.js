@@ -227,6 +227,7 @@ export default function Report() {
   const router = useRouter();
   const { data: session, status } = useSession();
   const [user, setUser] = useState(null);
+  const [showSkillExplanation, setShowSkillExplanation] = useState(false);
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("user");
@@ -332,7 +333,6 @@ export default function Report() {
               In/PDF
             </Button>
           </div>
-
           {/* Summary Cards */}
           <div className="print-section grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
@@ -398,7 +398,6 @@ export default function Report() {
               </div>
             </div>
           </div>
-
           {/* So Sánh Điểm Chuẩn Trường THPT Hàng Đầu */}
           <div className="print-section">
             <h3 className="text-lg font-bold text-gray-900 mb-4">
@@ -755,303 +754,549 @@ export default function Report() {
               </div>
             </div>
           </div>
+          {(() => {
+            /* ===== CHAPTERS ===== */
+            const CHAPTERS = {
+              1: "Chương I. Phương trình & Hệ phương trình bậc nhất",
+              2: "Chương II. Bất đẳng thức",
+              3: "Chương III. Căn thức",
+              4: "Chương IV. Hệ thức lượng trong tam giác vuông",
+              5: "Chương V. Đường tròn",
+              6: "Chương VI. Thống kê & Xác suất",
+              7: "Chương VII. Hàm số y=ax², PT bậc hai",
+              8: "Chương VIII. Ngoại tiếp & nội tiếp",
+              9: "Chương IX. Đa giác đều",
+              10: "Chương X. Hình học trực quan",
+            };
 
-          {/* Performance Radar Chart & Topic List */}
-          <div className="print-section">
-            <div className="flex items-center gap-2 mb-4">
-              <BarChart3 className="h-5 w-5 text-blue-600" />
-              <h3 className="text-lg font-bold text-gray-900">
-                Kỹ năng Toán học
-              </h3>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div
-                className="bg-white border border-gray-200 rounded-lg p-4 flex flex-col justify-start"
-                style={{ minHeight: "400px", paddingTop: "60px" }}
+            /* ===== EXAM STRUCTURE — tổng quát theo dạng ===== */
+            const EXAM_STRUCTURE = [
+              {
+                q: 1,
+                title: "Đại số cơ bản",
+                points: 2.0,
+                itemsText: "≈ 2–3 ý",
+                perItemText: "≈ 0.5–1.0 điểm/ý",
+                chapters: ["3", "2", "1"],
+                subparts: [
+                  "Rút gọn / tính giá trị biểu thức (căn/phân thức) kèm điều kiện xác định.",
+                  "Chứng minh đẳng thức: quy đồng, khử căn, biến đổi tương đương.",
+                  "Tìm ẩn từ biểu thức / tỉ số; lập phương trình đơn giản.",
+                ],
+              },
+              {
+                q: 2,
+                title: "Bài toán thực tế & Hình khối",
+                points: 2.0,
+                itemsText: "2 ý",
+                perItemText: "≈ 1.0 điểm/ý",
+                chapters: ["1", "10"],
+                subparts: [
+                  "Lời văn → phương trình/hệ (tỉ lệ, năng suất, chuyển động).",
+                  "Hình khối / trực quan: thể tích – diện tích (trụ, lăng trụ, hộp…).",
+                ],
+              },
+              {
+                q: 3,
+                title: "Hệ phương trình – Parabol & Đường thẳng",
+                points: 2.5,
+                itemsText: "3 ý chính",
+                perItemText: "≈ 0.5–1.5 điểm/ý",
+                chapters: ["1", "7"],
+                subparts: [
+                  "Giải hệ (có ẩn ở mẫu/ phân thức).",
+                  "Giao điểm parabol y=ax² và đường thẳng y=mx+b.",
+                  "Điều kiện cắt 2 điểm; tham số m; dùng Δ và hệ thức Viète.",
+                ],
+              },
+              {
+                q: 4,
+                title: "Hình học (đường tròn/đồng dạng)",
+                points: 3.0,
+                itemsText: "3 ý",
+                perItemText: "≈ 1.0 điểm/ý",
+                chapters: ["5", "8", "4"],
+                subparts: [
+                  "a) Chứng minh tứ giác nội tiếp / góc ở cùng cung.",
+                  "b) Tiếp tuyến–bán kính; góc giữa tiếp tuyến và dây; đồng dạng tam giác.",
+                  "c) Hệ thức tích đoạn thẳng; quan hệ song song/đồng quy/điểm giữa.",
+                ],
+              },
+              {
+                q: 5,
+                title: "Bất đẳng thức / GTNN–GTLN",
+                points: 0.5,
+                itemsText: "1 ý",
+                perItemText: "0.5 điểm",
+                chapters: ["2"],
+                subparts: [
+                  "BĐT cơ bản; cực trị; áp dụng AM-GM / Cauchy và biến đổi tương đương.",
+                ],
+              },
+            ];
+
+            /* ===== mapping kỹ năng ↔ câu ===== */
+            const SKILL_MAPPING = [
+              { q: 1, topic: "Nền tảng Đại số & Tính toán" },
+              { q: 2, topic: "Mô hình hóa & Toán thực tế" },
+              { q: 3, topic: "Trực quan & Tư duy Không gian" },
+              { q: 4, topic: "Suy luận & Chứng minh Hình học" },
+              { q: 5, topic: "Phân tích & Vận dụng Nâng cao" },
+            ];
+
+            const getScore = (name) =>
+              topicPerformance.find((t) => t.topic === name)?.student ?? 0;
+
+            const skillsWithScores = SKILL_MAPPING.map((s) => {
+              const score = getScore(s.topic);
+              const struct = EXAM_STRUCTURE.find((e) => e.q === s.q);
+              const estPoints =
+                Math.round((score / 100) * struct.points * 100) / 100;
+              return { ...s, score, struct, estPoints };
+            });
+
+            /* ===== Label “ăn điểm” ===== */
+            const eatStatus = (score) => {
+              if (score >= 85) return { label: "Vững vàng", tone: "ok" };
+              if (score >= 70) return { label: "Khá ổn định", tone: "good" };
+              if (score >= 50) return { label: "Cần luyện thêm", tone: "mid" };
+              return { label: "Chưa nắm vững", tone: "bad" };
+            };
+
+            const Chip = ({ label, tone }) => (
+              <span
+                className={
+                  "inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium " +
+                  (tone === "ok"
+                    ? "bg-green-100 text-green-800 border border-green-200"
+                    : tone === "good"
+                    ? "bg-blue-100 text-blue-800 border border-blue-200"
+                    : tone === "mid"
+                    ? "bg-amber-100 text-amber-800 border border-amber-200"
+                    : "bg-red-100 text-red-800 border border-red-200")
+                }
               >
-                <div style={{ width: "100%", height: "400px" }}>
-                  <ResponsiveContainer width="100%" height="100%">
-                    <RadarChart data={topicPerformance}>
-                      <PolarGrid />
-                      <PolarAngleAxis
-                        dataKey="topic"
-                        tick={({
-                          payload,
-                          x,
-                          y,
-                          textAnchor,
-                          stroke,
-                          index,
-                        }) => {
-                          function splitToTwoLines(text) {
-                            const words = text.split(" ");
-                            if (words.length <= 2) return [text];
-                            const mid = Math.ceil(words.length / 2);
-                            return [
-                              words.slice(0, mid).join(" "),
-                              words.slice(mid).join(" "),
-                            ];
-                          }
-                          const lines = splitToTwoLines(payload.value);
-                          let yOffset = -60;
-                          let xOffset = -50;
-                          let width = 120;
-                          let height = 50;
-                          if (index === 1 || index === 4) {
-                            yOffset = -40;
-                          }
-                          if (index === 2 || index === 3) {
-                            yOffset = 10;
-                          }
-                          if (index === 0) {
-                            yOffset = -35;
-                            height = 70;
-                          }
-                          return (
-                            <g transform={`translate(${x},${y})`}>
-                              <foreignObject
-                                x={xOffset}
-                                y={yOffset}
-                                width={width}
-                                height={height}
-                                style={{ overflow: "visible" }}
-                              >
-                                <div
-                                  style={{
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    alignItems: "center",
-                                    maxWidth: width,
-                                    fontSize: 13,
-                                    fontWeight: "normal",
-                                    color: "#374151",
-                                    textAlign: "center",
-                                    wordBreak: "break-word",
-                                    lineHeight: "1.2",
-                                  }}
-                                >
-                                  {lines.map((line, i) => (
-                                    <span key={i}>{line}</span>
+                {label}
+              </span>
+            );
+
+            /* ===== Chips tổng quan theo % ===== */
+            const highLikelihood = skillsWithScores
+              .filter((s) => s.score >= 70)
+              .map((s) => s.q);
+            const needReinforcement = skillsWithScores
+              .filter((s) => s.score >= 50 && s.score < 70)
+              .map((s) => s.q);
+            const highRisk = skillsWithScores
+              .filter((s) => s.score < 50)
+              .map((s) => s.q);
+
+            return (
+              <div className="print-section">
+                <div className="flex items-center gap-2 mb-4">
+                  <BarChart3 className="h-5 w-5 text-blue-600" />
+                  <h3 className="text-lg font-bold text-gray-900">
+                    Kỹ năng Toán học
+                  </h3>
+                </div>
+
+                {/* Giải thích phương pháp tính toán - Toggle */}
+                <div className="mb-6 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 border-l-4 border-blue-500 rounded-lg shadow-sm overflow-hidden">
+                  {/* Header - Clickable */}
+                  <button
+                    onClick={() =>
+                      setShowSkillExplanation(!showSkillExplanation)
+                    }
+                    className="w-full flex items-center justify-between p-4 hover:bg-white/30 transition-colors duration-200"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="flex-shrink-0 w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center shadow-sm">
+                        <svg
+                          className="w-4 h-4 text-white"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
+                      </div>
+                      <h4 className="font-bold text-gray-900 text-[15px]">
+                        Chỉ số kỹ năng (%)
+                      </h4>
+                    </div>
+                    <svg
+                      className={`w-5 h-5 text-gray-600 transition-transform duration-200 ${
+                        showSkillExplanation ? "rotate-180" : ""
+                      }`}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+
+                  {/* Content - Collapsible */}
+                  {showSkillExplanation && (
+                    <div className="px-4 pb-4 pt-0 animate-in fade-in slide-in-from-top-2 duration-200">
+                      <p className="text-[13px] text-gray-700 leading-relaxed mb-3">
+                        Con số không chỉ phản ánh{" "}
+                        <strong className="text-blue-700">
+                          điểm số trung bình
+                        </strong>{" "}
+                        mà còn tính đến
+                        <strong className="text-blue-700">
+                          {" "}
+                          độ ổn định phong độ
+                        </strong>{" "}
+                        qua nhiều lần làm bài. Phong độ càng đều đặn, khả năng
+                        ghi điểm thực tế càng cao.
+                      </p>
+
+                      {/* Dải màu gradient */}
+                      <div className="mb-3">
+                        <div
+                          className="relative h-8 rounded-lg overflow-hidden border border-gray-200"
+                          style={{
+                            background:
+                              "linear-gradient(to right, #fecaca 0%, #fecaca 25%, #fde68a 25%, #fde68a 50%, #bfdbfe 50%, #bfdbfe 75%, #bbf7d0 75%, #bbf7d0 100%)",
+                          }}
+                        >
+                          {/* Markers */}
+                          <div className="absolute inset-0 flex items-center">
+                            <div className="absolute left-[25%] h-full w-px bg-white/60"></div>
+                            <div className="absolute left-[50%] h-full w-px bg-white/60"></div>
+                            <div className="absolute left-[75%] h-full w-px bg-white/60"></div>
+                          </div>
+                          {/* Labels */}
+                          <div className="absolute inset-0 flex">
+                            <div className="flex-1 flex items-center justify-center">
+                              <span className="text-[10px] font-bold text-red-700 drop-shadow-sm">
+                                &lt;50%
+                              </span>
+                            </div>
+                            <div className="flex-1 flex items-center justify-center">
+                              <span className="text-[10px] font-bold text-amber-700 drop-shadow-sm">
+                                50-70%
+                              </span>
+                            </div>
+                            <div className="flex-1 flex items-center justify-center">
+                              <span className="text-[10px] font-bold text-blue-700 drop-shadow-sm">
+                                70-85%
+                              </span>
+                            </div>
+                            <div className="flex-1 flex items-center justify-center">
+                              <span className="text-[10px] font-bold text-green-700 drop-shadow-sm">
+                                ≥85%
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex justify-between mt-1.5 px-1">
+                          <span className="text-[11px] text-red-600 font-medium">
+                            Chưa nắm vững
+                          </span>
+                          <span className="text-[11px] text-amber-600 font-medium">
+                            Cần luyện thêm
+                          </span>
+                          <span className="text-[11px] text-blue-600 font-medium">
+                            Khá ổn định
+                          </span>
+                          <span className="text-[11px] text-green-600 font-medium">
+                            Vững vàng
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="bg-white/70 backdrop-blur-sm rounded-lg px-3 py-2 border border-blue-200/50">
+                        <p className="text-[12px] text-gray-700 leading-relaxed">
+                          <strong className="text-blue-700">
+                            💡 Mục tiêu 8.0 điểm:
+                          </strong>{" "}
+                          Đưa các kỹ năng nền tảng (Câu 1-2-3-4) lên
+                          <strong className="text-green-700"> ≥85%</strong>{" "}
+                          thông qua luyện tập đều đặn và duy trì phong độ ổn
+                          định.
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* 2 cột: Trái = Radar + Lời khuyên + Trạng thái | Phải = Cấu trúc đề thi */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* LEFT */}
+                  <div
+                    className="bg-white border border-gray-200 rounded-lg p-4 flex flex-col justify-start"
+                    style={{ minHeight: "420px", paddingTop: "60px" }}
+                  >
+                    {/* Radar */}
+                    <div style={{ width: "100%", height: "400px" }}>
+                      <ResponsiveContainer width="100%" height="100%">
+                        <RadarChart data={topicPerformance}>
+                          <PolarGrid />
+                          <PolarAngleAxis
+                            dataKey="topic"
+                            tick={({ payload, x, y, index }) => {
+                              const text = payload.value;
+                              const words = text.split(" ");
+                              const lines =
+                                words.length <= 2
+                                  ? [text]
+                                  : [
+                                      words
+                                        .slice(0, Math.ceil(words.length / 2))
+                                        .join(" "),
+                                      words
+                                        .slice(Math.ceil(words.length / 2))
+                                        .join(" "),
+                                    ];
+                              let yOffset = -60,
+                                xOffset = -50,
+                                width = 120,
+                                height = 50;
+                              if (index === 1 || index === 4) yOffset = -40;
+                              if (index === 2 || index === 3) yOffset = 10;
+                              if (index === 0) {
+                                yOffset = -35;
+                                height = 70;
+                              }
+                              return (
+                                <g transform={`translate(${x},${y})`}>
+                                  <foreignObject
+                                    x={xOffset}
+                                    y={yOffset}
+                                    width={width}
+                                    height={height}
+                                    style={{ overflow: "visible" }}
+                                  >
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        alignItems: "center",
+                                        maxWidth: width,
+                                        fontSize: 13,
+                                        color: "#374151",
+                                        textAlign: "center",
+                                        lineHeight: 1.25,
+                                      }}
+                                    >
+                                      {lines.map((line, i) => (
+                                        <span key={i}>{line}</span>
+                                      ))}
+                                    </div>
+                                  </foreignObject>
+                                </g>
+                              );
+                            }}
+                          />
+                          <PolarRadiusAxis
+                            angle={90}
+                            domain={[0, 100]}
+                            tick={{ fontSize: 8 }}
+                          />
+                          <Radar
+                            name="Bạn"
+                            dataKey="student"
+                            stroke="#3b82f6"
+                            fill="#3b82f6"
+                            fillOpacity={0.3}
+                            strokeWidth={2}
+                          />
+                          <Radar
+                            name="Tháng trước"
+                            dataKey="classAvg"
+                            stroke="#10b981"
+                            fill="transparent"
+                            strokeWidth={1}
+                            strokeDasharray="5 5"
+                          />
+                          <Tooltip />
+                        </RadarChart>
+                      </ResponsiveContainer>
+                    </div>
+
+                    <div className="flex justify-center gap-4 text-xs mt-2">
+                      <div className="flex items-center gap-1">
+                        <div className="w-3 h-3 bg-blue-500 rounded" />{" "}
+                        <span>Học sinh</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <div className="w-3 h-1 bg-green-500" />{" "}
+                        <span>Tháng trước</span>
+                      </div>
+                    </div>
+
+                    {/* Tổng quan nhanh bằng chip */}
+                    <div className="mt-8 p-3 bg-gray-50 rounded border border-gray-200 text-xs leading-relaxed">
+                      <div className="font-semibold text-gray-800 mb-1">
+                        Khả năng đạt điểm theo câu (tổng quan):
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {highLikelihood.length ? (
+                          highLikelihood.map((q) => (
+                            <Chip
+                              key={`ok-${q}`}
+                              label={`Câu ${q}`}
+                              tone="ok"
+                            />
+                          ))
+                        ) : (
+                          <span className="text-gray-600">
+                            Chưa có phần nào đạt độ vững ổn định.
+                          </span>
+                        )}
+                      </div>
+                      {!!needReinforcement.length && (
+                        <div className="mt-2">
+                          <span className="font-medium text-gray-700 mr-1">
+                            Cần củng cố:
+                          </span>
+                          {needReinforcement.map((q) => (
+                            <Chip
+                              key={`mid-${q}`}
+                              label={`Câu ${q}`}
+                              tone="mid"
+                            />
+                          ))}
+                        </div>
+                      )}
+                      {!!highRisk.length && (
+                        <div className="mt-2">
+                          <span className="font-medium text-gray-700 mr-1">
+                            Rủi ro mất điểm:
+                          </span>
+                          {highRisk.map((q) => (
+                            <Chip
+                              key={`bad-${q}`}
+                              label={`Câu ${q}`}
+                              tone="bad"
+                            />
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* 🎯 LỜI KHUYÊN ỔN ĐỊNH 8.0 */}
+                    <div className="mt-3 p-3 bg-blue-50 rounded border border-blue-200 text-sm text-blue-900">
+                      <div className="font-semibold mb-1">
+                        🎯 Lời khuyên: để đạt mốc điểm 8
+                      </div>
+                      <ul className="list-disc ml-5 space-y-1 text-[13px]">
+                        <li>
+                          Ưu tiên nhuần nhuyễn <strong>Câu 1–2–3</strong> (đại
+                          số cơ bản, bài thực tế–hình khối, hệ–parabol).
+                        </li>
+                        <li>
+                          <strong>Câu 4</strong>: nắm vững{" "}
+                          <strong>2 ý đầu</strong> (nội tiếp; tiếp tuyến/đồng
+                          dạng).
+                        </li>
+                        <li>
+                          Hạn chế mất điểm do điều kiện xác định và sai hình:
+                          luôn kiểm tra ĐKXĐ & phác thảo hình.
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* DANH SÁCH TRẠNG THÁI — đặt dưới Lời khuyên */}
+                    <div className="mt-3 bg-white rounded border divide-y">
+                      {skillsWithScores.map((s, idx) => {
+                        const st = eatStatus(s.score);
+                        return (
+                          <div
+                            key={idx}
+                            className="py-2 px-2 flex items-center justify-between"
+                          >
+                            <div className="text-[13px] font-medium text-gray-800 flex items-center gap-2">
+                              <span>{s.topic}</span>
+                              <span className="px-2 py-0.5 rounded bg-blue-50 text-blue-700 text-[11px] border border-blue-200">
+                                Câu {s.q}
+                              </span>
+                            </div>
+                            <div className="flex items-center gap-3">
+                              <Chip label={st.label} tone={st.tone} />
+                              <span className="text-sm font-semibold text-gray-700 w-10 text-right">
+                                {s.score}%
+                              </span>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* RIGHT — Cấu trúc đề thi (tóm lược theo dạng) */}
+                  <div>
+                    <div className="p-4 bg-indigo-50 border border-indigo-200 rounded">
+                      <div className="text-base font-semibold text-indigo-900 mb-2">
+                        Cấu trúc đề thi (tóm lược)
+                      </div>
+                      <ul className="space-y-3">
+                        {EXAM_STRUCTURE.map((e) => (
+                          <li
+                            key={e.q}
+                            className="bg-white rounded-lg border border-indigo-100 p-3 shadow-sm"
+                          >
+                            <div className="flex items-start justify-between gap-3">
+                              <div className="min-w-0">
+                                <div className="text-sm font-semibold text-gray-900">
+                                  Câu {e.q}. {e.title}
+                                </div>
+                                <div className="mt-1 text-[13px] text-gray-700">
+                                  <span className="font-medium">Số ý:</span>{" "}
+                                  {e.itemsText} <span className="mx-2">•</span>
+                                  <span className="font-medium">
+                                    Phân bổ:
+                                  </span>{" "}
+                                  {e.perItemText}
+                                </div>
+                                <div className="mt-1 flex flex-wrap gap-1">
+                                  {e.chapters.map((id) => (
+                                    <span
+                                      key={id}
+                                      className="px-2 py-0.5 rounded bg-indigo-50 text-indigo-800 text-[11px] border border-indigo-200"
+                                    >
+                                      {CHAPTERS[id]}
+                                    </span>
                                   ))}
                                 </div>
-                              </foreignObject>
-                            </g>
-                          );
-                        }}
-                      />
-                      <PolarRadiusAxis
-                        angle={90}
-                        domain={[0, 100]}
-                        tick={{ fontSize: 8 }}
-                      />
-                      <Radar
-                        name="Bạn"
-                        dataKey="student"
-                        stroke="#3b82f6"
-                        fill="#3b82f6"
-                        fillOpacity={0.3}
-                        strokeWidth={2}
-                      />
-                      <Radar
-                        name="Tháng trước"
-                        dataKey="classAvg"
-                        stroke="#10b981"
-                        fill="transparent"
-                        strokeWidth={1}
-                        strokeDasharray="5 5"
-                      />
-                    </RadarChart>
-                  </ResponsiveContainer>
-                </div>
-                <div className="flex justify-center gap-4 text-xs mt-2">
-                  <div className="flex items-center gap-1">
-                    <div className="w-3 h-3 bg-blue-500 rounded"></div>
-                    <span>Bạn</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <div className="w-3 h-1 bg-green-500"></div>
-                    <span>Tháng trước</span>
+                                {e.subparts?.length > 0 && (
+                                  <ul className="mt-2 list-disc ml-5 text-[12px] text-gray-700 space-y-1">
+                                    {e.subparts.map((sp, i) => (
+                                      <li key={i}>{sp}</li>
+                                    ))}
+                                  </ul>
+                                )}
+                              </div>
+                              <div className="text-sm font-bold text-gray-800 whitespace-nowrap">
+                                {e.points} điểm
+                              </div>
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="mt-3 text-[11px] text-gray-600">
+                        Ghi chú: Phân bổ có thể thay đổi theo từng năm; phần
+                        trình bày nhằm giúp phụ huynh nắm cấu trúc chung.
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-
-              <div className="space-y-2">
-                {topicPerformance.map((topic, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center justify-between p-2 bg-gray-50 rounded border"
-                  >
-                    <span className="text-sm font-medium flex-1">
-                      {topic.topic}
-                    </span>
-                    <div className="flex items-center gap-2">
-                      <div className="w-16 h-2 bg-gray-200 rounded">
-                        <div
-                          className="h-2 rounded"
-                          style={{
-                            width: `${topic.student}%`,
-                            backgroundColor:
-                              topic.student >= 80
-                                ? "#10b981"
-                                : topic.student >= 70
-                                ? "#f59e0b"
-                                : "#ef4444",
-                          }}
-                        ></div>
-                      </div>
-                      <span className="text-sm font-bold w-8">
-                        {topic.student}%
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* --- Domain explainer (short, definitive) — placed right below the list --- */}
-            <div className="mt-3 p-4 bg-indigo-50 border border-indigo-200 rounded-lg">
-              <h4 className="font-semibold text-indigo-800 mb-2">
-                5 miền năng lực & phần thi liên quan
-              </h4>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {Object.entries(DOMAIN_DETAILS).map(([name, d]) => (
-                  <li
-                    key={name}
-                    className="p-3 bg-white rounded border border-indigo-100"
-                  >
-                    <div className="text-sm font-semibold text-gray-800">
-                      {name}
-                    </div>
-                    <div className="text-xs text-gray-600 mt-1">
-                      {d.meaning}
-                    </div>
-                    <div className="text-[11px] text-gray-700 mt-1">
-                      <span className="font-medium">Tập trung:</span>{" "}
-                      {d.examFocus}
-                    </div>
-                    <div className="flex flex-wrap gap-2 mt-2">
-                      {d.quickFormulas.map((t, i) => (
-                        <span
-                          key={i}
-                          className="px-2 py-0.5 bg-indigo-100 text-indigo-800 rounded text-[11px] border border-indigo-200"
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Topic Effort Analysis */}
-          <div className="print-section">
-            <div className="flex items-center gap-2 mb-4">
-              <Target className="h-5 w-5 text-orange-600" />
-              <h3 className="text-lg font-bold text-gray-900">
-                Học sinh cần cải thiện kỹ năng nào
-              </h3>
-            </div>
-            <div className="bg-white border border-gray-200 rounded-lg p-6">
-              <p className="text-sm text-gray-600 mb-4">
-                Phân tích các kỹ năng cần cải thiện dựa trên điểm số hiện tại so
-                với mục tiêu 80%.
-              </p>
-              <div className="space-y-4">
-                {topicPerformance
-                  .filter((topic) => topic.student < 80)
-                  .map((topic, index) => {
-                    const effortNeeded = Math.max(0, 80 - topic.student);
-                    const advice = getAdviceForTopic(
-                      topic.topic,
-                      topic.student
-                    );
-                    return (
-                      <div key={index} className="bg-gray-50 rounded-lg p-4">
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="font-semibold text-gray-800">
-                            {topic.topic}
-                          </span>
-                          <span className="text-sm text-gray-600">
-                            Cần cải thiện: +{effortNeeded}%
-                          </span>
-                        </div>
-
-                        {/* progress bar */}
-                        <div className="flex items-center gap-4">
-                          <div className="flex-1">
-                            <div className="flex justify-between text-xs text-gray-600 mb-1">
-                              <span>Hiện tại</span>
-                              <span>Mục tiêu (80%)</span>
-                            </div>
-                            <div className="w-full h-3 bg-gray-200 rounded">
-                              <div
-                                className="h-3 rounded"
-                                style={{
-                                  width: `${topic.student}%`,
-                                  backgroundColor:
-                                    topic.student >= 70 ? "#f59e0b" : "#ef4444",
-                                }}
-                              ></div>
-                              <div
-                                className="h-3 rounded border-2 border-dashed border-blue-500"
-                                style={{
-                                  width: "80%",
-                                  backgroundColor: "transparent",
-                                  position: "relative",
-                                  marginTop: "-12px",
-                                }}
-                              ></div>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* reasons & actions (short) */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
-                          <div className="p-3 bg-white rounded border">
-                            <div className="text-sm font-medium text-gray-800 mb-1">
-                              Lý do điểm hiện tại
-                            </div>
-                            <ul className="list-disc ml-5 text-xs text-gray-700 space-y-1">
-                              {advice.reasons.map((w, i) => (
-                                <li key={i}>{w}</li>
-                              ))}
-                            </ul>
-                          </div>
-
-                          <div className="p-3 bg-white rounded border">
-                            <div className="text-sm font-medium text-gray-800 mb-1">
-                              Việc cần làm ngay
-                            </div>
-                            <ul className="list-disc ml-5 text-xs text-gray-700 space-y-1">
-                              {advice.actions.map((w, i) => (
-                                <li key={i}>{w}</li>
-                              ))}
-                            </ul>
-                            <div className="mt-2 text-[11px] text-gray-500">
-                              ✅ Ghi công thức vào flashcard và đối chiếu đáp án
-                              sau mỗi bài.
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                {topicPerformance.filter((topic) => topic.student < 80)
-                  .length === 0 && (
-                  <div className="text-center py-8 text-green-600">
-                    <CheckCircle className="h-12 w-12 mx-auto mb-2" />
-                    <p className="font-semibold">Xuất sắc!</p>
-                    <p className="text-sm">
-                      Bạn đã đạt mục tiêu ở tất cả các kỹ năng.
-                    </p>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-
+            );
+          })()}
           {/* Progress Line Chart & Highlights */}
           <div className="print-section">
             <div className="flex items-center gap-2 mb-4">
@@ -1171,7 +1416,6 @@ export default function Report() {
               </div>
             </div>
           </div>
-
           {/* Study Habits & Weekly Activity */}
           <div className="print-section">
             <div className="flex items-center gap-2 mb-4">
@@ -1245,7 +1489,6 @@ export default function Report() {
               </div>
             </div>
           </div>
-
           <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 md:p-6 mb-6 print-section">
             <AssignmentTable />
           </div>

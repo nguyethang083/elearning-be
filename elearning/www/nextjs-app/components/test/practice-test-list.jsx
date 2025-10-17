@@ -39,7 +39,7 @@ export default function PracticeTestList({
   });
 
   return (
-    <div className="mt-8">
+    <div id="practice-tests-section" className="mt-8">
       <h3 className="text-xl font-bold mb-4">
         {selectedTopicId && selectedTopicName
           ? `${selectedTopicName}`

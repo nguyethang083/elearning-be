@@ -9,8 +9,8 @@ export default function MyPathway() {
   const [error, setError] = useState(null);
   const [isStatsCollapsed, setIsStatsCollapsed] = useState(true);
   const [isLegendCollapsed, setIsLegendCollapsed] = useState(true);
-  const [currentView, setCurrentView] = useState("topics"); // Track current view
-  const [selectedTopicName, setSelectedTopicName] = useState(""); // Track selected topic name
+  const [currentView, setCurrentView] = useState('topics'); // Track current view
+  const [selectedTopicName, setSelectedTopicName] = useState(''); // Track selected topic name
   const router = useRouter();
 
   useEffect(() => {
@@ -57,10 +57,10 @@ export default function MyPathway() {
   // Handle view changes from KnowledgeConstellation component
   const handleViewChange = (view, topicData = null) => {
     setCurrentView(view);
-    if (view === "learning-objects" && topicData) {
-      setSelectedTopicName(topicData.topic_name || "");
-    } else if (view === "topics") {
-      setSelectedTopicName("");
+    if (view === 'learning-objects' && topicData) {
+      setSelectedTopicName(topicData.topic_name || '');
+    } else if (view === 'topics') {
+      setSelectedTopicName('');
     }
   };
 
@@ -107,17 +107,17 @@ export default function MyPathway() {
       <div className="relative z-10 pt-8 pb-6 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-3xl md:text-5xl font-bold text-gray-800 mb-3">
-            {currentView === "topics" ? (
+            {currentView === 'topics' ? (
               <>🌟 Chòm Sao Tri Thức</>
             ) : (
               <>🌳 Cây Tri Thức - {selectedTopicName}</>
             )}
           </h1>
           <p className="text-gray-600 text-sm md:text-lg max-w-3xl mx-auto leading-relaxed">
-            {currentView === "topics" ? (
+            {currentView === 'topics' ? (
               <>
-                Khám phá thiên hà kiến thức cá nhân của bạn. Mỗi ngôi sao đại
-                diện cho một chủ đề học tập -
+                Khám phá thiên hà kiến thức cá nhân của bạn. Mỗi ngôi sao đại diện
+                cho một chủ đề học tập -
                 <span className="text-blue-600 font-semibold">
                   {" "}
                   ngôi sao càng lớn và sáng, càng cần được chinh phục!
@@ -125,8 +125,7 @@ export default function MyPathway() {
               </>
             ) : (
               <>
-                Khám phá các đối tượng học tập và mối quan hệ giữa chúng trong
-                chủ đề này.
+                Khám phá các đối tượng học tập và mối quan hệ giữa chúng trong chủ đề này.
                 <span className="text-blue-600 font-semibold">
                   {" "}
                   Nhấp vào từng đỉnh của cây để xem chi tiết và thực hành!
@@ -176,15 +175,9 @@ export default function MyPathway() {
           <div className="px-4 pb-4">
             <div className="space-y-2">
               <div className="flex items-center">
-                <div
-                  className="w-4 h-4 rounded-full mr-3 shadow-lg animate-pulse border-2"
-                  style={{ backgroundColor: "#991b1b", borderColor: "#dc2626" }}
-                ></div>
+                <div className="w-4 h-4 rounded-full mr-3 shadow-lg animate-pulse border-2" style={{backgroundColor: '#991b1b', borderColor: '#dc2626'}}></div>
                 <div className="flex-1">
-                  <div
-                    className="font-semibold flex items-center text-xs"
-                    style={{ color: "#991b1b" }}
-                  >
+                  <div className="font-semibold flex items-center text-xs" style={{color: '#991b1b'}}>
                     💀 Cực kỳ khẩn cấp
                   </div>
                   <div className="text-xs text-gray-600">
@@ -193,30 +186,18 @@ export default function MyPathway() {
                 </div>
               </div>
               <div className="flex items-center">
-                <div
-                  className="w-4 h-4 rounded-full mr-3 shadow-lg animate-pulse border-2"
-                  style={{ backgroundColor: "#c2410c", borderColor: "#ea580c" }}
-                ></div>
+                <div className="w-4 h-4 rounded-full mr-3 shadow-lg animate-pulse border-2" style={{backgroundColor: '#c2410c', borderColor: '#ea580c'}}></div>
                 <div className="flex-1">
-                  <div
-                    className="font-semibold flex items-center text-xs"
-                    style={{ color: "#c2410c" }}
-                  >
+                  <div className="font-semibold flex items-center text-xs" style={{color: '#c2410c'}}>
                     🔥 Rất khẩn cấp
                   </div>
                   <div className="text-xs text-gray-600">75-84% - Ôn gấp</div>
                 </div>
               </div>
               <div className="flex items-center">
-                <div
-                  className="w-4 h-4 rounded-full mr-3 shadow-lg border-2"
-                  style={{ backgroundColor: "#d97706", borderColor: "#f59e0b" }}
-                ></div>
+                <div className="w-4 h-4 rounded-full mr-3 shadow-lg border-2" style={{backgroundColor: '#d97706', borderColor: '#f59e0b'}}></div>
                 <div className="flex-1">
-                  <div
-                    className="font-semibold flex items-center text-xs"
-                    style={{ color: "#d97706" }}
-                  >
+                  <div className="font-semibold flex items-center text-xs" style={{color: '#d97706'}}>
                     ⚡ Khẩn cấp
                   </div>
                   <div className="text-xs text-gray-600">
@@ -225,45 +206,27 @@ export default function MyPathway() {
                 </div>
               </div>
               <div className="flex items-center">
-                <div
-                  className="w-4 h-4 rounded-full mr-3 shadow-lg border-2"
-                  style={{ backgroundColor: "#ca8a04", borderColor: "#eab308" }}
-                ></div>
+                <div className="w-4 h-4 rounded-full mr-3 shadow-lg border-2" style={{backgroundColor: '#ca8a04', borderColor: '#eab308'}}></div>
                 <div className="flex-1">
-                  <div
-                    className="font-semibold flex items-center text-xs"
-                    style={{ color: "#ca8a04" }}
-                  >
+                  <div className="font-semibold flex items-center text-xs" style={{color: '#ca8a04'}}>
                     ⚠️ Cần chú ý
                   </div>
                   <div className="text-xs text-gray-600">55-64% - Ôn sớm</div>
                 </div>
               </div>
               <div className="flex items-center">
-                <div
-                  className="w-4 h-4 rounded-full mr-3 shadow-lg border-2"
-                  style={{ backgroundColor: "#65a30d", borderColor: "#84cc16" }}
-                ></div>
+                <div className="w-4 h-4 rounded-full mr-3 shadow-lg border-2" style={{backgroundColor: '#65a30d', borderColor: '#84cc16'}}></div>
                 <div className="flex-1">
-                  <div
-                    className="font-semibold flex items-center text-xs"
-                    style={{ color: "#65a30d" }}
-                  >
+                  <div className="font-semibold flex items-center text-xs" style={{color: '#65a30d'}}>
                     📚 Cần luyện tập
                   </div>
                   <div className="text-xs text-gray-600">45-54% - Ôn thêm</div>
                 </div>
               </div>
               <div className="flex items-center">
-                <div
-                  className="w-4 h-4 rounded-full mr-3 shadow-lg border-2"
-                  style={{ backgroundColor: "#0891b2", borderColor: "#06b6d4" }}
-                ></div>
+                <div className="w-4 h-4 rounded-full mr-3 shadow-lg border-2" style={{backgroundColor: '#0891b2', borderColor: '#06b6d4'}}></div>
                 <div className="flex-1">
-                  <div
-                    className="font-semibold flex items-center text-xs"
-                    style={{ color: "#0891b2" }}
-                  >
+                  <div className="font-semibold flex items-center text-xs" style={{color: '#0891b2'}}>
                     📖 Ôn nhẹ
                   </div>
                   <div className="text-xs text-gray-600">
@@ -272,15 +235,9 @@ export default function MyPathway() {
                 </div>
               </div>
               <div className="flex items-center">
-                <div
-                  className="w-4 h-4 rounded-full mr-3 shadow-lg border-2"
-                  style={{ backgroundColor: "#2563eb", borderColor: "#3b82f6" }}
-                ></div>
+                <div className="w-4 h-4 rounded-full mr-3 shadow-lg border-2" style={{backgroundColor: '#2563eb', borderColor: '#3b82f6'}}></div>
                 <div className="flex-1">
-                  <div
-                    className="font-semibold flex items-center text-xs"
-                    style={{ color: "#2563eb" }}
-                  >
+                  <div className="font-semibold flex items-center text-xs" style={{color: '#2563eb'}}>
                     👍 Khá tốt
                   </div>
                   <div className="text-xs text-gray-600">
@@ -289,15 +246,9 @@ export default function MyPathway() {
                 </div>
               </div>
               <div className="flex items-center">
-                <div
-                  className="w-4 h-4 rounded-full mr-3 shadow-lg border-2"
-                  style={{ backgroundColor: "#059669", borderColor: "#10b981" }}
-                ></div>
+                <div className="w-4 h-4 rounded-full mr-3 shadow-lg border-2" style={{backgroundColor: '#059669', borderColor: '#10b981'}}></div>
                 <div className="flex-1">
-                  <div
-                    className="font-semibold flex items-center text-xs"
-                    style={{ color: "#059669" }}
-                  >
+                  <div className="font-semibold flex items-center text-xs" style={{color: '#059669'}}>
                     ✅ Tốt
                   </div>
                   <div className="text-xs text-gray-600">
@@ -306,15 +257,9 @@ export default function MyPathway() {
                 </div>
               </div>
               <div className="flex items-center">
-                <div
-                  className="w-4 h-4 rounded-full mr-3 shadow-lg animate-pulse border-2"
-                  style={{ backgroundColor: "#d97706", borderColor: "#f59e0b" }}
-                ></div>
+                <div className="w-4 h-4 rounded-full mr-3 shadow-lg animate-pulse border-2" style={{backgroundColor: '#d97706', borderColor: '#f59e0b'}}></div>
                 <div className="flex-1">
-                  <div
-                    className="font-semibold flex items-center text-xs"
-                    style={{ color: "#d97706" }}
-                  >
+                  <div className="font-semibold flex items-center text-xs" style={{color: '#d97706'}}>
                     ⭐ Xuất sắc
                   </div>
                   <div className="text-xs text-gray-600">0-14% - Hoàn hảo</div>
@@ -329,7 +274,7 @@ export default function MyPathway() {
       </div>
 
       {/* Stats Overview - Collapsible - Only show in topics view */}
-      {constellationData && currentView === "topics" && (
+      {constellationData && currentView === 'topics' && (
         <div className="absolute top-4 left-4 bg-white bg-opacity-90 backdrop-blur-sm rounded-xl text-gray-800 text-sm z-20 border border-gray-300 transition-all duration-300">
           {/* Header with toggle button */}
           <div

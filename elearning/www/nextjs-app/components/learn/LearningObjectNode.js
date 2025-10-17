@@ -82,7 +82,8 @@ const LearningObjectNode = ({ data }) => {
   };
 
   const style = getNodeStyle();
-  const weaknessPercentage = Math.round(weakness_score * 100);
+  // For knowledge gaps, show high weakness percentage
+  const displayWeaknessPercentage = hasKnowledgeGap ? 90 : Math.round(weakness_score * 100);
 
   const handleNodeClick = () => {
     if (onClick) {
@@ -175,7 +176,7 @@ const LearningObjectNode = ({ data }) => {
                   className="font-semibold"
                   style={{ color: style.statusColor }}
                 >
-                  {weaknessPercentage}%
+                  {displayWeaknessPercentage}%
                 </span>
               </div>
               {prerequisites.length > 0 && (
@@ -195,7 +196,7 @@ const LearningObjectNode = ({ data }) => {
               <div 
                 className="h-2 rounded-full transition-all duration-500"
                 style={{
-                  width: `${100 - weaknessPercentage}%`,
+                  width: `${100 - displayWeaknessPercentage}%`,
                   backgroundColor: style.statusColor
                 }}
               />

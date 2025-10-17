@@ -16,27 +16,27 @@ export default function LearnPage() {
   const { data: session, status } = useSession();
   const [user, setUser] = useState(null);
   const [showSettings, setShowSettings] = useState(false);
-  
+
   // State for practice modes
-  const [practiceMode, setPracticeMode] = useState('loading');
+  const [practiceMode, setPracticeMode] = useState("loading");
   const [loQuestions, setLoQuestions] = useState([]);
   const [learningObject, setLearningObject] = useState(null);
-  const [pageTitle, setPageTitle] = useState('Đang tải...');
+  const [pageTitle, setPageTitle] = useState("Đang tải...");
   const [loading, setLoading] = useState(true);
-  
+
   // Initialize showWelcome based on URL params - if there's a mode or lo_id, don't show welcome
   const [showWelcome, setShowWelcome] = useState(true);
-  
+
   // Get topics to find current topic info
   const { topics, loading: topicsLoading, error: topicsError } = useTopics();
 
   // Get flashcards for current topic (only when in Topic Mode)
-  const { 
-    flashcards, 
-    loading: flashcardsLoading, 
+  const {
+    flashcards,
+    loading: flashcardsLoading,
     error: flashcardsError,
-    refreshFlashcards
-  } = useFlashcards(practiceMode === 'Topic Mode' ? topicId : null);
+    refreshFlashcards,
+  } = useFlashcards(practiceMode === "Topic Mode" ? topicId : null);
 
   // Handle authentication & user data
   useEffect(() => {
@@ -78,60 +78,62 @@ export default function LearnPage() {
 
     if (lo_id) {
       // --- CHẾ ĐỘ MỚI: LUYỆN TẬP TẬP TRUNG ---
-      setPracticeMode('LO Mode');
-      setPageTitle('Luyện tập Kỹ năng Chuyên sâu');
+      setPracticeMode("LO Mode");
+      setPageTitle("Luyện tập Kỹ năng Chuyên sâu");
       setShowWelcome(false); // Không hiển thị welcome trong LO Mode
-      
+
       // Gọi API mới để lấy câu hỏi cho LO
       getPracticeQuestionsForLO(lo_id)
-        .then(response => {
-          console.log('LO Questions API Response:', response);
+        .then((response) => {
+          console.log("LO Questions API Response:", response);
           if (response && response.message) {
             setLoQuestions(response.message.questions || []);
             setLearningObject(response.message.learning_object || null);
-            setPageTitle(`Luyện tập: ${response.message.learning_object?.title || 'Kỹ năng Chuyên sâu'}`);
+            setPageTitle(
+              `Luyện tập: ${
+                response.message.learning_object?.title || "Kỹ năng Chuyên sâu"
+              }`
+            );
           }
           setLoading(false);
         })
-        .catch(error => {
-          console.error('Error fetching LO questions:', error);
+        .catch((error) => {
+          console.error("Error fetching LO questions:", error);
           setLoQuestions([]);
           setLearningObject(null);
           setLoading(false);
         });
-
     } else if (topicId) {
       // --- CHẾ ĐỘ CŨ: LUYỆN TẬP THEO CHƯƠNG ---
-      setPracticeMode('Topic Mode');
-      
+      setPracticeMode("Topic Mode");
+
       // Check if user wants to skip welcome
       const { mode } = router.query;
-      if (mode && ['basic', 'exam', 'srs'].includes(mode)) {
+      if (mode && ["basic", "exam", "srs"].includes(mode)) {
         setShowWelcome(false);
       } else {
         setShowWelcome(true);
       }
-      
-      setLoading(false);
 
+      setLoading(false);
     } else {
-      setPracticeMode('none');
-      setPageTitle('Vui lòng chọn một chủ đề');
+      setPracticeMode("none");
+      setPageTitle("Vui lòng chọn một chủ đề");
       setLoading(false);
     }
   }, [router.isReady, topicId, lo_id, router.query]);
 
   // Update page title when topic data loads (for Topic Mode)
   useEffect(() => {
-    if (practiceMode === 'Topic Mode' && topics && topicId) {
-      const topic = topics.find(t => t.id === Number(topicId));
+    if (practiceMode === "Topic Mode" && topics && topicId) {
+      const topic = topics.find((t) => t.name === Number(topicId));
       if (topic) {
         setPageTitle(`Ôn tập: ${topic.topic_name}`);
       }
     }
   }, [practiceMode, topics, topicId]);
 
-  const topic = topics.find(t => t.id === Number(topicId));
+  const topic = topics.find((t) => t.name === Number(topicId));
 
   // Centralized handler for settings changes
   const handleSettingsChange = () => {
@@ -141,26 +143,32 @@ export default function LearnPage() {
 
   // Handle starting learning from welcome screen
   const handleStartLearning = (selectedMode) => {
-    const visitedTopics = JSON.parse(localStorage.getItem('visitedTopics') || '{}');
+    const visitedTopics = JSON.parse(
+      localStorage.getItem("visitedTopics") || "{}"
+    );
     visitedTopics[topicId] = true;
-    localStorage.setItem('visitedTopics', JSON.stringify(visitedTopics));
-    
+    localStorage.setItem("visitedTopics", JSON.stringify(visitedTopics));
+
     setShowWelcome(false);
-    router.push(`/learn/${topicId}?mode=${selectedMode}`, undefined, { shallow: true });
+    router.push(`/learn/${topicId}?mode=${selectedMode}`, undefined, {
+      shallow: true,
+    });
   };
 
   // Handle closing welcome screen
   const handleCloseWelcome = () => {
-    const visitedTopics = JSON.parse(localStorage.getItem('visitedTopics') || '{}');
+    const visitedTopics = JSON.parse(
+      localStorage.getItem("visitedTopics") || "{}"
+    );
     visitedTopics[topicId] = true;
-    localStorage.setItem('visitedTopics', JSON.stringify(visitedTopics));
-    
+    localStorage.setItem("visitedTopics", JSON.stringify(visitedTopics));
+
     setShowWelcome(false);
   };
 
   // Handle showing welcome screen again (only for Topic Mode)
   const handleShowWelcome = () => {
-    if (practiceMode === 'Topic Mode') {
+    if (practiceMode === "Topic Mode") {
       setShowWelcome(true);
       const newUrl = `/learn/${topicId}`;
       router.replace(newUrl, undefined, { shallow: true });
@@ -189,7 +197,7 @@ export default function LearnPage() {
   }
 
   // Loading state while determining practice mode
-  if (loading || practiceMode === 'loading') {
+  if (loading || practiceMode === "loading") {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="animate-pulse flex space-x-2">
@@ -202,7 +210,7 @@ export default function LearnPage() {
   }
 
   // LO Mode: Render focused practice interface
-  if (practiceMode === 'LO Mode') {
+  if (practiceMode === "LO Mode") {
     return (
       <div className="min-h-screen w-full">
         <div className="container mx-auto px-4 py-4 md:px-6 md:py-6 lg:px-8 lg:py-8 max-w-full">
@@ -231,7 +239,7 @@ export default function LearnPage() {
                 )}
               </div>
             </div>
-            
+
             {/* Mode indicator */}
             <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
               <div className="flex items-center space-x-2">
@@ -247,7 +255,7 @@ export default function LearnPage() {
           </div>
 
           {/* LO Practice Content */}
-          <LOPracticeMode 
+          <LOPracticeMode
             questions={loQuestions}
             learningObject={learningObject}
             loading={loading}
@@ -259,7 +267,7 @@ export default function LearnPage() {
 
   // Topic Mode: Original flashcard interface
   // Loading state while waiting for topic data
-  if (topicsLoading || (!topic && practiceMode === 'Topic Mode')) {
+  if (topicsLoading || (!topic && practiceMode === "Topic Mode")) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="animate-pulse flex space-x-2">
@@ -272,9 +280,9 @@ export default function LearnPage() {
   }
 
   // Show welcome screen if enabled and data is loaded (Topic Mode only)
-  if (showWelcome && topic && flashcards && practiceMode === 'Topic Mode') {
+  if (showWelcome && topic && flashcards && practiceMode === "Topic Mode") {
     return (
-      <TopicWelcome 
+      <TopicWelcome
         topic={topic}
         flashcards={flashcards}
         onStartLearning={handleStartLearning}
@@ -284,7 +292,7 @@ export default function LearnPage() {
   }
 
   // Show loading if welcome should be shown but data isn't ready yet (Topic Mode)
-  if (showWelcome && practiceMode === 'Topic Mode') {
+  if (showWelcome && practiceMode === "Topic Mode") {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="animate-pulse flex space-x-2">
@@ -297,7 +305,7 @@ export default function LearnPage() {
   }
 
   // Topic Mode: Main interface
-  if (practiceMode === 'Topic Mode') {
+  if (practiceMode === "Topic Mode") {
     return (
       <div className="min-h-screen w-full">
         <div className="container mx-auto px-4 py-4 md:px-6 md:py-6 lg:px-8 lg:py-8 max-w-full">
@@ -312,7 +320,7 @@ export default function LearnPage() {
                   ← Quay lại chủ đề
                 </button>
               </div>
-              
+
               <div className="flex flex-col space-y-3 sm:flex-row sm:justify-between sm:items-start sm:space-y-0 sm:space-x-4">
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center space-x-3 mb-2">
@@ -323,7 +331,7 @@ export default function LearnPage() {
                       {topic.topic_name}
                     </h1>
                   </div>
-                  
+
                   {/* Mode indicator for Topic Mode */}
                   <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4">
                     <div className="flex items-center space-x-2">
@@ -337,7 +345,7 @@ export default function LearnPage() {
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center space-x-3 flex-shrink-0">
                   <button
                     onClick={handleShowWelcome}
@@ -346,6 +354,7 @@ export default function LearnPage() {
                     Xem giới thiệu
                   </button>
                   <button
+                    id="flashcard-settings-button"
                     onClick={() => setShowSettings(true)}
                     className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
@@ -360,10 +369,10 @@ export default function LearnPage() {
           {/* Main content area for Topic Mode */}
           {topic && flashcards && !flashcardsLoading && (
             <div className="w-full overflow-hidden">
-              <LearningModes 
-                topicId={topicId} 
-                flashcards={flashcards} 
-                loading={flashcardsLoading} 
+              <LearningModes
+                topicId={topicId}
+                flashcards={flashcards}
+                loading={flashcardsLoading}
                 error={flashcardsError}
               />
             </div>
@@ -384,8 +393,8 @@ export default function LearnPage() {
           {showSettings && (
             <div className="fixed inset-0 z-50 overflow-y-auto bg-gray-800 bg-opacity-75 flex items-center justify-center p-4">
               <div className="relative bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto mx-4">
-                <FlashcardSettings 
-                  topicId={topicId} 
+                <FlashcardSettings
+                  topicId={topicId}
                   onClose={() => setShowSettings(false)}
                   onSettingsChange={handleSettingsChange}
                 />
@@ -401,9 +410,7 @@ export default function LearnPage() {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="text-center">
-        <h1 className="text-2xl font-bold text-gray-800 mb-4">
-          {pageTitle}
-        </h1>
+        <h1 className="text-2xl font-bold text-gray-800 mb-4">{pageTitle}</h1>
         <button
           onClick={() => router.push("/learn")}
           className="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors"

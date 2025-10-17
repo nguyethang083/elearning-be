@@ -61,24 +61,34 @@ export const getLayoutedElements = (nodes, edges, direction = 'LR') => {
 
 // Convert Learning Objects data to React Flow format
 export const convertToReactFlowData = (learningObjects, knowledgeGaps, externalPrerequisites = []) => {
+  // Remove duplicates based on name/id
+  const uniqueLearningObjects = learningObjects.filter((lo, index, self) => 
+    index === self.findIndex(item => item.name === lo.name)
+  );
+  
+  console.log(`🔍 Original LOs: ${learningObjects.length}, After dedup: ${uniqueLearningObjects.length}`);
+  
   // Create nodes from learning objects
-  const nodes = learningObjects.map((lo) => {
+  const nodes = uniqueLearningObjects.map((lo) => {
     const hasKnowledgeGap = knowledgeGaps.some(gap => 
       gap.learning_object === lo.name && gap.status === "Identified"
     );
+
+    // For knowledge gaps, set high weakness_score
+    const actualWeaknessScore = hasKnowledgeGap ? 0.9 : (lo.weakness_score || 0);
 
     return {
       id: lo.name,
       type: 'learningObjectNode',
       data: {
         id: lo.name,
-        title: lo.title,
+        title: lo.title || lo.learning_object_title,
         description: lo.description,
         difficulty_level: lo.difficulty_level,
-        weakness_score: lo.weakness_score || 0,
+        weakness_score: actualWeaknessScore,
         hasKnowledgeGap,
         isExternalPrerequisite: false,
-        prerequisites: lo.prerequisites || [],
+        prerequisites: Array.isArray(lo.prerequisites) ? [...new Set(lo.prerequisites)] : [], // Remove duplicate prerequisites
       },
       width: 320,
       height: 180,
@@ -106,30 +116,39 @@ export const convertToReactFlowData = (learningObjects, knowledgeGaps, externalP
 
   const allNodes = [...nodes, ...externalNodes];
 
-  // Create edges from prerequisites
+  // Create edges from prerequisites - avoid duplicate edges
   const edges = [];
-  learningObjects.forEach((lo) => {
+  const edgeSet = new Set(); // Track edges to prevent duplicates
+  
+  uniqueLearningObjects.forEach((lo) => {
     if (lo.prerequisites && lo.prerequisites.length > 0) {
-      lo.prerequisites.forEach((prereqId) => {
-        edges.push({
-          id: `${prereqId}-${lo.name}`,
-          source: prereqId,
-          target: lo.name,
-          type: 'smoothstep',
-          animated: false,
-          style: {
-            stroke: '#6b7280',
-            strokeWidth: 2.5,
-          },
-          markerEnd: {
-            type: 'arrowclosed',
-            width: 20,
-            height: 20,
-            color: '#6b7280',
-          },
-          label: '',
-          labelStyle: { fontSize: 10, fontWeight: 600 },
-        });
+      // Remove duplicate prerequisites
+      const uniquePrerequisites = [...new Set(lo.prerequisites)];
+      
+      uniquePrerequisites.forEach((prereqId) => {
+        const edgeId = `${prereqId}-${lo.name}`;
+        if (!edgeSet.has(edgeId)) {
+          edgeSet.add(edgeId);
+          edges.push({
+            id: edgeId,
+            source: prereqId,
+            target: lo.name,
+            type: 'smoothstep',
+            animated: false,
+            style: {
+              stroke: '#6b7280',
+              strokeWidth: 2.5,
+            },
+            markerEnd: {
+              type: 'arrowclosed',
+              width: 20,
+              height: 20,
+              color: '#6b7280',
+            },
+            label: '',
+            labelStyle: { fontSize: 10, fontWeight: 600 },
+          });
+        }
       });
     }
   });

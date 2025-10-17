@@ -64,7 +64,10 @@ export default function TestRow({ test }) {
 
   return (
     // Use test.id (UUID from database) as the key
-    <TableRow key={test.id} className="hover:bg-gray-50 border-b">
+    <TableRow
+      key={test.id}
+      className="hover:bg-gray-50 border-b test-item-card"
+    >
       {/* Test Title Cell with Link */}
       <TableCell className="font-medium py-4 px-6">
         <Link

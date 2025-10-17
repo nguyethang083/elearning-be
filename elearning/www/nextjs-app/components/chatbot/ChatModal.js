@@ -1,17 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ChatInterface from './ChatInterface';
 
-const ChatModal = ({ isOpen, onClose, prefilledMessage }) => {
-  // Force layout recalculation when modal opens
-  useEffect(() => {
-    if (isOpen) {
-      // Force browser to recalculate layout
-      setTimeout(() => {
-        window.dispatchEvent(new Event('resize'));
-      }, 100);
-    }
-  }, [isOpen]);
-
+const ChatModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
@@ -24,7 +14,7 @@ const ChatModal = ({ isOpen, onClose, prefilledMessage }) => {
       
       {/* Modal */}
       <div className="relative w-full max-w-2xl h-[80vh] mx-4 bg-white rounded-2xl shadow-2xl overflow-hidden">
-        <ChatInterface onClose={onClose} prefilledMessage={prefilledMessage} />
+        <ChatInterface onClose={onClose} />
       </div>
     </div>
   );

@@ -2,3 +2,7 @@
 PyJWT==2.3.0
 catsim
 sentence-transformers
+google-generativeai
+numpy
+scipy
+haystack

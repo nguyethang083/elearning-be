@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { getKnowledgeConstellation } from "@/pages/api/helper";
 import KnowledgeConstellation from "./learn/KnowledgeConstellation";
+import { useNextStep } from "nextstepjs";
+import { TOUR_STORAGE_KEY } from "@/config/dashboardTour";
 
 // Simple localStorage key for tutorial mode
 const TUTORIAL_KEY = "dashboard_tutorial_done";
@@ -40,23 +42,28 @@ const DashboardContent = ({ user }) => {
   // Performance data for tabs
   const [activeTab, setActiveTab] = useState("points");
 
-  // Tutorial mode state
-  const [tutorialMode, setTutorialMode] = useState(false);
-  const [showTooltip, setShowTooltip] = useState(false);
+  // Initialize nextstepjs tour hook
+  const { startNextStep } = useNextStep();
 
   // Get first name
   const firstName = user?.name ? user.name.split(" ")[0] : "Tony";
 
-  // Check if tutorial should be shown (first time only)
+  // Check if tour should be shown (first time only)
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const done = localStorage.getItem(TUTORIAL_KEY);
-      if (!done) {
-        setTutorialMode(true);
-        setShowTooltip(true);
+      const tourCompleted = localStorage.getItem(TOUR_STORAGE_KEY);
+      const oldTutorialDone = localStorage.getItem(TUTORIAL_KEY);
+
+      // If neither old tutorial nor new tour was completed, start the tour
+      if (!tourCompleted && !oldTutorialDone) {
+        // Small delay to ensure DOM is ready
+        const timer = setTimeout(() => {
+          startNextStep("dashboard");
+        }, 800);
+        return () => clearTimeout(timer);
       }
     }
-  }, []);
+  }, [startNextStep]);
 
   // Load constellation data
   useEffect(() => {
@@ -67,6 +74,7 @@ const DashboardContent = ({ user }) => {
     try {
       setConstellationLoading(true);
       const response = await getKnowledgeConstellation();
+      console.log("Constellation API Response:", response);
 
       // Transform API response into the format KnowledgeConstellation expects
       if (response && Array.isArray(response.message)) {
@@ -98,6 +106,8 @@ const DashboardContent = ({ user }) => {
     }
   };
 
+  console.log("Constellation Data:", constellationData);
+
   const handleTopicClick = (topicId) => {
     router.push(`/learn/${topicId}`);
   };
@@ -114,13 +124,8 @@ const DashboardContent = ({ user }) => {
 
   return (
     <div className="h-full relative">
-      {/* Overlay for tutorial mode */}
-      {tutorialMode && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-40 pointer-events-auto transition-opacity" />
-      )}
-
       {/* Greeting section */}
-      <div className="mb-8">
+      <div className="mb-8" id="welcome-section">
         <h1 className="text-2xl font-bold mb-1">
           Hello, <span className="text-indigo-600">{firstName}</span>{" "}
           <span className="text-amber-400">👋</span>
@@ -130,11 +135,10 @@ const DashboardContent = ({ user }) => {
 
       {/* Learning cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
-        {/* Skill Assessment - Highlighted in tutorial mode */}
+        {/* Skill Assessment */}
         <div
-          className={`bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 relative ${
-            tutorialMode ? "z-50" : ""
-          }`}
+          id="skill-assessment-card"
+          className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 relative"
         >
           <div className="p-4 flex items-start space-x-4">
             <div className="w-16 h-16 flex-shrink-0 overflow-hidden rounded-lg">
@@ -155,32 +159,19 @@ const DashboardContent = ({ user }) => {
               </p>
               <Link
                 href="/test"
-                className={`inline-block whitespace-nowrap text-xs bg-indigo-50 text-indigo-700 px-3 py-1.5 rounded-lg font-medium transition relative ${
-                  tutorialMode ? "z-50 cursor-pointer hover:shadow-lg" : ""
-                }`}
-                style={
-                  tutorialMode
-                    ? { pointerEvents: "auto", cursor: "pointer" }
-                    : {}
-                }
-                onClick={tutorialMode ? handleStartTest : undefined}
-                tabIndex={0}
+                className="inline-block whitespace-nowrap text-xs bg-indigo-50 text-indigo-700 px-3 py-1.5 rounded-lg font-medium transition hover:bg-indigo-100"
               >
                 Bắt đầu ngay
               </Link>
             </div>
           </div>
-          {/* Highlight border for tutorial mode */}
-          {tutorialMode && (
-            <div
-              className="absolute inset-0 border-4 border-indigo-400 rounded-xl pointer-events-none animate-pulse z-40"
-              style={{ boxShadow: "0 0 0 8px rgba(99,102,241,0.15)" }}
-            />
-          )}
         </div>
 
-        {/* Today's Review - Always shown but dimmed in tutorial */}
-        <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 relative">
+        {/* Today's Review */}
+        <div
+          id="daily-review-card"
+          className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 relative"
+        >
           <div className="p-4 flex items-start space-x-4">
             <div className="w-16 h-16 flex-shrink-0 overflow-hidden rounded-lg">
               <Image
@@ -193,10 +184,10 @@ const DashboardContent = ({ user }) => {
             </div>
             <div className="flex-grow">
               <h3 className="text-sm font-semibold text-gray-800 mb-0.5">
-                Đánh giá hôm nay
+                Học tập và củng cố kiến thức
               </h3>
               <p className="text-xs text-gray-500 mb-2.5">
-                Flashcards sẵn sàng thông qua phương pháp lập trình học tập
+                Flashcards được tối ưu theo năng lực của bạn
               </p>
               <Link
                 href="/learn"
@@ -208,8 +199,11 @@ const DashboardContent = ({ user }) => {
           </div>
         </div>
 
-        {/* Topic Practice - Always shown but dimmed in tutorial */}
-        <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 relative">
+        {/* Topic Practice */}
+        <div
+          id="analysis-card"
+          className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 relative"
+        >
           <div className="p-4 flex items-start space-x-4">
             <div className="w-16 h-16 flex-shrink-0 overflow-hidden rounded-lg">
               <Image
@@ -244,9 +238,8 @@ const DashboardContent = ({ user }) => {
         (constellationData &&
           constellationData.filter((t) => t.is_unlocked).length > 0)) && (
         <div
-          className={`bg-white rounded-xl shadow-sm p-4 border border-gray-100 mb-6 ${
-            tutorialMode ? "pointer-events-none opacity-60" : ""
-          }`}
+          id="knowledge-constellation"
+          className="bg-white rounded-xl shadow-sm p-4 border border-gray-100 mb-6"
         >
           <div className="flex justify-between items-center mb-3">
             <div>
@@ -328,13 +321,12 @@ const DashboardContent = ({ user }) => {
       )}
 
       {/* Leaderboard and Performance in same row */}
-      <div
-        className={`grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 ${
-          tutorialMode ? "pointer-events-none opacity-60" : ""
-        }`}
-      >
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         {/* Leaderboard section */}
-        <div className="bg-white rounded-xl shadow-sm p-5 border border-gray-100">
+        <div
+          id="leaderboard-section"
+          className="bg-white rounded-xl shadow-sm p-5 border border-gray-100"
+        >
           <div className="flex justify-between items-center mb-2">
             <h2 className="text-xs font-medium uppercase text-gray-400">
               BẢNG XẾP HẠNG
@@ -433,7 +425,10 @@ const DashboardContent = ({ user }) => {
         </div>
 
         {/* Performance section */}
-        <div className="bg-white rounded-xl shadow-sm p-5 border border-gray-100">
+        <div
+          id="performance-section"
+          className="bg-white rounded-xl shadow-sm p-5 border border-gray-100"
+        >
           <h2 className="text-sm font-semibold text-gray-800 mb-4">
             Hiệu suất
           </h2>
@@ -542,9 +537,8 @@ const DashboardContent = ({ user }) => {
 
       {/* My lessons */}
       <div
-        className={`bg-white rounded-xl shadow-sm p-5 border border-gray-100 ${
-          tutorialMode ? "pointer-events-none opacity-60" : ""
-        }`}
+        id="lessons-progress"
+        className="bg-white rounded-xl shadow-sm p-5 border border-gray-100"
       >
         <h2 className="text-sm font-semibold text-gray-800 mb-5">
           Bài học của tôi

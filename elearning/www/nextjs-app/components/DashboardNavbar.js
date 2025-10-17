@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { signOut, useSession } from "next-auth/react";
 import { Layout, BellRing } from "lucide-react"; // Import the collapsible sidebar icon and bell icon
 import { useSRSNotifications } from "@/hooks/useSRSNotifications";
+import TourHelpButton from "./TourHelpButton";
 
 const DashboardNavbar = ({
   toggleSidebar,
@@ -96,6 +97,9 @@ const DashboardNavbar = ({
 
         {/* Right Navigation - Fixed flex-shrink */}
         <div className="flex items-center space-x-1 sm:space-x-3 flex-shrink-0 pr-2 sm:pr-4">
+          {/* Tour Help Button */}
+          <TourHelpButton />
+
           {/* Settings - Hidden on very small screens */}
           <button className="text-gray-500 hover:text-gray-700 p-1 sm:p-2 hidden sm:block">
             <svg
