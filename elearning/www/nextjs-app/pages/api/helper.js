@@ -311,3 +311,12 @@ export async function submitLOAnswerAndGetFeedback(questionName, userAnswer) {
     }
   );
 }
+
+export async function getTopicsWithProgressLearn() {
+  return fetchWithAuth(
+    "knowledge_gap.knowledge_gap.get_topics_with_progress_learn",
+    {
+      method: "GET",
+    }
+  );
+}

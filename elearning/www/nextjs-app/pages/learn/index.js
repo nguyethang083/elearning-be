@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
-import TopicsList from "@/components/learn/TopicsList";
+import SyllabusView from "@/components/learn/SyllabusView";
 import { useTopics } from "@/hooks/useTopics";
 
 export default function Learn() {
@@ -63,28 +63,5 @@ export default function Learn() {
     );
   }
 
-  return (
-    <div className="p-4 md:p-6 lg:p-8">
-      <div className="mb-6">
-        <h1 className="text-xl md:text-2xl font-bold text-gray-800 mb-2">
-          Học tập
-        </h1>
-        <p className="text-sm md:text-base text-gray-600">
-          Chọn một chủ đề để bắt đầu học tập với thẻ flashcard.
-        </p>
-      </div>
-
-      {loading ? (
-        <div className="flex justify-center items-center h-40 md:h-64">
-          <div className="animate-spin h-8 w-8 border-4 border-blue-500 rounded-full border-t-transparent"></div>
-        </div>
-      ) : error ? (
-        <div className="bg-red-50 p-4 rounded-lg text-sm md:text-base text-red-600">
-          {error}
-        </div>
-      ) : (
-        <TopicsList topics={topics} />
-      )}
-    </div>
-  );
+  return <SyllabusView />;
 }
